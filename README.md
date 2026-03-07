@@ -113,8 +113,8 @@ Foram considerados três perfis de utilizador com contextos e objetivos distinto
 #### 2.1.1 Helena Vasconcelos - Analista de Políticas Públicas
 
 - Exportação de dados em formatos editáveis (CSV, JSON) para cruzamento com outras fontes;
-- Acesso a metas específicas por setor (e.g., digitalização) e histórico de revisões de planos;
-- Filtragem avançada por múltiplos critérios em simultâneo (país, pilar, período temporal).
+- Acesso a metas específicas por setor (e.g., digitalização) 
+- Histórico de revisões de planos.
 
 #### 2.1.2 Marco Rossi - Empreendedor em Energias Renováveis
 
@@ -167,18 +167,16 @@ Estes elementos permitem ao utilizador obter rapidamente uma compreensão global
 
 A página é constituída por três elementos principais. No topo, uma barra de navegação horizontal permanente permite aceder a todas as secções da aplicação: *Home*, *Países*, *Execução*, *Indicadores* e *Pilares*. A entrada *Execução* inclui um *dropdown* com sub-secções, Visão geral, Metas e Marcos, Desembolsos e Linha Temporal, permitindo aceder diretamente ao tipo de análise pretendido. A página onde o utilizador se encontra é realçada com uma cor de fundo diferente das restantes, para que o utilizador saiba sempre em que secção está, uma decisão consistente com o que se observa em diversas outras interfaces *web*.
 
-Abaixo da barra de navegação, são apresentados três cartões de resumo com indicadores-chave: o total de fundos alocados ao MRR, a percentagem de execução europeia e o número de beneficiários/projetos. Estes cartões permitem que o utilizador, num relance, avalie o estado global do programa sem necessidade de interação adicional, algo especialmente importante para o perfil da Clara, que pode ter menos disponibilidade para explorações aprofundadas.
-
-Abaixo dos cartões de indicadores globais, incluímos uma secção de 'Top 3', que destaca os Estados-Membros com maior execução através de cartões detalhados. Esta escolha reduz a carga cognitiva, permitindo que utilizadores como a Clara identifiquem sucessos regionais sem navegar por tabelas complexas.
+Abaixo da barra de navegação, são apresentados três cartões de resumo com indicadores-chave: o total de fundos alocados ao MRR, a percentagem de execução europeia e o número de beneficiários/projetos. Estes cartões permitem que o utilizador, num relance, avalie o estado global do programa sem necessidade de interação adicional, algo especialmente importante para o perfil da **Clara**, que pode ter menos disponibilidade para explorações aprofundadas.
 
 
 **Figura 2:** Top 3.
 
-Abaixo dos cartões de indicadores globais, incluímos uma secção de 'Top 3', que destaca os Estados-Membros com maior execução através de cartões detalhados. Esta escolha reduz a carga cognitiva, permitindo que utilizadores como a Clara identifiquem sucessos regionais sem navegar por tabelas complexas.
+Abaixo dos cartões de indicadores globais, incluímos uma secção de 'Top 3', que destaca os Estados-Membros com maior execução através de cartões detalhados. Esta escolha reduz a carga cognitiva, permitindo que utilizadores como a **Clara** identifiquem sucessos regionais sem navegar por tabelas complexas.
 
 **Figura 3:** Linha Temporal.
 
-Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta componente de feed informativo permite que a Helena acompanhe revisões de planos e novos pedidos de pagamento em tempo real, garantindo que o sistema comunica a visibilidade do estado do sistema de forma cronológica. A página encerra com um rodapé funcional que centraliza as opções de ajuda e exportação de dados globais.
+Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta componente de feed informativo permite que a **Helena** acompanhe revisões de planos e novos pedidos de pagamento em tempo real, garantindo que o sistema comunica a visibilidade do estado do sistema de forma cronológica. A página encerra com um rodapé funcional que centraliza as opções de ajuda e exportação de dados globais.
 
 
 ### 3.2 Página "Lista de Países"
@@ -188,7 +186,7 @@ A página 'Países' constitui o motor de exploração detalhada da aplicação, 
 
 **Figura 4:** Captura de ecrã do protótipo da página "Lista de Países".
 
-Cada cartão de país apresenta elementos críticos para uma avaliação imediata: a bandeira e nome do país, uma barra de progresso de 'Evolução geral', o valor do PIB (acompanhado por um ícone de informação para apoio contextual) e a data da 'Última atualização'. Esta organização suporta diretamente o perfil da Helena, que necessita de verificar rapidamente o histórico de revisões e a frescura dos dados. 
+Cada cartão de país apresenta elementos críticos para uma avaliação imediata: a bandeira e nome do país, uma barra de progresso de 'Evolução geral', o valor do PIB (acompanhado por um ícone de informação para apoio contextual) e a data da 'Última atualização'. Esta organização suporta diretamente o perfil da **Helena**, que necessita de verificar rapidamente o histórico de revisões e a frescura dos dados. 
 
 A utilização de bandeiras em conjunto com os nomes dos países garante que o utilizador não precise de memorizar códigos ISO ou abreviaturas (princípio do reconhecimento em vez de recordação).
 
@@ -227,9 +225,9 @@ No topo, a interface apresenta o progresso do plano de forma textual e visual (e
 
 Logo, três cartões principais apresentam: o Total Recebido, a Alocação PRR em relação ao PIB e o número de Projetos Ativos.
 
-Junto a métricas que podem ser menos intuitivas, como o valor do PIB, são colocados ícones de informação ("i") que, ao serem sobrevoados, revelam tooltips explicativas. Este detalhe é particularmente importante para o perfil da Clara, que pode não estar familiarizada com estes conceitos financeiros e beneficia de ajuda contextual imediata.
+Junto a métricas que podem ser menos intuitivas, como o valor do PIB, são colocados ícones de informação ("i") que, ao serem sobrevoados, revelam tooltips explicativas. Este detalhe é particularmente importante para o perfil da **Clara**, que pode não estar familiarizada com estes conceitos financeiros e beneficia de ajuda contextual imediata.
 
-Para complementar os dados estatísticos, foi incluída a secção "Últimos avanços", que apresenta uma linha temporal dos marcos e metas atingidos recentemente. Esta componente permite que a Helena visualize o histórico de execução de forma cronológica, oferecendo uma maior transparência sobre o ritmo de implementação do PRR no país selecionado. Toda esta informação é apresentada antes da secção expandível, acedida através do botão "Ver Mais", garantindo que o utilizador tem primeiro acesso aos dados mais relevantes.
+Para complementar os dados estatísticos, foi incluída a secção "Últimos avanços", que apresenta uma linha temporal dos marcos e metas atingidos recentemente. Esta componente permite que a **Helena** visualize o histórico de execução de forma cronológica, oferecendo uma maior transparência sobre o ritmo de implementação do PRR no país selecionado. Toda esta informação é apresentada antes da secção expandível, acedida através do botão "Ver Mais", garantindo que o utilizador tem primeiro acesso aos dados mais relevantes.
 
 Quando o utilizador clica em "Ver Mais", é apresentada uma nova vista onde este deve primeiro selecionar um pilar ou navegar para a secção de
 Indicadores. Após selecionar um pilar, a página apresenta a informação detalhada do país para esse pilar específico.
@@ -238,7 +236,7 @@ Indicadores. Após selecionar um pilar, a página apresenta a informação detal
 
 #### 3.3.2 Separador "Pilares"
 
-O utilizador dispõe sempre de um botão "Mostrar Pilares" que expande ou recolhe um painel de seleção, permitindo-lhe trocar de pilar a qualquermomento sem perder o contexto da página. Esta decisão de design evita que o utilizador tenha de navegar para trás para mudar de pilar, reduzindo a fricção na exploração comparativa entre pilares, respondendo diretamente às necessidades do **Marco Rossi**, que pretende identificar em quais áreas dos diferentes pilares deve expandir a sua empresa, e da **Helena**, que
+O utilizador dispõe sempre de um botão "Mostrar Pilares" que expande ou recolhe um painel de seleção, permitindo-lhe trocar de pilar a qualquer momento sem perder o contexto da página. Esta decisão de design evita que o utilizador tenha de navegar para trás para mudar de pilar, reduzindo a fricção na exploração comparativa entre pilares, respondendo diretamente às necessidades do **Marco Rossi**, que pretende identificar em quais áreas dos diferentes pilares deve expandir a sua empresa, e da **Helena**, que
 necessita de acesso rápido a metas específicas por setor.
 
 Cada pilar é representado como um *card* clicável com ícone e nome. 
@@ -251,7 +249,7 @@ Após a seleção de um pilar, a página organiza-se em duas zonas principais.
 
 No topo, um cartão descritivo contextualiza o pilar selecionado, no caso da Transição Ecológica, é explicado o enquadramento no Pacto Ecológico
 Europeu e os domínios de foco (energias renováveis, eficiência energética, mobilidade sustentável e biodiversidade). Esta descrição introdutória serve
-especialmente o perfil da **Clara Mendes**, que beneficia de linguagem clarae acessível antes de ser exposta a dados quantitativos.
+especialmente o perfil da **Clara Mendes**, que beneficia de linguagem clara e acessível antes de ser exposta a dados quantitativos.
 
 De seguida, é apresentada a secção **Regra dos 37%**, que comunica de forma imediata o desempenho do país face ao mínimo obrigatório. Portugal
 aloca 43% da sua dotação total (€9,6B) a medidas climáticas, num plano total de €22,2B, superando o limiar de 37% em 6,2 p.p., o que lhe valeu
@@ -310,8 +308,7 @@ entrada:
   recordação, uma vez que o utilizador não precisa de se lembrar do país que
   estava a consultar.
 
-Em ambos os casos, o botão "Comparar" só fica ativo quando dois países distintos estão selecionados; caso contrário, permanece desativado, com uma
-*tooltip* a indicar "Selecione dois países para prosseguir". 
+Em ambos os casos, o botão "Comparar" só aparece quando dois países distintos estão selecionados, caso contrário, não aparece.
 
 Este mecanismo de prevenção de erros evita que o utilizador inicie uma comparação incompleta.
 
@@ -328,19 +325,7 @@ No separador **Sumário**, os dois países são apresentados em cartões paralel
 metas concluídas e o número absoluto. Esta disposição lado a lado permite que a **Clara Mendes** compare instantaneamente o desempenho entre países sem
 necessidade de memorizar valores ou alternar entre páginas, respeitando o princípio de reconhecimento em vez de recordação.
 
-Abaixo, o painel **Estado dos Marcos** apresenta dois gráficos semicirculares simétricos, um por país, mostrando a proporção entre marcos em progresso
-(60%) e concluídos (40%) para ambos os países. A legenda partilhada entre os dois gráficos reforça a consistência visual e facilita a leitura comparativa.
-
-Seguem-se dois painéis adicionais:
-
-- **Como o Plano de Recuperação e Resiliência é distribuído?**: um gráfico
-  circular mostra o peso relativo de cada país no total europeu contextualizando
-  a dimensão de cada plano nacional no conjunto europeu.
-
-- **Total de empréstimos atribuídos**: um gráfico de barras verticais compara
-  diretamente os montantes de empréstimos de cada país, com cada país codificado por cor
-  distinta, mantendo essa codificação de forma consistente ao longo de toda
-  a vista.
+Abaixo, o painel **Estado dos Marcos** apresenta dois gráficos semicirculares simétricos, um por país, mostrando a proporção entre marcos em progresso. A legenda partilhada entre os dois gráficos reforça a consistência visual e facilita a leitura comparativa.
 
 No rodapé da página, o botão **"Voltar"** permite regressar à lista de países, enquanto o botão **"Exportar"** possibilita a exportação dos dados
 comparativos, respondendo diretamente à necessidade do **Marco Rossi** de obter gráficos exportáveis para apresentações de pitch, e da **Helena** de
@@ -355,7 +340,7 @@ Os *badges* de posicionamento no ranking surgem junto ao nome de cada país, e o
 ### 3.5 Página "Execução"
 
 A secção "Execução" é acessível através do menu de navegação principal e disponibiliza três subsecções: **Visão Geral**, **Metas e Marcos**, 
-**Desembolsos** e **LinhaTemporal**.
+**Desembolsos**.
 
 #### 3.5.1 Visão Geral de Execução
 
@@ -424,11 +409,11 @@ da **Clara Mendes**, que beneficia de uma introdução clara antes de ser expost
 
 **Figura 9:** Captura de ecrã da página "Indicadores Comuns".
 
-Imediatamente abaixo do cabeçalho, são apresentados os primeiros cartões de indicadores, cada um identificado pelo número e nome do indicador, acompanhado de ícones representativos e do valor agregado europeu (por exemplo, o Indicador 1: Poupança no consumo anual de energia primária, apresenta o valor total de 37 568 052 MWh/Ano). 
+Imediatamente abaixo do cabeçalho, são apresentados os primeiros cartões de indicadores, cada um identificado pelo número e nome do indicador, acompanhado de ícones representativos e do valor agregado europeu (por exemplo: o Indicador 1: Poupança no consumo anual de energia primária, apresenta o valor total de 37 568 052 MWh/Ano). 
 
 Um ícone de ligação externa em cada cartão permite ao utilizador aceder ao detalhe completo do indicador, respeitando o princípio de revelação progressiva.
 
-No topo da página de detalhe de cada indicador, um botão "Mostrar Indicadores" abre um painel lateral com a lista dos 14 indicadores numerados, permitindo ao utilizador navegar diretamente entre indicadores sem regressar à página de listagem. 
+No topo da página de detalhe de cada indicador, um botão "Mostrar Indicadores" abre um painel com a lista dos 14 indicadores numerados, permitindo ao utilizador navegar diretamente entre indicadores sem regressar à página de listagem. 
 
 À direita deste botão, uma barra de destaque apresenta o valor agregado do indicador atualmente selecionado (ex: "Total de poupança 37 568 052 (MWh/Ano)"), garantindo que o contexto quantitativo global está sempre visível.
 
@@ -438,7 +423,7 @@ A página de detalhe de cada indicador organiza-se em três blocos principais:
 - No topo, um cartão descritivo contextualiza o indicador com linguagem acessível. Esta descrição, como já foi mencionada, serve diretamente o perfil da **Clara**, que necessita de linguagem clara e de compreender o impacto concreto no quotidiano.
 
 - De seguida, é apresentado o gráfico de evolução temporal do indicador, neste caso, um gráfico de barras verticais que mostra a progressão anual das poupanças em MWh/Ano. 
-À direita do gráfico, uma caixa de "Atenção" apresenta notas metodológicas relevantes, como o facto de se tratar de um indicador de stock (valores acumulados que só podem aumentar) e de os dados da França não estarem representados por serem reportados em termos de energia final em vez de energia primária. 
+À direita do gráfico, uma caixa de "Atenção" apresenta notas metodológicas relevantes, como, no caso do Indicador 1 o facto de se tratar de um indicador de stock (valores acumulados que só podem aumentar) e de os dados da França não estarem representados por serem reportados em termos de energia final em vez de energia primária. 
 Esta transparência metodológica é fundamental para a **Helena Vasconcelos**, que necessita de compreender as limitações dos dados antes de os utilizar em análises.
 
 ### 3.7 Página "Pilares"
@@ -449,7 +434,7 @@ A página "Pilares" é acessível tanto através da barra de navegação princip
 
 A entrada na página apresenta uma grelha de seis cards clicáveis, cada um representando um pilar temático do PRR. 
 
-Esta estrutura serve todos os perfis de utilizador: a Helena acede diretamente ao pilar de interesse para a sua análise; o Marco navega para Transição Ecológica ou Transformação Digital em função dos seus objetivos de negócio; a Clara pode explorar o pilar de Políticas para a Próxima Geração para comparar investimentos em educação.
+Esta estrutura serve todos os perfis de utilizador: a Helena acede diretamente ao pilar de interesse para a sua análise, o Marco navega para Transição Ecológica ou Transformação Digital em função dos seus objetivos de negócio, a Clara pode explorar o pilar de Políticas para a Próxima Geração para comparar investimentos em educação.
 
 **Figura 12:** Vista de detalhe do pilar Transição Ecológica - métricas globais e descrição.
 
@@ -461,17 +446,13 @@ Esta visão macro permite que o Marco Rossi contextualize rapidamente o estado g
 
 **Figura 13:** Tabela de Liderança dos Estados-Membros para o pilar selecionado.
 
-A secção principal da página é a Tabela de Liderança, que apresenta os Estados-Membros ordenados pelo volume total de investimento alocado ao pilar, com as colunas País (com bandeira), Total de Investimento e Execução. Esta tabela permite comparações imediatas: Portugal lidera em volume de investimento ($67,7M) mas apresenta uma execução de apenas 24%, enquanto a Alemanha, com menor investimento ($32,1M), regista a execução mais elevada (74%). 
-
-Esta distinção entre volume investido e ritmo de execução é particularmente relevante para a **Helena**, que monitoriza o progresso real face aos marcos definidos, e para o **Marco**, que necessita de identificar os países que estão não só a investir mais, mas também a executar com maior eficácia. Um botão "Ver tudo" permite expandir a tabela para consultar todos os Estados-Membros.
+A secção principal da página é a Tabela de Liderança, que apresenta os Estados-Membros ordenados pelo volume total de investimento alocado ao pilar, com as colunas País (com bandeira), Total de Investimento e Execução. 
 
 ### 3.8 Histórico de Revisões de Planos
 
 A página de Histórico de Revisões é acessível através da Página de Lista de Países, funcionando como uma vista especializada para análise de logs e transparência administrativa. 
 
 Esta transição de contexto é sinalizada por um botão, mantendo a consistência visual com o restante dashboard. 
-
-Ao entrar nesta página, o sistema preserva a hierarquia de navegação, permitindo ao utilizador regressar rapidamente à exploração por países através da barra de navegação.
 
 O design promove o **Controlo e Liberdade do Utilizador** ao oferecer múltiplos caminhos de navegação: o utilizador pode consultar revisões específicas dentro do detalhe de um país ou optar pela visão global no Histórico, permitindo que cada perfil (seja o analista de dados ou o cidadão comum) escolha a escala de detalhe que melhor serve os seus objetivos.
 
@@ -522,7 +503,7 @@ O *dashboard* apresenta de imediato indicadores-chave (fundos alocados, execuç�
 
 ### 4.2 Correspondência com o Mundo Real e Reconhecimento em vez de Recordação
 
-A terminologia utilizada é familiar ao domínio ("Marcos", "Metas", "Pilares", "Desembolsos"), e bandeiras nacionais, ícones temáticos e mapas interativos tiram partido do conhecimento prévio dos utilizadores. Os tipos de gráfico escolhidos (barras, *donuts*, coropléticos) são amplamente conhecidos, garantindo acessibilidade mesmo para utilizadores como a **Clara**. Os pilares são apresentados como *tags* com ícone e nome, dispensando memorização; na lista de países, bandeiras e indicadores são visíveis sem interação, e na comparação os dados alinhados lado a lado eliminam a necessidade de memorizar valores.
+A terminologia utilizada é familiar ao domínio ("Marcos", "Metas", "Pilares", "Desembolsos"), e bandeiras nacionais, ícones temáticos e mapas interativos tiram partido do conhecimento prévio dos utilizadores. Os tipos de gráfico escolhidos (barras, *donuts*) são amplamente conhecidos, garantindo acessibilidade mesmo para utilizadores como a **Clara**. Os pilares são apresentados como *tags* com ícone e nome, dispensando memorização, na lista de países, bandeiras e indicadores são visíveis sem interação, e na comparação os dados alinhados lado a lado eliminam a necessidade de memorizar valores.
 
 ### 4.3 Controlo, Liberdade e Flexibilidade de Utilização
 
@@ -534,7 +515,7 @@ A barra de navegação, cartões de resumo, botões de ação e separadores mant
 
 ### 4.5 Prevenção e Recuperação de Erros, Ajuda e Documentação
 
-Na comparação de países, o botão "Comparar" fica desativado até dois países serem selecionados, e conjuntos vazios de resultados apresentam uma mensagem informativa com sugestões de ação em vez de uma tabela vazia. Ícones "i" junto a métricas menos intuitivas fornecem *tooltips* explicativas, e *tooltips* contextuais proporcionam micro-ajuda *inline* sem abandonar o contexto da análise.
+Na comparação de países, o botão "Comparar" fica desativado até dois países serem selecionados. Ícones "i" junto a métricas menos intuitivas fornecem *tooltips* explicativas, e *tooltips* contextuais proporcionam micro-ajuda *inline* sem abandonar o contexto da análise.
 
 ### 4.6 Estética e Desenho Minimalista
 
@@ -546,9 +527,8 @@ Paleta contida (azul-escuro, branco, acentos subtis), tipografia limpa e espaça
 
 Ao longo das últimas semanas, foi prototipada uma interface para uma plataforma de visualização de dados sobre a execução dos Planos Nacionais de Recuperação e Resiliência. Os três perfis de utilizador fornecidos, a Helena, o Marco e a Clara, foram utilizados para modelar a interface com base nas características e necessidades destes utilizadores hipotéticos, garantindo que a solução responde a diferentes níveis de literacia de dados e diferentes objetivos de utilização.
 
-O protótipo desenvolvido em Figma [\[1\]](#referências) cobre os fluxos principais da aplicação: consulta do *dashboard* global, navegação por país, exploração de indicadores, comparação entre Estados-Membros e exportação de dados. Por fim, foi feita uma análise heurística da interface prototipada com base nas heurísticas de Nielsen [\[2\]](#referências), tendo sido identificados e corrigidos alguns problemas. Foram também identificados aspetos menos críticos, como a adição de indicadores de carregamento, atalhos de teclado e páginas de erro, que não implicam grandes alterações à arquitetura atual da interface e podem ser abordados na próxima iteração.
+Por fim, foi feita uma análise heurística da interface prototipada com base nas heurísticas de Nielsen [\[2\]](#referências), tendo sido identificados e corrigidos alguns problemas. Foram também identificados aspetos menos críticos, como a adição de indicadores de carregamento, atalhos de teclado e páginas de erro, que não implicam grandes alterações à arquitetura atual da interface e podem ser abordados na próxima iteração.
 
-Para a segunda fase deste trabalho prático, a interface será implementada com integração de dados reais via a API do *EU Recovery and Resilience Scoreboard*, passando de protótipo estático a aplicação funcional. Nessa fase, será também possível realizar testes com utilizadores reais, complementando a avaliação heurística com dados empíricos sobre a usabilidade da interface.
 
 ---
 
