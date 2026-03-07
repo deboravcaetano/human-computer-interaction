@@ -19,7 +19,7 @@ Débora Caetano - a112332
 Fábio Azevedo - a111002  
 Gonçalo Lemos - a111759
 
-[Protótipo Figma](link aqui) 
+[Protótipo Figma](https://www.figma.com/design/NQBXjODff0A4EqM7TQejJt/Projeto-IPM---dfg?node-id=0-1&t=lLzim3W78ALdneHY-1) 
 
 Ano Letivo 2025/2026 - 2.º Semestre
 
