@@ -168,13 +168,13 @@ Nesta página são apresentados diferentes elementos visuais que sintetizam info
 
 Estes elementos permitem ao utilizador obter rapidamente uma compreensão global da situação atual, funcionando como ponto de partida para uma exploração mais detalhada dos dados disponíveis na plataforma.
 
-
-
 ![Dashboard](imagens-fase1/image.png)
 
 **Figura 1:** Captura de ecrã do protótipo da página "Dashboard".
 
-A página é constituída por três elementos principais. No topo, uma barra de navegação horizontal permanente permite aceder a todas as secções da aplicação: *Home*, *Países*, *Execução*, *Indicadores* e *Pilares*. A entrada *Execução* inclui um *dropdown* com sub-secções, Visão geral, Metas e Marcos, Desembolsos e Linha Temporal, permitindo aceder diretamente ao tipo de análise pretendido. A página onde o utilizador se encontra é realçada com uma cor de fundo diferente das restantes, para que o utilizador saiba sempre em que secção está, uma decisão consistente com o que se observa em diversas outras interfaces *web*.
+A página é constituída por três elementos principais. No topo, uma barra de navegação horizontal permanente permite aceder a todas as secções da aplicação: *Home*, *Países*, *Execução*, *Indicadores* e *Pilares*. A entrada *Execução* inclui um *dropdown* com sub-secções, Visão geral, Metas e Marcos e Desembolsos, permitindo aceder diretamente ao tipo de análise pretendido. 
+
+A página onde o utilizador se encontra é realçada com uma cor de fundo diferente das restantes, para que o utilizador saiba sempre em que secção está, uma decisão consistente com o que se observa em diversas outras interfaces *web*.
 
 Abaixo da barra de navegação, são apresentados três cartões de resumo com indicadores-chave: o total de fundos alocados ao MRR, a percentagem de execução europeia e o número de beneficiários/projetos. Estes cartões permitem que o utilizador, num relance, avalie o estado global do programa sem necessidade de interação adicional, algo especialmente importante para o perfil da **Clara**, que pode ter menos disponibilidade para explorações aprofundadas.
 
@@ -190,7 +190,7 @@ Abaixo dos cartões de indicadores globais, incluímos uma secção de 'Top 3', 
 
 **Figura 3:** Captura de ecrã da Linha Temporal.
 
-Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta componente de feed informativo permite que a **Helena** acompanhe revisões de planos e novos pedidos de pagamento em tempo real, garantindo que o sistema comunica a visibilidade do estado do sistema de forma cronológica. A página encerra com um rodapé funcional que centraliza as opções de ajuda e exportação de dados globais.
+Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta componente de feed informativo permite que a **Helena** acompanhe revisões de planos e novos pedidos de pagamento em tempo real, garantindo que o sistema comunica a visibilidade do estado do sistema de forma cronológica. 
 
 
 ### 3.2 Página "Lista de Países"
@@ -215,6 +215,11 @@ A barra de pesquisa serve assim utilizadores em modo de *localização direta*, 
 específicos sem querer percorrer a lista completa, enquanto a listagem serve utilizadores em modo de *exploração*, cobrindo dois padrões de uso
 distintos sem conflito entre si. 
 
+
+![BarraPesquisa](imagens-fase1/image30.png)
+
+**Figura 5:** Barra de pesquisa com a lista dos países pertencentes à UE.
+
 Ao clicar no campo de pesquisa, é apresentada de imediato uma lista de todos os países disponíveis, permitindo selecionar diretamente sem necessidade de digitar. 
 À medida que o utilizador escreve, a lista é progressivamente filtrada em tempo real, combinando a conveniência do reconhecimento visual com a eficiência da pesquisa por texto.
 
@@ -238,7 +243,7 @@ Ao entrar no detalhe de um país, o utilizador depara-se com um resumo focado no
 
 ![DetalhePaís](imagens-fase1/image-4.png)
 
-**Figura 5:** Captura de ecrã da Página de detalhe de um país.
+**Figura 6:** Captura de ecrã da Página de detalhe de um país.
 
 No topo, a interface apresenta o progresso do plano de forma textual e visual (ex: "75% - Metas concluídas") através de uma barra de progresso linear. Esta escolha de design substitui gráficos circulares mais complexos por uma representação horizontal que facilita a leitura rápida do avanço do país.
 
@@ -255,7 +260,7 @@ Indicadores. Após selecionar um pilar, a página apresenta a informação detal
 
 ![DesembolsosPortugal](imagens-fase1/image-13.png)
 
-**Figura 6:** Captura de ecrã da secção de Desembolsos.
+**Figura 7:** Captura de ecrã da secção de Desembolsos.
 
 Através da página de detalhes de um país é possível aceder ao seu total desembolsado. Esta paǵina apresenta o histórico detalhado dos pagamentos transferidos pela União Europeia e a lista das entidades que receberam os maiores montantes. O cabeçalho identifica visualmente o país em contexto, com a respetiva bandeira e nome.
 
@@ -274,18 +279,94 @@ Montante, Tipo (Subvenção ou Empréstimo, distinguidos por *tags* de cor difer
 Esta linha temporal de pagamentos permite à **Helena** verificar o ritmo de desembolso e cruzar as datas com os marcos
 cumpridos, e à **Clara** compreender se os fundos prometidos estão efetivamente a ser transferidos.
 
+### 3.3.3 Funcionalidade "Comparar Países"
 
-#### 3.3.3 Separador "Pilares"
+Uma das funcionalidades mais relevantes da interface é a possibilidade de comparar dois países lado a lado. Esta funcionalidade pode ser iniciada a
+partir de um botão "Comparar" disponível na lista de países ou na página de detalhe de um país
+
+O comportamento do diálogo de seleção adapta-se consoante o ponto de
+entrada:
+
+- **A partir da lista de países**: o utilizador vê um único campo de pesquisa
+  e deve selecionar dois países distintos. À medida que seleciona cada país,
+  este aparece como uma *tag* removível, permitindo que o utilizador desfaça
+  a escolha caso pretenda substituir um dos países. Não é possível selecionar
+  o mesmo país duas vezes, prevenindo comparações inválidas.
+
+
+![Comparar](imagens-fase1/image-14.png)
+
+**Figura 8:** Captura de ecrã do menu de seleção de país para comparação.
+
+![SeleçãoPaís1](imagens-fase1/image-15.png)
+
+**Figura 9:** Um país selecionado.
+
+![ErroPaís2](imagens-fase1/image-16.png)
+
+**Figura 10:** Erro no país selecionado.
+
+- **A partir da página de detalhe de um país**: o país atualmente visualizado
+  surge pré-selecionado e fixo, não podendo ser removido. O utilizador apenas
+  necessita de escolher um segundo país através do campo de pesquisa,
+  reduzindo o número de passos necessários e evitando erros de contexto,
+  uma decisão de design que respeita o princípio de reconhecimento em vez de
+  recordação, uma vez que o utilizador não precisa de se lembrar do país que
+  estava a consultar.
+
+![JáSelecionado](imagens-fase1/image-18.png)
+
+**Figura 11:** País já selecionado.
+
+Em ambos os casos, o botão "Comparar" só aparece quando dois países distintos estão selecionados, caso contrário, não aparece.
+
+
+![BotaoComparar](imagens-fase1/image-17.png)
+
+**Figura 12:** Botão Comparar.
+
+Este mecanismo de prevenção de erros evita que o utilizador inicie uma comparação incompleta.
+
+Importa ainda referir que o campo de pesquisa, ao ser clicado, apresenta uma lista pré-carregada de todos os
+Estados-Membros da UE, facilitando a seleção mesmo quando o utilizador não se recorda do nome exato de todos os países disponíveis. A lista é
+progressivamente filtrada à medida que o utilizador digita, combinando assim a conveniência do reconhecimento visual com a eficiência da pesquisa por texto.
+
+
+![Comparar](imagens-fase1/image-9.png)
+
+**Figura 13:** Vista de comparação lado a lado entre dois países.
+
+A vista de comparação organiza-se em três separadores: **Sumário**, **Pilares** e **Indicadores**, permitindo ao utilizador navegar entre
+diferentes níveis de detalhe sem abandonar o contexto de comparação.
+
+No separador **Sumário**, os dois países são apresentados em cartões paralelos com fundo escuro, exibindo de forma imediata a percentagem de
+metas concluídas e o número absoluto. Esta disposição lado a lado permite que a **Clara Mendes** compare instantaneamente o desempenho entre países sem
+necessidade de memorizar valores ou alternar entre páginas, respeitando o princípio de reconhecimento em vez de recordação.
+
+Abaixo, o painel **Estado dos Marcos** apresenta dois gráficos semicirculares simétricos, um por país, mostrando a proporção entre marcos em progresso. A legenda partilhada entre os dois gráficos reforça a consistência visual e facilita a leitura comparativa.
+
+No rodapé da página, o botão **"Voltar"** permite regressar à lista de países, enquanto o botão **"Exportar"** possibilita a exportação dos dados
+comparativos, respondendo diretamente à necessidade do **Marco Rossi** de obter gráficos exportáveis para apresentações de pitch, e da **Helena** de
+aceder a dados em formatos editáveis.
+
+O separador **Pilares** replica a estrutura da página de detalhe individual de cada país, mas organizada em duas colunas paralelas, uma por país.
+A informação de cada pilar é apresentada de forma alinhada horizontalmente, permitindo comparar diretamente os valores de ambos os países para cada
+métrica. 
+
+Os *badges* de posicionamento no ranking surgem junto ao nome de cada país, e o botão **"Mostrar Pilares"** mantém-se disponível no topo para que o utilizador possa trocar de pilar a qualquer momento, tal como na vista individual.
+
+
+#### 3.3.4 Separador "Pilares"
 
 
 ![OpçõesPilares](imagens-fase1/image-5.png)
 
-**Figura 7:** Página de detalhe de um país - opções "Pilares".
+**Figura 14:** Página de detalhe de um país - opções "Pilares".
 
 
 ![Mostrar](imagens-fase1/image-7.png)
 
-**Figura 8:** Página de detalhe de um país - separador "Pilares".
+**Figura 15:** Página de detalhe de um país - separador "Pilares".
 
 O utilizador dispõe sempre de um botão "Mostrar Pilares" que expande ou recolhe um painel de seleção, permitindo-lhe trocar de pilar a qualquer momento sem perder o contexto da página. Esta decisão de design evita que o utilizador tenha de navegar para trás para mudar de pilar, reduzindo a fricção na exploração comparativa entre pilares, respondendo diretamente às necessidades do **Marco Rossi**, que pretende identificar em quais áreas dos diferentes pilares deve expandir a sua empresa, e da **Helena**, que
 necessita de acesso rápido a metas específicas por setor.
@@ -297,7 +378,7 @@ A figura seguinte mostra a vista de seleção de pilares:
 
 ![TransiçãoEcológica](imagens-fase1/image-8.png)
 
-**Figura 9:** Informação detalhada do pilar selecionado, exemplificada com o pilar de Transição Ecológica para Portugal.
+**Figura 16:** Informação detalhada do pilar selecionado, exemplificada com o pilar de Transição Ecológica para Portugal.
 
 Após a seleção de um pilar, a página organiza-se em duas zonas principais.
 
@@ -339,82 +420,8 @@ ao **Marco Rossi** avaliar rapidamente a natureza das medidas em curso e a sua r
 Ao clicar no *badge* de posicionamento apresentado na página de detalhe do país, o utilizador é redirecionado para a página global do pilar, que agrega
 a informação de todos os Estados-Membros numa visão comparativa europeia.
 
-### 3.4 Funcionalidade "Comparar Países"
 
-Uma das funcionalidades mais relevantes da interface é a possibilidade de comparar dois países lado a lado. Esta funcionalidade pode ser iniciada a
-partir de um botão "Comparar" disponível na lista de países ou na página de detalhe de um país
-
-O comportamento do diálogo de seleção adapta-se consoante o ponto de
-entrada:
-
-- **A partir da lista de países**: o utilizador vê um único campo de pesquisa
-  e deve selecionar dois países distintos. À medida que seleciona cada país,
-  este aparece como uma *tag* removível, permitindo que o utilizador desfaça
-  a escolha caso pretenda substituir um dos países. Não é possível selecionar
-  o mesmo país duas vezes, prevenindo comparações inválidas.
-
-
-![Comparar](imagens-fase1/image-14.png)
-
-**Figura 10:** Captura de ecrã do menu de seleção de país para comparação.
-
-![SeleçãoPaís1](imagens-fase1/image-15.png)
-
-**Figura 11:** Um país selecionado.
-
-![ErroPaís2](imagens-fase1/image-16.png)
-
-**Figura 12:** Erro no país selecionado.
-
-- **A partir da página de detalhe de um país**: o país atualmente visualizado
-  surge pré-selecionado e fixo, não podendo ser removido. O utilizador apenas
-  necessita de escolher um segundo país através do campo de pesquisa,
-  reduzindo o número de passos necessários e evitando erros de contexto,
-  uma decisão de design que respeita o princípio de reconhecimento em vez de
-  recordação, uma vez que o utilizador não precisa de se lembrar do país que
-  estava a consultar.
-
-![JáSelecionado](imagens-fase1/image-18.png)
-
-**Figura 13:** País já selecionado.
-
-Em ambos os casos, o botão "Comparar" só aparece quando dois países distintos estão selecionados, caso contrário, não aparece.
-
-**Figura 14:** Botão Comparar.
-
-![BotaoComparar](imagens-fase1/image-17.png)
-
-Este mecanismo de prevenção de erros evita que o utilizador inicie uma comparação incompleta.
-
-Importa ainda referir que o campo de pesquisa, ao ser clicado, apresenta uma lista pré-carregada de todos os
-Estados-Membros da UE, facilitando a seleção mesmo quando o utilizador não se recorda do nome exato de todos os países disponíveis. A lista é
-progressivamente filtrada à medida que o utilizador digita, combinando assim a conveniência do reconhecimento visual com a eficiência da pesquisa por texto.
-
-
-![Comparar](imagens-fase1/image-9.png)
-
-**Figura 15:** Vista de comparação lado a lado entre dois países.
-
-A vista de comparação organiza-se em três separadores: **Sumário**, **Pilares** e **Indicadores**, permitindo ao utilizador navegar entre
-diferentes níveis de detalhe sem abandonar o contexto de comparação.
-
-No separador **Sumário**, os dois países são apresentados em cartões paralelos com fundo escuro, exibindo de forma imediata a percentagem de
-metas concluídas e o número absoluto. Esta disposição lado a lado permite que a **Clara Mendes** compare instantaneamente o desempenho entre países sem
-necessidade de memorizar valores ou alternar entre páginas, respeitando o princípio de reconhecimento em vez de recordação.
-
-Abaixo, o painel **Estado dos Marcos** apresenta dois gráficos semicirculares simétricos, um por país, mostrando a proporção entre marcos em progresso. A legenda partilhada entre os dois gráficos reforça a consistência visual e facilita a leitura comparativa.
-
-No rodapé da página, o botão **"Voltar"** permite regressar à lista de países, enquanto o botão **"Exportar"** possibilita a exportação dos dados
-comparativos, respondendo diretamente à necessidade do **Marco Rossi** de obter gráficos exportáveis para apresentações de pitch, e da **Helena** de
-aceder a dados em formatos editáveis.
-
-O separador **Pilares** replica a estrutura da página de detalhe individual de cada país, mas organizada em duas colunas paralelas, uma por país.
-A informação de cada pilar é apresentada de forma alinhada horizontalmente, permitindo comparar diretamente os valores de ambos os países para cada
-métrica. 
-
-Os *badges* de posicionamento no ranking surgem junto ao nome de cada país, e o botão **"Mostrar Pilares"** mantém-se disponível no topo para que o utilizador possa trocar de pilar a qualquer momento, tal como na vista individual.
-
-### 3.5 Página "Execução"
+### 3.4 Página "Execução"
 
 A secção "Execução" é acessível através do menu de navegação principal e disponibiliza três subsecções: **Visão Geral**, **Metas e Marcos**, 
 **Desembolsos**.
@@ -422,14 +429,14 @@ A secção "Execução" é acessível através do menu de navegação principal 
 
 ![OpçõesExecução](imagens-fase1/image-10.png)
 
-**Figura 16:** Opções de escolha.
+**Figura 17:** Opções de escolha.
 
-#### 3.5.1 Visão Geral de Execução
+#### 3.4.1 Visão Geral de Execução
 
 
 ![VisãoGeral](imagens-fase1/image-11.png)
 
-**Figura 17:** Captura de ecrã da página Visão Geral de Execução.
+**Figura 18:** Captura de ecrã da página Visão Geral de Execução.
 
 A página de Visão Geral agrega os dados de execução de todos os Estados-Membros numa única vista panorâmica. 
 
@@ -450,11 +457,11 @@ forma direta.
 
 O botão "Ver tudo" permite expandir a tabela para consultar todos os Estados-Membros.
 
-#### 3.5.2 Metas e Marcos
+#### 3.4.2 Metas e Marcos
 
 ![Metas](imagens-fase1/image-12.png)
 
-**Figura 18:** Captura de ecrã da página Metas e Marcos.
+**Figura 19:** Captura de ecrã da página Metas e Marcos.
 
 A página de Metas e Marcos é introduzida por um cabeçalho com fundo escuro que contextualiza o seu propósito: apresentar o progresso na implementação
 dos compromissos definidos nos Planos de Recuperação e Resiliência dos Estados-Membros.
@@ -473,7 +480,7 @@ bloqueios ou atrasos no processo de execução.
 Por fim, a secção inferior apresenta uma tabela detalhada com o nome do país, a descrição do objetivo e o tipo de medida. Cada linha inclui um elemento de expansão (seta), sugerindo a existência de níveis mais profundos de informação sem sobrecarregar a vista inicial.
 
 
-### 3.6 Página "Indicadores"
+### 3.5 Página "Indicadores"
 
 A página "Indicadores" é acessível diretamente através da barra de navegação principal e apresenta os 14 indicadores comuns de reporte obrigatório 
 por todos os Estados-Membros da União Europeia.
@@ -484,7 +491,7 @@ da **Clara Mendes**, que beneficia de uma introdução clara antes de ser expost
 
 ![Indicadores](imagens-fase1/image-19.png)
 
-**Figura 19:** Captura de ecrã da página "Indicadores Comuns".
+**Figura 20:** Captura de ecrã da página "Indicadores Comuns".
 
 Imediatamente abaixo do cabeçalho, são apresentados os primeiros cartões de indicadores, cada um identificado pelo número e nome do indicador, acompanhado de ícones representativos e do valor agregado europeu (por exemplo: o Indicador 1: Poupança no consumo anual de energia primária, apresenta o valor total de 37 568 052 MWh/Ano). 
 
@@ -497,7 +504,7 @@ No topo da página de detalhe de cada indicador, um botão "Mostrar Indicadores"
 
 ![Indicador1](imagens-fase1/image-20.png)
 
-**Figura 20:** Vista de detalhe do Indicador Comum 1 - Poupança no Consumo Anual de Energia Primária.
+**Figura 21:** Vista de detalhe do Indicador Comum 1 - Poupança no Consumo Anual de Energia Primária.
 
 A página de detalhe de cada indicador organiza-se em três blocos principais:
 - No topo, um cartão descritivo contextualiza o indicador com linguagem acessível. Esta descrição, como já foi mencionada, serve diretamente o perfil da **Clara**, que necessita de linguagem clara e de compreender o impacto concreto no quotidiano.
@@ -513,7 +520,7 @@ A página "Pilares" é acessível tanto através da barra de navegação princip
 
 ![Pilares](imagens-fase1/image-21.png)
 
-**Figura 21:** Captura de ecrã da grelha de seleção de pilares.
+**Figura 22:** Captura de ecrã da grelha de seleção de pilares.
 
 A entrada na página apresenta uma grelha de seis cards clicáveis, cada um representando um pilar temático do PRR. 
 
@@ -522,7 +529,7 @@ Esta estrutura serve todos os perfis de utilizador: a Helena acede diretamente a
 
 ![TransiçãoEcológica](imagens-fase1/image-22.png)
 
-**Figura 22:** Vista de detalhe do pilar Transição Ecológica - métricas globais e descrição.
+**Figura 23:** Vista de detalhe do pilar Transição Ecológica - métricas globais e descrição.
 
 Após selecionar um pilar, a página organiza-se em duas zonas:
 - No topo, um botão "Mostrar Pilares" permite ao utilizador trocar de pilar a qualquer momento sem perder o contexto da análise. Abaixo, um cartão descritivo contextualiza o pilar selecionado, no caso da Transição Ecológica.
@@ -537,11 +544,11 @@ A página de Histórico de Revisões é acessível pela Página de Lista de Paí
 
 ![BotãoHistórico](imagens-fase1/image-23.png)
 
-**Figura 23:** Botão Histórico.
+**Figura 24:** Botão Histórico.
 
 ![Histórico](imagens-fase1/image-24.png)
 
-**Figura 24:** Captura de ecrã da paǵina Histórico.
+**Figura 25:** Captura de ecrã da paǵina Histórico.
 
 Esta transição de contexto é sinalizada por um botão, mantendo a consistência visual com o restante dashboard. 
 
@@ -570,7 +577,7 @@ complementares que justificam a sua presença.
 
 ![Rodapé](imagens-fase1/image-25.png)
 
-**Figura 25:** Rodapé.
+**Figura 26:** Rodapé.
 
 
 À esquerda, replica as ligações para as secções principais da aplicação (Início, Países, Execução, Indicadores e Pilares). Embora redundante face
