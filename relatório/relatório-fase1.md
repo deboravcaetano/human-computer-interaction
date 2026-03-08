@@ -269,7 +269,12 @@ Através da página de detalhes de um país é possível aceder ao seu total des
 ![DesembolsosPaís](imagens-fase1/desembolsos-país.png)
 #### Figura 6: Captura de ecrã da secção "Desembolsos de um País"
 
-A tabela **100 Maiores Beneficiários** lista as entidades por montante recebido, projeto associado e pilar estratégico correspondente. Cada pilar
+As tabelas **Cronologia de Recebimentos** Previstos e Realizados apresentam o histórico cronológico dos pagamentos recebidos, ou previstos a receber pelo país, com as colunas Data, Montante, Tipo (Subvenção ou Empréstimo, distinguidos por *tags* de cor diferente) e Descrição. 
+
+Esta linha temporal de pagamentos permite à **Helena** verificar o ritmo de desembolso e cruzar as datas com os marcos
+cumpridos, e à **Clara** compreender se os fundos prometidos estão efetivamente a ser transferidos.
+
+Abaixo tabela **100 Maiores Beneficiários** lista as entidades por montante recebido, projeto associado e pilar estratégico correspondente. Cada pilar
 é identificado por uma *tag* colorida (ex: verde para Transição Ecológica, azul para Transformação Digital), permitindo uma leitura rápida da
 distribuição sectorial dos fundos. Para não sobrecarregar visualmente a página, apenas um subconjunto de entradas é apresentado inicialmente; ao
 clicar em "Ver Mais", a tabela expande para mostrar todos os beneficiários, com a possibilidade de filtrar por pilar estratégico. Esta decisão de design
@@ -278,11 +283,7 @@ respeita o princípio de apresentação progressiva da informação, evitando a 
 A opção de exportação permite à **Helena** obter os dados em formato editável para análise externa, e ao **Marco** utilizar
 a informação em apresentações de pitch.
 
-Abaixo, a tabela **Cronologia de Recebimentos** apresenta o histórico cronológico dos pagamentos recebidos pelo país, com as colunas Data,
-Montante, Tipo (Subvenção ou Empréstimo, distinguidos por *tags* de cor diferente) e Descrição. 
 
-Esta linha temporal de pagamentos permite à **Helena** verificar o ritmo de desembolso e cruzar as datas com os marcos
-cumpridos, e à **Clara** compreender se os fundos prometidos estão efetivamente a ser transferidos.
 
 
 #### 3.2.2 Histórico
@@ -442,6 +443,9 @@ região ou área de interesse.
 
 Esta página é um caminho alternativo ao utilizador que permite decidir diretamente qual o país ao qual pretende aceder à tabela de desembolsos.
 
+![ListaDesembolsos](imagens-fase1/lista-desembolsos.png)
+#### Figura 19: Captura de ecrã da página Desembolsos
+
 ### 3.4 Página "Indicadores"
 
 
@@ -449,7 +453,7 @@ A página "Indicadores" é acessível diretamente através da barra de navegaç�
 por todos os Estados-Membros da União Europeia.
 
 ![indicadores](imagens-fase1/indicadores.png)
-#### Figura 19: Captura de ecrã da página "Indicadores"
+#### Figura 20: Captura de ecrã da página "Indicadores"
 
 O cabeçalho da página, com fundo azul escuro, contextualiza o propósito da secção. Esta contextualização é especialmente importante para o perfil 
 da **Clara Mendes**, que beneficia de uma introdução clara antes de ser exposta aos dados quantitativos.
@@ -463,7 +467,7 @@ No topo da página de detalhe de cada indicador, um botão "Mostrar Indicadores"
 À direita deste botão, uma barra de destaque apresenta o valor agregado do indicador atualmente selecionado (ex: "Total de poupança 37 568 052 (MWh/Ano)"), garantindo que o contexto quantitativo global está sempre visível.
 
 ![Indicador1](imagens-fase1/indicador-1.png)
-#### Figura 20: Indicador 1
+#### Figura 21: Indicador 1
 
 A página de detalhe de cada indicador organiza-se em três blocos principais:
 - No topo, um cartão descritivo contextualiza o indicador com linguagem acessível. Esta descrição, como já foi mencionada, serve diretamente o perfil da **Clara**, que necessita de linguagem clara e de compreender o impacto concreto no quotidiano.
@@ -478,7 +482,7 @@ A página "Pilares" é acessível tanto através da barra de navegação princip
 
 
 ![PáginaPilares](imagens-fase1/página-pilares.png)
-#### Figura 21: Captura de ecrã da página Pilares
+#### Figura 22: Captura de ecrã da página Pilares
 
 A entrada na página apresenta uma grelha de seis cards clicáveis, cada um representando um pilar temático do PRR. 
 
@@ -486,7 +490,7 @@ Esta estrutura serve todos os perfis de utilizador: a **Helena** acede diretamen
 
 
 ![Ecológica](imagens-fase1/pilar-ecológica.png)
-#### Figura 22: Vista de detalhe do pilar Transição Ecológica
+#### Figura 23: Vista de detalhe do pilar Transição Ecológica
 
 Após selecionar um pilar, a página organiza-se em duas zonas:
 - No topo, um botão "Mostrar Pilares" permite ao utilizador trocar de pilar a qualquer momento sem perder o contexto da análise. Abaixo, um cartão descritivo contextualiza o pilar selecionado, no caso da Transição Ecológica.
@@ -501,7 +505,7 @@ O rodapé da interface, embora a navegação principal esteja sempre acessível 
 complementares que justificam a sua presença.
 
 ![rodapé](imagens-fase1/rodapé.png)
-#### Figura 23: Captura de ecrã do rodapé de todas as páginas
+#### Figura 24: Captura de ecrã do rodapé de todas as páginas
 
 À esquerda, replica as ligações para as secções principais da aplicação (Início, Países, Execução, Indicadores e Pilares). Embora redundante face
 à *navbar*, esta repetição é uma convenção estabelecida na web que os utilizadores reconhecem e esperam, especialmente após percorrerem uma
@@ -513,7 +517,7 @@ navegação, particularmente útil para a **Clara Mendes**, que pode não estar 
 específica para o fazer.
 
 ![FAQ](imagens-fase1/faq.png)
-#### Figura 24: Captura de ecrã da secção FAQ
+#### Figura 25: Captura de ecrã da secção FAQ
 
 Por fim, a indicação **"Dados atualizados em: 08/03/2026"** transmite de forma transparente a frescura dos dados apresentados, respondendo à
 necessidade da **Helena** de verificar a atualidade da informação antes de a utilizar em análises ou relatórios.
