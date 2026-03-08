@@ -65,7 +65,7 @@ O objetivo desta interface é permitir a exploração clara e eficiente dos dado
    3.2.2 [Histórico](#322-histórico)  
    3.2.3 [Comparar](#323-comparar)  
 
-   3.3 [Página Execução](#33-página-execução)  
+   3.3 [Página "Execução"](#33-página-execução)  
    3.3.1 [Visão Geral de Execução](#331-visão-geral-de-execução)  
    3.3.2 [Metas e Marcos](#332-metas-e-marcos)  
    3.3.3 [Desembolsos](#333-desembolsos)  
@@ -76,10 +76,10 @@ O objetivo desta interface é permitir a exploração clara e eficiente dos dado
 
 4. [Avaliação Heurística](#4-avaliação-heurística)  
    4.1 [Visibilidade do Estado do Sistema](#41-visibilidade-do-estado-do-sistema)  
-   4.2 [Correspondência com o Mundo Real e Reconhecimento](#42-correspondência-com-o-mundo-real-e-reconhecimento-em-vez-de-recordação)  
-   4.3 [Controlo, Liberdade e Flexibilidade](#43-controlo-liberdade-e-flexibilidade-de-utilização)  
+   4.2 [Correspondência com o Mundo Real e Reconhecimento em vez de Recordação](#42-correspondência-com-o-mundo-real-e-reconhecimento-em-vez-de-recordação)  
+   4.3 [Controlo, Liberdade e Flexibilidade de Utilização](#43-controlo-liberdade-e-flexibilidade-de-utilização)  
    4.4 [Consistência e Normas](#44-consistência-e-normas)  
-   4.5 [Prevenção e Recuperação de Erros](#45-prevenção-e-recuperação-de-erros-ajuda-e-documentação)  
+   4.5 [Prevenção e Recuperação de Erros, Ajuda e Documentação](#45-prevenção-e-recuperação-de-erros-ajuda-e-documentação)  
    4.6 [Estética e Desenho Minimalista](#46-estética-e-desenho-minimalista)  
 
 5. [Conclusão e Trabalho Futuro](#5-conclusão-e-trabalho-futuro)  
@@ -215,8 +215,34 @@ A página 'Países' constitui o motor de exploração detalhada da aplicação, 
 
 Em vez de uma navegação geográfica, optou-se por uma estrutura de lista vertical que permite ao utilizador processar uma maior densidade de dados sem distrações visuais.
 
+
 ![ListaPaíses](imagens-fase1/lista-países.png)
 #### Figura 4: Captura de ecrã da página países
+
+Cada cartão de país apresenta elementos críticos para uma avaliação imediata: a bandeira e nome do país, uma barra de progresso de 'Evolução geral', o valor do PIB (acompanhado por um ícone de informação para apoio contextual) e a data da 'Última atualização'. Esta organização suporta diretamente o perfil da **Helena**, que necessita de verificar rapidamente o histórico de revisões e a frescura dos dados. 
+
+A utilização de bandeiras em conjunto com os nomes dos países garante que o utilizador não precise de memorizar códigos ISO ou abreviaturas (princípio do reconhecimento em vez de recordação).
+
+Para garantir o controlo e flexibilidade de utilização (Heurística 3), a página inclui:
+
+- **Barra de Pesquisa Dinâmica**: Embora todos os países sejam visíveis na lista, a escala da listagem, 27 Estados-Membros, pode exigir esforço de
+navegação visual quando o utilizador já sabe o país que pretende consultar.
+
+A barra de pesquisa serve assim utilizadores em modo de *localização direta*, como a **Helena** ou o **Marco**, que acedem frequentemente a países
+específicos sem querer percorrer a lista completa, enquanto a listagem serve utilizadores em modo de *exploração*, cobrindo dois padrões de uso
+distintos sem conflito entre si. 
+
+Ao clicar no campo de pesquisa, é apresentada de imediato uma lista de todos os países disponíveis, permitindo selecionar diretamente sem necessidade de digitar. 
+À medida que o utilizador escreve, a lista é progressivamente filtrada em tempo real, combinando a conveniência do reconhecimento visual com a eficiência da pesquisa por texto.
+
+- **Ordenação Inteligente**: Um menu dropdown no topo direito permite reorganizar a lista (e.g., por nome ou execução), facilitando a identificação de líderes e retardatários no processo de recuperação.
+
+- **Acesso à Comparação**: O botão 'Comparar', posicionado de forma destacada acima da lista, serve como o ponto de entrada para o fluxo de análise
+binária entre países, um requisito fundamental para os perfis do Marco e da Clara.
+
+- **Acesso ao Histórico**: A página inclui um ponto de acesso global ao 'Histórico de Revisões'. Este botão, permite que utilizadores como a **Helena** transitem de uma visão focada em países para uma visão cronológica e transversal de todos os pedidos, facilitando a auditoria de alterações recentes nos planos.
+
+Atualmente, a seleção de um país para consulta de detalhes é feita através da interação direta com o cartão correspondente na lista. Embora o protótipo estático mostre os dados de forma clara, preve-se para a 2ª fase de implementação a introdução de feedback visual dinâmico: ao sobrevoar um cartão com o cursor, este mudará subtilmente de tom ou ganhará um destaque (elevação), sinalizando de forma inequívoca que o elemento é clicável
 
 #### 3.2.1 Seleção de um País
 
@@ -501,11 +527,11 @@ A interface foi avaliada com recurso às Heurísticas de Nielsen [\[2\]](#refer�
 
 ### 4.1 Visibilidade do Estado do Sistema
 
-O *dashboard* apresenta de imediato indicadores-chave (fundos alocados, execução, marcos concluídos). Na página de detalhe, barras de progresso comunicam o estado de execução instantaneamente. Na filtragem de dados, *chips* com os filtros ativos garantem visibilidade sobre os critérios aplicados. **Melhoria futura:** adicionar *spinners* de carregamento para conexões lentas.
+O *dashboard* apresenta de imediato indicadores-chave (fundos alocados, execução, marcos concluídos). Na página de detalhe, barras de progresso comunicam o estado de execução instantaneamente. Na filtragem de dados, *chips* com os filtros ativos garantem visibilidade sobre os critérios aplicados. 
 
 ### 4.2 Correspondência com o Mundo Real e Reconhecimento em vez de Recordação
 
-A terminologia utilizada é familiar ao domínio ("Marcos", "Metas", "Pilares", "Desembolsos"), e bandeiras nacionais, ícones temáticos e mapas interativos tiram partido do conhecimento prévio dos utilizadores. Os tipos de gráfico escolhidos (barras, *donuts*) são amplamente conhecidos, garantindo acessibilidade mesmo para utilizadores como a **Clara**. Os pilares são apresentados como *tags* com ícone e nome, dispensando memorização, na lista de países, bandeiras e indicadores são visíveis sem interação, e na comparação os dados alinhados lado a lado eliminam a necessidade de memorizar valores.
+A terminologia utilizada é familiar ao domínio ("Marcos", "Metas", "Pilares", "Desembolsos"), e bandeiras nacionais e ícones temáticos tiram partido do conhecimento prévio dos utilizadores. Os tipos de gráfico escolhidos (barras, *donuts*) são amplamente conhecidos, garantindo acessibilidade mesmo para utilizadores como a **Clara**. Os pilares são apresentados como *tags* com ícone e nome, dispensando memorização, na lista de países, bandeiras e indicadores são visíveis sem interação, e na comparação os dados alinhados lado a lado eliminam a necessidade de memorizar valores.
 
 ### 4.3 Controlo, Liberdade e Flexibilidade de Utilização
 
@@ -513,7 +539,7 @@ A barra de navegação principal está sempre visível, permitindo regressar a q
 
 ### 4.4 Consistência e Normas
 
-A barra de navegação, cartões de resumo, botões de ação e separadores mantêm-se idênticos em todos os ecrãs. A iconografia segue as *Material Icons* [\[3\]](#referências), e os efeitos de *hover* são uniformes em todos os elementos clicáveis. Optou-se por um *dropdown* (em vez de diálogo) para exportação, priorizando rapidez sobre consistência total com o fluxo de comparação.
+A barra de navegação, cartões de resumo, botões de ação e separadores mantêm-se idênticos em todos os ecrãs. A iconografia segue as *Material Icons* [\[3\]](#referências), e os efeitos de *hover* são uniformes em todos os elementos clicáveis. 
 
 ### 4.5 Prevenção e Recuperação de Erros, Ajuda e Documentação
 
