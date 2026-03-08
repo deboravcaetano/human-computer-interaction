@@ -9,7 +9,7 @@
 
 **Universidade do Minho**
 
-<img src="imagens-fase1/image-26.png" alt="LogoUM" width="100"/>
+<img src="imagens-fase1/logo.png" alt="LogoUM" width="100"/>
 
 Escola de Engenharia - Departamento de Informática
 
