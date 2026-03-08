@@ -9,6 +9,8 @@
 
 **Universidade do Minho**
 
+<img src="imagens-fase1/image-26.png" alt="LogoUM" width="100"/>
+
 Escola de Engenharia - Departamento de Informática
 
 ### Relatório - Proposta de Interface
@@ -37,25 +39,28 @@ No âmbito deste trabalho prático, foi prototipada uma interface de visualizaç
 
 ## Índice
 
-- [1. Análise do Problema e do Domínio](#1-analise-do-problema-e-do-dominio)
+- [1. Análise do Problema e do Domínio](#1-análise-do-problema-e-do-domínio)
   - [1.1 Tipos de Dados Relevantes](#11-tipos-de-dados-relevantes)
   - [1.2 Principais Desafios de Usabilidade](#12-principais-desafios-de-usabilidade)
 
 - [2. Utilizadores e Levantamento de Requisitos](#2-utilizadores-e-levantamento-de-requisitos)
   - [2.1 Perfis de Utilizador e Necessidades Identificadas](#21-perfis-de-utilizador-e-necessidades-identificadas)
+    - [2.1.1 Helena Vasconcelos – Analista de Políticas Públicas](#211-helena-vasconcelos---analista-de-políticas-públicas)
+    - [2.1.2 Marco Rossi – Empreendedor em Energias Renováveis](#212-marco-rossi---empreendedor-em-energias-renováveis)
+    - [2.1.3 Clara Mendes – Professora do Ensino Secundário](#213-clara-mendes---professora-do-ensino-secundário)
   - [2.2 Requisitos Funcionais](#22-requisitos-funcionais)
 
-- [3. Apresentação da Interface Desenvolvida](#3-apresentacao-da-interface-desenvolvida)
+- [3. Apresentação da Interface Desenvolvida](#3-apresentação-da-interface-desenvolvida)
   - [3.1 Página Dashboard](#31-página-dashboard)
   - [3.2 Página Lista de Países](#32-página-lista-de-países)
   - [3.3 Página Detalhe de País](#33-página-detalhe-de-país)
     - [3.3.1 Separador Sumário](#331-separador-sumário)
-    - [3.3.2 Separador Pilares](#332-separador-pilares)
+    - [3.3.2 Desembolsos](#332-desembolsos)
+    - [3.3.3 Separador Pilares](#333-separador-pilares)
   - [3.4 Funcionalidade Comparar Países](#34-funcionalidade-comparar-países)
   - [3.5 Página Execução](#35-página-execução)
     - [3.5.1 Visão Geral de Execução](#351-visão-geral-de-execução)
     - [3.5.2 Metas e Marcos](#352-metas-e-marcos)
-    - [3.5.3 Desembolsos](#353-desembolsos)
   - [3.6 Página Indicadores](#36-página-indicadores)
   - [3.7 Página Pilares](#37-página-pilares)
   - [3.8 Histórico de Revisões de Planos](#38-histórico-de-revisões-de-planos)
@@ -63,7 +68,7 @@ No âmbito deste trabalho prático, foi prototipada uma interface de visualizaç
     - [3.8.2 Opção de Filtrar](#382-opção-de-filtrar)
   - [3.9 Rodapé (Footer)](#39-rodapé-footer)
 
-- [4. Avaliação Heurística](#4-avaliacao-heuristica)
+- [4. Avaliação Heurística](#4-avaliação-heurística)
   - [4.1 Visibilidade do Estado do Sistema](#41-visibilidade-do-estado-do-sistema)
   - [4.2 Correspondência com o Mundo Real e Reconhecimento em vez de Recordação](#42-correspondência-com-o-mundo-real-e-reconhecimento-em-vez-de-recordação)
   - [4.3 Controlo, Liberdade e Flexibilidade de Utilização](#43-controlo-liberdade-e-flexibilidade-de-utilização)
@@ -75,6 +80,7 @@ No âmbito deste trabalho prático, foi prototipada uma interface de visualizaç
 
 - [Referências](#referências)
 ---
+
 
 ## 1. Análise do Problema e do Domínio
 
@@ -163,6 +169,9 @@ Nesta página são apresentados diferentes elementos visuais que sintetizam info
 Estes elementos permitem ao utilizador obter rapidamente uma compreensão global da situação atual, funcionando como ponto de partida para uma exploração mais detalhada dos dados disponíveis na plataforma.
 
 
+
+![Dashboard](imagens-fase1/image.png)
+
 **Figura 1:** Captura de ecrã do protótipo da página "Dashboard".
 
 A página é constituída por três elementos principais. No topo, uma barra de navegação horizontal permanente permite aceder a todas as secções da aplicação: *Home*, *Países*, *Execução*, *Indicadores* e *Pilares*. A entrada *Execução* inclui um *dropdown* com sub-secções, Visão geral, Metas e Marcos, Desembolsos e Linha Temporal, permitindo aceder diretamente ao tipo de análise pretendido. A página onde o utilizador se encontra é realçada com uma cor de fundo diferente das restantes, para que o utilizador saiba sempre em que secção está, uma decisão consistente com o que se observa em diversas outras interfaces *web*.
@@ -170,11 +179,16 @@ A página é constituída por três elementos principais. No topo, uma barra de 
 Abaixo da barra de navegação, são apresentados três cartões de resumo com indicadores-chave: o total de fundos alocados ao MRR, a percentagem de execução europeia e o número de beneficiários/projetos. Estes cartões permitem que o utilizador, num relance, avalie o estado global do programa sem necessidade de interação adicional, algo especialmente importante para o perfil da **Clara**, que pode ter menos disponibilidade para explorações aprofundadas.
 
 
-**Figura 2:** Top 3.
+![Top3](imagens-fase1/image-1.png)
+
+**Figura 2:** Captura de ecrã do Top 3.
 
 Abaixo dos cartões de indicadores globais, incluímos uma secção de 'Top 3', que destaca os Estados-Membros com maior execução através de cartões detalhados. Esta escolha reduz a carga cognitiva, permitindo que utilizadores como a **Clara** identifiquem sucessos regionais sem navegar por tabelas complexas.
 
-**Figura 3:** Linha Temporal.
+
+![UltimasNoticias](imagens-fase1/image-2.png)
+
+**Figura 3:** Captura de ecrã da Linha Temporal.
 
 Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta componente de feed informativo permite que a **Helena** acompanhe revisões de planos e novos pedidos de pagamento em tempo real, garantindo que o sistema comunica a visibilidade do estado do sistema de forma cronológica. A página encerra com um rodapé funcional que centraliza as opções de ajuda e exportação de dados globais.
 
@@ -183,6 +197,8 @@ Adicionalmente, implementámos uma Linha Temporal de 'Últimas Notícias'. Esta 
 
 A página 'Países' constitui o motor de exploração detalhada da aplicação, apresentando todos os Estados-Membros através de um sistema de cartões individuais que privilegia a legibilidade e o acesso rápido à informação. Em vez de uma navegação geográfica, optou-se por uma estrutura de lista vertical que permite ao utilizador processar uma maior densidade de dados sem distrações visuais.
 
+
+![Países](imagens-fase1/image-3.png)
 
 **Figura 4:** Captura de ecrã do protótipo da página "Lista de Países".
 
@@ -219,7 +235,10 @@ Ao selecionar um país através da lista ou da pesquisa, o utilizador é redirec
 
 Ao entrar no detalhe de um país, o utilizador depara-se com um resumo focado no impacto financeiro e na execução.
 
-**Figura 5:** Página de detalhe de um país.
+
+![DetalhePaís](imagens-fase1/image-4.png)
+
+**Figura 5:** Captura de ecrã da Página de detalhe de um país.
 
 No topo, a interface apresenta o progresso do plano de forma textual e visual (ex: "75% - Metas concluídas") através de uma barra de progresso linear. Esta escolha de design substitui gráficos circulares mais complexos por uma representação horizontal que facilita a leitura rápida do avanço do país.
 
@@ -232,9 +251,41 @@ Para complementar os dados estatísticos, foi incluída a secção "Últimos ava
 Quando o utilizador clica em "Ver Mais", é apresentada uma nova vista onde este deve primeiro selecionar um pilar ou navegar para a secção de
 Indicadores. Após selecionar um pilar, a página apresenta a informação detalhada do país para esse pilar específico.
 
-**Figura 6:** Página de detalhe de um país - separador "Pilares".
+#### 3.3.2 Desembolsos
 
-#### 3.3.2 Separador "Pilares"
+![DesembolsosPortugal](imagens-fase1/image-13.png)
+
+**Figura 6:** Captura de ecrã da secção de Desembolsos.
+
+Através da página de detalhes de um país é possível aceder ao seu total desembolsado. Esta paǵina apresenta o histórico detalhado dos pagamentos transferidos pela União Europeia e a lista das entidades que receberam os maiores montantes. O cabeçalho identifica visualmente o país em contexto, com a respetiva bandeira e nome.
+
+A tabela **100 Maiores Beneficiários** lista as entidades por montante recebido, projeto associado e pilar estratégico correspondente. Cada pilar
+é identificado por uma *tag* colorida (ex: verde para Transição Ecológica, azul para Transformação Digital), permitindo uma leitura rápida da
+distribuição sectorial dos fundos. Para não sobrecarregar visualmente a página, apenas um subconjunto de entradas é apresentado inicialmente; ao
+clicar em "Ver Mais", a tabela expande para mostrar todos os beneficiários, com a possibilidade de filtrar por pilar estratégico. Esta decisão de design
+respeita o princípio de apresentação progressiva da informação, evitando a sobrecarga cognitiva. 
+
+A opção de exportação permite à **Helena** obter os dados em formato editável para análise externa, e ao **Marco** utilizar
+a informação em apresentações de pitch.
+
+Abaixo, a tabela **Cronologia de Recebimentos** apresenta o histórico cronológico dos pagamentos recebidos pelo país, com as colunas Data,
+Montante, Tipo (Subvenção ou Empréstimo, distinguidos por *tags* de cor diferente) e Descrição. 
+
+Esta linha temporal de pagamentos permite à **Helena** verificar o ritmo de desembolso e cruzar as datas com os marcos
+cumpridos, e à **Clara** compreender se os fundos prometidos estão efetivamente a ser transferidos.
+
+
+#### 3.3.3 Separador "Pilares"
+
+
+![OpçõesPilares](imagens-fase1/image-5.png)
+
+**Figura 7:** Página de detalhe de um país - opções "Pilares".
+
+
+![Mostrar](imagens-fase1/image-7.png)
+
+**Figura 8:** Página de detalhe de um país - separador "Pilares".
 
 O utilizador dispõe sempre de um botão "Mostrar Pilares" que expande ou recolhe um painel de seleção, permitindo-lhe trocar de pilar a qualquer momento sem perder o contexto da página. Esta decisão de design evita que o utilizador tenha de navegar para trás para mudar de pilar, reduzindo a fricção na exploração comparativa entre pilares, respondendo diretamente às necessidades do **Marco Rossi**, que pretende identificar em quais áreas dos diferentes pilares deve expandir a sua empresa, e da **Helena**, que
 necessita de acesso rápido a metas específicas por setor.
@@ -243,7 +294,10 @@ Cada pilar é representado como um *card* clicável com ícone e nome.
 
 A figura seguinte mostra a vista de seleção de pilares:
 
-**Figura 7:** Informação detalhada do pilar selecionado, exemplificada com o pilar de Transição Ecológica para Portugal.
+
+![TransiçãoEcológica](imagens-fase1/image-8.png)
+
+**Figura 9:** Informação detalhada do pilar selecionado, exemplificada com o pilar de Transição Ecológica para Portugal.
 
 Após a seleção de um pilar, a página organiza-se em duas zonas principais.
 
@@ -281,7 +335,6 @@ Biodiversidade (2,1%) e Transição para a Economia Circular (0,8%).
 - **Marcos por Tipo de Medida**: um gráfico de barras verticais separa os 204 marcos totais entre investimentos (175) e reformas (29), permitindo
 ao **Marco Rossi** avaliar rapidamente a natureza das medidas em curso e a sua relevância para decisões de expansão empresarial.
 
-**Figura 8:** Página global do pilar, acessível ao clicar no *badge* de posicionamento no ranking (ex: "1.º lugar no ranking da UE").
 
 Ao clicar no *badge* de posicionamento apresentado na página de detalhe do país, o utilizador é redirecionado para a página global do pilar, que agrega
 a informação de todos os Estados-Membros numa visão comparativa europeia.
@@ -300,6 +353,19 @@ entrada:
   a escolha caso pretenda substituir um dos países. Não é possível selecionar
   o mesmo país duas vezes, prevenindo comparações inválidas.
 
+
+![Comparar](imagens-fase1/image-14.png)
+
+**Figura 10:** Captura de ecrã do menu de seleção de país para comparação.
+
+![SeleçãoPaís1](imagens-fase1/image-15.png)
+
+**Figura 11:** Um país selecionado.
+
+![ErroPaís2](imagens-fase1/image-16.png)
+
+**Figura 12:** Erro no país selecionado.
+
 - **A partir da página de detalhe de um país**: o país atualmente visualizado
   surge pré-selecionado e fixo, não podendo ser removido. O utilizador apenas
   necessita de escolher um segundo país através do campo de pesquisa,
@@ -308,7 +374,15 @@ entrada:
   recordação, uma vez que o utilizador não precisa de se lembrar do país que
   estava a consultar.
 
+![JáSelecionado](imagens-fase1/image-18.png)
+
+**Figura 13:** País já selecionado.
+
 Em ambos os casos, o botão "Comparar" só aparece quando dois países distintos estão selecionados, caso contrário, não aparece.
+
+**Figura 14:** Botão Comparar.
+
+![BotaoComparar](imagens-fase1/image-17.png)
 
 Este mecanismo de prevenção de erros evita que o utilizador inicie uma comparação incompleta.
 
@@ -316,7 +390,10 @@ Importa ainda referir que o campo de pesquisa, ao ser clicado, apresenta uma lis
 Estados-Membros da UE, facilitando a seleção mesmo quando o utilizador não se recorda do nome exato de todos os países disponíveis. A lista é
 progressivamente filtrada à medida que o utilizador digita, combinando assim a conveniência do reconhecimento visual com a eficiência da pesquisa por texto.
 
-**Figura 8:** Vista de comparação lado a lado entre dois países.
+
+![Comparar](imagens-fase1/image-9.png)
+
+**Figura 15:** Vista de comparação lado a lado entre dois países.
 
 A vista de comparação organiza-se em três separadores: **Sumário**, **Pilares** e **Indicadores**, permitindo ao utilizador navegar entre
 diferentes níveis de detalhe sem abandonar o contexto de comparação.
@@ -342,7 +419,17 @@ Os *badges* de posicionamento no ranking surgem junto ao nome de cada país, e o
 A secção "Execução" é acessível através do menu de navegação principal e disponibiliza três subsecções: **Visão Geral**, **Metas e Marcos**, 
 **Desembolsos**.
 
+
+![OpçõesExecução](imagens-fase1/image-10.png)
+
+**Figura 16:** Opções de escolha.
+
 #### 3.5.1 Visão Geral de Execução
+
+
+![VisãoGeral](imagens-fase1/image-11.png)
+
+**Figura 17:** Captura de ecrã da página Visão Geral de Execução.
 
 A página de Visão Geral agrega os dados de execução de todos os Estados-Membros numa única vista panorâmica. 
 
@@ -365,6 +452,10 @@ O botão "Ver tudo" permite expandir a tabela para consultar todos os Estados-Me
 
 #### 3.5.2 Metas e Marcos
 
+![Metas](imagens-fase1/image-12.png)
+
+**Figura 18:** Captura de ecrã da página Metas e Marcos.
+
 A página de Metas e Marcos é introduzida por um cabeçalho com fundo escuro que contextualiza o seu propósito: apresentar o progresso na implementação
 dos compromissos definidos nos Planos de Recuperação e Resiliência dos Estados-Membros.
 
@@ -379,25 +470,8 @@ horizontais e um gráfico de anel que indica a percentage, de conclusão global.
 A introdução da categoria "Suspensos", ausente nas vistas de detalhe por país, acrescenta uma camada de detalhe relevante para utilizadores que monitorizam
 bloqueios ou atrasos no processo de execução.
 
-#### 3.5.3 Desembolsos
+Por fim, a secção inferior apresenta uma tabela detalhada com o nome do país, a descrição do objetivo e o tipo de medida. Cada linha inclui um elemento de expansão (seta), sugerindo a existência de níveis mais profundos de informação sem sobrecarregar a vista inicial.
 
-A página de Desembolsos apresenta, para cada país, um histórico detalhado dos pagamentos transferidos pela União Europeia e a lista das entidades que
-receberam os maiores montantes. O cabeçalho identifica visualmente o país em contexto, com a respetiva bandeira e nome.
-
-A tabela **100 Maiores Beneficiários** lista as entidades por montante recebido, projeto associado e pilar estratégico correspondente. Cada pilar
-é identificado por uma *tag* colorida (ex: verde para Transição Ecológica, azul para Transformação Digital), permitindo uma leitura rápida da
-distribuição sectorial dos fundos. Para não sobrecarregar visualmente a página, apenas um subconjunto de entradas é apresentado inicialmente; ao
-clicar em "Ver Mais", a tabela expande para mostrar todos os beneficiários, com a possibilidade de filtrar por pilar estratégico. Esta decisão de design
-respeita o princípio de apresentação progressiva da informação, evitando a sobrecarga cognitiva. 
-
-A opção de exportação permite à **Helena** obter os dados em formato editável para análise externa, e ao **Marco** utilizar
-a informação em apresentações de pitch.
-
-Abaixo, a tabela **Cronologia de Recebimentos** apresenta o histórico cronológico dos pagamentos recebidos pelo país, com as colunas Data,
-Montante, Tipo (Subvenção ou Empréstimo, distinguidos por *tags* de cor diferente) e Descrição. 
-
-Esta linha temporal de pagamentos permite à **Helena** verificar o ritmo de desembolso e cruzar as datas com os marcos
-cumpridos, e à **Clara** compreender se os fundos prometidos estão efetivamente a ser transferidos.
 
 ### 3.6 Página "Indicadores"
 
@@ -407,7 +481,10 @@ por todos os Estados-Membros da União Europeia.
 O cabeçalho da página, com fundo azul escuro, contextualiza o propósito da secção. Esta contextualização é especialmente importante para o perfil 
 da **Clara Mendes**, que beneficia de uma introdução clara antes de ser exposta aos dados quantitativos.
 
-**Figura 9:** Captura de ecrã da página "Indicadores Comuns".
+
+![Indicadores](imagens-fase1/image-19.png)
+
+**Figura 19:** Captura de ecrã da página "Indicadores Comuns".
 
 Imediatamente abaixo do cabeçalho, são apresentados os primeiros cartões de indicadores, cada um identificado pelo número e nome do indicador, acompanhado de ícones representativos e do valor agregado europeu (por exemplo: o Indicador 1: Poupança no consumo anual de energia primária, apresenta o valor total de 37 568 052 MWh/Ano). 
 
@@ -417,7 +494,10 @@ No topo da página de detalhe de cada indicador, um botão "Mostrar Indicadores"
 
 À direita deste botão, uma barra de destaque apresenta o valor agregado do indicador atualmente selecionado (ex: "Total de poupança 37 568 052 (MWh/Ano)"), garantindo que o contexto quantitativo global está sempre visível.
 
-**Figura 10:** Vista de detalhe do Indicador Comum 1 - Poupança no Consumo Anual de Energia Primária.
+
+![Indicador1](imagens-fase1/image-20.png)
+
+**Figura 20:** Vista de detalhe do Indicador Comum 1 - Poupança no Consumo Anual de Energia Primária.
 
 A página de detalhe de cada indicador organiza-se em três blocos principais:
 - No topo, um cartão descritivo contextualiza o indicador com linguagem acessível. Esta descrição, como já foi mencionada, serve diretamente o perfil da **Clara**, que necessita de linguagem clara e de compreender o impacto concreto no quotidiano.
@@ -430,27 +510,38 @@ Esta transparência metodológica é fundamental para a **Helena Vasconcelos**, 
 
 A página "Pilares" é acessível tanto através da barra de navegação principal como através do badge de posicionamento no ranking presente na página de detalhe de cada país. Esta página agrega a informação de todos os Estados-Membros numa visão comparativa europeia para o pilar selecionado.
 
-**Figura 11:** Captura de ecrã da grelha de seleção de pilares.
+
+![Pilares](imagens-fase1/image-21.png)
+
+**Figura 21:** Captura de ecrã da grelha de seleção de pilares.
 
 A entrada na página apresenta uma grelha de seis cards clicáveis, cada um representando um pilar temático do PRR. 
 
 Esta estrutura serve todos os perfis de utilizador: a Helena acede diretamente ao pilar de interesse para a sua análise, o Marco navega para Transição Ecológica ou Transformação Digital em função dos seus objetivos de negócio, a Clara pode explorar o pilar de Políticas para a Próxima Geração para comparar investimentos em educação.
 
-**Figura 12:** Vista de detalhe do pilar Transição Ecológica - métricas globais e descrição.
+
+![TransiçãoEcológica](imagens-fase1/image-22.png)
+
+**Figura 22:** Vista de detalhe do pilar Transição Ecológica - métricas globais e descrição.
 
 Após selecionar um pilar, a página organiza-se em duas zonas:
 - No topo, um botão "Mostrar Pilares" permite ao utilizador trocar de pilar a qualquer momento sem perder o contexto da análise. Abaixo, um cartão descritivo contextualiza o pilar selecionado, no caso da Transição Ecológica.
 -De seguida, três cartões de destaque apresentam as métricas agregadas a nível europeu para o pilar selecionado. 
 Esta visão macro permite que o Marco Rossi contextualize rapidamente o estado geral do pilar à escala europeia antes de aprofundar a análise por país.
 
-
-**Figura 13:** Tabela de Liderança dos Estados-Membros para o pilar selecionado.
-
 A secção principal da página é a Tabela de Liderança, que apresenta os Estados-Membros ordenados pelo volume total de investimento alocado ao pilar, com as colunas País (com bandeira), Total de Investimento e Execução. 
 
 ### 3.8 Histórico de Revisões de Planos
 
-A página de Histórico de Revisões é acessível através da Página de Lista de Países, funcionando como uma vista especializada para análise de logs e transparência administrativa. 
+A página de Histórico de Revisões é acessível pela Página de Lista de Países através do botão 'Histórico', funcionando como uma vista especializada para análise de logs e transparência administrativa. 
+
+![BotãoHistórico](imagens-fase1/image-23.png)
+
+**Figura 23:** Botão Histórico.
+
+![Histórico](imagens-fase1/image-24.png)
+
+**Figura 24:** Captura de ecrã da paǵina Histórico.
 
 Esta transição de contexto é sinalizada por um botão, mantendo a consistência visual com o restante dashboard. 
 
@@ -476,7 +567,11 @@ Esta funcionalidade é essencial para o perfil do **Marco Rossi**, que pode quer
 O rodapé da interface, embora a navegação principal esteja sempre acessível através da *navbar* fixa no topo, cumpre um conjunto de funções
 complementares que justificam a sua presença.
 
-**Figura 14:** Rodapé.
+
+![Rodapé](imagens-fase1/image-25.png)
+
+**Figura 25:** Rodapé.
+
 
 À esquerda, replica as ligações para as secções principais da aplicação (Início, Países, Execução, Indicadores e Pilares). Embora redundante face
 à *navbar*, esta repetição é uma convenção estabelecida na web que os utilizadores reconhecem e esperam, especialmente após percorrerem uma
