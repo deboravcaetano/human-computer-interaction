@@ -1,13 +1,14 @@
 <script setup lang="ts">
-  import InfoCard from './components/InfoCard.vue'
+import { RouterView } from 'vue-router'
+import NavBar from '@/components/NavBar.vue'
 </script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <main>
+    <NavBar />
+    <RouterView />
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>
