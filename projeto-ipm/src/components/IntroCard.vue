@@ -27,6 +27,9 @@
         <div class="intro-card-content"> 
             <h2 class="title">{{ title }}</h2>
             <p class="description">{{ description }}</p>
+            <div class="extra-content">
+                <slot class="all-flags"/>
+            </div>
         </div>
     </div>
 </template>
@@ -42,6 +45,7 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
+        padding-top: 130px;
     }
 
     .description {
@@ -55,13 +59,17 @@
 
     .title {
         font-family: var(--font-secondary);
-        font-size: 28px;
+        font-size: 30px;
         font-weight: bold;
         color: var(--bg-yellow);
         padding-left: 25px;
-        padding-top: 130px;
+        padding-top: 0;
         max-width: 600px;
         line-height: 0.9;
     }
 
+    .extra-content {
+        margin-top: 80px;
+        margin-left: -16px;
+    }
 </style>
