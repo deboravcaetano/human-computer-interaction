@@ -1,0 +1,41 @@
+:root {
+    /* Backgrounds Colors */
+    --bg-blue-dark: #101d42;
+    --bg-blue: #16307d;   
+    --bg-blue-light: #405286;
+    --bg-yellow: #fdca40;
+    --bg-gray: #f0f0f0;
+
+    /* Text Colors */
+    --text-white: #ffffff;
+    --text-black: #000000;
+    --text-blue-dark: #101d42;
+    --text-blue-neon: #0B85FF;
+    --text-gray: #7e7e7e;
+    --text-gray-dark: #3c3c3c;
+    --text-yellow: #fdca40;
+
+    /* Status Colors */
+    --status-aprovado: #008D00;
+    --status-aprovado-bg: #51FF57;
+    --status-recusado: #A17500;
+    --status-recusado-bg: #FFCD47;
+    --status-pendente: #FF2F2F;
+    --status-pendente-bg: #FF4141;
+
+    /* Special */
+    --dark-green: #56c473;
+    --light-green: #5CFF74;
+    --dark-blue: #729EFD;
+    --light-blue: #C8D9FF;
+    --dark-red: #FF7070;
+    --light-red: #FF6161;
+    --dark-yellow: #FFCD47;
+    --light-yellow: #FFEFC3;
+    --dark-purple: #AD259F;
+    --light-purple: #E26DFF;
+
+    /* Fonts */
+    --font-primary: 'Inter', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+}
