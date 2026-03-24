@@ -61,6 +61,7 @@
         padding-left: 25px;
         padding-top: 130px;
         max-width: 600px;
+        line-height: 0.9;
     }
 
 </style>
