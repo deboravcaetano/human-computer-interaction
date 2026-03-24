@@ -53,7 +53,7 @@
         font-size: 17px;
         color: white;
         padding-left: 25px;
-        max-width: 600px;
+        max-width: 1200px;
         padding-top: 7px;
     }
 
@@ -72,4 +72,5 @@
         margin-top: 80px;
         margin-left: -16px;
     }
+    
 </style>
