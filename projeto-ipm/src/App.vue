@@ -10,5 +10,9 @@ import NavBar from '@/components/NavBar.vue'
   </main>
 </template>
 
-<style scoped>
+<style>
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+}
 </style>

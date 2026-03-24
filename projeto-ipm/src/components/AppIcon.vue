@@ -57,18 +57,18 @@ export default {
 
 .bar {
   width: 10px;
-  background-color: #ececec;
+  background-color: #EFEFEF;
 }
 
 .flag-card {
   position: absolute;
   bottom: 0;       
-  right: 0;        
+  margin-left: 44px;        
   z-index: 2;
   width: 90px;
   height: 60px;
   background-color: #003399;
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   display: flex;

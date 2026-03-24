@@ -9,19 +9,21 @@ const menuItems = router.options.routes.filter(route => route.name)
 <template>
     <nav class="navbar-container">
         <div class="top-section">
-            <AppIcon class="main-logo" />
+            <router-link to="/">
+                <AppIcon class="main-logo" />
+            </router-link>
         </div>
 
         <div class="nav-bar">
             <div class="nav-items">
                 <router-link 
-                    v-for="route in menuItems" 
-                    :key="route.path"
-                    :to="route.path"
+                    v-for="page in menuItems" 
+                    :key="page.path"
+                    :to="page.path"
                     class="nav-link"
                     exact-active-class="active"
                 >
-                    {{ route.name }}
+                    {{ page.name }}
                 </router-link>
             </div>
         </div>
@@ -37,7 +39,7 @@ const menuItems = router.options.routes.filter(route => route.name)
     }
 
     .top-section {
-        height: 80px;
+        height: 85px;
         background-color: rgb(255, 255, 255);
         width: 100%;
         position: relative;
@@ -46,13 +48,13 @@ const menuItems = router.options.routes.filter(route => route.name)
 
     .main-logo {
         position: absolute;
-        bottom: -40px; 
+        bottom: -35px; 
         z-index: 10;
     }
 
     .nav-bar {
-        background-color: #06104B;
-        height: 40px;
+        background-color: var(--bg-blue-dark);
+        height: 35px;
         width: 100%;
         display: flex;
         align-items: center;
@@ -69,7 +71,7 @@ const menuItems = router.options.routes.filter(route => route.name)
         height: 100%;
         display: flex;
         align-items: center;
-        padding: 0 24px;
+        padding: 0 35px;
         color: white;
         text-decoration: none;
         font-size: 16px;
@@ -78,10 +80,10 @@ const menuItems = router.options.routes.filter(route => route.name)
     }
 
     .nav-link:hover {
-        background-color: #1a2b6d;
+        background-color: var(--bg-blue);
     }
 
     .active {
-        background-color: #41548F !important;
+        background-color: var(--bg-blue-light) !important;
     }
 </style>
