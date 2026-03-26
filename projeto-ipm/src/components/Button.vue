@@ -4,6 +4,7 @@
   const props = withDefaults(
     defineProps<{
       text?: string
+      textsize?: string
       color?: ColorVariant
       disabled?: boolean
       icon?: boolean
@@ -11,6 +12,7 @@
     }>(),
     {
       text: 'Button',
+      textsize: '1.1rem',
       color: 'primary',
       disabled: false,
       icon: false,
@@ -31,6 +33,7 @@
 <template>
   <button
     :class="['btn', `btn--${color}`, { 'btn--disabled': disabled }]"
+    :style="{ '--btn-text-size': textsize }"
     type="button"
     :disabled="disabled"
     @click="onClick"
@@ -45,11 +48,11 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.56rem 0.95rem;
+    padding: 0.36rem 0.75rem;
     border: 1px solid;
     border-radius: 8px;
     font-family: var(--font-primary);
-    font-size: 1.1rem;
+    font-size: var(--btn-text-size);
     font-weight: 600;
     cursor: pointer;
     transition: filter 160ms ease, transform 160ms ease;
@@ -58,7 +61,7 @@
   /* Primary color */
   .btn--primary {
     border-color: var(--bg-blue-dark);
-    background: linear-gradient(180deg, var(--bg-blue) 0%, var(--bg-blue-dark) 100%);
+    background: var(--bg-blue);
     color: var(--text-white);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset;
   }
