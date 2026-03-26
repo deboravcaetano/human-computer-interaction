@@ -18,7 +18,7 @@ const goTo = (path: string) => {
 	<footer class="footer">
 		<div class="footer__header">
 			<div class="footer__brand">
-				<AppIcon class="footer__logo" />
+				<AppIcon class="footer__logo" backgroundColor="var(--bg-blue-dark)" />
 				<div class="footer__brand-text">
 					<span class="footer__title">Monitorização do Plano <br>de Recuperação e Resiliência</br></span>
 				</div>

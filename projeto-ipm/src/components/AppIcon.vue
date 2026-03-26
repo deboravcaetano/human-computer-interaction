@@ -2,6 +2,12 @@
 import europeFlag from '@/assets/europe-flag.svg';
 export default {
   name: 'AppLogo',
+  props: {
+    backgroundColor: {
+      type: String,
+      default: 'white',
+    },
+  },
   data() {
     return {
       flagSrc: europeFlag
@@ -11,7 +17,7 @@ export default {
 </script>
 
 <template>
-  <div class="logo-container">
+  <div class="logo-container" :style="{ backgroundColor }">
     <div class="background-bars">
       <div class="bar" style="height: 70%;"></div>
       <div class="bar" style="height: 60%;"></div>
@@ -40,7 +46,6 @@ export default {
   height: 100px;
   display: flex;
   align-items: flex-end; 
-  background-color: white;
 }
 
 .background-bars {
