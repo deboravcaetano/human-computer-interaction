@@ -33,14 +33,16 @@ const getImagePath = (name: string) => {
         align-items: center;
         gap: 5px;
         width: 100%;
+        overflow: hidden; 
+        position: relative; 
     }
 
     .flag-icon {
         height: 32px;
         width: auto;
-        opacity: 0.25;
-        transition: opacity 0.3s ease;
+        opacity: 0.13;
         filter: grayscale(10);
+        transition: opacity 0.3s ease;
+        flex-shrink: 0; 
     }
-
 </style>
