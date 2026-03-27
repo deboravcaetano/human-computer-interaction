@@ -12,6 +12,10 @@ const goTo = (path: string) => {
 	if (!path) return
 	router.push(path)
 }
+
+import questionIcon from '@/assets/Question.svg';
+import downloadIcon from '@/assets/Download.svg';
+
 </script>
 
 <template>
@@ -51,8 +55,8 @@ const goTo = (path: string) => {
 
 			<section class="footer__right">
 				<div class="footer__actions">
-					<Button text="FAQ" color="primary" textsize="12px" icon iconPath="/images/icons/Question.svg" />
-					<Button text="Exportar" color="primary" textsize="12px" icon iconPath="/images/icons/Download.svg" />
+					<Button text="FAQ" color="primary" textsize="12px" :icon="true" :iconPath="questionIcon" />
+					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" />
 				</div>
 
 				<p class="footer__updated">Dados atualizados em: 08/03/2026</p>
@@ -110,8 +114,9 @@ const goTo = (path: string) => {
 }
 
 .footer__logo {
-	transform: scale(0.8);
-	transform-origin: right bottom;
+	transform: scale(0.55);
+	transform-origin: left bottom;
+	margin: 0.1rem 0 0.5rem;
 }
 
 .footer__brand-text {
@@ -125,7 +130,8 @@ const goTo = (path: string) => {
 .footer__title {
 	font-weight: 600;
 	line-height: 1.1;
-	margin: 0.1rem 0.5rem 0.5rem;
+	margin: 0.1rem -1.9rem 0.5rem;
+	
 }
 
 .footer__subtitle {
