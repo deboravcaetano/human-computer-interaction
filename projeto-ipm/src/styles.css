@@ -18,11 +18,11 @@
 
     /* Status Colors */
     --status-aprovado: #008D00;
-    --status-aprovado-bg: #51FF57;
-    --status-recusado: #A17500;
-    --status-recusado-bg: #FFCD47;
-    --status-pendente: #FF2F2F;
-    --status-pendente-bg: #FF4141;
+    --status-aprovado-bg: #51ff5747;
+    --status-recusado: #FF2F2F;
+    --status-recusado-bg: #ff414140;
+    --status-pendente: #A17500;
+    --status-pendente-bg: #ffce47b5;
 
     /* Special */
     --dark-green: #56c473;
