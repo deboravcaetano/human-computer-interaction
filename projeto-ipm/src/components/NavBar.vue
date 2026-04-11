@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router'
 import AppIcon from './AppIcon.vue' 
 
 const router = useRouter()
-const menuItems = router.options.routes.filter(route => route.name)
+const menuItems = router.getRoutes().filter(route => !route.meta.hideInNavbar);
 
 const isMenuOpen = ref(false)
 

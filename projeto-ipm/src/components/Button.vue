@@ -50,7 +50,7 @@
     gap: 0.5rem;
     padding: 0.36rem 0.75rem;
     border: 1px solid;
-    border-radius: 8px;
+    border-radius: 5px;
     font-family: var(--font-primary);
     font-size: var(--btn-text-size);
     font-weight: 600;

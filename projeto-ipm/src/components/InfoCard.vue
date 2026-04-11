@@ -17,6 +17,14 @@
             width: {
                 type: String,
                 default: '100%'
+            },
+            backgroundColor: {
+            type: String,
+            default: '#fafafa' 
+            },
+            borderColor: {
+                type: String,
+                default: '#e4e4e4'
             }
         }
     }
@@ -37,11 +45,12 @@
         width: v-bind(width);
         box-sizing: border-box;
         overflow: hidden;
-        background-color: #fafafa;
-        border: 1px solid #e4e4e4;
+        background-color: v-bind(backgroundColor);
+        border: 1px solid v-bind(borderColor);
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.18);
         border-radius: 12px;
-        padding: 16px;
+        padding-left: 23px;
+        margin-top: -13px;
     }
 
     .info-card-content {

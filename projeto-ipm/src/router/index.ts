@@ -5,6 +5,7 @@ import PaisesView from '@/views/PaisesView.vue'
 import ExecucaoView from '@/views/ExecucaoView.vue'
 import IndicadoresView from '@/views/IndicadoresView.vue'
 import PilaresView from '@/views/PilaresView.vue'
+import HistoricoView from '@/views/HistoricoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), 
@@ -33,6 +34,12 @@ const router = createRouter({
       path: '/pilares',
       name: 'Pilares',
       component: PilaresView,
+    },
+    {
+      path: '/paises/historico',
+      name: 'Histórico',
+      component: HistoricoView,
+      meta: { hideInNavbar: true }
     }
   ],
 })
