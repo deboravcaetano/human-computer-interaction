@@ -2,10 +2,27 @@
 import IntroCard from '@/components/IntroCard.vue';
 import AllFlags from '@/components/AllFlags.vue';
 import Top3Cards from '@/components/Top3Cards.vue';
+import InfoCard from '@/components/InfoCard.vue';
 
 
 const title = "Monitorização do Mecanismo de Recuperação e Resiliência";
 const description = "Explore como cada Estado-Membro está a cumprir os seus marcos e metas para garantir um futuro resiliente.";
+
+/* dados temporários, API não vem nunca :( */
+const InfoData = {
+  FundosAlocados : {
+    title: "Total de fundos alocados",
+    description: "$637 Mil Milhões"
+  },
+  ExecucaoEuropeia : {
+    title: "Execução Europeia",
+    description: "18%"
+  },
+  BeneficiariosProjetos : {
+    title: "Beneficiários/Projetos",
+    description: "120"
+  }
+}
 </script>
 
 <template>
@@ -18,6 +35,14 @@ const description = "Explore como cada Estado-Membro está a cumprir os seus mar
     >
       <AllFlags />
     </IntroCard>
+    <div class="info-cards-container">
+      <InfoCard
+        v-for="info in InfoData" :key="info.title"
+        :title="info.title"
+        :description="info.description"
+        width="400px"
+      />
+    </div>
     <section class="top3-section">
           <div class="top3-container">
             <div class="top3-header">
@@ -55,6 +80,16 @@ const description = "Explore como cada Estado-Membro está a cumprir os seus mar
 
 
 <style scoped>
+.info-cards-container {
+  display: flex;
+  justify-content: center; 
+  gap: 200px;
+  padding: 40px 0;
+  margin-top: -55px;
+  position: relative;
+  z-index: 2;
+}
+
 .top3-section {
   display: flex;
   justify-content: center; 
