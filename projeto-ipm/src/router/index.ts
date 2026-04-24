@@ -32,16 +32,19 @@ const router = createRouter({
       path: '/execucao/visao-geral',
       name: 'Execução - Visão Geral',
       component: ExecucaoVisaoGeralView,
+      meta: { hideInNavbar: true }
     },
     {
       path: '/execucao/metas-marcos',
       name: 'Execução - Metas e Marcos',
       component: ExecucaoMetasMarcosView,
+      meta: { hideInNavbar: true }
     },
     {
       path: '/execucao/desembolsos',
       name: 'Execução - Desembolsos',
       component: ExecucaoDesembolsosView,
+      meta: { hideInNavbar: true }
     },
     {
       path: '/indicadores',

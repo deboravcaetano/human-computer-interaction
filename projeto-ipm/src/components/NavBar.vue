@@ -13,7 +13,7 @@ const isExecucaoDropdownOpen = ref(false)
 const isExecucaoHovered = ref(false)
 const navRef = ref<HTMLElement | null>(null)
 
-const isExecucaoActive = computed(() => route.path === '/execucao')
+const isExecucaoActive = computed(() => route.path.startsWith('/execucao'))
 const isExecucaoDropdownVisible = computed(() => isExecucaoDropdownOpen.value || isExecucaoHovered.value)
 
 const toggleMenu = () => {
