@@ -5,6 +5,7 @@ import AppIcon from './AppIcon.vue'
 import DropdownMenu from './DropdownMenu.vue'
 
 const router = useRouter()
+const route = useRoute()
 const menuItems = router.getRoutes().filter(route => !route.meta.hideInNavbar);
 
 const isMenuOpen = ref(false)
