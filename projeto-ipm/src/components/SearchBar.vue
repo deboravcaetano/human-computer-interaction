@@ -17,7 +17,11 @@ const props = defineProps({
 });
 
 const searchQuery = ref('');
-defineEmits(['search']);
+const emit = defineEmits(['search']);
+
+const onInput = () => {
+  emit('search', searchQuery.value);
+};
 
 </script>
 
@@ -34,7 +38,7 @@ defineEmits(['search']);
       v-model="searchQuery"
       :placeholder="props.placeholder"
       :style="{ height: props.height }"
-      @input="$emit('search', searchQuery)"
+      @input="onInput"
       class="search-input"
     />
   </div>
