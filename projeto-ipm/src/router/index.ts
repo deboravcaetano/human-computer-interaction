@@ -9,6 +9,7 @@ import ExecucaoDesembolsosView from '@/views/ExecucaoDesembolsosView.vue'
 import IndicadoresView from '@/views/IndicadoresView.vue'
 import PilaresView from '@/views/PilaresView.vue'
 import HistoricoView from '@/views/HistoricoView.vue'
+import Faq from '@/views/FaqView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), 
@@ -61,6 +62,12 @@ const router = createRouter({
       name: 'Histórico',
       component: HistoricoView,
       meta: { hideInNavbar: true }
+    },
+    {
+    path: '/faq',
+    name: 'FAQ',
+    component: Faq,
+    meta: { hideInNavbar: true}
     }
   ],
 })

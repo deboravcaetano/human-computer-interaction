@@ -6,7 +6,9 @@ import AppIcon from './AppIcon.vue'
 
 const router = useRouter()
 
-const menuItems = computed(() => router.options.routes.filter(route => route.name))
+const menuItems = computed(() => 
+    router.options.routes.filter(route => route.name && !route.meta?.hideInNavbar)
+)
 
 const goTo = (path: string) => {
 	if (!path) return
@@ -55,7 +57,14 @@ import downloadIcon from '@/assets/Download.svg';
 
 			<section class="footer__right">
 				<div class="footer__actions">
-					<Button text="FAQ" color="primary" textsize="12px" :icon="true" :iconPath="questionIcon" />
+					<Button 
+					text="FAQ" 
+					color="primary" 
+					textsize="12px" 
+					:icon="true" 
+					:iconPath="questionIcon" 
+					@click="goTo('/faq')"
+					/>
 					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" />
 				</div>
 
