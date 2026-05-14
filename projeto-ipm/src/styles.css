@@ -38,6 +38,12 @@
     --dark-purple: #AD259F;
     --light-purple: #E26DFF;
 
+    /* Graph Colors */
+    --graph-progress-track: #bdc7db;
+    --graph-progress-fill: #1d4ed8;
+    --graph-half-primary: #1a2a4a;
+    --graph-half-secondary: #b8c8dc;
+
     /* Fonts */
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Roboto', sans-serif;

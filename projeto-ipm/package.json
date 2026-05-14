@@ -11,7 +11,9 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
-    "vue": "beta"
+    "chart.js": "^4.5.1",
+    "vue": "beta",
+    "vue-chartjs": "^5.3.3"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
