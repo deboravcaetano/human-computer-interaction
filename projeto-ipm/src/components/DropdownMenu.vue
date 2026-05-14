@@ -10,7 +10,7 @@
 	const router = useRouter()
 
 	const menuItems: MenuItem[] = [
-		{ label: 'Visao Geral', icon: 'eye', to: '/execucao/visao-geral' },
+		{ label: 'Visão Geral', icon: 'eye', to: '/execucao/visao-geral' },
 		{ label: 'Metas e Marcos', icon: 'flag', to: '/execucao/metas-marcos' },
 		{ label: 'Desembolsos', icon: 'money', to: '/execucao/desembolsos' }
 	]

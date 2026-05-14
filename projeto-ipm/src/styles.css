@@ -48,3 +48,7 @@
     --font-primary: 'Inter', sans-serif;
     --font-secondary: 'Roboto', sans-serif;
 }
+
+html, body {
+  overflow-x: hidden;
+}

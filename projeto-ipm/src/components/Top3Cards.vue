@@ -44,63 +44,120 @@ export default {
 
 <style scoped>
 .card-container {
-    background-color: var(--bg-blue-dark);
-    border-radius: 10px;
+  background-color: var(--bg-blue-dark, #1a365d);
+  border-radius: 12px;
+  padding: 24px;
+  width: 360px;
+  min-height: 220px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .card-container {
+    width: 340px;
     padding: 20px;
-    width: 400px; 
-    height: 234px;
-    color: white;
-    font-family: sans-serif;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .card-container {
+    width: 320px;
+    min-height: 200px;
+  }
+  
+  .card-header {
+    padding: 10px 16px;
+  }
+  
+  .flag {
+    width: 40px;
+    height: 28px;
+  }
+  
+  .country-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    width: 100%;
+    max-width: 340px;
+    padding: 20px;
+  }
+  
+  .flag {
+    width: 36px;
+    height: 24px;
+    margin-right: 12px;
+  }
+  
+  .country-title {
+    font-size: 1rem;
+  }
+  
+  .value {
+    font-size: 1rem;
+  }
 }
 
 .card-header {
-    background-color: #283C74;
-    display: flex;
-    align-items: center;
-    width: 370px;           
-    height: 38px;          
-    
-    padding: 0 10px;      
-    border-radius: 5px;
-    margin-bottom: 40px;   
-    box-sizing: border-box; /* Garante que o padding não aumente o width/height */
+  background-color: #283C74;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  box-sizing: border-box;
 }
 
 .flag {
-    width: 67px;           
-    height: 45px;           
-    margin-right: 15px;
-    border-radius: 2px;
+  width: 48px;
+  height: 32px;
+  margin-right: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .country-title {
-    color: var(--bg-yellow); 
-    font-size: 1.3rem;     
-    margin-left: 30px;
-    font-weight: bold;
+  color: var(--bg-yellow, #FFD700); 
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .data-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .label {
-    color: #0B85FF; 
-    font-weight: bold;
+  color: #0B85FF; 
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .value {
-    color: #0B85FF;
-    font-weight: bold;
-    font-size: 1rem;
+  color: #0B85FF;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 </style>

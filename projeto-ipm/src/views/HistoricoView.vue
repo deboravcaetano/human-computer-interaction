@@ -19,7 +19,6 @@ const title = "Histórico de Revisões da União Europeia";
 const description = "Este painel permite acompanhar as alterações oficiais nos Planos de Recuperação e Resiliência, garantindo a transparência e a responsabilidade na execução dos fundos."
 </script>
 
-
 <template>
     <div>
         <IntroCard
@@ -88,28 +87,110 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
     </div>
 </template>
 
-
-
 <style scoped>
 .info-cards {
   display: flex;
   flex-direction: row;
-  justify-content: center; 
-  gap: 180px;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 20px;
+  margin-top: -60px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
-.buttons{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 100px auto 0 auto;
-    width: 82%;
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 60px auto 0;
+  gap: 20px;
 }
 
 .left-buttons {
   display: flex;
-  gap: 15px;
+  gap: 16px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
+.right-buttons {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .info-cards {
+    margin-top: -50px;
+    gap: 20px;
+    padding: 30px 16px;
+  }
+  
+  .buttons {
+    padding: 0 20px;
+  }
+  
+  .left-buttons {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-cards {
+    margin-top: -45px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .buttons {
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    gap: 16px;
+    padding: 0 16px;
+    margin-top: 40px;
+  }
+  
+  .left-buttons {
+    gap: 12px;
+    flex: 1;
+    justify-content: flex-start; 
+  }
+  
+  .right-buttons {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-cards {
+    margin-top: -30px;
+    padding: 20px 16px;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 16px;
+    padding: 0 16px;
+  }
+  
+  .left-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: flex-start; 
+  }
+  
+  .right-buttons {
+    width: 100%;
+  }
+}
 </style>

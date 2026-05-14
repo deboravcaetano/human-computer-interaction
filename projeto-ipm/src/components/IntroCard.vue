@@ -35,10 +35,12 @@
 </template>
 
 <style scoped>
-    .intro-card{
+
+    .intro-card {
         background-color: var(--bg-blue);
-        padding: 16px;        
-        min-height: 120px; 
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
     .intro-card-content{
@@ -69,8 +71,9 @@
     }
 
     .extra-content {
-        margin-top: 80px;
-        margin-left: -16px;
+        width: 100%;
+        overflow: hidden;
+        margin-bottom: -200px;
     }
     
 </style>

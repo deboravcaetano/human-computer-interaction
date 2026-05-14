@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
         background-color: rgb(255, 255, 255);
         width: 100%;
         position: relative;
-        padding-left: 40px; 
+        padding-left: 40px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -143,8 +143,8 @@ onBeforeUnmount(() => {
 
     .main-logo {
         position: absolute;
-        bottom: -35px; 
-        z-index: 20;
+        bottom: -35px;
+        z-index: 20; 
     }
 
     .nav-bar {
@@ -178,6 +178,7 @@ onBeforeUnmount(() => {
         text-decoration: none;
         font-size: 16px;
         font-weight: 500;
+        white-space: nowrap;
     }
 
     .nav-link:hover {
@@ -252,19 +253,17 @@ onBeforeUnmount(() => {
         background-color: var(--bg-blue-dark);
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
         .hamburger {
-            display: block; 
+            display: block;
         }
 
-        /* Tornar o hamburguer num X */
         .hamburger.is-active .line:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
         }
 
         .hamburger.is-active .line:nth-child(2) {
-            opacity: 0; 
+            opacity: 0;
         }
 
         .hamburger.is-active .line:nth-child(3) {
@@ -284,7 +283,7 @@ onBeforeUnmount(() => {
         }
 
         .nav-bar.menu-open {
-            display: flex; 
+            display: flex;
             padding-bottom: 20px;
         }
 
@@ -304,6 +303,7 @@ onBeforeUnmount(() => {
             width: 100%;
             padding: 15px 40px;
             justify-content: center;
+            white-space: normal;
         }
 
         .nav-dropdown {
@@ -316,6 +316,41 @@ onBeforeUnmount(() => {
         .main-logo {
             bottom: 10px;
             position: relative;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1300px) {
+        .nav-bar {
+            padding-left: 200px; 
+        }
+        .nav-link {
+            padding: 0 25px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1100px) {
+        .nav-bar {
+            padding-left: 190px;
+        }
+        .nav-link {
+            padding: 0 20px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 950px) {
+        .nav-bar {
+            padding-left: 180px;  
+        }
+        .nav-link {
+            padding: 0 14px;
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 850px) {
+        .nav-link {
+            padding: 0 10px;
+            font-size: 13px;
         }
     }
 </style>
