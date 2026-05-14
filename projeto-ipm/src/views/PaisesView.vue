@@ -3,6 +3,7 @@ import { computed, ref } from 'vue';
 import SearchBar from '@/components/SearchBar.vue';
 import Button from '@/components/Button.vue';
 import CountryCard from '@/components/CountryCard.vue';
+import ComparePopUp from '@/components/ComparePopUp.vue';
 import historyIcon from '@/assets/history-icon.svg';
 import compareIcon from '@/assets/compare-icon.svg';
 import portugalFlag from '@/assets/flags/portugal-flag.svg';
@@ -16,6 +17,7 @@ const countries = [
 ];
 
 const searchQuery = ref('');
+const isComparePopUpOpen = ref(false);
 
 const filteredCountries = computed(() => {
   const searchTerm = searchQuery.value.trim().toLowerCase();
@@ -46,6 +48,11 @@ const filteredCountries = computed(() => {
 });
 
 const onSearch = (query) => { searchQuery.value = query; };
+const openComparePopUp = () => { isComparePopUpOpen.value = true; };
+const closeComparePopUp = () => { isComparePopUpOpen.value = false; };
+const onCompareCountries = () => {
+  closeComparePopUp();
+};
 
 // ── ENTER: fase 1 → espaço abre; fase 2 → card aparece ──────────
 const onBeforeEnter = (el) => {
@@ -118,10 +125,15 @@ const onCountryCardClick = () => {
       <router-link to="/paises/historico" style="text-decoration: none;">
         <Button text="Histórico" textsize="15px" :icon="true" :iconPath="historyIcon" />
       </router-link>
-      <router-link to="/historico" style="text-decoration: none;">
-        <Button text="Comparar"  textsize="15px" :icon="true" :iconPath="compareIcon" />
-      </router-link>
+      <Button text="Comparar" textsize="15px" :icon="true" :iconPath="compareIcon" @click="openComparePopUp" />
     </div>
+
+    <ComparePopUp
+      v-if="isComparePopUpOpen"
+      :countries="countries"
+      @back="closeComparePopUp"
+      @compare="onCompareCountries"
+    />
 
     <TransitionGroup
       name="country-list"
