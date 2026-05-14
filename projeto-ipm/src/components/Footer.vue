@@ -65,7 +65,7 @@ import downloadIcon from '@/assets/Download.svg';
 					:iconPath="questionIcon" 
 					@click="goTo('/faq')"
 					/>
-					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" />
+					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" :exportable="true" />
 				</div>
 
 				<p class="footer__updated">Dados atualizados em: 08/03/2026</p>

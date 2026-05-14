@@ -1,5 +1,8 @@
 <script setup lang="ts">
+  import { onBeforeUnmount, onMounted, ref } from 'vue'
+
   type ColorVariant = 'primary' | 'secondary'
+  type ExportFormat = 'PDF' | 'JSON' | 'CSV'
 
   const props = withDefaults(
     defineProps<{
@@ -9,6 +12,7 @@
       disabled?: boolean
       icon?: boolean
       iconPath?: string
+      exportable?: boolean
     }>(),
     {
       text: 'Button',
@@ -16,7 +20,8 @@
       color: 'primary',
       disabled: false,
       icon: false,
-      iconPath: ''
+      iconPath: '',
+      exportable: false
     }
   )
 
@@ -24,26 +29,95 @@
     (e: 'click'): void
   }>()
 
+  const root = ref<HTMLElement | null>(null)
+  const isExportMenuOpen = ref(false)
+  const exportOptions: ExportFormat[] = ['PDF', 'JSON', 'CSV']
+
+  const closeMenu = () => {
+    isExportMenuOpen.value = false
+  }
+
+  const toggleExportMenu = () => {
+    if (props.disabled) return
+
+    isExportMenuOpen.value = !isExportMenuOpen.value
+  }
+
   const onClick = () => {
     if (props.disabled) return
+
+    if (props.exportable) {
+      toggleExportMenu()
+      return
+    }
+
     emit('click')
   }
+
+  const selectExportFormat = (format: ExportFormat) => {
+    if (props.disabled) return
+
+    // quando tivermos algo para exportar :P
+
+    closeMenu()
+  }
+
+  const handleOutsideClick = (event: MouseEvent) => {
+    if (!isExportMenuOpen.value || !root.value) return
+    if (root.value.contains(event.target as Node)) return
+
+    closeMenu()
+  }
+
+  onMounted(() => {
+    document.addEventListener('click', handleOutsideClick)
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener('click', handleOutsideClick)
+  })
 </script>
 
 <template>
-  <button
-    :class="['btn', `btn--${color}`, { 'btn--disabled': disabled }]"
-    :style="{ '--btn-text-size': textsize }"
-    type="button"
-    :disabled="disabled"
-    @click="onClick"
-  >
-    <span class="btn__text">{{ text }}</span>
-    <img v-if="icon && iconPath" class="btn__icon" :src="iconPath" alt="" aria-hidden="true" />
-  </button>
+  <div ref="root" class="btn-root">
+    <button
+      :class="['btn', `btn--${color}`, { 'btn--disabled': disabled, 'btn--exportable': exportable }]"
+      :style="{ '--btn-text-size': textsize }"
+      type="button"
+      :disabled="disabled"
+      :aria-haspopup="exportable ? 'menu' : undefined"
+      :aria-expanded="exportable ? isExportMenuOpen : undefined"
+      @click="onClick"
+    >
+      <span class="btn__text">{{ text }}</span>
+      <img v-if="icon && iconPath" class="btn__icon" :src="iconPath" alt="" aria-hidden="true" />
+    </button>
+
+    <transition name="btn-menu">
+      <div v-if="exportable && isExportMenuOpen" class="btn__menu" role="menu" aria-label="Opcoes de exportacao">
+        <button
+          v-for="option in exportOptions"
+          :key="option"
+          class="btn__menu-item"
+          type="button"
+          role="menuitem"
+          @click="selectExportFormat(option)"
+        >
+          {{ option }}
+        </button>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <style scoped>
+  .btn-root {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .btn {
     display: inline-flex;
     align-items: center;
@@ -112,5 +186,61 @@
   .btn--disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  .btn--exportable {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .btn__menu {
+    position: absolute;
+    top: calc(100% - 1px);
+    right: 0;
+    left: auto;
+    min-width: 0;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    overflow: hidden;
+    border: 1px solid var(--bg-blue-dark);
+    border-top: 0;
+    border-radius: 0 0 5px 5px;
+    background: var(--bg-blue);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    z-index: 10;
+  }
+
+  .btn__menu-item {
+    border: 0;
+    border-radius: 0.45rem;
+    background: var(--bg-blue-light);
+    color: var(--text-white);
+    padding: 0.25rem 0.55rem;
+    font: inherit;
+    font-size: 0.70rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .btn__menu-item:hover,
+  .btn__menu-item:focus-visible {
+    filter: brightness(1.06);
+    outline: none;
+  }
+
+  .btn-menu-enter-active,
+  .btn-menu-leave-active {
+    transition: opacity 140ms ease, transform 140ms ease;
+    transform-origin: top;
+  }
+
+  .btn-menu-enter-from,
+  .btn-menu-leave-to {
+    opacity: 0;
+    transform: translateY(-4px) scaleY(0.98);
   }
 </style>

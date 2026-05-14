@@ -81,6 +81,7 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
                 textsize="15px" 
                 :icon="true" 
                 :iconPath="ExportImg"
+                :exportable="true"
                 />
             </div>
         </div>
