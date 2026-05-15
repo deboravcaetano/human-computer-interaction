@@ -1,36 +1,43 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import SearchBar from '@/components/SearchBar.vue';
 import Button from '@/components/Button.vue';
 import CountryCard from '@/components/CountryCard.vue';
 import ComparePopUp from '@/components/ComparePopUp.vue';
 import historyIcon from '@/assets/history-icon.svg';
 import compareIcon from '@/assets/compare-icon.svg';
-import portugalFlag from '@/assets/flags/portugal-flag.svg';
-import franceFlag from '@/assets/flags/france-flag.svg';
-import germanyFlag from '@/assets/flags/germany-flag.svg';
+import { getCountries } from '@/services/api';
 
-const countries = [
-  { country: 'Portugal', flagSrc: portugalFlag, evolution: 52,  gdp: '$267.92 B',  updatedAt: '12 Dec 2025' },
-  { country: 'France',   flagSrc: franceFlag,   evolution: 83,  gdp: '$2822.45 B', updatedAt: '12 Dec 2025' },
-  { country: 'Germany',  flagSrc: germanyFlag,  evolution: 61,  gdp: '$4185.55 B', updatedAt: '16 Feb 2026' },
-];
-
+const countries = ref([]);
 const searchQuery = ref('');
+const isLoading = ref(true);
+const errorMessage = ref('');
 const isComparePopUpOpen = ref(false);
+
+const getFlagPath = (flagAsset) => {
+  return new URL(`../assets/flags/${flagAsset}.svg`, import.meta.url).href;
+};
+
+const compareCountries = computed(() => {
+  return countries.value.map((country) => ({
+    name: country.name,
+    flagSrc: getFlagPath(country.flagAsset)
+  }));
+});
 
 const filteredCountries = computed(() => {
   const searchTerm = searchQuery.value.trim().toLowerCase();
-  if (!searchTerm) return countries;
+  if (!searchTerm) return countries.value;
 
-  const matches = countries.filter(c => 
-    c.country.toLowerCase().includes(searchTerm)
+  const matches = countries.value.filter(country => 
+    country.name.toLowerCase().includes(searchTerm) ||
+    country.nameEn.toLowerCase().includes(searchTerm)
   );
 
   // ordenação por relevância
   return matches.sort((a, b) => {
-    const nameA = a.country.toLowerCase();
-    const nameB = b.country.toLowerCase();
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
 
     // critério 1: match exato (prioridade 1)
     if (nameA === searchTerm && nameB !== searchTerm) return -1;
@@ -45,6 +52,16 @@ const filteredCountries = computed(() => {
     // critério 3: ordem alfabética (desempate)
     return nameA.localeCompare(nameB);
   });
+});
+
+onMounted(async () => {
+  try {
+    countries.value = await getCountries();
+  } catch (error) {
+    errorMessage.value = 'Não foi possível carregar os países.';
+  } finally {
+    isLoading.value = false;
+  }
 });
 
 const onSearch = (query) => { searchQuery.value = query; };
@@ -130,12 +147,16 @@ const onCountryCardClick = () => {
 
     <ComparePopUp
       v-if="isComparePopUpOpen"
-      :countries="countries"
+      :countries="compareCountries"
       @back="closeComparePopUp"
       @compare="onCompareCountries"
     />
 
+    <p v-if="isLoading" class="state-text">A carregar países...</p>
+    <p v-else-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
+
     <TransitionGroup
+      v-else
       name="country-list"
       tag="section"
       class="cards-list"
@@ -151,13 +172,13 @@ const onCountryCardClick = () => {
       -->
       <div
         v-for="country in filteredCountries"
-        :key="country.country"
+        :key="country.id"
         class="card-wrapper"
-        :data-country-key="country.country"
+        :data-country-key="country.id"
       >
         <CountryCard
-          :country="country.country"
-          :flag-src="country.flagSrc"
+          :country="country.name"
+          :flag-src="getFlagPath(country.flagAsset)"
           :evolution="country.evolution"
           :gdp="country.gdp"
           :updated-at="country.updatedAt"
@@ -206,6 +227,18 @@ const onCountryCardClick = () => {
 
 .card-wrapper {
   padding-bottom: 16px;
+}
+
+.state-text {
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px 0 0;
+  font-family: var(--font-primary);
+  color: var(--text-gray);
+}
+
+.state-text--error {
+  color: #b42318;
 }
 
 /* ── ENTER ─────────────────────────────────────────────────────────

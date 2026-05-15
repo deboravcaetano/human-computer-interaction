@@ -1,0 +1,552 @@
+{
+  "summary": [
+    {
+      "id": "fundos-alocados",
+      "title": "Total de fundos alocados",
+      "value": "$637 Mil Milhões"
+    },
+    {
+      "id": "execucao-europeia",
+      "title": "Execução Europeia",
+      "value": "18%"
+    },
+    {
+      "id": "beneficiarios-projetos",
+      "title": "Beneficiários/Projetos",
+      "value": "120"
+    }
+  ],
+  "countries": [
+    {
+      "id": "at",
+      "name": "Áustria",
+      "nameEn": "Austria",
+      "flagCode": "at",
+      "flagAsset": "austria-flag",
+      "evolution": 58,
+      "gdp": "$526.18 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "be",
+      "name": "Bélgica",
+      "nameEn": "Belgium",
+      "flagCode": "be",
+      "flagAsset": "belgium-flag",
+      "evolution": 64,
+      "gdp": "$632.22 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "bg",
+      "name": "Bulgária",
+      "nameEn": "Bulgaria",
+      "flagCode": "bg",
+      "flagAsset": "bulgaria-flag",
+      "evolution": 47,
+      "gdp": "$101.58 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "hr",
+      "name": "Croácia",
+      "nameEn": "Croatia",
+      "flagCode": "hr",
+      "flagAsset": "croatia-flag",
+      "evolution": 55,
+      "gdp": "$82.69 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "cy",
+      "name": "Chipre",
+      "nameEn": "Cyprus",
+      "flagCode": "cy",
+      "flagAsset": "cyprus-flag",
+      "evolution": 62,
+      "gdp": "$34.79 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "cz",
+      "name": "Chéquia",
+      "nameEn": "Czechia",
+      "flagCode": "cz",
+      "flagAsset": "czechia-flag",
+      "evolution": 59,
+      "gdp": "$330.86 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "dk",
+      "name": "Dinamarca",
+      "nameEn": "Denmark",
+      "flagCode": "dk",
+      "flagAsset": "denmark-flag",
+      "evolution": 71,
+      "gdp": "$407.09 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "ee",
+      "name": "Estónia",
+      "nameEn": "Estonia",
+      "flagCode": "ee",
+      "flagAsset": "estonia-flag",
+      "evolution": 68,
+      "gdp": "$41.55 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "fi",
+      "name": "Finlândia",
+      "nameEn": "Finland",
+      "flagCode": "fi",
+      "flagAsset": "finland-flag",
+      "evolution": 66,
+      "gdp": "$300.19 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "fr",
+      "name": "França",
+      "nameEn": "France",
+      "flagCode": "fr",
+      "flagAsset": "france-flag",
+      "evolution": 83,
+      "gdp": "$2822.45 B",
+      "updatedAt": "2025-12-12"
+    },
+    {
+      "id": "de",
+      "name": "Alemanha",
+      "nameEn": "Germany",
+      "flagCode": "de",
+      "flagAsset": "germany-flag",
+      "evolution": 61,
+      "gdp": "$4185.55 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "gr",
+      "name": "Grécia",
+      "nameEn": "Greece",
+      "flagCode": "gr",
+      "flagAsset": "greece-flag",
+      "evolution": 49,
+      "gdp": "$238.21 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "hu",
+      "name": "Hungria",
+      "nameEn": "Hungary",
+      "flagCode": "hu",
+      "flagAsset": "hungary-flag",
+      "evolution": 43,
+      "gdp": "$212.39 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "ie",
+      "name": "Irlanda",
+      "nameEn": "Ireland",
+      "flagCode": "ie",
+      "flagAsset": "ireland-flag",
+      "evolution": 74,
+      "gdp": "$545.63 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "it",
+      "name": "Itália",
+      "nameEn": "Italy",
+      "flagCode": "it",
+      "flagAsset": "italy-flag",
+      "evolution": 57,
+      "gdp": "$2301.92 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "lv",
+      "name": "Letónia",
+      "nameEn": "Latvia",
+      "flagCode": "lv",
+      "flagAsset": "latvia-flag",
+      "evolution": 54,
+      "gdp": "$43.63 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "lt",
+      "name": "Lituânia",
+      "nameEn": "Lithuania",
+      "flagCode": "lt",
+      "flagAsset": "lithuania-flag",
+      "evolution": 60,
+      "gdp": "$79.79 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "lu",
+      "name": "Luxemburgo",
+      "nameEn": "Luxembourg",
+      "flagCode": "lu",
+      "flagAsset": "luxembourg-flag",
+      "evolution": 69,
+      "gdp": "$89.10 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "mt",
+      "name": "Malta",
+      "nameEn": "Malta",
+      "flagCode": "mt",
+      "flagAsset": "malta-flag",
+      "evolution": 72,
+      "gdp": "$22.74 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "nl",
+      "name": "Países Baixos",
+      "nameEn": "Netherlands",
+      "flagCode": "nl",
+      "flagAsset": "netherlands-flag",
+      "evolution": 76,
+      "gdp": "$1118.13 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "pl",
+      "name": "Polónia",
+      "nameEn": "Poland",
+      "flagCode": "pl",
+      "flagAsset": "poland-flag",
+      "evolution": 53,
+      "gdp": "$811.23 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "pt",
+      "name": "Portugal",
+      "nameEn": "Portugal",
+      "flagCode": "pt",
+      "flagAsset": "portugal-flag",
+      "evolution": 52,
+      "gdp": "$267.92 B",
+      "updatedAt": "2025-12-12"
+    },
+    {
+      "id": "ro",
+      "name": "Roménia",
+      "nameEn": "Romania",
+      "flagCode": "ro",
+      "flagAsset": "romania-flag",
+      "evolution": 46,
+      "gdp": "$350.41 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "sk",
+      "name": "Eslováquia",
+      "nameEn": "Slovakia",
+      "flagCode": "sk",
+      "flagAsset": "slovakia-flag",
+      "evolution": 51,
+      "gdp": "$132.91 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "si",
+      "name": "Eslovénia",
+      "nameEn": "Slovenia",
+      "flagCode": "si",
+      "flagAsset": "slovenia-flag",
+      "evolution": 63,
+      "gdp": "$68.22 B",
+      "updatedAt": "2026-02-16"
+    },
+    {
+      "id": "es",
+      "name": "Espanha",
+      "nameEn": "Spain",
+      "flagCode": "es",
+      "flagAsset": "spain-flag",
+      "evolution": 32,
+      "gdp": "$1580.70 B",
+      "updatedAt": "2025-12-12"
+    },
+    {
+      "id": "se",
+      "name": "Suécia",
+      "nameEn": "Sweden",
+      "flagCode": "se",
+      "flagAsset": "sweden-flag",
+      "evolution": 70,
+      "gdp": "$593.27 B",
+      "updatedAt": "2026-02-16"
+    }
+  ],
+  "topCountries": [
+    {
+      "id": 1,
+      "countryId": "pt",
+      "position": 1,
+      "progress": 76,
+      "activeProjects": 184,
+      "totalReceived": "9.42 Mil M"
+    },
+    {
+      "id": 2,
+      "countryId": "fr",
+      "position": 2,
+      "progress": 68,
+      "activeProjects": 247,
+      "totalReceived": "12.75 Mil M"
+    },
+    {
+      "id": 3,
+      "countryId": "es",
+      "position": 3,
+      "progress": 61,
+      "activeProjects": 203,
+      "totalReceived": "10.31 Mil M"
+    }
+  ],
+  "pillars": [
+    {
+      "id": "crescimento",
+      "name": "Crescimento",
+      "asset": "pilar-crescimento",
+      "color": "#1d4ed8"
+    },
+    {
+      "id": "transicao-ecologica",
+      "name": "Transição Ecológica",
+      "asset": "pilar-ecologica",
+      "color": "#4ade80"
+    },
+    {
+      "id": "transformacao-digital",
+      "name": "Transformação Digital",
+      "asset": "pilar-digital",
+      "color": "#f87171"
+    },
+    {
+      "id": "politicas",
+      "name": "Políticas",
+      "asset": "pilar-politicas",
+      "color": "#fbbf24"
+    },
+    {
+      "id": "coesao-social-territorial",
+      "name": "Coesão Social e Territorial",
+      "asset": "pilar-coesao",
+      "color": "#bbbbbb"
+    },
+    {
+      "id": "saude-resiliencia",
+      "name": "Saúde e Resiliência",
+      "asset": "pilar-saude",
+      "color": "#22c55e"
+    }
+  ],
+  "indicators": [
+    {
+      "id": 1,
+      "title": "Poupança no consumo anual de energia primária",
+      "metrics": [
+        {
+          "label": "Total de poupança (MWh/Ano):",
+          "value": "37 568 052"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Capacidade operacional adicional instalada para energias renováveis",
+      "metrics": [
+        {
+          "label": "Energia Renovável:",
+          "value": "62 444 MW"
+        },
+        {
+          "label": "Hidrogénio:",
+          "value": "18 MW"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Infraestrutura de combustíveis alternativos",
+      "metrics": [
+        {
+          "label": "Total:",
+          "value": "940 886"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "População beneficiada por medidas de proteção",
+      "metrics": [
+        {
+          "label": "População total:",
+          "value": "36 840 567"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Alojamentos adicionais com acesso à internet",
+      "metrics": [
+        {
+          "label": "Alojamentos totais:",
+          "value": "17 567 890"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Empresas apoiadas no desenvolvimento de produtos e processos digitais",
+      "metrics": [
+        {
+          "label": "Total de empresas:",
+          "value": "1 456 789"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "countryId": "pt",
+      "date": "2026-03-05",
+      "description": "Reforço de verbas para o programa Escola Digital.",
+      "entity": "Ministro da Educação",
+      "status": "pendente",
+      "pillarId": "transformacao-digital"
+    },
+    {
+      "id": 2,
+      "countryId": "fr",
+      "date": "2026-02-28",
+      "description": "Atualização de indicadores de impacto.",
+      "entity": "Ministro da Economia",
+      "status": "aprovado",
+      "pillarId": "transformacao-digital"
+    },
+    {
+      "id": 3,
+      "countryId": "de",
+      "date": "2026-02-20",
+      "description": "Reajuste de metas: Habitação Social.",
+      "entity": "Ministro de Vivienda",
+      "status": "recusado",
+      "pillarId": "coesao-social-territorial"
+    }
+  ],
+  "executionCharts": [
+    {
+      "id": "circle-progress",
+      "type": "circle-progress",
+      "percentage": 67,
+      "label": "Execução geral"
+    },
+    {
+      "id": "bars-overview",
+      "type": "bars",
+      "maxHeight": 220,
+      "bars": [
+        {
+          "name": "Six",
+          "value": 393,
+          "color": "#1d4ed8"
+        },
+        {
+          "name": "Seven",
+          "value": 723.8,
+          "color": "#bbbbbb"
+        }
+      ]
+    },
+    {
+      "id": "pillars-horizontal",
+      "type": "horizontal-bars",
+      "maxWidth": 200,
+      "bars": [
+        {
+          "title": "Crescimento",
+          "value": 393,
+          "color": "#1d4ed8"
+        },
+        {
+          "title": "Transição Ecológica",
+          "value": 723.8,
+          "color": "#bbbbbb"
+        },
+        {
+          "title": "Sustentabilidade",
+          "value": 500,
+          "color": "#4ade80"
+        },
+        {
+          "title": "Inovação",
+          "value": 250,
+          "color": "#fbbf24"
+        },
+        {
+          "title": "Digitalização",
+          "value": 150,
+          "color": "#f87171"
+        }
+      ]
+    },
+    {
+      "id": "country-share",
+      "type": "pie",
+      "size": 200,
+      "rotation": 280,
+      "slices": [
+        {
+          "label": "Portugal",
+          "percentage": 18,
+          "color": "#1d4ed8"
+        },
+        {
+          "label": "Alemanha",
+          "percentage": 29,
+          "color": "#bbbbbb"
+        },
+        {
+          "label": "Resto da UE",
+          "percentage": 53,
+          "color": "#4ade80"
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": 1,
+      "question": "O que é o PRR e o Mecanismo de Recuperação e Resiliência?",
+      "response": "O Plano de Recuperação e Resiliência (PRR) é um programa de aplicação nacional, com um período de execução até 2026, que visa implementar reformas e investimentos para repor o crescimento económico sustentado. É financiado pelo Mecanismo de Recuperação e Resiliência, o elemento central do NextGenerationEU."
+    },
+    {
+      "id": 2,
+      "question": "O que são 'Marcos e Metas'?",
+      "response": "São os objetivos que cada país deve cumprir. Os Marcos referem-se a etapas qualitativas (como a entrada em vigor de uma lei) e as Metas a objetivos quantitativos (como o número de quilómetros de ferrovia construídos ou pessoas formadas)."
+    },
+    {
+      "id": 3,
+      "question": "O que são os 'Indicadores Comuns'?",
+      "response": "São métricas padrão definidas pela Comissão Europeia para monitorizar o desempenho dos planos de todos os Estados-Membros. Permitem avaliar o progresso em áreas como o apoio a empresas, competências digitais e poupança de energia de forma comparável."
+    },
+    {
+      "id": 4,
+      "question": "Posso comparar o meu país com outros países?",
+      "response": "Sim. Através dos Indicadores Comuns e do Painel de Avaliação oficial (Scoreboard) da UE, é possível acompanhar o desempenho relativo de Portugal face aos restantes Estados-Membros na execução das metas e na aplicação dos fundos."
+    }
+  ]
+}

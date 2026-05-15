@@ -2,7 +2,11 @@
 defineProps({
   label: String,        
   options: Array,       
-  modelValue: String    
+  modelValue: String,
+  allLabel: {
+    type: String,
+    default: 'Todos'
+  }
 });
 
 defineEmits(['update:modelValue']);
@@ -14,8 +18,9 @@ defineEmits(['update:modelValue']);
       :value="modelValue" 
       @change="$emit('update:modelValue', $event.target.value)"
       class="filter-select"
+      :aria-label="`Filtrar por ${label}`"
     >
-      <option value="" disabled selected>Filtrar por: {{ label }}</option>
+      <option value="">{{ allLabel }}</option>
       <option v-for="option in options" :key="option" :value="option">
         {{ option }}
       </option>

@@ -1,6 +1,8 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import IntroCard from '@/components/IntroCard.vue';
 import IndicatorCard from '@/components/IndicatorCard.vue';
+import { getIndicators } from '@/services/api';
 
 const title = "Indicadores Comuns";
 const description = `O Painel de Avaliação da Recuperação e Resiliência monitoriza o progresso do PRR através de 14 indicadores comuns.
@@ -11,46 +13,20 @@ Estes indicadores refletem o progresso na implementação dos planos nacionais e
 
 Os Estados-Membros são responsáveis pela recolha e reporte destes dados à Comissão Europeia semestralmente, até ao final de Fevereiro e Agosto.`;
 
-const useSimplifiedCards = false;
-
-const indicatorCards = [
-  {
-    index: 1,
-    title: 'Poupança no consumo anual de energia primária',
-    metrics: [{ label: 'Total de poupança (MWh/Ano):', value: '37 568 052' }]
-  },
-  {
-    index: 2,
-    title: 'Capacidade operacional adicional instalada para energias renováveis',
-    metrics: [
-      { label: 'Energia Renovável:', value: '62 444 MW' },
-      { label: 'Hidrogénio:', value: '18 MW' }
-    ]
-  },
-  {
-    index: 3,
-    title: 'Infraestrutura de combustíveis alternativos',
-    metrics: [{ label: 'Total:', value: '940 886' }]
-  },
-  {
-    index: 4,
-    title: 'População beneficiada por medidas de proteção',
-    metrics: [{ label: 'População total:', value: '36 840 567' }]
-  },
-  {
-    index: 5,
-    title: 'Alojamentos adicionais com acesso à internet',
-    metrics: [{ label: 'Alojamentos totais:', value: '17 567 890' }]
-  },
-  {
-    index: 6,
-    title: 'Empresas apoiadas no desenvolvimento de produtos e processos digitais',
-    metrics: [{ label: 'Total de empresas:', value: '1 456 789' }]
-  }
-];
-
-const cardsToRender = indicatorCards;
+const indicatorCards = ref([]);
+const isLoading = ref(true);
+const errorMessage = ref('');
 const cardVariant = 'default';
+
+onMounted(async () => {
+  try {
+    indicatorCards.value = await getIndicators();
+  } catch (error) {
+    errorMessage.value = 'Não foi possível carregar os indicadores.';
+  } finally {
+    isLoading.value = false;
+  }
+});
 </script>
 
 <template>
@@ -64,11 +40,14 @@ const cardVariant = 'default';
     </IntroCard>
 
     <section class="indicators-content">
-      <div class="indicators-grid">
+      <p v-if="isLoading" class="state-text">A carregar indicadores...</p>
+      <p v-else-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
+
+      <div v-else class="indicators-grid">
         <IndicatorCard
-          v-for="card in cardsToRender"
-          :key="card.index"
-          :index="card.index"
+          v-for="card in indicatorCards"
+          :key="card.id"
+          :index="card.id"
           :title="card.title"
           :metrics="card.metrics"
           :variant="cardVariant"
@@ -91,6 +70,17 @@ const cardVariant = 'default';
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+}
+
+.state-text {
+  width: min(1200px, 100%);
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--text-gray);
+}
+
+.state-text--error {
+  color: #b42318;
 }
 
 @media (max-width: 1100px) {

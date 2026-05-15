@@ -1,28 +1,48 @@
 <script setup>
+import { computed, onMounted, ref } from 'vue';
 import IntroCard from '@/components/IntroCard.vue';
 import AllFlags from '@/components/AllFlags.vue';
 import Top3Cards from '@/components/Top3Cards.vue';
 import InfoCard from '@/components/InfoCard.vue';
-
+import { getCountries, getSummary, getTopCountries } from '@/services/api';
 
 const title = "Monitorização do Mecanismo de Recuperação e Resiliência";
 const description = "Explore como cada Estado-Membro está a cumprir os seus marcos e metas para garantir um futuro resiliente.";
 
-/* dados temporários, API não vem nunca :( */
-const InfoData = {
-  FundosAlocados : {
-    title: "Total de fundos alocados",
-    description: "$637 Mil Milhões"
-  },
-  ExecucaoEuropeia : {
-    title: "Execução Europeia",
-    description: "18%"
-  },
-  BeneficiariosProjetos : {
-    title: "Beneficiários/Projetos",
-    description: "120"
+const summary = ref([]);
+const countries = ref([]);
+const topCountries = ref([]);
+const isLoading = ref(true);
+const errorMessage = ref('');
+
+const topCountriesWithDetails = computed(() => {
+  return topCountries.value.map((topCountry) => {
+    const country = countries.value.find((item) => item.id === topCountry.countryId);
+
+    return {
+      ...topCountry,
+      countryName: country?.nameEn ?? country?.name ?? topCountry.countryId
+    };
+  });
+});
+
+onMounted(async () => {
+  try {
+    const [summaryData, countriesData, topCountriesData] = await Promise.all([
+      getSummary(),
+      getCountries(),
+      getTopCountries()
+    ]);
+
+    summary.value = summaryData;
+    countries.value = countriesData;
+    topCountries.value = topCountriesData;
+  } catch (error) {
+    errorMessage.value = 'Não foi possível carregar os dados iniciais.';
+  } finally {
+    isLoading.value = false;
   }
-}
+});
 </script>
 
 <template>
@@ -37,10 +57,10 @@ const InfoData = {
     </IntroCard>
     <div class="info-cards-container">
       <InfoCard
-        v-for="info in InfoData"
+        v-for="info in summary"
         :key="info.title"
         :title="info.title"
-        :description="info.description"
+        :description="info.value"
         class="info-card-item"
       />
     </div>
@@ -51,27 +71,18 @@ const InfoData = {
           <p class="title-2">países que lideram a execução</p>
         </div>
 
-        <div class="top3-cards">
+        <p v-if="isLoading" class="state-text">A carregar dados...</p>
+        <p v-else-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
+
+        <div v-else class="top3-cards">
           <Top3Cards
-            country="Portugal" 
-            :position="1"
-            :progress="32"
-            :projects="132"
-            total="8.18 Mil M"
-          />
-          <Top3Cards
-            country="France" 
-            :position="2"
-            :progress="32"
-            :projects="132"
-            total="8.18 Mil M"
-          />
-          <Top3Cards
-            country="Spain" 
-            :position="3"
-            :progress="32"
-            :projects="132"
-            total="8.18 Mil M"
+            v-for="country in topCountriesWithDetails"
+            :key="country.id"
+            :country="country.countryName"
+            :position="country.position"
+            :progress="country.progress"
+            :projects="country.activeProjects"
+            :total="country.totalReceived"
           />
         </div>
       </div>
@@ -106,7 +117,17 @@ const InfoData = {
   max-width: 400px;
 }
 
+.state-text {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-primary);
+  color: var(--text-gray);
+  text-align: center;
+}
 
+.state-text--error {
+  color: #b42318;
+}
 
 .top3-container {
   max-width: 1280px; 

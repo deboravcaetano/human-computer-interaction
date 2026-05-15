@@ -1,22 +1,66 @@
 <script setup>
+import { computed, onMounted, ref } from 'vue';
 import IntroCard from '@/components/IntroCard.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import Button from '@/components/Button.vue';
 import ExportImg from '@/assets/Download.svg'
 import FilterSelect from '@/components/FilterSelect.vue';
-
-import { ref } from 'vue';
+import { getCountries, getPillars, getReviews } from '@/services/api';
 
 const filtroPais = ref('');
 const filtroEstado = ref('');
 const filtroPilares = ref('');
 
-const paises = ['Portugal', 'Espanha', 'França', 'Alemanha'];
 const estados = ['Aprovado', 'Pendente', 'Recusado'];
-const pilares = ['Crescimento', 'Transição Ecológica','Transformação Digital','Políticas','Coesão Social e Territorial', 'Saúde e Resiliência']
+const countries = ref([]);
+const pillars = ref([]);
+const reviews = ref([]);
+const isLoading = ref(true);
+const errorMessage = ref('');
 
 const title = "Histórico de Revisões da União Europeia";
 const description = "Este painel permite acompanhar as alterações oficiais nos Planos de Recuperação e Resiliência, garantindo a transparência e a responsabilidade na execução dos fundos."
+
+const paises = computed(() => countries.value.map((country) => country.name));
+const pilares = computed(() => pillars.value.map((pillar) => pillar.name));
+
+const getCountryById = (countryId) => countries.value.find((country) => country.id === countryId);
+const getPillarById = (pillarId) => pillars.value.find((pillar) => pillar.id === pillarId);
+
+const filteredReviews = computed(() => {
+    return reviews.value.filter((review) => {
+        const country = getCountryById(review.countryId);
+        const pillar = getPillarById(review.pillarId);
+        const countryMatches = !filtroPais.value || country?.name === filtroPais.value;
+        const statusMatches = !filtroEstado.value || review.status === filtroEstado.value.toLowerCase();
+        const pillarMatches = !filtroPilares.value || pillar?.name === filtroPilares.value;
+
+        return countryMatches && statusMatches && pillarMatches;
+    });
+});
+
+const totalRevisoes = computed(() => filteredReviews.value.length);
+const totalAprovados = computed(() => filteredReviews.value.filter((review) => review.status === 'aprovado').length);
+const totalPendentes = computed(() => filteredReviews.value.filter((review) => review.status === 'pendente').length);
+const totalRecusados = computed(() => filteredReviews.value.filter((review) => review.status === 'recusado').length);
+
+onMounted(async () => {
+    try {
+        const [countriesData, pillarsData, reviewsData] = await Promise.all([
+            getCountries(),
+            getPillars(),
+            getReviews()
+        ]);
+
+        countries.value = countriesData;
+        pillars.value = pillarsData;
+        reviews.value = reviewsData;
+    } catch (error) {
+        errorMessage.value = 'Não foi possível carregar o histórico.';
+    } finally {
+        isLoading.value = false;
+    }
+});
 </script>
 
 <template>
@@ -31,7 +75,7 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
         <div class="info-cards">
             <InfoCard
                 title="Total"
-                description="N/A"
+                :description="isLoading ? '...' : String(totalRevisoes)"
                 height="130px"
                 width="260px" 
                 backgroundColor="#FDCA40"
@@ -39,19 +83,19 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
             ></InfoCard>
             <InfoCard
                 title="Aprovados"
-                description="N/A"
+                :description="isLoading ? '...' : String(totalAprovados)"
                 height="130px"
                 width="260px" 
             ></InfoCard>
             <InfoCard
                 title="Pendentes"
-                description="N/A"
+                :description="isLoading ? '...' : String(totalPendentes)"
                 height="130px"
                 width="260px" 
             ></InfoCard>
             <InfoCard
                 title="Recusados"
-                description="N/A"
+                :description="isLoading ? '...' : String(totalRecusados)"
                 height="130px"
                 width="260px" 
             ></InfoCard>
@@ -61,16 +105,19 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
                 <FilterSelect 
                     label="País" 
                     :options="paises" 
+                    all-label="Todos os Países"
                     v-model="filtroPais" 
                 />
                 <FilterSelect 
                     label="Estado" 
                     :options="estados" 
+                    all-label="Todos os Estados"
                     v-model="filtroEstado" 
                 />
                 <FilterSelect 
                     label="Pilares" 
                     :options="pilares" 
+                    all-label="Todos os Pilares"
                     v-model="filtroPilares" 
                 />
             </div>
@@ -84,6 +131,7 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
                 />
             </div>
         </div>
+        <p v-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
     </div>
 </template>
 
@@ -123,6 +171,19 @@ const description = "Este painel permite acompanhar as alterações oficiais nos
 .right-buttons {
   display: flex;
   align-items: center;
+}
+
+.state-text {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 24px auto 0;
+  font-family: var(--font-primary);
+  color: var(--text-gray);
+}
+
+.state-text--error {
+  color: #b42318;
 }
 
 @media (max-width: 1024px) {

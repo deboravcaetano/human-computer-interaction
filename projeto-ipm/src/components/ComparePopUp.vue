@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import Button from '@/components/Button.vue'
 import searchIcon from '@/assets/search-icon.svg'
 import portugalFlag from '@/assets/flags/portugal-flag.svg'
 import franceFlag from '@/assets/flags/france-flag.svg'
@@ -220,13 +219,13 @@ watch(
       @click.self="handleOverlayClick"
     >
       <div class="compare-popup__content">
-        <div class="compare-popup__card">
+        <div class="compare-popup__card" @click="closeDropdown">
           <header class="compare-popup__header">
             <h2 id="compare-popup-title" class="compare-popup__title">{{ title }}</h2>
             <p class="compare-popup__description">{{ description }}</p>
           </header>
 
-          <div class="compare-popup__field">
+          <div class="compare-popup__field" @click.stop>
             <label class="compare-popup__label" for="country-search">Países</label>
 
             <div
@@ -297,17 +296,21 @@ watch(
               </div>
             </transition>
           </div>
-        </div>
-
-        <div class="compare-popup__actions">
-          <Button text="Voltar" textsize="0.9rem" color="primary" @click="handleClose" />
-          <Button
-            text="Comparar"
-            textsize="0.9rem"
-            color="primary"
-            :disabled="!canCompare"
-            @click="handleCompare"
-          />
+          <div class="compare-popup__actions">
+            <button class="compare-popup__action" type="button" @click="handleClose">
+              <span aria-hidden="true"><</span>
+              <span>Voltar</span>
+            </button>
+            <button
+              class="compare-popup__action compare-popup__action--primary"
+              type="button"
+              :disabled="!canCompare"
+              @click="handleCompare"
+            >
+              <span>Comparar</span>
+              <span aria-hidden="true">></span>
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -341,9 +344,11 @@ watch(
 
 .compare-popup__card {
   width: 100%;
-  min-height: 264px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  padding: 26px 16px;
+  padding: 26px 16px 10px;
   border: 1px solid var(--text-gray-light);
   border-radius: 8px;
   background: var(--bg-gray);
@@ -473,7 +478,11 @@ watch(
   background: transparent;
   color: var(--text-black);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
+}
+
+.compare-popup__input::placeholder {
+  font-size: 0.82rem;
 }
 
 .compare-popup__input:disabled {
@@ -498,7 +507,7 @@ watch(
   top: calc(100% + 6px);
   right: 0;
   left: 0;
-  max-height: 176px;
+  max-height: 112px;
   overflow: auto;
   padding: 5px;
   border: 1px solid var(--text-gray-light);
@@ -540,8 +549,46 @@ watch(
 .compare-popup__actions {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  padding: 0 6px;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.compare-popup__action {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text-gray-dark);
+  font-family: var(--font-primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 150ms ease, opacity 150ms ease;
+}
+
+.compare-popup__action--primary {
+  color: var(--bg-blue-dark);
+}
+
+.compare-popup__action:hover:not(:disabled),
+.compare-popup__action:focus-visible {
+  color: var(--bg-blue);
+  outline: none;
+}
+
+.compare-popup__action:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.compare-popup__action:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
 }
 
 .compare-popup__dropdown-enter-active,
@@ -567,8 +614,8 @@ watch(
   }
 
   .compare-popup__card {
-    min-height: 230px;
-    padding: 22px 14px;
+    min-height: 292px;
+    padding: 22px 14px 10px;
   }
 
   .compare-popup__header {
@@ -579,7 +626,8 @@ watch(
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    padding: 0;
+    margin-top: auto;
+    padding-top: 16px;
   }
 }
 </style>
