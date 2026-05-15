@@ -33,19 +33,37 @@ const router = createRouter({
       path: '/execucao/visao-geral',
       name: 'Execução - Visão Geral',
       component: ExecucaoVisaoGeralView,
-      meta: { hideInNavbar: true }
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Visão Geral' },
+        ],
+      }
     },
     {
       path: '/execucao/metas-marcos',
       name: 'Execução - Metas e Marcos',
       component: ExecucaoMetasMarcosView,
-      meta: { hideInNavbar: true }
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Metas e Marcos' },
+        ],
+      }
     },
     {
       path: '/execucao/desembolsos',
       name: 'Execução - Desembolsos',
       component: ExecucaoDesembolsosView,
-      meta: { hideInNavbar: true }
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Desembolsos' },
+        ],
+      }
     },
     {
       path: '/indicadores',
@@ -61,7 +79,13 @@ const router = createRouter({
       path: '/paises/historico',
       name: 'Histórico',
       component: HistoricoView,
-      meta: { hideInNavbar: true }
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Países', to: '/paises' },
+          { label: 'Histórico' },
+        ],
+      }
     },
     {
     path: '/faq',

@@ -2,12 +2,14 @@
 import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 import Footer from '@/components/Footer.vue'
+import Breadcrumb from '@/components/Breadcrumb.vue'
 </script>
 
 <template>
   <main class="layout">
     <NavBar />
     <section class="layout__content">
+      <Breadcrumb />
       <RouterView />
     </section>
     <Footer />
