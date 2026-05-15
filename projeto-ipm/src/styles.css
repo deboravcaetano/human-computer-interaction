@@ -26,6 +26,20 @@
     --status-pendente: #A17500;
     --status-pendente-bg: #ffce47b5;
 
+    /* Category Colors */
+    --category-crescimento: #9c55d6;
+    --category-crescimento-bg: #f0e4ff;
+    --category-transicao-ecologica: #148f4f;
+    --category-transicao-ecologica-bg: #ddf7e8;
+    --category-transformacao-digital: #3b73db;
+    --category-transformacao-digital-bg: #dbe8ff;
+    --category-politicas: #5863d8;
+    --category-politicas-bg: #eef0ff;
+    --category-coesao-social-territorial: #12a9bf;
+    --category-coesao-social-territorial-bg: #dffaff;
+    --category-saude-resiliencia: #d79b00;
+    --category-saude-resiliencia-bg: #fff0bf;
+
     /* Special */
     --dark-green: #56c473;
     --light-green: #5CFF74;

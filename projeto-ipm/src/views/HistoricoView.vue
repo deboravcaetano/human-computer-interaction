@@ -5,12 +5,21 @@ import InfoCard from '@/components/InfoCard.vue';
 import Button from '@/components/Button.vue';
 import ExportImg from '@/assets/Download.svg'
 import FilterSelect from '@/components/FilterSelect.vue';
-import { getCountries, getPillars, getReviews } from '@/services/api';
+import HistoryList from '@/components/HistoryList.vue';
+import PortugalFlag from '@/assets/flags/portugal-flag.svg';
+import FranceFlag from '@/assets/flags/france-flag.svg';
+import GermanyFlag from '@/assets/flags/germany-flag.svg';
+import ItalyFlag from '@/assets/flags/italy-flag.svg';
+import SpainFlag from '@/assets/flags/spain-flag.svg';
+import GreeceFlag from '@/assets/flags/greece-flag.svg';
+
+import { computed, ref } from 'vue';
 
 const filtroPais = ref('');
 const filtroEstado = ref('');
 const filtroPilares = ref('');
 
+const paises = ['Portugal', 'Espanha', 'França', 'Alemanha', 'Itália', 'Grécia'];
 const estados = ['Aprovado', 'Pendente', 'Recusado'];
 const countries = ref([]);
 const pillars = ref([]);

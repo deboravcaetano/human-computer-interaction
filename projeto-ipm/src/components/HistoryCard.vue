@@ -1,14 +1,15 @@
-<script setup lang="ts">
+<script setup>
 import StatusPopUp from './StatusPopUp.vue'
+import CategoryBadge from './CategoryBadge.vue'
 
-defineProps<{
-  country: string
-  date: string
-  description: string
-  entity: string
-  status: string          
-  tempCategoryStatus: string //como ainda n existe o componente category vamos usar o status para simular
-}>()
+defineProps({
+  country: String,
+  date: String,
+  description: String,
+  entity: String,
+  status: String,
+  category: String
+})
 </script>
 
 <template>
@@ -22,8 +23,8 @@ defineProps<{
         <p class="date-text">{{ date }}</p>
       </div>
 
-      <div class="category-placeholder">
-        <StatusPopUp :status="tempCategoryStatus" />
+      <div v-if="category" class="category-placeholder">
+        <CategoryBadge :category="category" />
       </div>
     </div>
 
@@ -79,7 +80,9 @@ defineProps<{
 }
 
 .category-placeholder {
-  transform: scale(1.1);
+  display: flex;
+  justify-content: flex-end;
+  max-width: 240px;
 }
 
 .separator {
@@ -126,5 +129,41 @@ defineProps<{
   font-weight: 500;
   color: #5f5f5f;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 18px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .title-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .category-placeholder {
+    justify-content: flex-start;
+    max-width: 100%;
+  }
+
+  .card-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 16px;
+  }
+
+  .country-name {
+    font-size: 1.05rem;
+  }
 }
 </style>
