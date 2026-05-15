@@ -2,51 +2,39 @@
 import { onMounted, ref } from 'vue';
 import IntroCard from '@/components/IntroCard.vue';
 import PilaresCards from '@/components/PilaresCards.vue';
-import { getPillars } from '@/services/api';
 
 const title = "Pilares";
-const description = "Os pilares são as grandes áreas estratégicas que orientam o investimento dos fundos europeus, como a Transição Ecológica e a Transformação Digital, servem para organizar e categorizar todos os marcos e metas de cada país. ";
+const description = "Os pilares são as grandes áreas estratégicas que orientam o investimento dos fundos europeus, como a Transição Ecológica e a Transformação Digital, servem para organizar e categorizar todos os marcos e metas de cada país.";
 
-const pillars = ref([]);
-const isLoading = ref(true);
-const errorMessage = ref('');
-
-const getPillarAssetName = (asset) => asset.replace('pilar-', '');
-
-onMounted(async () => {
-  try {
-    pillars.value = await getPillars();
-  } catch (error) {
-    errorMessage.value = 'Não foi possível carregar os pilares.';
-  } finally {
-    isLoading.value = false;
-  }
-});
+const pilares = [
+  { id: 1, title: 'Crescimento', pilar: 'crescimento', percentage: 10.8 },
+  { id: 2, title: 'Políticas', pilar: 'politicas', percentage: 10.8 },
+  { id: 3, title: 'Saúde e Resiliência', pilar: 'saude', percentage: 10.8 },
+  { id: 4, title: 'Transição Ecológica', pilar: 'ecologica', percentage: 10.8 },
+  { id: 5, title: 'Coesão Social e Territorial', pilar: 'coesao', percentage: 10.8 },
+  { id: 6, title: 'Transformação Digital', pilar: 'digital', percentage: 10.8 },
+];
 </script>
 
 <template>
-  <div>
+  <div class="pilares-page">
     <IntroCard 
       :title="title" 
       :description="description" 
-      height="281" 
+      height="281px" 
       width="100%" 
     >
     </IntroCard>
 
-    <section class="pillars-section">
-      <p v-if="isLoading" class="state-text">A carregar pilares...</p>
-      <p v-else-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
-
-      <div v-else class="pillars-grid">
-        <PilaresCards
-          v-for="pillar in pillars"
-          :key="pillar.id"
-          :title="pillar.name"
-          :pilar="getPillarAssetName(pillar.asset)"
-        />
-      </div>
-    </section>
+    <div class="pilares-grid">
+      <PilaresCards
+        v-for="pilar in pilares"
+        :key="pilar.id"
+        :title="pilar.title"
+        :pilar="pilar.pilar"
+        :percentage="pilar.percentage"
+      />
+    </div>
   </div>
 </template>
 
