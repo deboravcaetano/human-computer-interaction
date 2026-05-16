@@ -14,6 +14,16 @@ export function getCountries() {
   return request('/countries')
 }
 
+export async function getCountryById(countryId) {
+  const countries = await request(`/countries?id=${countryId}`)
+  return countries[0] ?? null
+}
+
+export async function getCountryDetail(countryId) {
+  const details = await request(`/countryDetails?countryId=${countryId}`)
+  return details[0] ?? null
+}
+
 export function getIndicators() {
   return request('/indicators')
 }

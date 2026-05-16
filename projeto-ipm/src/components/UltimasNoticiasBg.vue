@@ -1,6 +1,7 @@
 <template>
   <div class="yellow-section">
-    </div>
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped>
@@ -64,5 +65,31 @@
     160px 160px;              
 }
 
+@media (max-width: 768px) {
+  .yellow-section {
+    height: 550px;
+    background-position: 
+      left 20px bottom -5%, left 10px bottom -2%, left -20px bottom -10px, 
+      left 20px top -30px, left 10px top -20px, left -20px top -35px, 
+      right 4% top 20%, right 20% top 80%, right 15% bottom 10%, left 90% top 15%;
+    background-size: 
+      80px auto, 80px auto, 80px auto,
+      110px auto, 110px auto, 110px auto,
+      110px 110px, 110px 110px, 110px 110px, 110px 110px;
+  }
+}
 
+@media (max-width: 480px) {
+  .yellow-section {
+    height: 420px;
+    background-position: 
+      left -10px bottom -5%, left -20px bottom -2%, transparent, 
+      left -10px top -20px, left -20px top -10px, transparent, 
+      right 5% top 15%, transparent, right 10% bottom 5%, transparent;
+    background-size: 
+      60px auto, 60px auto, 0px,
+      80px auto, 80px auto, 0px,
+      70px 70px, 0px, 70px 70px, 0px;
+  }
+}
 </style>

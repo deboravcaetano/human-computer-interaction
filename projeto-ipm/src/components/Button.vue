@@ -3,6 +3,8 @@
 
   type ColorVariant = 'primary' | 'secondary'
   type ExportFormat = 'PDF' | 'JSON' | 'CSV'
+  type IconPosition = 'left' | 'right'
+  type IconDirection = 'default' | 'left' | 'right' | 'up' | 'down'
 
   const props = withDefaults(
     defineProps<{
@@ -12,6 +14,8 @@
       disabled?: boolean
       icon?: boolean
       iconPath?: string
+      iconPosition?: IconPosition
+      iconDirection?: IconDirection
       exportable?: boolean
     }>(),
     {
@@ -21,6 +25,8 @@
       disabled: false,
       icon: false,
       iconPath: '',
+      iconPosition: 'right',
+      iconDirection: 'default',
       exportable: false
     }
   )
@@ -89,8 +95,21 @@
       :aria-expanded="exportable ? isExportMenuOpen : undefined"
       @click="onClick"
     >
+      <img
+        v-if="icon && iconPath && iconPosition === 'left'"
+        :class="['btn__icon', `btn__icon--${iconDirection}`]"
+        :src="iconPath"
+        alt=""
+        aria-hidden="true"
+      />
       <span class="btn__text">{{ text }}</span>
-      <img v-if="icon && iconPath" class="btn__icon" :src="iconPath" alt="" aria-hidden="true" />
+      <img
+        v-if="icon && iconPath && iconPosition === 'right'"
+        :class="['btn__icon', `btn__icon--${iconDirection}`]"
+        :src="iconPath"
+        alt=""
+        aria-hidden="true"
+      />
     </button>
 
     <transition name="btn-menu">
@@ -159,10 +178,27 @@
 
   /* Button icon */
   .btn__icon {
-    width: 1rem;
-    height: 1rem;
+    width: 0.78rem;
+    height: 0.78rem;
     flex-shrink: 0;
     object-fit: contain;
+  }
+
+  .btn__icon--left {
+    transform: rotate(90deg);
+  }
+
+  .btn__icon--right {
+    transform: rotate(-90deg);
+  }
+
+  .btn__icon--up {
+    transform: rotate(180deg);
+  }
+
+  .btn__icon--down,
+  .btn__icon--default {
+    transform: rotate(0deg);
   }
 
   /* Button text */

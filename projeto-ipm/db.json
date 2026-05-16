@@ -288,6 +288,148 @@
       "updatedAt": "2026-02-16"
     }
   ],
+  "countryDetails": [
+    {
+      "id": "detail-pt",
+      "countryId": "pt",
+      "completedGoals": {
+        "percentage": 75,
+        "completed": 39,
+        "total": 52
+      },
+      "distribution": {
+        "countryPercentage": 84,
+        "euPercentage": 16
+      },
+      "metrics": {
+        "totalDisbursed": "€9 120 M",
+        "grantsRequested": "€22 450 M",
+        "loansAwarded": "€14 200 M",
+        "allocationVsGdp": "12.45 %"
+      },
+      "updates": [
+        {
+          "date": "2026-02-27",
+          "text": "A Comissão Europeia desembolsa o oitavo pagamento de 1,11 mil milhões de euros a Portugal / Avaliação preliminar da Comissão Europeia."
+        },
+        {
+          "date": "2025-12-12",
+          "text": "O Conselho da União Europeia aprova a avaliação do plano de recuperação e resiliência modificado de Portugal / Decisão de Execução do Conselho alterada."
+        },
+        {
+          "date": "2025-11-26",
+          "text": "A Comissão Europeia desembolsa o sétimo pagamento de 1,06 mil milhões de euros a Portugal / Avaliação preliminar da Comissão Europeia."
+        },
+        {
+          "date": "2025-09-18",
+          "text": "Portugal submete atualização técnica de metas associadas à transição digital e à modernização administrativa."
+        },
+        {
+          "date": "2025-07-04",
+          "text": "A Comissão Europeia comunica avaliação positiva sobre novos marcos de investimento em habitação e saúde."
+        }
+      ]
+    },
+    {
+      "id": "detail-es",
+      "countryId": "es",
+      "completedGoals": {
+        "percentage": 61,
+        "completed": 44,
+        "total": 72
+      },
+      "distribution": {
+        "countryPercentage": 78,
+        "euPercentage": 22
+      },
+      "metrics": {
+        "totalDisbursed": "€48 300 M",
+        "grantsRequested": "€77 200 M",
+        "loansAwarded": "€83 160 M",
+        "allocationVsGdp": "10.16 %"
+      },
+      "updates": [
+        {
+          "date": "2025-12-12",
+          "text": "Espanha recebe nova avaliação positiva no âmbito da execução do plano de recuperação e resiliência."
+        },
+        {
+          "date": "2025-10-03",
+          "text": "Atualização de metas ligadas a mobilidade sustentável, competências digitais e simplificação administrativa."
+        },
+        {
+          "date": "2025-06-20",
+          "text": "Novo pacote de desembolso associado a reformas de emprego e investimentos em energia limpa."
+        }
+      ]
+    },
+    {
+      "id": "detail-fr",
+      "countryId": "fr",
+      "completedGoals": {
+        "percentage": 83,
+        "completed": 50,
+        "total": 60
+      },
+      "distribution": {
+        "countryPercentage": 88,
+        "euPercentage": 12
+      },
+      "metrics": {
+        "totalDisbursed": "€30 900 M",
+        "grantsRequested": "€40 300 M",
+        "loansAwarded": "€0 M",
+        "allocationVsGdp": "1.46 %"
+      },
+      "updates": [
+        {
+          "date": "2025-12-12",
+          "text": "França atualiza indicadores de impacto associados a digitalização, energia e competitividade."
+        },
+        {
+          "date": "2025-09-29",
+          "text": "A Comissão Europeia valida novos marcos do plano nacional de recuperação e resiliência."
+        },
+        {
+          "date": "2025-05-16",
+          "text": "Novo desembolso aprovado após cumprimento de metas em transição ecológica."
+        }
+      ]
+    },
+    {
+      "id": "detail-at",
+      "countryId": "at",
+      "completedGoals": {
+        "percentage": 58,
+        "completed": 30,
+        "total": 52
+      },
+      "distribution": {
+        "countryPercentage": 68,
+        "euPercentage": 32
+      },
+      "metrics": {
+        "totalDisbursed": "€2 980 M",
+        "grantsRequested": "€4 500 M",
+        "loansAwarded": "€2 120 M",
+        "allocationVsGdp": "1.26 %"
+      },
+      "updates": [
+        {
+          "date": "2026-01-09",
+          "text": "Atualização de marcos relativos à eficiência energética em edifícios."
+        },
+        {
+          "date": "2025-12-03",
+          "text": "A Comissão Europeia regista novos progressos em reformas associadas à transição ecológica da Áustria."
+        },
+        {
+          "date": "2025-10-21",
+          "text": "Revisão técnica de indicadores de execução no plano austríaco de recuperação e resiliência."
+        }
+      ]
+    }
+  ],
   "topCountries": [
     {
       "id": 1,

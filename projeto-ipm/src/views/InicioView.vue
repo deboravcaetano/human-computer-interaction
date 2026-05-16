@@ -4,6 +4,7 @@ import IntroCard from '@/components/IntroCard.vue';
 import AllFlags from '@/components/AllFlags.vue';
 import Top3Cards from '@/components/Top3Cards.vue';
 import InfoCard from '@/components/InfoCard.vue';
+import UltimasNoticiasBg from '@/components/UltimasNoticiasBg.vue';
 import { getCountries, getSummary, getTopCountries } from '@/services/api';
 
 const title = "Monitorização do Mecanismo de Recuperação e Resiliência";
@@ -47,14 +48,15 @@ onMounted(async () => {
 
 <template>
   <div>
-    <IntroCard 
-      :title="title" 
-      :description="description" 
-      height="400px" 
-      width="100%" 
+    <IntroCard
+      :title="title"
+      :description="description"
+      height="400px"
+      width="100%"
     >
       <AllFlags />
     </IntroCard>
+
     <div class="info-cards-container">
       <InfoCard
         v-for="info in summary"
@@ -64,11 +66,12 @@ onMounted(async () => {
         class="info-card-item"
       />
     </div>
+
     <section class="top3-section">
       <div class="top3-container">
         <div class="top3-header">
-          <h2 class="title-1">Top 3</h2>
-          <p class="title-2">países que lideram a execução</p>
+          <h2 class="title-1">Top 3 países</h2>
+          <p class="title-2">Estados-Membros com melhor progresso na execução</p>
         </div>
 
         <p v-if="isLoading" class="state-text">A carregar dados...</p>
@@ -87,9 +90,10 @@ onMounted(async () => {
         </div>
       </div>
     </section>
-  </div> 
-</template>
 
+    <UltimasNoticiasBg class="home-news-spacer" />
+  </div>
+</template>
 
 <style scoped>
 .info-cards-container {
@@ -102,14 +106,14 @@ onMounted(async () => {
   margin-top: -55px;
   position: relative;
   z-index: 2;
-  margin-bottom: 500px; 
+  margin-bottom: 260px;
 }
 
 .top3-section {
   display: flex;
-  justify-content: center; 
-  padding: 40px 20px 100px; 
-  background-color: white; 
+  justify-content: center;
+  padding: 28px 20px 100px;
+  background: #ffffff;
 }
 
 .info-card-item {
@@ -130,78 +134,82 @@ onMounted(async () => {
 }
 
 .top3-container {
-  max-width: 1280px; 
+  max-width: 1280px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   padding: 0 20px;
 }
 
 .top3-header {
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   line-height: 1.2;
-  text-align: left; 
+  text-align: left;
   width: 100%;
-  max-width: 600px; 
+  max-width: 760px;
 }
 
 .title-1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   font-family: 'Roboto', sans-serif;
-  margin: 0 0 12px 0;
-  color: #000;
-  line-height: 1.1; 
+  margin: 0 0 8px 0;
+  color: #0b1f4b;
+  line-height: 1.05;
 }
 
 .title-2 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 500;
   font-family: 'Roboto', sans-serif;
-  margin: 0; 
-  color: #666;
-  line-height: 1.3; 
+  margin: 0;
+  color: #66738f;
+  line-height: 1.4;
 }
 
 .top3-cards {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
   width: 100%;
-  justify-content: center; 
-  flex-wrap: wrap; 
-  max-width: 1200px;
+  max-width: 1180px;
+  align-items: stretch;
 }
 
+.home-news-spacer {
+  margin-top: 200px;
+}
 
 @media (max-width: 1024px) {
   .top3-cards {
-    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 768px) {
   .top3-section {
-    padding: 40px 16px 80px;
+    padding: 24px 16px 80px;
   }
-  
+
   .top3-cards {
+    grid-template-columns: 1fr;
     gap: 16px;
-    justify-content: center;
   }
-  
+
   .top3-container {
     padding: 0 16px;
   }
-}
 
-@media (max-width: 480px) {
-  .top3-cards {
-    flex-direction: column;
-    align-items: center;
+  .info-cards-container {
+    margin-bottom: 180px;
     gap: 20px;
   }
 }
 
-
+@media (max-width: 480px) {
+  .home-news-spacer {
+    margin-top: 50px;
+  }
+}
 </style>

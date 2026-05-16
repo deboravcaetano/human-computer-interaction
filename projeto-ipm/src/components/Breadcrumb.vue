@@ -4,14 +4,26 @@ import { useRoute } from 'vue-router'
 
 type BreadcrumbItem = {
   label: string
-  to?: string
+  to?: string | (() => string) 
 }
 
 const route = useRoute()
 
+const getTo = (item: BreadcrumbItem) => {
+  return typeof item.to === 'function' ? item.to() : item.to
+}
+
 const breadcrumbs = computed(() => {
   const routeBreadcrumbs = route.meta.breadcrumb as BreadcrumbItem[] | undefined
-  return routeBreadcrumbs ?? []
+  return (routeBreadcrumbs ?? []).map((item) => {
+    if (route.path.includes('/mais') && item.label === 'Detalhe') {
+      return {
+        ...item,
+        to: `/paises/${route.params.countryId}`,
+      }
+    }
+    return item
+  })
 })
 </script>
 
@@ -25,7 +37,7 @@ const breadcrumbs = computed(() => {
       >
         <router-link
           v-if="item.to && index < breadcrumbs.length - 1"
-          :to="item.to"
+          :to="getTo(item)"
           class="breadcrumb__link"
         >
           {{ item.label }}
@@ -42,9 +54,10 @@ const breadcrumbs = computed(() => {
 .breadcrumb {
   width: 100%;
   margin: 0;
-  padding: 18px 25px 0;
+  padding: 16px 25px;
   font-family: var(--font-primary);
   background-color: var(--bg-blue);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .breadcrumb__list {
@@ -90,7 +103,7 @@ const breadcrumbs = computed(() => {
 
 @media (max-width: 768px) {
   .breadcrumb {
-    padding: 14px 16px 0;
+    padding: 12px 16px;
   }
 
   .breadcrumb__list {

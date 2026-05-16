@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import SearchBar from '@/components/SearchBar.vue';
 import Button from '@/components/Button.vue';
 import CountryCard from '@/components/CountryCard.vue';
@@ -9,6 +10,7 @@ import compareIcon from '@/assets/compare-icon.svg';
 import { getCountries } from '@/services/api';
 
 const countries = ref([]);
+const router = useRouter();
 const searchQuery = ref('');
 const isLoading = ref(true);
 const errorMessage = ref('');
@@ -123,8 +125,8 @@ const onBeforeLeave = (el) => {
   el.style.overflow      = 'hidden';
 };
 
-const onCountryCardClick = () => {
-  // Placeholder until country detail page is ready.
+const onCountryCardClick = (countryId) => {
+  router.push(`/paises/${countryId}`);
 };
 </script>
 
@@ -182,7 +184,7 @@ const onCountryCardClick = () => {
           :evolution="country.evolution"
           :gdp="country.gdp"
           :updated-at="country.updatedAt"
-          @click="onCountryCardClick"
+          @click="onCountryCardClick(country.id)"
         />
       </div>
     </TransitionGroup>
