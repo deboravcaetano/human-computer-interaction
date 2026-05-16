@@ -55,8 +55,8 @@ export default {
     border-radius: 10px;
     padding: 10px;
     height: 140px;
-    width: 320px;
-    margin: 10px;
+    width: 100%;
+    box-sizing: border-box;
     border: 1px solid #e0e0e0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
     cursor: pointer;
@@ -74,8 +74,8 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-justify-content: flex-start;
-gap: 22px;
+    justify-content: flex-start;
+    gap: 22px;
     padding: 15px 20px;
     box-sizing: border-box;
 }
@@ -88,13 +88,13 @@ gap: 22px;
 }
 
 .pilar-img {
-height: 25px;
+    height: 25px;
     width: auto;
 }
 
 .pilar-title {
     color: rgb(0, 0, 0); 
-font-size: 1rem; 
+    font-size: 1rem; 
     font-weight: bold;
     font-family: var(--font-primary);
     margin: 0;

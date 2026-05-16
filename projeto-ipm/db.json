@@ -319,37 +319,43 @@
       "id": "crescimento",
       "name": "Crescimento",
       "asset": "pilar-crescimento",
-      "color": "#1d4ed8"
+      "color": "#1d4ed8",
+      "percentage": 18.4
     },
     {
       "id": "transicao-ecologica",
       "name": "Transição Ecológica",
       "asset": "pilar-ecologica",
-      "color": "#4ade80"
+      "color": "#4ade80",
+      "percentage": 24.7
     },
     {
       "id": "transformacao-digital",
       "name": "Transformação Digital",
       "asset": "pilar-digital",
-      "color": "#f87171"
+      "color": "#f87171",
+      "percentage": 21.3
     },
     {
       "id": "politicas",
       "name": "Políticas",
       "asset": "pilar-politicas",
-      "color": "#fbbf24"
+      "color": "#fbbf24",
+      "percentage": 9.6
     },
     {
       "id": "coesao-social-territorial",
       "name": "Coesão Social e Territorial",
       "asset": "pilar-coesao",
-      "color": "#bbbbbb"
+      "color": "#bbbbbb",
+      "percentage": 14.8
     },
     {
       "id": "saude-resiliencia",
       "name": "Saúde e Resiliência",
       "asset": "pilar-saude",
-      "color": "#22c55e"
+      "color": "#22c55e",
+      "percentage": 11.2
     }
   ],
   "indicators": [
@@ -445,6 +451,69 @@
       "entity": "Ministro de Vivienda",
       "status": "recusado",
       "pillarId": "coesao-social-territorial"
+    },
+    {
+      "id": 4,
+      "countryId": "es",
+      "date": "2026-02-12",
+      "description": "Revisão do calendário de investimentos em mobilidade sustentável.",
+      "entity": "Ministério dos Transportes",
+      "status": "aprovado",
+      "pillarId": "transicao-ecologica"
+    },
+    {
+      "id": 5,
+      "countryId": "it",
+      "date": "2026-02-04",
+      "description": "Pedido de reforço para modernização de serviços públicos digitais.",
+      "entity": "Ministério da Administração Pública",
+      "status": "pendente",
+      "pillarId": "transformacao-digital"
+    },
+    {
+      "id": 6,
+      "countryId": "gr",
+      "date": "2026-01-27",
+      "description": "Alteração de metas associadas à resiliência do sistema de saúde.",
+      "entity": "Ministério da Saúde",
+      "status": "aprovado",
+      "pillarId": "saude-resiliencia"
+    },
+    {
+      "id": 7,
+      "countryId": "be",
+      "date": "2026-01-18",
+      "description": "Reprogramação de verbas para projetos de coesão territorial.",
+      "entity": "Secretaria de Estado do Planeamento",
+      "status": "recusado",
+      "pillarId": "coesao-social-territorial"
+    },
+    {
+      "id": 8,
+      "countryId": "at",
+      "date": "2026-01-09",
+      "description": "Atualização de marcos relativos à eficiência energética em edifícios.",
+      "entity": "Ministério do Ambiente",
+      "status": "aprovado",
+      "pillarId": "transicao-ecologica"
+    },
+    {
+      "id": 9,
+      "countryId": "dk",
+      "date": "2025-12-19",
+      "description": "Revisão de indicadores para programas de crescimento e inovação.",
+      "entity": "Ministério da Economia",
+      "status": "pendente",
+      "pillarId": "crescimento"
+    },
+    {
+      "id": 10,
+      "countryId": "fi",
+      "date": "2025-12-08",
+      "description": "Ajuste técnico em medidas de simplificação administrativa.",
+      "entity": "Comissão Nacional de Reforma",
+      "status": "aprovado",
+      "pillarId": "politicas"
     }
   ],
   "executionCharts": [

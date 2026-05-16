@@ -6,20 +6,12 @@ import Button from '@/components/Button.vue';
 import ExportImg from '@/assets/Download.svg'
 import FilterSelect from '@/components/FilterSelect.vue';
 import HistoryList from '@/components/HistoryList.vue';
-import PortugalFlag from '@/assets/flags/portugal-flag.svg';
-import FranceFlag from '@/assets/flags/france-flag.svg';
-import GermanyFlag from '@/assets/flags/germany-flag.svg';
-import ItalyFlag from '@/assets/flags/italy-flag.svg';
-import SpainFlag from '@/assets/flags/spain-flag.svg';
-import GreeceFlag from '@/assets/flags/greece-flag.svg';
-
-import { computed, ref } from 'vue';
+import { getCountries, getPillars, getReviews } from '@/services/api';
 
 const filtroPais = ref('');
 const filtroEstado = ref('');
 const filtroPilares = ref('');
 
-const paises = ['Portugal', 'Espanha', 'França', 'Alemanha', 'Itália', 'Grécia'];
 const estados = ['Aprovado', 'Pendente', 'Recusado'];
 const countries = ref([]);
 const pillars = ref([]);
@@ -30,8 +22,19 @@ const errorMessage = ref('');
 const title = "Histórico de Revisões da União Europeia";
 const description = "Este painel permite acompanhar as alterações oficiais nos Planos de Recuperação e Resiliência, garantindo a transparência e a responsabilidade na execução dos fundos."
 
-const paises = computed(() => countries.value.map((country) => country.name));
 const pilares = computed(() => pillars.value.map((pillar) => pillar.name));
+
+const getFlagPath = (flagAsset) => {
+    return new URL(`../assets/flags/${flagAsset}.svg`, import.meta.url).href;
+};
+
+const paises = computed(() => {
+    return countries.value.map((country) => ({
+        label: country.name,
+        value: country.name,
+        icon: getFlagPath(country.flagAsset)
+    }));
+});
 
 const getCountryById = (countryId) => countries.value.find((country) => country.id === countryId);
 const getPillarById = (pillarId) => pillars.value.find((pillar) => pillar.id === pillarId);
@@ -52,6 +55,20 @@ const totalRevisoes = computed(() => filteredReviews.value.length);
 const totalAprovados = computed(() => filteredReviews.value.filter((review) => review.status === 'aprovado').length);
 const totalPendentes = computed(() => filteredReviews.value.filter((review) => review.status === 'pendente').length);
 const totalRecusados = computed(() => filteredReviews.value.filter((review) => review.status === 'recusado').length);
+
+const historyItems = computed(() => {
+    return filteredReviews.value.map((review) => {
+        const country = getCountryById(review.countryId);
+        const pillar = getPillarById(review.pillarId);
+
+        return {
+            ...review,
+            country: country?.name ?? 'País desconhecido',
+            flag: country?.flagAsset ? getFlagPath(country.flagAsset) : '',
+            category: pillar?.name ?? ''
+        };
+    });
+});
 
 onMounted(async () => {
     try {
@@ -141,6 +158,8 @@ onMounted(async () => {
             </div>
         </div>
         <p v-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
+        <p v-else-if="isLoading" class="state-text">A carregar histórico...</p>
+        <HistoryList v-else :items="historyItems" />
     </div>
 </template>
 
