@@ -658,86 +658,23 @@
       "pillarId": "politicas"
     }
   ],
-  "executionCharts": [
-    {
-      "id": "circle-progress",
-      "type": "circle-progress",
-      "percentage": 67,
-      "label": "Execução geral"
-    },
-    {
-      "id": "bars-overview",
-      "type": "bars",
-      "maxHeight": 220,
-      "bars": [
-        {
-          "name": "Six",
-          "value": 393,
-          "color": "#1d4ed8"
-        },
-        {
-          "name": "Seven",
-          "value": 723.8,
-          "color": "#bbbbbb"
-        }
-      ]
-    },
-    {
-      "id": "pillars-horizontal",
-      "type": "horizontal-bars",
-      "maxWidth": 200,
-      "bars": [
-        {
-          "title": "Crescimento",
-          "value": 393,
-          "color": "#1d4ed8"
-        },
-        {
-          "title": "Transição Ecológica",
-          "value": 723.8,
-          "color": "#bbbbbb"
-        },
-        {
-          "title": "Sustentabilidade",
-          "value": 500,
-          "color": "#4ade80"
-        },
-        {
-          "title": "Inovação",
-          "value": 250,
-          "color": "#fbbf24"
-        },
-        {
-          "title": "Digitalização",
-          "value": 150,
-          "color": "#f87171"
-        }
-      ]
-    },
-    {
-      "id": "country-share",
-      "type": "pie",
-      "size": 200,
-      "rotation": 280,
-      "slices": [
-        {
-          "label": "Portugal",
-          "percentage": 18,
-          "color": "#1d4ed8"
-        },
-        {
-          "label": "Alemanha",
-          "percentage": 29,
-          "color": "#bbbbbb"
-        },
-        {
-          "label": "Resto da UE",
-          "percentage": 53,
-          "color": "#4ade80"
-        }
-      ]
+  "executionOverview": {
+    "fundsApproved": 17921.35,
+    "fundsDisbursed": 12467,
+    "marcosConcluidos": 3301,
+    "marcosTotal": 6347,
+    "metasAtrasoCount": 142,
+    "metasAtrasoTotal": 6347,
+    "metasAtrasoDelta": "+12 face ao mes anterior",
+    "pillars": {
+      "transicaoVerde": 2713,
+      "transformacaoDigital": 2205,
+      "crescimento": 1452,
+      "coesao": 2487,
+      "saude": 2289,
+      "politicas": 930
     }
-  ],
+  },
   "faqs": [
     {
       "id": 1,

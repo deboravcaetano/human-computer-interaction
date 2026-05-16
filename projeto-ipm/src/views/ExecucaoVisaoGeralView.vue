@@ -5,12 +5,16 @@ import HorizontalBarsGraph from '@/components/graphs/HorizontalBarsGraph.vue';
 import Button from '@/components/Button.vue';
 import ExecutionTable from '@/components/ExecutionTable.vue';
 import SummaryCard from '@/components/SummaryCard.vue';
+import { getCountries } from '@/services/api';
 import arrowDown from '@/assets/arrow-down.svg';
-import portugalFlag from '@/assets/flags/portugal-flag.svg';
-import franceFlag from '@/assets/flags/france-flag.svg';
-import germanyFlag from '@/assets/flags/germany-flag.svg';
-import italyFlag from '@/assets/flags/italy-flag.svg';
-import polandFlag from '@/assets/flags/poland-flag.svg';
+const TOTAL_MARCOS = 120;
+const roundToOne = (value) => Math.round(value * 10) / 10;
+const formatNumber = (value) => {
+    if (value === null || value === undefined) return '';
+    const numberValue = Number(value);
+    if (Number.isNaN(numberValue)) return String(value);
+    return numberValue.toLocaleString('pt-PT');
+};
 
 export default {
     name: 'ExecucaoVisaoGeralView',
@@ -25,83 +29,85 @@ export default {
     data() {
         return {
             arrowDown,
-            summaryCards: [
+            summaryCards: [],
+            executionByCountry: []
+        };
+    },
+    async mounted() {
+        try {
+            const [overviewResponse, countries] = await Promise.all([
+                fetch('http://localhost:3000/executionOverview'),
+                getCountries()
+            ]);
+
+            if (!overviewResponse.ok) throw new Error('Falha ao obter dados da execucao.');
+            const overview = await overviewResponse.json();
+
+            const evolutions = Array.isArray(countries)
+                ? countries
+                    .map((country) => Number(country.evolution) || 0)
+                    .filter((value) => Number.isFinite(value))
+                : [];
+
+            const meanEvolution = evolutions.length
+                ? evolutions.reduce((sum, value) => sum + value, 0) / evolutions.length
+                : 0;
+
+            const metasPercent = overview.metasAtrasoTotal
+                ? (Number(overview.metasAtrasoCount) || 0) / Number(overview.metasAtrasoTotal) * 100
+                : 0;
+
+            this.summaryCards = [
                 {
                     title: 'Marcos Concluidos',
-                    value: '3 301',
-                    total: '6347',
-                    percent: 52,
+                    value: formatNumber(overview.marcosConcluidos),
+                    total: formatNumber(overview.marcosTotal),
+                    percent: roundToOne(meanEvolution),
                     helper: ''
                 },
                 {
                     title: 'Total de Fundos Aprovados e Desembolsados',
                     bars: [
-                        { name: 'Desembolsados', value: 393, color: '#1d4ed8' },
-                        { name: 'Aprovados', value: 723.8, color: '#bfc3cc' },
+                        { name: 'Desembolsados', value: overview.fundsDisbursed || 0, color: '#1d4ed8' },
+                        { name: 'Aprovados', value: overview.fundsApproved || 0, color: '#bfc3cc' },
                     ],
                 },
                 {
                     title: 'Execucao por Pilares / Areas',
                     pillars: [
-                        { title: 'Transição Verde', value: 2713, color: '#2f8f5f' },
-                        { title: 'Transformação Digital', value: 2205, color: '#6a2aa0' },
-                        { title: 'Crescimento', value: 1452, color: '#168fa0' },
-                        { title: 'Coesao Social e Territorial', value: 2487, color: '#d97706' },
-                        { title: 'Saúde', value: 2289, color: '#dc2626' },
-                        { title: 'Políticas para a próxima geração', value: 930, color: '#d1a21a' },
+                        { title: 'Transição Verde', value: overview.pillars?.transicaoVerde || 0, color: '#2f8f5f' },
+                        { title: 'Transformação Digital', value: overview.pillars?.transformacaoDigital || 0, color: '#6a2aa0' },
+                        { title: 'Crescimento', value: overview.pillars?.crescimento || 0, color: '#168fa0' },
+                        { title: 'Coesao Social e Territorial', value: overview.pillars?.coesao || 0, color: '#d97706' },
+                        { title: 'Saúde', value: overview.pillars?.saude || 0, color: '#dc2626' },
+                        { title: 'Políticas para a próxima geração', value: overview.pillars?.politicas || 0, color: '#d1a21a' },
                     ],
                 },
                 {
                     title: 'Metas em Atraso',
-                    value: '142',
-                    total: '6347',
-                    percent: 2.24,
-                    helper: '+12 face ao mes anterior'
+                    value: formatNumber(overview.metasAtrasoCount),
+                    total: formatNumber(overview.metasAtrasoTotal),
+                    percent: roundToOne(metasPercent),
+                    helper: overview.metasAtrasoDelta || ''
                 }
-            ],
-            executionByCountry: [
-                {
-                    country: 'Portugal',
-                    flag: portugalFlag,
-                    funds: '$ 15,6 Bilhoes',
-                    execution: 24,
-                    concluded: 37,
-                    total: 82
-                },
-                {
-                    country: 'Franca',
-                    flag: franceFlag,
-                    funds: '$ 26,8 Bilhoes',
-                    execution: 43,
-                    concluded: 102,
-                    total: 145
-                },
-                {
-                    country: 'Alemanha',
-                    flag: germanyFlag,
-                    funds: '$ 67,7 Bilhoes',
-                    execution: 74,
-                    concluded: 76,
-                    total: 108
-                },
-                {
-                    country: 'Italia',
-                    flag: italyFlag,
-                    funds: '$ 44,1 Bilhoes',
-                    execution: 31,
-                    concluded: 65,
-                    total: 122
-                },
-                {
-                    country: 'Polonia',
-                    flag: polandFlag,
-                    funds: '$ 18,9 Bilhoes',
-                    execution: 16,
-                    concluded: 29,
-                    total: 54
-                },
-            ]
-        };
+            ];
+
+            this.executionByCountry = Array.isArray(countries)
+                ? countries.map((country) => {
+                    const execution = Number(country.evolution) || 0;
+                    return {
+                        country: country.name,
+                        flag: new URL(`../assets/flags/${country.flagAsset}.svg`, import.meta.url).href,
+                        funds: country.gdp,
+                        execution,
+                        concluded: Math.round((execution / 100) * TOTAL_MARCOS),
+                        total: TOTAL_MARCOS
+                    };
+                })
+                : [];
+        } catch (error) {
+            console.error(error);
+        }
     }
 };
 </script>
@@ -116,7 +122,7 @@ export default {
             </p>
         </section>
 
-        <section class="summary-grid">
+        <section v-if="summaryCards.length >= 4" class="summary-grid">
             <SummaryCard :title="summaryCards[0].title" class="summary-card--large">
                 <div class="summary-body summary-body--split">
                     <div class="summary-metric">
@@ -151,16 +157,23 @@ export default {
         <section class="country-section">
             <div class="country-header">
                 <h2 class="country-title">Execucao por Estado-Membro</h2>
-                <Button
-                    class="view-all-button"
-                    text="Ver tudo"
-                    textsize="13px"
-                    :icon="true"
-                    :iconPath="arrowDown"
-                />
+                <router-link to="/execucao/estado-membro" class="view-all-link">
+                    <Button
+                        class="view-all-button"
+                        text="Ver tudo"
+                        textsize="13px"
+                        :icon="true"
+                        :iconPath="arrowDown"
+                    />
+                </router-link>
             </div>
 
-            <ExecutionTable :rows="executionByCountry" />
+            <ExecutionTable
+                v-if="executionByCountry.length"
+                :rows="executionByCountry"
+                :limit-top="true"
+                :limit-count="5"
+            />
         </section>
     </div>
 </template>
@@ -306,6 +319,10 @@ export default {
 
 .view-all-button :deep(.btn__icon) {
     transform: rotate(-90deg);
+}
+
+.view-all-link {
+    text-decoration: none;
 }
 
 @media (max-width: 1100px) {

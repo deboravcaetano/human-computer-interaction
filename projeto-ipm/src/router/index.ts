@@ -5,6 +5,7 @@ import PaisesView from '@/views/PaisesView.vue'
 import PaisView from '@/views/PaisView.vue'
 import ExecucaoView from '@/views/ExecucaoView.vue'
 import ExecucaoVisaoGeralView from '@/views/ExecucaoVisaoGeralView.vue'
+import ExecucaoEstadoMembroView from '@/views/ExecucaoEstadoMembroView.vue'
 import ExecucaoMetasMarcosView from '@/views/ExecucaoMetasMarcosView.vue'
 import ExecucaoDesembolsosView from '@/views/ExecucaoDesembolsosView.vue'
 import IndicadoresView from '@/views/IndicadoresView.vue'
@@ -93,6 +94,18 @@ const router = createRouter({
         breadcrumb: [
           { label: 'Execução', to: '/execucao' },
           { label: 'Visão Geral' },
+        ],
+      }
+    },
+    {
+      path: '/execucao/estado-membro',
+      name: 'Execução - Estado-Membro',
+      component: ExecucaoEstadoMembroView,
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Estado-Membro' },
         ],
       }
     },
