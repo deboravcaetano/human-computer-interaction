@@ -24,6 +24,10 @@ export default defineComponent({
       type: String,
       default: 'B',
     },
+    legendPosition: {
+      type: String as PropType<'bottom' | 'left'>,
+      default: 'bottom',
+    },
   },
 
   setup(props) {
@@ -48,27 +52,11 @@ export default defineComponent({
 
 
 <template>
-  <div class="bar-chart-wrapper">
-    <div class="bars-container" :style="{ minHeight: `${maxHeight}px` }">
-      <div
-        v-for="bar in bars"
-        :key="bar.name"
-        class="bar-group"
-      >
-        <span class="bar-value" :style="{ color: bar.color }">
-          {{ formatValue(bar.value) }}
-        </span>
-        <div
-          class="bar"
-          :style="{
-            height: barHeight(bar.value) + 'px',
-            backgroundColor: bar.color,
-          }"
-        />
-      </div>
-    </div>
-
-    <div class="legend">
+  <div
+    class="bar-chart-wrapper"
+    :class="{ 'bar-chart-wrapper--legend-left': legendPosition === 'left' }"
+  >
+    <div v-if="legendPosition === 'left'" class="legend legend--side">
       <div
         v-for="bar in bars"
         :key="bar.name"
@@ -76,6 +64,38 @@ export default defineComponent({
       >
         <span class="legend-dot" :style="{ backgroundColor: bar.color }" />
         <span class="legend-label">{{ bar.name }}</span>
+      </div>
+    </div>
+
+    <div class="bar-chart-main">
+      <div class="bars-container" :style="{ minHeight: `${maxHeight}px` }">
+        <div
+          v-for="bar in bars"
+          :key="bar.name"
+          class="bar-group"
+        >
+          <span class="bar-value" :style="{ color: bar.color }">
+            {{ formatValue(bar.value) }}
+          </span>
+          <div
+            class="bar"
+            :style="{
+              height: barHeight(bar.value) + 'px',
+              backgroundColor: bar.color,
+            }"
+          />
+        </div>
+      </div>
+
+      <div v-if="legendPosition === 'bottom'" class="legend">
+        <div
+          v-for="bar in bars"
+          :key="bar.name"
+          class="legend-item"
+        >
+          <span class="legend-dot" :style="{ backgroundColor: bar.color }" />
+          <span class="legend-label">{{ bar.name }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -95,6 +115,18 @@ export default defineComponent({
   min-width: 260px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.bar-chart-wrapper--legend-left {
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.bar-chart-main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 
@@ -142,6 +174,13 @@ export default defineComponent({
   gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.legend--side {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 120px;
 }
 
 .legend-item {

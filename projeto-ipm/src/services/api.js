@@ -61,3 +61,7 @@ export function getSummary() {
 export function getTopCountries() {
   return request('/topCountries')
 }
+
+export function getMetasMarcos() {
+  return request('/metasMarcos')
+}

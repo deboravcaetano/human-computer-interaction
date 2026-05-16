@@ -1,460 +1,90 @@
 {
   "summary": [
-    {
-      "id": "fundos-alocados",
-      "title": "Total de fundos alocados",
-      "value": "$637 Mil Milhões"
-    },
-    {
-      "id": "execucao-europeia",
-      "title": "Execução Europeia",
-      "value": "18%"
-    },
-    {
-      "id": "beneficiarios-projetos",
-      "title": "Beneficiários/Projetos",
-      "value": "120"
-    }
+    { "id": "fundos-alocados", "title": "Total de fundos alocados", "value": "$637 Mil Milhões" },
+    { "id": "execucao-europeia", "title": "Execução Europeia", "value": "18%" },
+    { "id": "beneficiarios-projetos", "title": "Beneficiários/Projetos", "value": "120" }
   ],
   "countries": [
-    {
-      "id": "at",
-      "name": "Áustria",
-      "nameEn": "Austria",
-      "flagCode": "at",
-      "flagAsset": "austria-flag",
-      "evolution": 58,
-      "gdp": "$526.18 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "be",
-      "name": "Bélgica",
-      "nameEn": "Belgium",
-      "flagCode": "be",
-      "flagAsset": "belgium-flag",
-      "evolution": 64,
-      "gdp": "$632.22 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "bg",
-      "name": "Bulgária",
-      "nameEn": "Bulgaria",
-      "flagCode": "bg",
-      "flagAsset": "bulgaria-flag",
-      "evolution": 47,
-      "gdp": "$101.58 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "hr",
-      "name": "Croácia",
-      "nameEn": "Croatia",
-      "flagCode": "hr",
-      "flagAsset": "croatia-flag",
-      "evolution": 55,
-      "gdp": "$82.69 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "cy",
-      "name": "Chipre",
-      "nameEn": "Cyprus",
-      "flagCode": "cy",
-      "flagAsset": "cyprus-flag",
-      "evolution": 62,
-      "gdp": "$34.79 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "cz",
-      "name": "Chéquia",
-      "nameEn": "Czechia",
-      "flagCode": "cz",
-      "flagAsset": "czechia-flag",
-      "evolution": 59,
-      "gdp": "$330.86 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "dk",
-      "name": "Dinamarca",
-      "nameEn": "Denmark",
-      "flagCode": "dk",
-      "flagAsset": "denmark-flag",
-      "evolution": 71,
-      "gdp": "$407.09 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "ee",
-      "name": "Estónia",
-      "nameEn": "Estonia",
-      "flagCode": "ee",
-      "flagAsset": "estonia-flag",
-      "evolution": 68,
-      "gdp": "$41.55 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "fi",
-      "name": "Finlândia",
-      "nameEn": "Finland",
-      "flagCode": "fi",
-      "flagAsset": "finland-flag",
-      "evolution": 66,
-      "gdp": "$300.19 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "fr",
-      "name": "França",
-      "nameEn": "France",
-      "flagCode": "fr",
-      "flagAsset": "france-flag",
-      "evolution": 83,
-      "gdp": "$2822.45 B",
-      "updatedAt": "2025-12-12"
-    },
-    {
-      "id": "de",
-      "name": "Alemanha",
-      "nameEn": "Germany",
-      "flagCode": "de",
-      "flagAsset": "germany-flag",
-      "evolution": 61,
-      "gdp": "$4185.55 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "gr",
-      "name": "Grécia",
-      "nameEn": "Greece",
-      "flagCode": "gr",
-      "flagAsset": "greece-flag",
-      "evolution": 49,
-      "gdp": "$238.21 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "hu",
-      "name": "Hungria",
-      "nameEn": "Hungary",
-      "flagCode": "hu",
-      "flagAsset": "hungary-flag",
-      "evolution": 43,
-      "gdp": "$212.39 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "ie",
-      "name": "Irlanda",
-      "nameEn": "Ireland",
-      "flagCode": "ie",
-      "flagAsset": "ireland-flag",
-      "evolution": 74,
-      "gdp": "$545.63 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "it",
-      "name": "Itália",
-      "nameEn": "Italy",
-      "flagCode": "it",
-      "flagAsset": "italy-flag",
-      "evolution": 57,
-      "gdp": "$2301.92 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "lv",
-      "name": "Letónia",
-      "nameEn": "Latvia",
-      "flagCode": "lv",
-      "flagAsset": "latvia-flag",
-      "evolution": 54,
-      "gdp": "$43.63 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "lt",
-      "name": "Lituânia",
-      "nameEn": "Lithuania",
-      "flagCode": "lt",
-      "flagAsset": "lithuania-flag",
-      "evolution": 60,
-      "gdp": "$79.79 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "lu",
-      "name": "Luxemburgo",
-      "nameEn": "Luxembourg",
-      "flagCode": "lu",
-      "flagAsset": "luxembourg-flag",
-      "evolution": 69,
-      "gdp": "$89.10 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "mt",
-      "name": "Malta",
-      "nameEn": "Malta",
-      "flagCode": "mt",
-      "flagAsset": "malta-flag",
-      "evolution": 72,
-      "gdp": "$22.74 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "nl",
-      "name": "Países Baixos",
-      "nameEn": "Netherlands",
-      "flagCode": "nl",
-      "flagAsset": "netherlands-flag",
-      "evolution": 76,
-      "gdp": "$1118.13 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "pl",
-      "name": "Polónia",
-      "nameEn": "Poland",
-      "flagCode": "pl",
-      "flagAsset": "poland-flag",
-      "evolution": 53,
-      "gdp": "$811.23 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "pt",
-      "name": "Portugal",
-      "nameEn": "Portugal",
-      "flagCode": "pt",
-      "flagAsset": "portugal-flag",
-      "evolution": 52,
-      "gdp": "$267.92 B",
-      "updatedAt": "2025-12-12"
-    },
-    {
-      "id": "ro",
-      "name": "Roménia",
-      "nameEn": "Romania",
-      "flagCode": "ro",
-      "flagAsset": "romania-flag",
-      "evolution": 46,
-      "gdp": "$350.41 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "sk",
-      "name": "Eslováquia",
-      "nameEn": "Slovakia",
-      "flagCode": "sk",
-      "flagAsset": "slovakia-flag",
-      "evolution": 51,
-      "gdp": "$132.91 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "si",
-      "name": "Eslovénia",
-      "nameEn": "Slovenia",
-      "flagCode": "si",
-      "flagAsset": "slovenia-flag",
-      "evolution": 63,
-      "gdp": "$68.22 B",
-      "updatedAt": "2026-02-16"
-    },
-    {
-      "id": "es",
-      "name": "Espanha",
-      "nameEn": "Spain",
-      "flagCode": "es",
-      "flagAsset": "spain-flag",
-      "evolution": 32,
-      "gdp": "$1580.70 B",
-      "updatedAt": "2025-12-12"
-    },
-    {
-      "id": "se",
-      "name": "Suécia",
-      "nameEn": "Sweden",
-      "flagCode": "se",
-      "flagAsset": "sweden-flag",
-      "evolution": 70,
-      "gdp": "$593.27 B",
-      "updatedAt": "2026-02-16"
-    }
+    { "id": "at", "name": "Áustria", "nameEn": "Austria", "flagCode": "at", "flagAsset": "austria-flag", "evolution": 58, "gdp": "$526.18 B", "updatedAt": "2026-02-16" },
+    { "id": "be", "name": "Bélgica", "nameEn": "Belgium", "flagCode": "be", "flagAsset": "belgium-flag", "evolution": 64, "gdp": "$632.22 B", "updatedAt": "2026-02-16" },
+    { "id": "bg", "name": "Bulgária", "nameEn": "Bulgaria", "flagCode": "bg", "flagAsset": "bulgaria-flag", "evolution": 47, "gdp": "$101.58 B", "updatedAt": "2026-02-16" },
+    { "id": "hr", "name": "Croácia", "nameEn": "Croatia", "flagCode": "hr", "flagAsset": "croatia-flag", "evolution": 55, "gdp": "$82.69 B", "updatedAt": "2026-02-16" },
+    { "id": "cy", "name": "Chipre", "nameEn": "Cyprus", "flagCode": "cy", "flagAsset": "cyprus-flag", "evolution": 62, "gdp": "$34.79 B", "updatedAt": "2026-02-16" },
+    { "id": "cz", "name": "Chéquia", "nameEn": "Czechia", "flagCode": "cz", "flagAsset": "czechia-flag", "evolution": 59, "gdp": "$330.86 B", "updatedAt": "2026-02-16" },
+    { "id": "dk", "name": "Dinamarca", "nameEn": "Denmark", "flagCode": "dk", "flagAsset": "denmark-flag", "evolution": 71, "gdp": "$407.09 B", "updatedAt": "2026-02-16" },
+    { "id": "ee", "name": "Estónia", "nameEn": "Estonia", "flagCode": "ee", "flagAsset": "estonia-flag", "evolution": 68, "gdp": "$41.55 B", "updatedAt": "2026-02-16" },
+    { "id": "fi", "name": "Finlândia", "nameEn": "Finland", "flagCode": "fi", "flagAsset": "finland-flag", "evolution": 66, "gdp": "$300.19 B", "updatedAt": "2026-02-16" },
+    { "id": "fr", "name": "França", "nameEn": "France", "flagCode": "fr", "flagAsset": "france-flag", "evolution": 83, "gdp": "$2822.45 B", "updatedAt": "2025-12-12" },
+    { "id": "de", "name": "Alemanha", "nameEn": "Germany", "flagCode": "de", "flagAsset": "germany-flag", "evolution": 61, "gdp": "$4185.55 B", "updatedAt": "2026-02-16" },
+    { "id": "gr", "name": "Grécia", "nameEn": "Greece", "flagCode": "gr", "flagAsset": "greece-flag", "evolution": 49, "gdp": "$238.21 B", "updatedAt": "2026-02-16" },
+    { "id": "hu", "name": "Hungria", "nameEn": "Hungary", "flagCode": "hu", "flagAsset": "hungary-flag", "evolution": 43, "gdp": "$212.39 B", "updatedAt": "2026-02-16" },
+    { "id": "ie", "name": "Irlanda", "nameEn": "Ireland", "flagCode": "ie", "flagAsset": "ireland-flag", "evolution": 74, "gdp": "$545.63 B", "updatedAt": "2026-02-16" },
+    { "id": "it", "name": "Itália", "nameEn": "Italy", "flagCode": "it", "flagAsset": "italy-flag", "evolution": 57, "gdp": "$2301.92 B", "updatedAt": "2026-02-16" },
+    { "id": "lv", "name": "Letónia", "nameEn": "Latvia", "flagCode": "lv", "flagAsset": "latvia-flag", "evolution": 54, "gdp": "$43.63 B", "updatedAt": "2026-02-16" },
+    { "id": "lt", "name": "Lituânia", "nameEn": "Lithuania", "flagCode": "lt", "flagAsset": "lithuania-flag", "evolution": 60, "gdp": "$79.79 B", "updatedAt": "2026-02-16" },
+    { "id": "lu", "name": "Luxemburgo", "nameEn": "Luxembourg", "flagCode": "lu", "flagAsset": "luxembourg-flag", "evolution": 69, "gdp": "$89.10 B", "updatedAt": "2026-02-16" },
+    { "id": "mt", "name": "Malta", "nameEn": "Malta", "flagCode": "mt", "flagAsset": "malta-flag", "evolution": 72, "gdp": "$22.74 B", "updatedAt": "2026-02-16" },
+    { "id": "nl", "name": "Países Baixos", "nameEn": "Netherlands", "flagCode": "nl", "flagAsset": "netherlands-flag", "evolution": 76, "gdp": "$1118.13 B", "updatedAt": "2026-02-16" },
+    { "id": "pl", "name": "Polónia", "nameEn": "Poland", "flagCode": "pl", "flagAsset": "poland-flag", "evolution": 53, "gdp": "$811.23 B", "updatedAt": "2026-02-16" },
+    { "id": "pt", "name": "Portugal", "nameEn": "Portugal", "flagCode": "pt", "flagAsset": "portugal-flag", "evolution": 52, "gdp": "$267.92 B", "updatedAt": "2025-12-12" },
+    { "id": "ro", "name": "Roménia", "nameEn": "Romania", "flagCode": "ro", "flagAsset": "romania-flag", "evolution": 46, "gdp": "$350.41 B", "updatedAt": "2026-02-16" },
+    { "id": "sk", "name": "Eslováquia", "nameEn": "Slovakia", "flagCode": "sk", "flagAsset": "slovakia-flag", "evolution": 51, "gdp": "$132.91 B", "updatedAt": "2026-02-16" },
+    { "id": "si", "name": "Eslovénia", "nameEn": "Slovenia", "flagCode": "si", "flagAsset": "slovenia-flag", "evolution": 63, "gdp": "$68.22 B", "updatedAt": "2026-02-16" },
+    { "id": "es", "name": "Espanha", "nameEn": "Spain", "flagCode": "es", "flagAsset": "spain-flag", "evolution": 32, "gdp": "$1580.70 B", "updatedAt": "2025-12-12" },
+    { "id": "se", "name": "Suécia", "nameEn": "Sweden", "flagCode": "se", "flagAsset": "sweden-flag", "evolution": 70, "gdp": "$593.27 B", "updatedAt": "2026-02-16" }
   ],
   "countryDetails": [
     {
-      "id": "detail-pt",
-      "countryId": "pt",
-      "completedGoals": {
-        "percentage": 75,
-        "completed": 39,
-        "total": 52
-      },
-      "distribution": {
-        "countryPercentage": 84,
-        "euPercentage": 16
-      },
-      "metrics": {
-        "totalDisbursed": "€9 120 M",
-        "grantsRequested": "€22 450 M",
-        "loansAwarded": "€14 200 M",
-        "allocationVsGdp": "12.45 %"
-      },
+      "id": "detail-pt", "countryId": "pt",
+      "completedGoals": { "percentage": 75, "completed": 39, "total": 52 },
+      "distribution": { "countryPercentage": 84, "euPercentage": 16 },
+      "metrics": { "totalDisbursed": "€9 120 M", "grantsRequested": "€22 450 M", "loansAwarded": "€14 200 M", "allocationVsGdp": "12.45 %" },
       "updates": [
-        {
-          "date": "2026-02-27",
-          "text": "A Comissão Europeia desembolsa o oitavo pagamento de 1,11 mil milhões de euros a Portugal / Avaliação preliminar da Comissão Europeia."
-        },
-        {
-          "date": "2025-12-12",
-          "text": "O Conselho da União Europeia aprova a avaliação do plano de recuperação e resiliência modificado de Portugal / Decisão de Execução do Conselho alterada."
-        },
-        {
-          "date": "2025-11-26",
-          "text": "A Comissão Europeia desembolsa o sétimo pagamento de 1,06 mil milhões de euros a Portugal / Avaliação preliminar da Comissão Europeia."
-        },
-        {
-          "date": "2025-09-18",
-          "text": "Portugal submete atualização técnica de metas associadas à transição digital e à modernização administrativa."
-        },
-        {
-          "date": "2025-07-04",
-          "text": "A Comissão Europeia comunica avaliação positiva sobre novos marcos de investimento em habitação e saúde."
-        }
+        { "date": "2026-02-27", "text": "A Comissão Europeia desembolsa o oitavo pagamento de 1,11 mil milhões de euros a Portugal." },
+        { "date": "2025-12-12", "text": "O Conselho da União Europeia aprova a avaliação do plano de recuperação e resiliência modificado de Portugal." },
+        { "date": "2025-11-26", "text": "A Comissão Europeia desembolsa o sétimo pagamento de 1,06 mil milhões de euros a Portugal." },
+        { "date": "2025-09-18", "text": "Portugal submete atualização técnica de metas associadas à transição digital e à modernização administrativa." },
+        { "date": "2025-07-04", "text": "A Comissão Europeia comunica avaliação positiva sobre novos marcos de investimento em habitação e saúde." }
       ]
     },
     {
-      "id": "detail-es",
-      "countryId": "es",
-      "completedGoals": {
-        "percentage": 61,
-        "completed": 44,
-        "total": 72
-      },
-      "distribution": {
-        "countryPercentage": 78,
-        "euPercentage": 22
-      },
-      "metrics": {
-        "totalDisbursed": "€48 300 M",
-        "grantsRequested": "€77 200 M",
-        "loansAwarded": "€83 160 M",
-        "allocationVsGdp": "10.16 %"
-      },
+      "id": "detail-es", "countryId": "es",
+      "completedGoals": { "percentage": 61, "completed": 44, "total": 72 },
+      "distribution": { "countryPercentage": 78, "euPercentage": 22 },
+      "metrics": { "totalDisbursed": "€48 300 M", "grantsRequested": "€77 200 M", "loansAwarded": "€83 160 M", "allocationVsGdp": "10.16 %" },
       "updates": [
-        {
-          "date": "2025-12-12",
-          "text": "Espanha recebe nova avaliação positiva no âmbito da execução do plano de recuperação e resiliência."
-        },
-        {
-          "date": "2025-10-03",
-          "text": "Atualização de metas ligadas a mobilidade sustentável, competências digitais e simplificação administrativa."
-        },
-        {
-          "date": "2025-06-20",
-          "text": "Novo pacote de desembolso associado a reformas de emprego e investimentos em energia limpa."
-        }
+        { "date": "2025-12-12", "text": "Espanha recebe nova avaliação positiva no âmbito da execução do plano de recuperação e resiliência." },
+        { "date": "2025-10-03", "text": "Atualização de metas ligadas a mobilidade sustentável, competências digitais e simplificação administrativa." },
+        { "date": "2025-06-20", "text": "Novo pacote de desembolso associado a reformas de emprego e investimentos em energia limpa." }
       ]
     },
     {
-      "id": "detail-fr",
-      "countryId": "fr",
-      "completedGoals": {
-        "percentage": 83,
-        "completed": 50,
-        "total": 60
-      },
-      "distribution": {
-        "countryPercentage": 88,
-        "euPercentage": 12
-      },
-      "metrics": {
-        "totalDisbursed": "€30 900 M",
-        "grantsRequested": "€40 300 M",
-        "loansAwarded": "€0 M",
-        "allocationVsGdp": "1.46 %"
-      },
+      "id": "detail-fr", "countryId": "fr",
+      "completedGoals": { "percentage": 83, "completed": 50, "total": 60 },
+      "distribution": { "countryPercentage": 88, "euPercentage": 12 },
+      "metrics": { "totalDisbursed": "€30 900 M", "grantsRequested": "€40 300 M", "loansAwarded": "€0 M", "allocationVsGdp": "1.46 %" },
       "updates": [
-        {
-          "date": "2025-12-12",
-          "text": "França atualiza indicadores de impacto associados a digitalização, energia e competitividade."
-        },
-        {
-          "date": "2025-09-29",
-          "text": "A Comissão Europeia valida novos marcos do plano nacional de recuperação e resiliência."
-        },
-        {
-          "date": "2025-05-16",
-          "text": "Novo desembolso aprovado após cumprimento de metas em transição ecológica."
-        }
+        { "date": "2025-12-12", "text": "França atualiza indicadores de impacto associados a digitalização, energia e competitividade." },
+        { "date": "2025-09-29", "text": "A Comissão Europeia valida novos marcos do plano nacional de recuperação e resiliência." },
+        { "date": "2025-05-16", "text": "Novo desembolso aprovado após cumprimento de metas em transição ecológica." }
       ]
     },
     {
-      "id": "detail-at",
-      "countryId": "at",
-      "completedGoals": {
-        "percentage": 58,
-        "completed": 30,
-        "total": 52
-      },
-      "distribution": {
-        "countryPercentage": 68,
-        "euPercentage": 32
-      },
-      "metrics": {
-        "totalDisbursed": "€2 980 M",
-        "grantsRequested": "€4 500 M",
-        "loansAwarded": "€2 120 M",
-        "allocationVsGdp": "1.26 %"
-      },
+      "id": "detail-at", "countryId": "at",
+      "completedGoals": { "percentage": 58, "completed": 30, "total": 52 },
+      "distribution": { "countryPercentage": 68, "euPercentage": 32 },
+      "metrics": { "totalDisbursed": "€2 980 M", "grantsRequested": "€4 500 M", "loansAwarded": "€2 120 M", "allocationVsGdp": "1.26 %" },
       "updates": [
-        {
-          "date": "2026-01-09",
-          "text": "Atualização de marcos relativos à eficiência energética em edifícios."
-        },
-        {
-          "date": "2025-12-03",
-          "text": "A Comissão Europeia regista novos progressos em reformas associadas à transição ecológica da Áustria."
-        },
-        {
-          "date": "2025-10-21",
-          "text": "Revisão técnica de indicadores de execução no plano austríaco de recuperação e resiliência."
-        }
+        { "date": "2026-01-09", "text": "Atualização de marcos relativos à eficiência energética em edifícios." },
+        { "date": "2025-12-03", "text": "A Comissão Europeia regista novos progressos em reformas associadas à transição ecológica da Áustria." },
+        { "date": "2025-10-21", "text": "Revisão técnica de indicadores de execução no plano austríaco de recuperação e resiliência." }
       ]
     }
   ],
   "topCountries": [
-    {
-      "id": 1,
-      "countryId": "pt",
-      "position": 1,
-      "progress": 76,
-      "activeProjects": 184,
-      "totalReceived": "9.42 Mil M"
-    },
-    {
-      "id": 2,
-      "countryId": "fr",
-      "position": 2,
-      "progress": 68,
-      "activeProjects": 247,
-      "totalReceived": "12.75 Mil M"
-    },
-    {
-      "id": 3,
-      "countryId": "es",
-      "position": 3,
-      "progress": 61,
-      "activeProjects": 203,
-      "totalReceived": "10.31 Mil M"
-    }
+    { "id": 1, "countryId": "pt", "position": 1, "progress": 76, "activeProjects": 184, "totalReceived": "9.42 Mil M" },
+    { "id": 2, "countryId": "fr", "position": 2, "progress": 68, "activeProjects": 247, "totalReceived": "12.75 Mil M" },
+    { "id": 3, "countryId": "es", "position": 3, "progress": 61, "activeProjects": 203, "totalReceived": "10.31 Mil M" }
   ],
   "pillars": [
     {
@@ -4261,134 +3891,359 @@
     }
   ],
   "reviews": [
-    {
-      "id": 1,
-      "countryId": "pt",
-      "date": "2026-03-05",
-      "description": "Reforço de verbas para o programa Escola Digital.",
-      "entity": "Ministro da Educação",
-      "status": "pendente",
-      "pillarId": "transformacao-digital"
-    },
-    {
-      "id": 2,
-      "countryId": "fr",
-      "date": "2026-02-28",
-      "description": "Atualização de indicadores de impacto.",
-      "entity": "Ministro da Economia",
-      "status": "aprovado",
-      "pillarId": "transformacao-digital"
-    },
-    {
-      "id": 3,
-      "countryId": "de",
-      "date": "2026-02-20",
-      "description": "Reajuste de metas: Habitação Social.",
-      "entity": "Ministro de Vivienda",
-      "status": "recusado",
-      "pillarId": "coesao-social-territorial"
-    },
-    {
-      "id": 4,
-      "countryId": "es",
-      "date": "2026-02-12",
-      "description": "Revisão do calendário de investimentos em mobilidade sustentável.",
-      "entity": "Ministério dos Transportes",
-      "status": "aprovado",
-      "pillarId": "transicao-ecologica"
-    },
-    {
-      "id": 5,
-      "countryId": "it",
-      "date": "2026-02-04",
-      "description": "Pedido de reforço para modernização de serviços públicos digitais.",
-      "entity": "Ministério da Administração Pública",
-      "status": "pendente",
-      "pillarId": "transformacao-digital"
-    },
-    {
-      "id": 6,
-      "countryId": "gr",
-      "date": "2026-01-27",
-      "description": "Alteração de metas associadas à resiliência do sistema de saúde.",
-      "entity": "Ministério da Saúde",
-      "status": "aprovado",
-      "pillarId": "saude-resiliencia"
-    },
-    {
-      "id": 7,
-      "countryId": "be",
-      "date": "2026-01-18",
-      "description": "Reprogramação de verbas para projetos de coesão territorial.",
-      "entity": "Secretaria de Estado do Planeamento",
-      "status": "recusado",
-      "pillarId": "coesao-social-territorial"
-    },
-    {
-      "id": 8,
-      "countryId": "at",
-      "date": "2026-01-09",
-      "description": "Atualização de marcos relativos à eficiência energética em edifícios.",
-      "entity": "Ministério do Ambiente",
-      "status": "aprovado",
-      "pillarId": "transicao-ecologica"
-    },
-    {
-      "id": 9,
-      "countryId": "dk",
-      "date": "2025-12-19",
-      "description": "Revisão de indicadores para programas de crescimento e inovação.",
-      "entity": "Ministério da Economia",
-      "status": "pendente",
-      "pillarId": "crescimento"
-    },
-    {
-      "id": 10,
-      "countryId": "fi",
-      "date": "2025-12-08",
-      "description": "Ajuste técnico em medidas de simplificação administrativa.",
-      "entity": "Comissão Nacional de Reforma",
-      "status": "aprovado",
-      "pillarId": "politicas"
-    }
+    { "id": 1, "countryId": "pt", "date": "2026-03-05", "description": "Reforço de verbas para o programa Escola Digital.", "entity": "Ministro da Educação", "status": "pendente", "pillarId": "transformacao-digital" },
+    { "id": 2, "countryId": "fr", "date": "2026-02-28", "description": "Atualização de indicadores de impacto.", "entity": "Ministro da Economia", "status": "aprovado", "pillarId": "transformacao-digital" },
+    { "id": 3, "countryId": "de", "date": "2026-02-20", "description": "Reajuste de metas: Habitação Social.", "entity": "Ministro de Vivienda", "status": "recusado", "pillarId": "coesao-social-territorial" },
+    { "id": 4, "countryId": "es", "date": "2026-02-12", "description": "Revisão do calendário de investimentos em mobilidade sustentável.", "entity": "Ministério dos Transportes", "status": "aprovado", "pillarId": "transicao-ecologica" },
+    { "id": 5, "countryId": "it", "date": "2026-02-04", "description": "Pedido de reforço para modernização de serviços públicos digitais.", "entity": "Ministério da Administração Pública", "status": "pendente", "pillarId": "transformacao-digital" },
+    { "id": 6, "countryId": "gr", "date": "2026-01-27", "description": "Alteração de metas associadas à resiliência do sistema de saúde.", "entity": "Ministério da Saúde", "status": "aprovado", "pillarId": "saude-resiliencia" },
+    { "id": 7, "countryId": "be", "date": "2026-01-18", "description": "Reprogramação de verbas para projetos de coesão territorial.", "entity": "Secretaria de Estado do Planeamento", "status": "recusado", "pillarId": "coesao-social-territorial" },
+    { "id": 8, "countryId": "at", "date": "2026-01-09", "description": "Atualização de marcos relativos à eficiência energética em edifícios.", "entity": "Ministério do Ambiente", "status": "aprovado", "pillarId": "transicao-ecologica" },
+    { "id": 9, "countryId": "dk", "date": "2025-12-19", "description": "Revisão de indicadores para programas de crescimento e inovação.", "entity": "Ministério da Economia", "status": "pendente", "pillarId": "crescimento" },
+    { "id": 10, "countryId": "fi", "date": "2025-12-08", "description": "Ajuste técnico em medidas de simplificação administrativa.", "entity": "Comissão Nacional de Reforma", "status": "aprovado", "pillarId": "politicas" }
+  ],
+  "executionCharts": [
+    { "id": "circle-progress", "type": "circle-progress", "percentage": 67, "label": "Execução geral" },
+    { "id": "bars-overview", "type": "bars", "maxHeight": 220, "bars": [{ "name": "Six", "value": 393, "color": "#1d4ed8" }, { "name": "Seven", "value": 723.8, "color": "#bbbbbb" }] },
+    { "id": "pillars-horizontal", "type": "horizontal-bars", "maxWidth": 200, "bars": [{ "title": "Crescimento", "value": 393, "color": "#1d4ed8" }, { "title": "Transição Ecológica", "value": 723.8, "color": "#bbbbbb" }, { "title": "Sustentabilidade", "value": 500, "color": "#4ade80" }, { "title": "Inovação", "value": 250, "color": "#fbbf24" }, { "title": "Digitalização", "value": 150, "color": "#f87171" }] },
+    { "id": "country-share", "type": "pie", "size": 200, "rotation": 280, "slices": [{ "label": "Portugal", "percentage": 18, "color": "#1d4ed8" }, { "label": "Alemanha", "percentage": 29, "color": "#bbbbbb" }, { "label": "Resto da UE", "percentage": 53, "color": "#4ade80" }] }
   ],
   "executionOverview": {
-    "fundsApproved": 17921.35,
-    "fundsDisbursed": 12467,
-    "marcosConcluidos": 3301,
-    "marcosTotal": 6347,
-    "metasAtrasoCount": 142,
-    "metasAtrasoTotal": 6347,
-    "metasAtrasoDelta": "+12 face ao mes anterior",
-    "pillars": {
-      "transicaoVerde": 2713,
-      "transformacaoDigital": 2205,
-      "crescimento": 1452,
-      "coesao": 2487,
-      "saude": 2289,
-      "politicas": 930
-    }
+    "fundsApproved": 17921.35, "fundsDisbursed": 393, "marcosConcluidos": 3301, "marcosTotal": 6347,
+    "metasAtrasoCount": 142, "metasAtrasoTotal": 6347, "metasAtrasoDelta": "+12 face ao mes anterior",
+    "pillars": { "transicaoVerde": 2713, "transformacaoDigital": 2205, "crescimento": 1452, "coesao": 2487, "saude": 2289, "politicas": 930 }
+  },
+  "metasMarcos": {
+    "summary": { "concluidos": 3301, "suspensos": 427, "naoAvaliados": 2619 },
+    "typeCounts": { "investimentos": 175, "reformas": 50 },
+    "years": ["2026 (Atual)", "2025", "2024"],
+    "items": [
+      {
+        "id": 1, "countryId": "dk", "objective": "Gestao de Redes Inteligentes de Agua e Saneamento",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2026 (Atual)",
+        "description": "Utilização de tecnologias digitais avançadas, sensores e análise de dados para monitorizar, controlar e otimizar o funcionamento dos sistemas de abastecimento de água e de águas residuais.",
+        "milestones": [
+          { "date": "02/04/2025", "status": "concluido", "label": "Aprovação do quadro regulatório para redes inteligentes de água" },
+          { "date": "15/09/2025", "status": "concluido", "label": "Instalação de sensores em 50% das infraestruturas piloto" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Expansão nacional e integração com plataformas de gestão municipal" }
+        ]
+      },
+      {
+        "id": 2, "countryId": "fr", "objective": "Plataforma online para transparencia de trocas e informacoes na cadeia de abastecimento de produtos frescos",
+        "type": "Reforma", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Criação de uma plataforma digital centralizada que permite a rastreabilidade em tempo real de produtos frescos ao longo da cadeia de abastecimento, promovendo a transparência entre produtores, distribuidores e consumidores.",
+        "milestones": [
+          { "date": "10/01/2025", "status": "concluido", "label": "Publicação do quadro legal de obrigatoriedade de rastreabilidade digital" },
+          { "date": "30/06/2025", "status": "concluido", "label": "Lançamento da versão beta da plataforma com 200 produtores piloto" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Adesão obrigatória de todos os operadores da cadeia de abastecimento" }
+        ]
+      },
+      {
+        "id": 3, "countryId": "de", "objective": "Economia circular",
+        "type": "Reforma", "pillarId": "crescimento", "year": "2024",
+        "description": "Implementação de um conjunto de reformas legislativas e incentivos financeiros destinados a promover a reutilização de materiais, reduzir os resíduos industriais e apoiar modelos de negócio baseados na circularidade económica.",
+        "milestones": [
+          { "date": "15/03/2024", "status": "concluido", "label": "Aprovação da lei-quadro de economia circular" },
+          { "date": "01/07/2024", "status": "concluido", "label": "Lançamento do programa de incentivos a empresas circulares" },
+          { "date": "20/11/2024", "status": "concluido", "label": "Relatório de monitorização intercalar publicado" }
+        ]
+      },
+      {
+        "id": 4, "countryId": "it", "objective": "Programas de financiamento a inovacao",
+        "type": "Investimento", "pillarId": "coesao-social-territorial", "year": "2026 (Atual)",
+        "description": "Disponibilização de fundos estruturados para apoiar projetos de inovação em regiões com menor desenvolvimento, com foco em startups, PME e consórcios académico-empresariais.",
+        "milestones": [
+          { "date": "05/02/2026", "status": "concluido", "label": "Abertura do primeiro concurso de financiamento regional" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Avaliação e seleção dos projetos candidatos" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Desembolso das primeiras tranches às entidades selecionadas" }
+        ]
+      },
+      {
+        "id": 5, "countryId": "se", "objective": "Sistema de informacao para o Departamento de Registo de Empresas e de Propriedade Intelectual",
+        "type": "Investimento", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Modernização dos sistemas de informação do departamento de registo de empresas, incluindo digitalização de processos, interoperabilidade com outras entidades públicas e melhoria da experiência do utilizador.",
+        "milestones": [
+          { "date": "20/04/2025", "status": "concluido", "label": "Migração dos registos históricos para plataforma digital" },
+          { "date": "10/09/2025", "status": "concluido", "label": "Integração com o sistema nacional de identificação empresarial" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Abertura do portal de registo online ao público geral" }
+        ]
+      },
+      {
+        "id": 6, "countryId": "pt", "objective": "Plano nacional para descarbonizacao de edificios publicos",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2026 (Atual)",
+        "description": "Implementação de medidas de eficiência energética em edifícios públicos, incluindo reabilitação térmica, instalação de painéis solares e substituição de sistemas de climatização por alternativas de baixo carbono.",
+        "milestones": [
+          { "date": "14/01/2026", "status": "concluido", "label": "Publicação do plano nacional de descarbonização de edifícios" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Início das obras de reabilitação nos primeiros 500 edifícios piloto" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Certificação energética dos edifícios intervencionados" }
+        ]
+      },
+      {
+        "id": 7, "countryId": "pt", "objective": "Modernizacao de servicos publicos digitais",
+        "type": "Reforma", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Transformação digital dos principais serviços públicos, com foco na simplificação de processos administrativos, interoperabilidade entre organismos e desenvolvimento de interfaces acessíveis para cidadãos e empresas.",
+        "milestones": [
+          { "date": "10/03/2025", "status": "concluido", "label": "Aprovação da estratégia nacional de transformação digital" },
+          { "date": "25/07/2025", "status": "concluido", "label": "Lançamento de 30 serviços públicos totalmente digitalizados" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Expansão a todos os municípios e serviços desconcentrados" }
+        ]
+      },
+      {
+        "id": 8, "countryId": "pt", "objective": "Programa de apoio a startups verdes",
+        "type": "Investimento", "pillarId": "crescimento", "year": "2024",
+        "description": "Financiamento e acompanhamento de startups com soluções inovadoras nas áreas de sustentabilidade ambiental, economia circular, energias renováveis e mobilidade verde.",
+        "milestones": [
+          { "date": "01/02/2024", "status": "concluido", "label": "Abertura da candidatura ao programa de apoio" },
+          { "date": "15/06/2024", "status": "concluido", "label": "Seleção e contratualização com 120 startups beneficiárias" },
+          { "date": "30/11/2024", "status": "concluido", "label": "Primeiro relatório de impacto publicado" }
+        ]
+      },
+      {
+        "id": 9, "countryId": "pt", "objective": "Requalificacao de infraestruturas escolares",
+        "type": "Investimento", "pillarId": "coesao-social-territorial", "year": "2026 (Atual)",
+        "description": "Reabilitação e modernização de estabelecimentos de ensino público, com foco em eficiência energética, acessibilidade, equipamentos digitais e melhoria das condições pedagógicas.",
+        "milestones": [
+          { "date": "20/01/2026", "status": "concluido", "label": "Aprovação da lista de escolas prioritárias para intervenção" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Início das obras de requalificação nas primeiras 80 escolas" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Entrega e certificação das infraestruturas renovadas" }
+        ]
+      },
+      {
+        "id": 10, "countryId": "pt", "objective": "Plano de resiliência do sistema de saude",
+        "type": "Reforma", "pillarId": "saude-resiliencia", "year": "2025",
+        "description": "Reformas estruturais no sistema nacional de saúde orientadas para o reforço da capacidade de resposta a crises, modernização hospitalar, melhoria dos cuidados primários e integração de ferramentas digitais de saúde.",
+        "milestones": [
+          { "date": "05/04/2025", "status": "concluido", "label": "Aprovação do plano estratégico de resiliência do SNS" },
+          { "date": "18/08/2025", "status": "concluido", "label": "Reforço das unidades de cuidados intensivos em 15 hospitais" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Implementação do sistema de triagem digital nos cuidados primários" }
+        ]
+      },
+      {
+        "id": 11, "countryId": "fr", "objective": "Rede nacional de mobilidade sustentavel",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2026 (Atual)",
+        "description": "Expansão e modernização da rede de transportes públicos sustentáveis em França, incluindo linhas ferroviárias de alta velocidade, corredores de bicicleta urbanos e infraestrutura de carregamento elétrico.",
+        "milestones": [
+          { "date": "08/02/2026", "status": "concluido", "label": "Aprovação do plano nacional de mobilidade sustentável 2026-2030" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Lançamento das obras de expansão ferroviária nas regiões prioritárias" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Instalação de 10 000 pontos de carregamento elétrico público" }
+        ]
+      },
+      {
+        "id": 12, "countryId": "fr", "objective": "Reforma do mercado de trabalho digital",
+        "type": "Reforma", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Atualização do quadro legal e regulatório do mercado de trabalho para acomodar as novas formas de trabalho digital, incluindo teletrabalho, plataformas digitais e novas competências profissionais.",
+        "milestones": [
+          { "date": "12/03/2025", "status": "concluido", "label": "Publicação da lei de modernização do trabalho digital" },
+          { "date": "01/07/2025", "status": "concluido", "label": "Lançamento do programa de requalificação profissional digital" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Avaliação do impacto da reforma no emprego formal" }
+        ]
+      },
+      {
+        "id": 13, "countryId": "fr", "objective": "Programa de eficiencia energetica industrial",
+        "type": "Investimento", "pillarId": "crescimento", "year": "2024",
+        "description": "Apoio financeiro e técnico a empresas industriais para adoção de tecnologias de eficiência energética, com vista à redução das emissões de carbono e aumento da competitividade.",
+        "milestones": [
+          { "date": "20/02/2024", "status": "concluido", "label": "Abertura do regime de apoio à eficiência energética industrial" },
+          { "date": "10/07/2024", "status": "concluido", "label": "Contratualização com 300 empresas beneficiárias" },
+          { "date": "15/12/2024", "status": "concluido", "label": "Verificação das reduções de consumo energético alcançadas" }
+        ]
+      },
+      {
+        "id": 14, "countryId": "fr", "objective": "Plano nacional de coesao territorial",
+        "type": "Reforma", "pillarId": "coesao-social-territorial", "year": "2026 (Atual)",
+        "description": "Conjunto de medidas para reduzir as assimetrias regionais em França, com investimentos em infraestruturas, serviços públicos e desenvolvimento económico nas regiões menos favorecidas.",
+        "milestones": [
+          { "date": "15/01/2026", "status": "concluido", "label": "Adoção do plano nacional de coesão territorial pelo parlamento" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Desembolso das primeiras verbas para regiões prioritárias" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Avaliação intercalar dos indicadores de coesão regional" }
+        ]
+      },
+      {
+        "id": 15, "countryId": "fr", "objective": "Capacitacao digital para PME",
+        "type": "Investimento", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Programa de formação e apoio técnico a pequenas e médias empresas para adoção de ferramentas digitais, comércio eletrónico, cibersegurança e inteligência artificial aplicada aos negócios.",
+        "milestones": [
+          { "date": "01/04/2025", "status": "concluido", "label": "Lançamento da plataforma de formação digital para PME" },
+          { "date": "30/09/2025", "status": "concluido", "label": "Formação de 15 000 empresários e gestores de PME" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Certificação digital de 5 000 PME participantes" }
+        ]
+      },
+      {
+        "id": 16, "countryId": "de", "objective": "Infraestrutura nacional de hidrogenio verde",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2026 (Atual)",
+        "description": "Desenvolvimento de infraestruturas de produção, armazenamento e distribuição de hidrogénio verde na Alemanha, como alternativa sustentável aos combustíveis fósseis na indústria pesada e nos transportes.",
+        "milestones": [
+          { "date": "10/01/2026", "status": "concluido", "label": "Aprovação do quadro nacional de hidrogénio verde" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Início da construção dos primeiros eletrolisadores de grande escala" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Operacionalização do corredor de hidrogénio norte-sul" }
+        ]
+      },
+      {
+        "id": 17, "countryId": "de", "objective": "Reforma fiscal para inovacao",
+        "type": "Reforma", "pillarId": "crescimento", "year": "2024",
+        "description": "Revisão do sistema fiscal alemão para criar incentivos à investigação e desenvolvimento, incluindo deduções fiscais para despesas em I&D, regimes especiais para startups e simplificação do licenciamento de patentes.",
+        "milestones": [
+          { "date": "01/03/2024", "status": "concluido", "label": "Publicação da lei de incentivos fiscais à inovação" },
+          { "date": "01/09/2024", "status": "concluido", "label": "Entrada em vigor das novas regras de dedução fiscal em I&D" },
+          { "date": "31/12/2024", "status": "concluido", "label": "Relatório de adesão das empresas ao novo regime publicado" }
+        ]
+      },
+      {
+        "id": 18, "countryId": "de", "objective": "Modernizacao da rede ferroviaria",
+        "type": "Investimento", "pillarId": "coesao-social-territorial", "year": "2025",
+        "description": "Investimento em modernização e expansão da rede ferroviária alemã, com foco na eletrificação de linhas regionais, aumento da capacidade e melhoria da pontualidade e conectividade interregional.",
+        "milestones": [
+          { "date": "15/02/2025", "status": "concluido", "label": "Aprovação do plano de modernização ferroviária 2025-2030" },
+          { "date": "20/08/2025", "status": "concluido", "label": "Início das obras de eletrificação em 12 linhas regionais" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Conclusão da primeira fase de modernização e avaliação de desempenho" }
+        ]
+      },
+      {
+        "id": 19, "countryId": "de", "objective": "Saude digital e interoperabilidade",
+        "type": "Reforma", "pillarId": "saude-resiliencia", "year": "2026 (Atual)",
+        "description": "Implementação de um sistema nacional de saúde digital interoperável, permitindo a partilha segura de dados clínicos entre prestadores de saúde, hospitais e entidades reguladoras em toda a Alemanha.",
+        "milestones": [
+          { "date": "05/02/2026", "status": "concluido", "label": "Publicação da lei de interoperabilidade dos dados de saúde" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Integração dos primeiros 200 hospitais na plataforma nacional" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Disponibilização do registo de saúde eletrónico a todos os cidadãos" }
+        ]
+      },
+      {
+        "id": 20, "countryId": "de", "objective": "Plano de eficiencia energetica urbana",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2024",
+        "description": "Apoio financeiro a municípios alemães para implementação de medidas de eficiência energética em espaços públicos, iluminação urbana, edifícios municipais e sistemas de aquecimento de distrito.",
+        "milestones": [
+          { "date": "10/04/2024", "status": "concluido", "label": "Abertura do programa de apoio a municípios para eficiência energética" },
+          { "date": "15/09/2024", "status": "concluido", "label": "Contratualização com 150 municípios beneficiários" },
+          { "date": "20/12/2024", "status": "concluido", "label": "Conclusão das primeiras intervenções e publicação dos resultados" }
+        ]
+      },
+      {
+        "id": 21, "countryId": "it", "objective": "Programa nacional de mobilidade eletrica",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2026 (Atual)",
+        "description": "Expansão da infraestrutura de mobilidade elétrica em Itália, incluindo instalação de pontos de carregamento, incentivos à compra de veículos elétricos e renovação da frota de transportes públicos.",
+        "milestones": [
+          { "date": "12/01/2026", "status": "concluido", "label": "Lançamento do plano nacional de mobilidade elétrica" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Instalação de 20 000 pontos de carregamento em espaço público" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Renovação de 30% da frota de autocarros urbanos para elétrico" }
+        ]
+      },
+      {
+        "id": 22, "countryId": "it", "objective": "Reforma da administracao publica digital",
+        "type": "Reforma", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Modernização da administração pública italiana através da digitalização de procedimentos, simplificação burocrática e criação de balcões únicos digitais para empresas e cidadãos.",
+        "milestones": [
+          { "date": "01/03/2025", "status": "concluido", "label": "Aprovação do decreto de simplificação administrativa digital" },
+          { "date": "01/09/2025", "status": "concluido", "label": "Lançamento do portal único de serviços públicos digitais" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Eliminação de 500 procedimentos em papel identificados como prioritários" }
+        ]
+      },
+      {
+        "id": 23, "countryId": "it", "objective": "Incentivos a economia circular",
+        "type": "Investimento", "pillarId": "crescimento", "year": "2024",
+        "description": "Programa de incentivos financeiros e técnicos a empresas italianas para adoção de práticas de economia circular, incluindo reutilização de materiais, design sustentável e simbiose industrial.",
+        "milestones": [
+          { "date": "15/02/2024", "status": "concluido", "label": "Publicação do regulamento de apoio à economia circular" },
+          { "date": "30/06/2024", "status": "concluido", "label": "Seleção de 200 empresas para o programa piloto" },
+          { "date": "15/12/2024", "status": "concluido", "label": "Avaliação dos resultados e publicação do relatório de impacto" }
+        ]
+      },
+      {
+        "id": 24, "countryId": "it", "objective": "Requalificacao de infraestruturas de saude",
+        "type": "Investimento", "pillarId": "saude-resiliencia", "year": "2026 (Atual)",
+        "description": "Investimento na modernização e requalificação de hospitais e centros de saúde em Itália, com foco na renovação de equipamentos, melhoria das condições de atendimento e implementação de tecnologias de saúde digital.",
+        "milestones": [
+          { "date": "20/01/2026", "status": "concluido", "label": "Aprovação do plano nacional de requalificação hospitalar" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Início das obras nos 50 hospitais prioritários identificados" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Certificação e abertura das novas alas modernizadas" }
+        ]
+      },
+      {
+        "id": 25, "countryId": "it", "objective": "Programa de coesao para regioes interiores",
+        "type": "Reforma", "pillarId": "coesao-social-territorial", "year": "2025",
+        "description": "Medidas específicas para combater o despovoamento e a marginalização das regiões interiores italianas, através de investimentos em conectividade, serviços públicos, criação de emprego e fixação de população jovem.",
+        "milestones": [
+          { "date": "10/04/2025", "status": "concluido", "label": "Identificação e classificação das regiões interiores prioritárias" },
+          { "date": "01/10/2025", "status": "concluido", "label": "Lançamento dos primeiros projetos de conectividade e serviços" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Avaliação do impacto demográfico e económico nas regiões-alvo" }
+        ]
+      },
+      {
+        "id": 26, "countryId": "se", "objective": "Plano nacional de transicao digital educativa",
+        "type": "Investimento", "pillarId": "transformacao-digital", "year": "2024",
+        "description": "Transformação digital do sistema educativo sueco, incluindo dotação de dispositivos digitais a alunos, formação de professores, desenvolvimento de conteúdos digitais e implementação de plataformas de aprendizagem adaptativa.",
+        "milestones": [
+          { "date": "01/02/2024", "status": "concluido", "label": "Aprovação do plano nacional de digitalização educativa" },
+          { "date": "01/09/2024", "status": "concluido", "label": "Distribuição de tablets e computadores a 500 000 alunos" },
+          { "date": "31/12/2024", "status": "concluido", "label": "Formação de 25 000 professores em competências digitais" }
+        ]
+      },
+      {
+        "id": 27, "countryId": "se", "objective": "Reforma de eficiencia energetica residencial",
+        "type": "Reforma", "pillarId": "transicao-ecologica", "year": "2025",
+        "description": "Programa de apoio à reabilitação energética de habitações na Suécia, com incentivos à instalação de isolamento térmico, painéis solares, bombas de calor e sistemas de monitorização de energia.",
+        "milestones": [
+          { "date": "15/03/2025", "status": "concluido", "label": "Publicação do regime de apoio à reabilitação energética residencial" },
+          { "date": "30/09/2025", "status": "concluido", "label": "Aprovação de 40 000 candidaturas de proprietários de habitação" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Conclusão das obras e verificação das poupanças energéticas" }
+        ]
+      },
+      {
+        "id": 28, "countryId": "se", "objective": "Programa de inovacao em biotecnologia",
+        "type": "Investimento", "pillarId": "crescimento", "year": "2026 (Atual)",
+        "description": "Financiamento de projetos de investigação e desenvolvimento em biotecnologia na Suécia, com foco em aplicações para a saúde, alimentação sustentável e bioeconomia circular.",
+        "milestones": [
+          { "date": "10/02/2026", "status": "concluido", "label": "Lançamento do fundo nacional de inovação em biotecnologia" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Seleção dos primeiros 30 projetos de I&D financiados" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Apresentação dos primeiros resultados científicos e comerciais" }
+        ]
+      },
+      {
+        "id": 29, "countryId": "dk", "objective": "Capacitacao digital para administracao local",
+        "type": "Reforma", "pillarId": "transformacao-digital", "year": "2025",
+        "description": "Programa de formação e modernização das autarquias dinamarquesas, dotando os funcionários públicos locais de competências digitais e implementando ferramentas de gestão municipal baseadas em dados.",
+        "milestones": [
+          { "date": "01/04/2025", "status": "concluido", "label": "Lançamento do programa de formação digital para autarquias" },
+          { "date": "30/09/2025", "status": "concluido", "label": "Formação de 8 000 funcionários municipais em todo o país" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Implementação de plataformas de gestão municipal baseadas em dados" }
+        ]
+      },
+      {
+        "id": 30, "countryId": "dk", "objective": "Infraestrutura verde para cidades costeiras",
+        "type": "Investimento", "pillarId": "transicao-ecologica", "year": "2024",
+        "description": "Desenvolvimento de infraestruturas verdes e de adaptação às alterações climáticas nas cidades costeiras dinamarquesas, incluindo barreiras naturais, espaços verdes e sistemas de gestão de águas pluviais.",
+        "milestones": [
+          { "date": "20/03/2024", "status": "concluido", "label": "Aprovação do plano de infraestrutura verde costeira" },
+          { "date": "15/08/2024", "status": "concluido", "label": "Início das obras nas 10 cidades costeiras prioritárias" },
+          { "date": "20/12/2024", "status": "concluido", "label": "Conclusão da primeira fase e avaliação de impacto ambiental" }
+        ]
+      },
+      {
+        "id": 31, "countryId": "dk", "objective": "Reforco de programas de saude publica",
+        "type": "Investimento", "pillarId": "saude-resiliencia", "year": "2026 (Atual)",
+        "description": "Expansão de programas de saúde pública na Dinamarca, com foco na prevenção de doenças crónicas, rastreios populacionais, saúde mental e reforço dos cuidados de saúde primários em zonas rurais.",
+        "milestones": [
+          { "date": "15/01/2026", "status": "concluido", "label": "Aprovação do plano estratégico de saúde pública 2026-2028" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Lançamento dos programas de rastreio nacional em 5 patologias prioritárias" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Abertura de 20 centros de saúde mental comunitários" }
+        ]
+      },
+      {
+        "id": 32, "countryId": "dk", "objective": "Plano de eficiencia energetica industrial",
+        "type": "Reforma", "pillarId": "crescimento", "year": "2025",
+        "description": "Reforma do quadro regulatório e de incentivos para promover a eficiência energética no setor industrial dinamarquês, com metas obrigatórias de redução de consumo e apoio técnico às empresas.",
+        "milestones": [
+          { "date": "01/03/2025", "status": "concluido", "label": "Publicação das novas metas obrigatórias de eficiência energética industrial" },
+          { "date": "01/08/2025", "status": "concluido", "label": "Lançamento do serviço de apoio técnico às empresas industriais" },
+          { "date": "Not assessed", "status": "not assessed", "label": "Primeiro relatório de cumprimento das metas por setor" }
+        ]
+      }
+    ]
   },
   "faqs": [
-    {
-      "id": 1,
-      "question": "O que é o PRR e o Mecanismo de Recuperação e Resiliência?",
-      "response": "O Plano de Recuperação e Resiliência (PRR) é um programa de aplicação nacional, com um período de execução até 2026, que visa implementar reformas e investimentos para repor o crescimento económico sustentado. É financiado pelo Mecanismo de Recuperação e Resiliência, o elemento central do NextGenerationEU."
-    },
-    {
-      "id": 2,
-      "question": "O que são 'Marcos e Metas'?",
-      "response": "São os objetivos que cada país deve cumprir. Os Marcos referem-se a etapas qualitativas (como a entrada em vigor de uma lei) e as Metas a objetivos quantitativos (como o número de quilómetros de ferrovia construídos ou pessoas formadas)."
-    },
-    {
-      "id": 3,
-      "question": "O que são os 'Indicadores Comuns'?",
-      "response": "São métricas padrão definidas pela Comissão Europeia para monitorizar o desempenho dos planos de todos os Estados-Membros. Permitem avaliar o progresso em áreas como o apoio a empresas, competências digitais e poupança de energia de forma comparável."
-    },
-    {
-      "id": 4,
-      "question": "Posso comparar o meu país com outros países?",
-      "response": "Sim. Através dos Indicadores Comuns e do Painel de Avaliação oficial (Scoreboard) da UE, é possível acompanhar o desempenho relativo de Portugal face aos restantes Estados-Membros na execução das metas e na aplicação dos fundos."
-    }
+    { "id": 1, "question": "O que é o PRR e o Mecanismo de Recuperação e Resiliência?", "response": "O Plano de Recuperação e Resiliência (PRR) é um programa de aplicação nacional, com um período de execução até 2026, que visa implementar reformas e investimentos para repor o crescimento económico sustentado. É financiado pelo Mecanismo de Recuperação e Resiliência, o elemento central do NextGenerationEU." },
+    { "id": 2, "question": "O que são 'Marcos e Metas'?", "response": "São os objetivos que cada país deve cumprir. Os Marcos referem-se a etapas qualitativas (como a entrada em vigor de uma lei) e as Metas a objetivos quantitativos (como o número de quilómetros de ferrovia construídos ou pessoas formadas)." },
+    { "id": 3, "question": "O que são os 'Indicadores Comuns'?", "response": "São métricas padrão definidas pela Comissão Europeia para monitorizar o desempenho dos planos de todos os Estados-Membros. Permitem avaliar o progresso em áreas como o apoio a empresas, competências digitais e poupança de energia de forma comparável." },
+    { "id": 4, "question": "Posso comparar o meu país com outros países?", "response": "Sim. Através dos Indicadores Comuns e do Painel de Avaliação oficial (Scoreboard) da UE, é possível acompanhar o desempenho relativo de Portugal face aos restantes Estados-Membros na execução das metas e na aplicação dos fundos." }
   ]
 }

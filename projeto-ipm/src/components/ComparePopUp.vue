@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import searchIcon from '@/assets/search-icon.svg'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import CountrySearchInput from '@/components/CountrySearchInput.vue'
 import portugalFlag from '@/assets/flags/portugal-flag.svg'
 import franceFlag from '@/assets/flags/france-flag.svg'
 import germanyFlag from '@/assets/flags/germany-flag.svg'
@@ -46,135 +46,58 @@ const emit = defineEmits<{
   (e: 'back'): void
 }>()
 
-const searchQuery = ref('')
-const isDropdownOpen = ref(false)
-const searchInput = ref<HTMLInputElement | null>(null)
 const selectedCountries = ref<SelectedCountry[]>([])
+const searchValue = ref('')
 
 const normalizedCountries = computed<SelectedCountry[]>(() =>
-  props.countries.map((country) => ({
-    name: country.name ?? country.country ?? '',
-    flagSrc: country.flagSrc
-  })).filter((country) => country.name)
+  props.countries
+    .map((c) => ({ name: c.name ?? c.country ?? '', flagSrc: c.flagSrc }))
+    .filter((c) => c.name)
 )
 
-const selectedNames = computed(() => selectedCountries.value.map((country) => country.name))
+const selectedNames = computed(() => selectedCountries.value.map((c) => c.name))
 const canCompare = computed(() => selectedCountries.value.length === 2)
 const canAddCountry = computed(() => selectedCountries.value.length < 2)
 
-const availableCountries = computed(() => {
-  const query = searchQuery.value.trim().toLowerCase()
-  const selected = new Set(selectedNames.value.map((country) => country.toLowerCase()))
-
-  return normalizedCountries.value
-    .filter((country) => !selected.has(country.name.toLowerCase()))
-    .filter((country) => !query || country.name.toLowerCase().includes(query))
-    .sort((a, b) => {
-      const nameA = a.name.toLowerCase()
-      const nameB = b.name.toLowerCase()
-
-      if (query) {
-        const startsA = nameA.startsWith(query)
-        const startsB = nameB.startsWith(query)
-        if (startsA && !startsB) return -1
-        if (startsB && !startsA) return 1
-      }
-
-      return nameA.localeCompare(nameB)
-    })
-})
+const availableCountries = computed(() =>
+  normalizedCountries.value.filter(
+    (c) => !selectedNames.value.map((n) => n.toLowerCase()).includes(c.name.toLowerCase())
+  )
+)
 
 const syncSelectedCountries = () => {
-  const nextCountries: SelectedCountry[] = []
-  const sourceCountries = props.modelValue ?? props.initialCountries
+  const next: SelectedCountry[] = []
+  const source = props.modelValue ?? props.initialCountries
 
   if (props.lockedCountry) {
     const match = normalizedCountries.value.find(
-      (country) => country.name.toLowerCase() === props.lockedCountry.toLowerCase()
+      (c) => c.name.toLowerCase() === props.lockedCountry.toLowerCase()
     )
-
-    nextCountries.push({
-      name: match?.name ?? props.lockedCountry,
-      flagSrc: match?.flagSrc,
-      locked: true
-    })
+    next.push({ name: match?.name ?? props.lockedCountry, flagSrc: match?.flagSrc, locked: true })
   }
 
-  sourceCountries.forEach((countryName) => {
-    if (nextCountries.length >= 2) return
-    if (nextCountries.some((country) => country.name.toLowerCase() === countryName.toLowerCase())) return
-
-    const match = normalizedCountries.value.find(
-      (country) => country.name.toLowerCase() === countryName.toLowerCase()
-    )
-
-    nextCountries.push({
-      name: match?.name ?? countryName,
-      flagSrc: match?.flagSrc,
-      locked: false
-    })
+  source.forEach((name) => {
+    if (next.length >= 2) return
+    if (next.some((c) => c.name.toLowerCase() === name.toLowerCase())) return
+    const match = normalizedCountries.value.find((c) => c.name.toLowerCase() === name.toLowerCase())
+    next.push({ name: match?.name ?? name, flagSrc: match?.flagSrc, locked: false })
   })
 
-  selectedCountries.value = nextCountries.slice(0, 2)
+  selectedCountries.value = next.slice(0, 2)
 }
 
-const emitSelection = () => {
-  emit('update:modelValue', selectedNames.value)
-}
-
-const focusSearch = async () => {
-  await nextTick()
-  searchInput.value?.focus()
-}
-
-const openDropdown = () => {
-  if (!canAddCountry.value) return
-  isDropdownOpen.value = true
-  focusSearch()
-}
-
-const closeDropdown = () => {
-  isDropdownOpen.value = false
-}
+const emitSelection = () => emit('update:modelValue', selectedNames.value)
 
 const selectCountry = (country: SelectedCountry) => {
   if (!canAddCountry.value) return
-
   selectedCountries.value.push({ ...country, locked: false })
-  searchQuery.value = ''
+  searchValue.value = ''
   emitSelection()
-
-  if (selectedCountries.value.length >= 2) {
-    closeDropdown()
-    return
-  }
-
-  focusSearch()
 }
 
-const removeCountry = (countryName: string) => {
-  selectedCountries.value = selectedCountries.value.filter(
-    (country) => country.locked || country.name !== countryName
-  )
+const removeCountry = (name: string) => {
+  selectedCountries.value = selectedCountries.value.filter((c) => c.locked || c.name !== name)
   emitSelection()
-  openDropdown()
-}
-
-const handleInputFocus = () => {
-  openDropdown()
-}
-
-const handleInput = () => {
-  if (canAddCountry.value) isDropdownOpen.value = true
-}
-
-const handleInputKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Escape') closeDropdown()
-
-  if (event.key === 'Backspace' && !searchQuery.value) {
-    const removableCountry = [...selectedCountries.value].reverse().find((country) => !country.locked)
-    if (removableCountry) removeCountry(removableCountry.name)
-  }
 }
 
 const handleCompare = () => {
@@ -182,25 +105,15 @@ const handleCompare = () => {
   emit('compare', selectedNames.value)
 }
 
-const handleClose = () => {
-  emit('back')
+const handleClose = () => emit('back')
+const handleOverlayClick = () => handleClose()
+
+const handleEscape = (e: KeyboardEvent) => {
+  if (e.key === 'Escape') handleClose()
 }
 
-const handleOverlayClick = () => {
-  handleClose()
-}
-
-const handleEscape = (event: KeyboardEvent) => {
-  if (event.key === 'Escape') handleClose()
-}
-
-onMounted(() => {
-  document.addEventListener('keydown', handleEscape)
-})
-
-onBeforeUnmount(() => {
-  document.removeEventListener('keydown', handleEscape)
-})
+onMounted(() => document.addEventListener('keydown', handleEscape))
+onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
 
 watch(
   () => [props.lockedCountry, props.modelValue, props.initialCountries, props.countries],
@@ -219,86 +132,57 @@ watch(
       @click.self="handleOverlayClick"
     >
       <div class="compare-popup__content">
-        <div class="compare-popup__card" @click="closeDropdown">
+        <div class="compare-popup__card">
           <header class="compare-popup__header">
             <h2 id="compare-popup-title" class="compare-popup__title">{{ title }}</h2>
             <p class="compare-popup__description">{{ description }}</p>
           </header>
 
-          <div class="compare-popup__field" @click.stop>
-            <label class="compare-popup__label" for="country-search">Países</label>
+          <div class="compare-popup__field">
+            <label class="compare-popup__label">Países selecionados</label>
 
-            <div
-              class="compare-popup__input-shell"
-              :class="{ 'compare-popup__input-shell--focused': isDropdownOpen }"
-              @click="openDropdown"
-            >
+            <div class="compare-popup__chips" v-if="selectedCountries.length">
               <span
                 v-for="country in selectedCountries"
                 :key="country.name"
                 class="compare-popup__chip"
                 :class="{ 'compare-popup__chip--locked': country.locked }"
               >
+                <img
+                  v-if="country.flagSrc"
+                  class="compare-popup__chip-flag"
+                  :src="country.flagSrc"
+                  :alt="`Bandeira de ${country.name}`"
+                />
                 <span class="compare-popup__chip-text">{{ country.name }}</span>
                 <button
                   v-if="!country.locked"
                   class="compare-popup__chip-remove"
                   type="button"
                   :aria-label="`Remover ${country.name}`"
-                  @click.stop="removeCountry(country.name)"
+                  @click="removeCountry(country.name)"
                 >
                   &times;
                 </button>
               </span>
-
-              <input
-                id="country-search"
-                ref="searchInput"
-                v-model="searchQuery"
-                class="compare-popup__input"
-                type="search"
-                :disabled="!canAddCountry"
-                :placeholder="selectedCountries.length ? '' : 'Pesquisar país'"
-                autocomplete="off"
-                @focus="handleInputFocus"
-                @input="handleInput"
-                @keydown="handleInputKeydown"
-              />
-
-              <img class="compare-popup__search-icon" :src="searchIcon" alt="" aria-hidden="true" />
             </div>
 
-            <transition name="compare-popup__dropdown">
-              <div
-                v-if="isDropdownOpen && canAddCountry"
-                class="compare-popup__dropdown"
-                role="listbox"
-                aria-label="Escolher país"
-              >
-                <button
-                  v-for="country in availableCountries"
-                  :key="country.name"
-                  class="compare-popup__option"
-                  type="button"
-                  role="option"
-                  @click="selectCountry(country)"
-                >
-                  <img
-                    v-if="country.flagSrc"
-                    class="compare-popup__option-flag"
-                    :src="country.flagSrc"
-                    :alt="`Bandeira de ${country.name}`"
-                  />
-                  <span>{{ country.name }}</span>
-                </button>
+            <CountrySearchInput
+              v-if="canAddCountry"
+              v-model="searchValue"
+              :countries="availableCountries"
+              placeholder="Pesquisar país"
+              @select="selectCountry"
+            />
 
-                <p v-if="!availableCountries.length" class="compare-popup__empty">Sem resultados.</p>
-              </div>
-            </transition>
+            <p v-if="!canAddCountry" class="compare-popup__max-note">
+              Dois países selecionados. Remove um para trocar.
+            </p>
           </div>
+
           <div class="compare-popup__actions">
             <button class="compare-popup__action" type="button" @click="handleClose">
-              <span aria-hidden="true"><</span>
+              <span aria-hidden="true">&lt;</span>
               <span>Voltar</span>
             </button>
             <button
@@ -308,7 +192,7 @@ watch(
               @click="handleCompare"
             >
               <span>Comparar</span>
-              <span aria-hidden="true">></span>
+              <span aria-hidden="true">&gt;</span>
             </button>
           </div>
         </div>
@@ -353,10 +237,11 @@ watch(
   border-radius: 8px;
   background: var(--bg-gray);
   box-shadow: 0 14px 24px rgba(16, 29, 66, 0.22);
+  gap: 16px;
 }
 
 .compare-popup__header {
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 
 .compare-popup__title {
@@ -376,73 +261,48 @@ watch(
 }
 
 .compare-popup__field {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .compare-popup__label {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-gray-dark);
 }
 
-.compare-popup__input-shell {
-  min-height: 38px;
+.compare-popup__chips {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  gap: 6px;
-  box-sizing: border-box;
-  padding: 5px 38px 5px 6px;
-  border: 1px solid #c8c8c8;
-  border-radius: 10px;
-  background: var(--bg-white);
-  cursor: text;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
-}
-
-.compare-popup__input-shell--focused,
-.compare-popup__input-shell:focus-within {
-  border-color: var(--bg-blue-light);
-  box-shadow: 0 0 0 3px rgba(64, 82, 134, 0.14);
+  gap: 8px;
 }
 
 .compare-popup__chip {
-  max-width: 100%;
-  min-height: 27px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-sizing: border-box;
-  padding: 3px 8px;
+  padding: 4px 8px;
   border-radius: 4px;
   background: var(--text-gray-dark);
   color: var(--text-white);
   font-size: 0.88rem;
   font-weight: 500;
-  line-height: 1;
 }
 
 .compare-popup__chip--locked {
   background: var(--bg-blue-dark);
 }
 
-.compare-popup__option-flag {
+.compare-popup__chip-flag {
   width: 18px;
   height: 13px;
-  flex: 0 0 auto;
   border-radius: 2px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .compare-popup__chip-text {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -453,97 +313,22 @@ watch(
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 0;
+  border: none;
   border-radius: 50%;
   background: transparent;
   color: inherit;
-  font: inherit;
   font-size: 1rem;
-  line-height: 1;
   cursor: pointer;
 }
 
-.compare-popup__chip-remove:hover,
-.compare-popup__chip-remove:focus-visible {
+.compare-popup__chip-remove:hover {
   background: rgba(255, 255, 255, 0.16);
-  outline: none;
 }
 
-.compare-popup__input {
-  min-width: 7ch;
-  flex: 1 1 90px;
-  height: 26px;
-  border: 0;
-  outline: none;
-  background: transparent;
-  color: var(--text-black);
-  font: inherit;
-  font-size: 0.86rem;
-}
-
-.compare-popup__input::placeholder {
-  font-size: 0.82rem;
-}
-
-.compare-popup__input:disabled {
-  cursor: default;
-}
-
-.compare-popup__input::-webkit-search-cancel-button {
-  appearance: none;
-}
-
-.compare-popup__search-icon {
-  position: absolute;
-  right: 11px;
-  top: 11px;
-  width: 18px;
-  height: 18px;
-  pointer-events: none;
-}
-
-.compare-popup__dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  left: 0;
-  max-height: 112px;
-  overflow: auto;
-  padding: 5px;
-  border: 1px solid var(--text-gray-light);
-  border-radius: 6px;
-  background: var(--bg-white);
-  box-shadow: 0 12px 26px rgba(16, 29, 66, 0.18);
-  z-index: 8;
-}
-
-.compare-popup__option {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border: 0;
-  border-radius: 5px;
-  background: transparent;
-  color: var(--text-black);
-  font: inherit;
-  font-size: 0.9rem;
-  text-align: left;
-  cursor: pointer;
-}
-
-.compare-popup__option:hover,
-.compare-popup__option:focus-visible {
-  background: var(--bg-gray);
-  outline: none;
-}
-
-.compare-popup__empty {
+.compare-popup__max-note {
   margin: 0;
-  padding: 8px;
+  font-size: 0.78rem;
   color: var(--text-gray);
-  font-size: 0.82rem;
 }
 
 .compare-popup__actions {
@@ -552,7 +337,7 @@ watch(
   align-items: center;
   gap: 12px;
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 8px;
 }
 
 .compare-popup__action {
@@ -561,7 +346,7 @@ watch(
   align-items: center;
   gap: 5px;
   padding: 4px 2px;
-  border: 0;
+  border: none;
   background: transparent;
   color: var(--text-gray-dark);
   font-family: var(--font-primary);
@@ -575,31 +360,13 @@ watch(
   color: var(--bg-blue-dark);
 }
 
-.compare-popup__action:hover:not(:disabled),
-.compare-popup__action:focus-visible {
+.compare-popup__action:hover:not(:disabled) {
   color: var(--bg-blue);
-  outline: none;
-}
-
-.compare-popup__action:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .compare-popup__action:disabled {
   opacity: 0.42;
   cursor: not-allowed;
-}
-
-.compare-popup__dropdown-enter-active,
-.compare-popup__dropdown-leave-active {
-  transition: opacity 130ms ease, transform 130ms ease;
-}
-
-.compare-popup__dropdown-enter-from,
-.compare-popup__dropdown-leave-to {
-  opacity: 0;
-  transform: translateY(-4px);
 }
 
 @media (max-width: 520px) {
@@ -616,18 +383,6 @@ watch(
   .compare-popup__card {
     min-height: 292px;
     padding: 22px 14px 10px;
-  }
-
-  .compare-popup__header {
-    margin-bottom: 24px;
-  }
-
-  .compare-popup__actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: auto;
-    padding-top: 16px;
   }
 }
 </style>
