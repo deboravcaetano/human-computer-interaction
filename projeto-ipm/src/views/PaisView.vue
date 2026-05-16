@@ -10,13 +10,14 @@ import Tooltip from '@/components/Tooltip.vue'
 import arrowDownIcon from '@/assets/arrow-down.svg'
 import compareIcon from '@/assets/compare-icon.svg'
 import downloadIcon from '@/assets/Download.svg'
-import { getCountries, getCountryById, getCountryDetail } from '@/services/api'
+import { getCountries, getCountryById, getCountryDetail, getCountryDetails } from '@/services/api'
 
 const route = useRoute()
 const router = useRouter()
 
 const country = ref(null)
 const countryDetail = ref(null)
+const countryDetails = ref([])
 const allCountries = ref([])
 const isLoading = ref(true)
 const errorMessage = ref('')
@@ -56,10 +57,12 @@ const detail = computed(() => countryDetail.value ?? fallbackDetail.value)
 const hasCountryDetail = computed(() => Boolean(countryDetail.value))
 
 const compareCountries = computed(() =>
-  allCountries.value.map((item) => ({
-    name: item.name,
-    flagSrc: getFlagPath(item.flagAsset),
-  })),
+  allCountries.value
+    .filter((item) => countryDetails.value.some((detail) => detail.countryId === item.id))
+    .map((item) => ({
+      name: item.name,
+      flagSrc: getFlagPath(item.flagAsset),
+    })),
 )
 
 const progressWidth = computed(
@@ -71,11 +74,12 @@ const loadCountry = async () => {
   errorMessage.value = ''
 
   try {
-    const [countryResponse, detailResponse, countriesResponse] =
+    const [countryResponse, detailResponse, countriesResponse, countryDetailsResponse] =
       await Promise.all([
         getCountryById(countryId.value),
         getCountryDetail(countryId.value),
         getCountries(),
+        getCountryDetails(),
       ])
 
     if (!countryResponse) {
@@ -88,6 +92,7 @@ const loadCountry = async () => {
     country.value = countryResponse
     countryDetail.value = detailResponse
     allCountries.value = countriesResponse
+    countryDetails.value = countryDetailsResponse
   } catch (error) {
     errorMessage.value = 'Não foi possível carregar os detalhes do país.'
   } finally {
@@ -111,8 +116,16 @@ const closeComparePopUp = () => {
   isComparePopUpOpen.value = false
 }
 
-const onCompareCountries = () => {
+const onCompareCountries = (selectedCountries) => {
+  const selectedIds = selectedCountries
+    .map((countryName) => allCountries.value.find((item) => item.name === countryName)?.id)
+    .filter(Boolean)
+
   closeComparePopUp()
+
+  if (selectedIds.length === 2) {
+    router.push(`/comparar/${selectedIds[0]}/${selectedIds[1]}`)
+  }
 }
 
 onMounted(loadCountry)

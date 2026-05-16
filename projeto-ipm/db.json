@@ -462,48 +462,1930 @@
       "name": "Crescimento",
       "asset": "pilar-crescimento",
       "color": "#1d4ed8",
-      "percentage": 18.4
+      "percentage": 18.4,
+      "summary": "O PRR apoia o crescimento inteligente, sustentável e inclusivo, reforçando a competitividade, a inovação e a capacidade produtiva das economias europeias.\n\nO foco recai sobre reformas e investimentos que estimulam emprego qualificado, modernização económica e maior resiliência face a choques futuros."
     },
     {
       "id": "transicao-ecologica",
       "name": "Transição Ecológica",
       "asset": "pilar-ecologica",
       "color": "#4ade80",
-      "percentage": 24.7
+      "percentage": 24.7,
+      "summary": "O PRR impulsiona o Pacto Ecológico Europeu rumo à neutralidade climática em 2050, exigindo que os Estados-Membros invistam pelo menos 37% das suas dotações em reformas verdes.\n\nO foco recai sobre energias renováveis, eficiência energética, mobilidade sustentável e biodiversidade para garantir um crescimento resiliente."
     },
     {
       "id": "transformacao-digital",
       "name": "Transformação Digital",
       "asset": "pilar-digital",
       "color": "#f87171",
-      "percentage": 21.3
+      "percentage": 21.3,
+      "summary": "O PRR acelera a transição digital na União Europeia, promovendo serviços públicos digitais, conectividade, competências digitais e adoção tecnológica pelas empresas.\n\nO objetivo é tornar economias e administrações mais eficientes, acessíveis e preparadas para novas formas de trabalho e inovação."
     },
     {
       "id": "politicas",
       "name": "Políticas",
       "asset": "pilar-politicas",
       "color": "#fbbf24",
-      "percentage": 9.6
+      "percentage": 9.6,
+      "summary": "Este pilar reúne reformas e políticas públicas que reforçam a capacidade institucional, a qualidade da governação e a execução dos planos nacionais.\n\nO foco está em criar condições estruturais para que os investimentos sejam implementados com impacto, transparência e continuidade."
     },
     {
       "id": "coesao-social-territorial",
       "name": "Coesão Social e Territorial",
       "asset": "pilar-coesao",
       "color": "#bbbbbb",
-      "percentage": 14.8
+      "percentage": 14.8,
+      "summary": "O PRR procura reduzir desigualdades sociais e territoriais, melhorando o acesso a serviços essenciais, habitação, educação, emprego e infraestruturas locais.\n\nEste pilar valoriza uma recuperação equilibrada, garantindo que diferentes regiões e grupos sociais beneficiam da transformação económica."
     },
     {
       "id": "saude-resiliencia",
       "name": "Saúde e Resiliência",
       "asset": "pilar-saude",
       "color": "#22c55e",
-      "percentage": 11.2
+      "percentage": 11.2,
+      "summary": "O PRR reforça sistemas de saúde, proteção social e capacidade de resposta a crises, tornando os serviços públicos mais robustos e próximos dos cidadãos.\n\nO foco recai sobre modernização, prevenção, equipamentos e estruturas capazes de responder melhor a desafios futuros."
+    }
+  ],
+  "countryPillars": [
+    {
+      "id": "country-pillars-pt",
+      "countryId": "pt",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "percentage": 16.8,
+          "investment": "€3,69 B",
+          "ranking": "1.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 16.8,
+            "allocation": "€5,86 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "-20,2 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.5
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.4
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 8.8
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 15.6
+            }
+          ],
+          "milestones": {
+            "completed": 8,
+            "total": 16,
+            "percentage": 50
+          }
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "percentage": 43,
+          "investment": "€9,58 B",
+          "ranking": "2.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 43,
+            "allocation": "€15,76 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "+6 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.4
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.4
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.9
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.7
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "milestones": {
+            "completed": 14,
+            "total": 29,
+            "percentage": 48
+          }
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "percentage": 22.2,
+          "investment": "€4,95 B",
+          "ranking": "3.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 22.2,
+            "allocation": "€8,06 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "-14,8 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.9
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.9
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.3
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.1
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.7
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.5
+            }
+          ],
+          "milestones": {
+            "completed": 10,
+            "total": 21,
+            "percentage": 48
+          }
+        },
+        {
+          "pillarId": "politicas",
+          "percentage": 7.5,
+          "investment": "€1,67 B",
+          "ranking": "4.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 7.5,
+            "allocation": "€2,75 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "-29,5 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.3
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.3
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.8
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.6
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.2
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.9
+            }
+          ],
+          "milestones": {
+            "completed": 3,
+            "total": 8,
+            "percentage": 38
+          }
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "percentage": 16.4,
+          "investment": "€3,65 B",
+          "ranking": "5.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 16.4,
+            "allocation": "€6,01 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "-20,6 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.3
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.2
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.6
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.4
+            }
+          ],
+          "milestones": {
+            "completed": 7,
+            "total": 17,
+            "percentage": 41
+          }
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "percentage": 10.1,
+          "investment": "€2,25 B",
+          "ranking": "6.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 10.1,
+            "allocation": "€3,70 B",
+            "total": "€22 450 M",
+            "aboveMinimum": "-26,9 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.8
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 12.2
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 10.2
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.7
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 11.1
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.8
+            }
+          ],
+          "milestones": {
+            "completed": 5,
+            "total": 11,
+            "percentage": 45
+          }
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-es",
+      "countryId": "es",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "percentage": 17.9,
+          "investment": "€28,70 B",
+          "ranking": "2.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 17.9,
+            "allocation": "€25,66 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "-19,1 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.5
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.4
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 8.8
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 15.6
+            }
+          ],
+          "milestones": {
+            "completed": 12,
+            "total": 22,
+            "percentage": 55
+          }
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "percentage": 39.7,
+          "investment": "€63,65 B",
+          "ranking": "3.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 39.7,
+            "allocation": "€68,95 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "+2,7 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.4
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.4
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.9
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.7
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "milestones": {
+            "completed": 21,
+            "total": 38,
+            "percentage": 55
+          }
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "percentage": 25.1,
+          "investment": "€40,24 B",
+          "ranking": "4.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 25.1,
+            "allocation": "€35,28 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "-11,9 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.9
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.9
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.3
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.1
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.7
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.5
+            }
+          ],
+          "milestones": {
+            "completed": 16,
+            "total": 30,
+            "percentage": 53
+          }
+        },
+        {
+          "pillarId": "politicas",
+          "percentage": 12.5,
+          "investment": "€12,03 B",
+          "ranking": "5.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 12.5,
+            "allocation": "€12,03 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "-24,5 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.3
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.3
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.8
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.6
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.2
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.9
+            }
+          ],
+          "milestones": {
+            "completed": 5,
+            "total": 12,
+            "percentage": 42
+          }
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "percentage": 21.6,
+          "investment": "€26,30 B",
+          "ranking": "6.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 21.6,
+            "allocation": "€26,30 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "-15,4 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.3
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.2
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.6
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.4
+            }
+          ],
+          "milestones": {
+            "completed": 11,
+            "total": 26,
+            "percentage": 42
+          }
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "percentage": 15.4,
+          "investment": "€16,20 B",
+          "ranking": "7.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 15.4,
+            "allocation": "€16,20 B",
+            "total": "€77 200 M",
+            "aboveMinimum": "-21,6 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.8
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 12.2
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 10.2
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.7
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 11.1
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.8
+            }
+          ],
+          "milestones": {
+            "completed": 8,
+            "total": 17,
+            "percentage": 47
+          }
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-fr",
+      "countryId": "fr",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "percentage": 21.6,
+          "investment": "€8,70 B",
+          "ranking": "3.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 21.6,
+            "allocation": "€6,45 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "-15,4 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.5
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.4
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 8.8
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 15.6
+            }
+          ],
+          "milestones": {
+            "completed": 13,
+            "total": 17,
+            "percentage": 76
+          }
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "percentage": 46.2,
+          "investment": "€18,62 B",
+          "ranking": "4.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 46.2,
+            "allocation": "€17,33 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "+9,2 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.4
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.4
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.9
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.7
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "milestones": {
+            "completed": 24,
+            "total": 31,
+            "percentage": 77
+          }
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "percentage": 20.4,
+          "investment": "€8,22 B",
+          "ranking": "5.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 20.4,
+            "allocation": "€8,87 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "-16,6 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.9
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.9
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.3
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.1
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.7
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.5
+            }
+          ],
+          "milestones": {
+            "completed": 10,
+            "total": 14,
+            "percentage": 71
+          }
+        },
+        {
+          "pillarId": "politicas",
+          "percentage": 9.8,
+          "investment": "€3,02 B",
+          "ranking": "6.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 9.8,
+            "allocation": "€3,02 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "-27,2 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.3
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.3
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.8
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.6
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.2
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.9
+            }
+          ],
+          "milestones": {
+            "completed": 5,
+            "total": 12,
+            "percentage": 42
+          }
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "percentage": 18.9,
+          "investment": "€6,61 B",
+          "ranking": "7.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 18.9,
+            "allocation": "€6,61 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "-18,1 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.3
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.2
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.6
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.4
+            }
+          ],
+          "milestones": {
+            "completed": 11,
+            "total": 26,
+            "percentage": 42
+          }
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "percentage": 12.7,
+          "investment": "€4,07 B",
+          "ranking": "8.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 12.7,
+            "allocation": "€4,07 B",
+            "total": "€40 300 M",
+            "aboveMinimum": "-24,3 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.8
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 12.2
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 10.2
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.7
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 11.1
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.8
+            }
+          ],
+          "milestones": {
+            "completed": 8,
+            "total": 17,
+            "percentage": 47
+          }
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-at",
+      "countryId": "at",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "percentage": 15.2,
+          "investment": "€1,01 B",
+          "ranking": "6.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 15.2,
+            "allocation": "€1,06 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "-21,8 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.5
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.4
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 8.8
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 15.6
+            }
+          ],
+          "milestones": {
+            "completed": 5,
+            "total": 10,
+            "percentage": 50
+          }
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "percentage": 44.4,
+          "investment": "€2,94 B",
+          "ranking": "7.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 44.4,
+            "allocation": "€2,85 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "+7,4 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 41.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.4
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.4
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 1.9
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.7
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "milestones": {
+            "completed": 11,
+            "total": 22,
+            "percentage": 50
+          }
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "percentage": 19.3,
+          "investment": "€1,28 B",
+          "ranking": "8.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 19.3,
+            "allocation": "€1,46 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "-17,7 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.9
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.9
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.3
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.1
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.7
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.5
+            }
+          ],
+          "milestones": {
+            "completed": 6,
+            "total": 13,
+            "percentage": 46
+          }
+        },
+        {
+          "pillarId": "politicas",
+          "percentage": 6.8,
+          "investment": "€0,50 B",
+          "ranking": "9.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 6.8,
+            "allocation": "€0,50 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "-30,2 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.9
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.3
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.3
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.8
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 1.6
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.2
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16.9
+            }
+          ],
+          "milestones": {
+            "completed": 2,
+            "total": 6,
+            "percentage": 33
+          }
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "percentage": 15.9,
+          "investment": "€1,09 B",
+          "ranking": "10.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 15.9,
+            "allocation": "€1,09 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "-21,1 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.3
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 11.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 9.8
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.2
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 10.6
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.4
+            }
+          ],
+          "milestones": {
+            "completed": 5,
+            "total": 14,
+            "percentage": 36
+          }
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "percentage": 9.7,
+          "investment": "€0,67 B",
+          "ranking": "11.º lugar no ranking da UE",
+          "rule": {
+            "percentage": 9.7,
+            "allocation": "€0,67 B",
+            "total": "€4 500 M",
+            "aboveMinimum": "-27,3 p.p."
+          },
+          "policyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 42.4
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 10.8
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 8.7
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 2.1
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 0.8
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 9.3
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 16
+            }
+          ],
+          "greenPolicyAreas": [
+            {
+              "label": "Eficiência Energética",
+              "value": 43.8
+            },
+            {
+              "label": "Mobilidade Sustentável",
+              "value": 12.2
+            },
+            {
+              "label": "Adaptação às alterações climáticas",
+              "value": 10.2
+            },
+            {
+              "label": "Proteção e Restauro da Biodiversidade",
+              "value": 3.7
+            },
+            {
+              "label": "Transição para a Economia Circular",
+              "value": 2.5
+            },
+            {
+              "label": "Energia Renovável e Redes",
+              "value": 11.1
+            },
+            {
+              "label": "I&D em atividades verdes",
+              "value": 17.8
+            }
+          ],
+          "milestones": {
+            "completed": 4,
+            "total": 9,
+            "percentage": 44
+          }
+        }
+      ]
     }
   ],
   "indicators": [
     {
       "id": 1,
       "title": "Poupança no consumo anual de energia primária",
+      "summaryTitle": "Indicador Comum 01: Poupanças no Consumo Anual de Energia Primária",
+      "summary": "Reduzir o consumo de energia e aumentar a eficiência energética são prioridades centrais da UE e elementos essenciais para a transição verde.\n\nEste indicador mede a redução do consumo anual de energia alcançada com o apoio do Mecanismo de Recuperação e Resiliência (MRR), nomeadamente em edifícios, escolas, hospitais e empresas.\n\nContribui para o pilar Transição Verde e o pilar Crescimento.",
       "metrics": [
         {
           "label": "Total de poupança (MWh/Ano):",
@@ -514,6 +2396,8 @@
     {
       "id": 2,
       "title": "Capacidade operacional adicional instalada para energias renováveis",
+      "summaryTitle": "Indicador Comum 02: Capacidade Operacional Adicional Instalada para Energias Renováveis",
+      "summary": "A expansão das energias renováveis é essencial para reduzir emissões e aumentar a autonomia energética da União Europeia.\n\nEste indicador mede a capacidade adicional instalada com apoio do MRR, incluindo projetos de eletricidade renovável, produção limpa e infraestruturas associadas.\n\nContribui sobretudo para a transição verde e para a segurança energética.",
       "metrics": [
         {
           "label": "Energia Renovável:",
@@ -528,6 +2412,8 @@
     {
       "id": 3,
       "title": "Infraestrutura de combustíveis alternativos",
+      "summaryTitle": "Indicador Comum 03: Infraestrutura de Combustíveis Alternativos",
+      "summary": "A mobilidade sustentável depende da disponibilidade de infraestruturas que permitam utilizar combustíveis alternativos de forma simples e acessível.\n\nEste indicador acompanha a instalação ou modernização de pontos de carregamento e abastecimento apoiados pelo MRR.\n\nContribui para transportes mais limpos e para a redução da dependência de combustíveis fósseis.",
       "metrics": [
         {
           "label": "Total:",
@@ -538,6 +2424,8 @@
     {
       "id": 4,
       "title": "População beneficiada por medidas de proteção",
+      "summaryTitle": "Indicador Comum 04: População Beneficiada por Medidas de Proteção",
+      "summary": "A resiliência climática e social exige medidas capazes de proteger pessoas, comunidades e territórios contra riscos futuros.\n\nEste indicador mede a população abrangida por intervenções apoiadas pelo MRR, incluindo proteção contra cheias, incêndios, riscos ambientais ou outros impactos relevantes.\n\nContribui para uma recuperação mais segura e territorialmente equilibrada.",
       "metrics": [
         {
           "label": "População total:",
@@ -548,6 +2436,8 @@
     {
       "id": 5,
       "title": "Alojamentos adicionais com acesso à internet",
+      "summaryTitle": "Indicador Comum 05: Alojamentos Adicionais com Acesso à Internet",
+      "summary": "O acesso à internet é uma condição básica para inclusão digital, participação económica e acesso a serviços públicos modernos.\n\nEste indicador mede alojamentos adicionais que passam a ter acesso a conectividade graças a investimentos apoiados pelo MRR.\n\nContribui para a transformação digital e para a redução de desigualdades territoriais.",
       "metrics": [
         {
           "label": "Alojamentos totais:",
@@ -558,10 +2448,1814 @@
     {
       "id": 6,
       "title": "Empresas apoiadas no desenvolvimento de produtos e processos digitais",
+      "summaryTitle": "Indicador Comum 06: Empresas Apoiadas no Desenvolvimento de Produtos e Processos Digitais",
+      "summary": "A digitalização empresarial reforça produtividade, inovação e capacidade de adaptação das economias europeias.\n\nEste indicador mede empresas apoiadas na criação ou melhoria de produtos, serviços e processos digitais através do MRR.\n\nContribui para a transformação digital, competitividade e crescimento sustentável.",
       "metrics": [
         {
           "label": "Total de empresas:",
           "value": "1 456 789"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Utilizadores de serviços e produtos públicos digitais novos ou melhorados",
+      "summaryTitle": "Indicador Comum 07: Utilizadores de Serviços e Produtos Públicos Digitais Novos ou Melhorados",
+      "summary": "Serviços públicos digitais tornam a administração mais acessível, rápida e centrada nos cidadãos.\n\nEste indicador mede utilizadores de serviços e produtos públicos digitais criados ou melhorados com apoio do MRR.\n\nContribui para modernização administrativa, inclusão digital e eficiência dos serviços públicos.",
+      "metrics": [
+        {
+          "label": "Utilizadores:",
+          "value": "44 382 210"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Investigadores a trabalhar em instalações de investigação apoiadas",
+      "summaryTitle": "Indicador Comum 08: Investigadores em Instalações de Investigação Apoiadas",
+      "summary": "A investigação e inovação são motores de crescimento, competitividade e capacidade tecnológica da União Europeia.\n\nEste indicador acompanha investigadores que trabalham em instalações de investigação apoiadas pelo MRR.\n\nContribui para conhecimento científico, inovação empresarial e desenvolvimento tecnológico.",
+      "metrics": [
+        {
+          "label": "Investigadores:",
+          "value": "58 940"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Empresas apoiadas (incluindo PME)",
+      "summaryTitle": "Indicador Comum 09: Empresas Apoiadas, Incluindo PME",
+      "summary": "O apoio às empresas ajuda a preservar atividade económica, acelerar investimentos e reforçar a competitividade.\n\nEste indicador mede empresas apoiadas pelo MRR, incluindo pequenas e médias empresas.\n\nContribui para crescimento, emprego, inovação e resiliência económica.",
+      "metrics": [
+        {
+          "label": "Empresas:",
+          "value": "2 184 760"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Participantes em educação ou formação",
+      "summaryTitle": "Indicador Comum 10: Participantes em Educação ou Formação",
+      "summary": "A qualificação das pessoas é essencial para transições verde e digital inclusivas.\n\nEste indicador mede participantes em ações de educação, formação, requalificação ou aprendizagem ao longo da vida apoiadas pelo MRR.\n\nContribui para emprego, competências e inclusão social.",
+      "metrics": [
+        {
+          "label": "Participantes:",
+          "value": "18 245 600"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Pessoas em emprego ou em procura ativa de emprego",
+      "summaryTitle": "Indicador Comum 11: Pessoas em Emprego ou em Procura Ativa de Emprego",
+      "summary": "A recuperação económica deve traduzir-se em melhores oportunidades de trabalho e integração no mercado laboral.\n\nEste indicador acompanha pessoas em emprego ou em procura ativa de emprego abrangidas por medidas apoiadas pelo MRR.\n\nContribui para crescimento inclusivo, emprego e coesão social.",
+      "metrics": [
+        {
+          "label": "Pessoas:",
+          "value": "9 728 400"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Capacidade de instalações de cuidados de saúde novas ou modernizadas",
+      "summaryTitle": "Indicador Comum 12: Capacidade de Instalações de Cuidados de Saúde Novas ou Modernizadas",
+      "summary": "Sistemas de saúde resilientes dependem de infraestruturas modernas, acessíveis e preparadas para responder a crises.\n\nEste indicador mede a capacidade criada ou modernizada em instalações de cuidados de saúde com apoio do MRR.\n\nContribui para saúde pública, resiliência e qualidade dos serviços essenciais.",
+      "metrics": [
+        {
+          "label": "Capacidade:",
+          "value": "3 816 240"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Capacidade de instalações de acolhimento e educação de crianças novas ou modernizadas",
+      "summaryTitle": "Indicador Comum 13: Capacidade de Instalações de Acolhimento e Educação de Crianças",
+      "summary": "O acesso a educação e acolhimento infantil apoia famílias, inclusão social e igualdade de oportunidades desde cedo.\n\nEste indicador mede a capacidade criada ou modernizada em instalações de acolhimento e educação de crianças apoiadas pelo MRR.\n\nContribui para coesão social, educação e participação no mercado de trabalho.",
+      "metrics": [
+        {
+          "label": "Capacidade:",
+          "value": "1 248 900"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Jovens (15-29 anos) a receber apoio",
+      "summaryTitle": "Indicador Comum 14: Jovens (15-29 Anos) a Receber Apoio",
+      "summary": "O apoio aos jovens é central para uma recuperação inclusiva e para reduzir desigualdades no acesso a emprego, educação e formação.\n\nEste indicador mede jovens entre os 15 e os 29 anos abrangidos por medidas apoiadas pelo MRR.\n\nContribui para inclusão, competências, emprego jovem e coesão social.",
+      "metrics": [
+        {
+          "label": "Jovens:",
+          "value": "6 783 520"
+        }
+      ]
+    }
+  ],
+  "countryIndicators": [
+    {
+      "id": "country-indicators-pt",
+      "countryId": "pt",
+      "indicators": [
+        {
+          "indicatorId": 1,
+          "value": "1 248 430 MWh/Ano",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 62422
+            },
+            {
+              "period": "S2 2023",
+              "value": 124843
+            },
+            {
+              "period": "S1 2024",
+              "value": 224717
+            },
+            {
+              "period": "S2 2024",
+              "value": 424466
+            },
+            {
+              "period": "S1 2025",
+              "value": 898870
+            },
+            {
+              "period": "S2 2025",
+              "value": 1248430
+            }
+          ]
+        },
+        {
+          "indicatorId": 2,
+          "value": "2840 MW",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 142
+            },
+            {
+              "period": "S2 2023",
+              "value": 284
+            },
+            {
+              "period": "S1 2024",
+              "value": 511
+            },
+            {
+              "period": "S2 2024",
+              "value": 966
+            },
+            {
+              "period": "S1 2025",
+              "value": 2045
+            },
+            {
+              "period": "S2 2025",
+              "value": 2840
+            }
+          ]
+        },
+        {
+          "indicatorId": 3,
+          "value": "18 420",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 921
+            },
+            {
+              "period": "S2 2023",
+              "value": 1842
+            },
+            {
+              "period": "S1 2024",
+              "value": 3316
+            },
+            {
+              "period": "S2 2024",
+              "value": 6263
+            },
+            {
+              "period": "S1 2025",
+              "value": 13262
+            },
+            {
+              "period": "S2 2025",
+              "value": 18420
+            }
+          ]
+        },
+        {
+          "indicatorId": 4,
+          "value": "1 820 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 91000
+            },
+            {
+              "period": "S2 2023",
+              "value": 182000
+            },
+            {
+              "period": "S1 2024",
+              "value": 327600
+            },
+            {
+              "period": "S2 2024",
+              "value": 618800
+            },
+            {
+              "period": "S1 2025",
+              "value": 1310400
+            },
+            {
+              "period": "S2 2025",
+              "value": 1820000
+            }
+          ]
+        },
+        {
+          "indicatorId": 5,
+          "value": "682 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 34100
+            },
+            {
+              "period": "S2 2023",
+              "value": 68200
+            },
+            {
+              "period": "S1 2024",
+              "value": 122760
+            },
+            {
+              "period": "S2 2024",
+              "value": 231880
+            },
+            {
+              "period": "S1 2025",
+              "value": 491040
+            },
+            {
+              "period": "S2 2025",
+              "value": 682000
+            }
+          ]
+        },
+        {
+          "indicatorId": 6,
+          "value": "42 500",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 2125
+            },
+            {
+              "period": "S2 2023",
+              "value": 4250
+            },
+            {
+              "period": "S1 2024",
+              "value": 7650
+            },
+            {
+              "period": "S2 2024",
+              "value": 14450
+            },
+            {
+              "period": "S1 2025",
+              "value": 30600
+            },
+            {
+              "period": "S2 2025",
+              "value": 42500
+            }
+          ]
+        },
+        {
+          "indicatorId": 7,
+          "value": "2 210 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 110500
+            },
+            {
+              "period": "S2 2023",
+              "value": 221000
+            },
+            {
+              "period": "S1 2024",
+              "value": 397800
+            },
+            {
+              "period": "S2 2024",
+              "value": 751400
+            },
+            {
+              "period": "S1 2025",
+              "value": 1591200
+            },
+            {
+              "period": "S2 2025",
+              "value": 2210000
+            }
+          ]
+        },
+        {
+          "indicatorId": 8,
+          "value": "1840",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 92
+            },
+            {
+              "period": "S2 2023",
+              "value": 184
+            },
+            {
+              "period": "S1 2024",
+              "value": 331
+            },
+            {
+              "period": "S2 2024",
+              "value": 626
+            },
+            {
+              "period": "S1 2025",
+              "value": 1325
+            },
+            {
+              "period": "S2 2025",
+              "value": 1840
+            }
+          ]
+        },
+        {
+          "indicatorId": 9,
+          "value": "58 600",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 2930
+            },
+            {
+              "period": "S2 2023",
+              "value": 5860
+            },
+            {
+              "period": "S1 2024",
+              "value": 10548
+            },
+            {
+              "period": "S2 2024",
+              "value": 19924
+            },
+            {
+              "period": "S1 2025",
+              "value": 42192
+            },
+            {
+              "period": "S2 2025",
+              "value": 58600
+            }
+          ]
+        },
+        {
+          "indicatorId": 10,
+          "value": "312 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 15600
+            },
+            {
+              "period": "S2 2023",
+              "value": 31200
+            },
+            {
+              "period": "S1 2024",
+              "value": 56160
+            },
+            {
+              "period": "S2 2024",
+              "value": 106080
+            },
+            {
+              "period": "S1 2025",
+              "value": 224640
+            },
+            {
+              "period": "S2 2025",
+              "value": 312000
+            }
+          ]
+        },
+        {
+          "indicatorId": 11,
+          "value": "224 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 11200
+            },
+            {
+              "period": "S2 2023",
+              "value": 22400
+            },
+            {
+              "period": "S1 2024",
+              "value": 40320
+            },
+            {
+              "period": "S2 2024",
+              "value": 76160
+            },
+            {
+              "period": "S1 2025",
+              "value": 161280
+            },
+            {
+              "period": "S2 2025",
+              "value": 224000
+            }
+          ]
+        },
+        {
+          "indicatorId": 12,
+          "value": "74 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 3700
+            },
+            {
+              "period": "S2 2023",
+              "value": 7400
+            },
+            {
+              "period": "S1 2024",
+              "value": 13320
+            },
+            {
+              "period": "S2 2024",
+              "value": 25160
+            },
+            {
+              "period": "S1 2025",
+              "value": 53280
+            },
+            {
+              "period": "S2 2025",
+              "value": 74000
+            }
+          ]
+        },
+        {
+          "indicatorId": 13,
+          "value": "28 800",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 1440
+            },
+            {
+              "period": "S2 2023",
+              "value": 2880
+            },
+            {
+              "period": "S1 2024",
+              "value": 5184
+            },
+            {
+              "period": "S2 2024",
+              "value": 9792
+            },
+            {
+              "period": "S1 2025",
+              "value": 20736
+            },
+            {
+              "period": "S2 2025",
+              "value": 28800
+            }
+          ]
+        },
+        {
+          "indicatorId": 14,
+          "value": "186 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 9300
+            },
+            {
+              "period": "S2 2023",
+              "value": 18600
+            },
+            {
+              "period": "S1 2024",
+              "value": 33480
+            },
+            {
+              "period": "S2 2024",
+              "value": 63240
+            },
+            {
+              "period": "S1 2025",
+              "value": 133920
+            },
+            {
+              "period": "S2 2025",
+              "value": 186000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "country-indicators-es",
+      "countryId": "es",
+      "indicators": [
+        {
+          "indicatorId": 1,
+          "value": "4 876 200 MWh/Ano",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 243810
+            },
+            {
+              "period": "S2 2023",
+              "value": 487620
+            },
+            {
+              "period": "S1 2024",
+              "value": 877716
+            },
+            {
+              "period": "S2 2024",
+              "value": 1657908
+            },
+            {
+              "period": "S1 2025",
+              "value": 3510864
+            },
+            {
+              "period": "S2 2025",
+              "value": 4876200
+            }
+          ]
+        },
+        {
+          "indicatorId": 2,
+          "value": "8920 MW",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 446
+            },
+            {
+              "period": "S2 2023",
+              "value": 892
+            },
+            {
+              "period": "S1 2024",
+              "value": 1606
+            },
+            {
+              "period": "S2 2024",
+              "value": 3033
+            },
+            {
+              "period": "S1 2025",
+              "value": 6422
+            },
+            {
+              "period": "S2 2025",
+              "value": 8920
+            }
+          ]
+        },
+        {
+          "indicatorId": 3,
+          "value": "88 400",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 4420
+            },
+            {
+              "period": "S2 2023",
+              "value": 8840
+            },
+            {
+              "period": "S1 2024",
+              "value": 15912
+            },
+            {
+              "period": "S2 2024",
+              "value": 30056
+            },
+            {
+              "period": "S1 2025",
+              "value": 63648
+            },
+            {
+              "period": "S2 2025",
+              "value": 88400
+            }
+          ]
+        },
+        {
+          "indicatorId": 4,
+          "value": "7 940 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 397000
+            },
+            {
+              "period": "S2 2023",
+              "value": 794000
+            },
+            {
+              "period": "S1 2024",
+              "value": 1429200
+            },
+            {
+              "period": "S2 2024",
+              "value": 2699600
+            },
+            {
+              "period": "S1 2025",
+              "value": 5716800
+            },
+            {
+              "period": "S2 2025",
+              "value": 7940000
+            }
+          ]
+        },
+        {
+          "indicatorId": 5,
+          "value": "3 240 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 162000
+            },
+            {
+              "period": "S2 2023",
+              "value": 324000
+            },
+            {
+              "period": "S1 2024",
+              "value": 583200
+            },
+            {
+              "period": "S2 2024",
+              "value": 1101600
+            },
+            {
+              "period": "S1 2025",
+              "value": 2332800
+            },
+            {
+              "period": "S2 2025",
+              "value": 3240000
+            }
+          ]
+        },
+        {
+          "indicatorId": 6,
+          "value": "186 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 9300
+            },
+            {
+              "period": "S2 2023",
+              "value": 18600
+            },
+            {
+              "period": "S1 2024",
+              "value": 33480
+            },
+            {
+              "period": "S2 2024",
+              "value": 63240
+            },
+            {
+              "period": "S1 2025",
+              "value": 133920
+            },
+            {
+              "period": "S2 2025",
+              "value": 186000
+            }
+          ]
+        },
+        {
+          "indicatorId": 7,
+          "value": "9 840 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 492000
+            },
+            {
+              "period": "S2 2023",
+              "value": 984000
+            },
+            {
+              "period": "S1 2024",
+              "value": 1771200
+            },
+            {
+              "period": "S2 2024",
+              "value": 3345600
+            },
+            {
+              "period": "S1 2025",
+              "value": 7084800
+            },
+            {
+              "period": "S2 2025",
+              "value": 9840000
+            }
+          ]
+        },
+        {
+          "indicatorId": 8,
+          "value": "6920",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 346
+            },
+            {
+              "period": "S2 2023",
+              "value": 692
+            },
+            {
+              "period": "S1 2024",
+              "value": 1246
+            },
+            {
+              "period": "S2 2024",
+              "value": 2353
+            },
+            {
+              "period": "S1 2025",
+              "value": 4982
+            },
+            {
+              "period": "S2 2025",
+              "value": 6920
+            }
+          ]
+        },
+        {
+          "indicatorId": 9,
+          "value": "248 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 12400
+            },
+            {
+              "period": "S2 2023",
+              "value": 24800
+            },
+            {
+              "period": "S1 2024",
+              "value": 44640
+            },
+            {
+              "period": "S2 2024",
+              "value": 84320
+            },
+            {
+              "period": "S1 2025",
+              "value": 178560
+            },
+            {
+              "period": "S2 2025",
+              "value": 248000
+            }
+          ]
+        },
+        {
+          "indicatorId": 10,
+          "value": "1 620 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 81000
+            },
+            {
+              "period": "S2 2023",
+              "value": 162000
+            },
+            {
+              "period": "S1 2024",
+              "value": 291600
+            },
+            {
+              "period": "S2 2024",
+              "value": 550800
+            },
+            {
+              "period": "S1 2025",
+              "value": 1166400
+            },
+            {
+              "period": "S2 2025",
+              "value": 1620000
+            }
+          ]
+        },
+        {
+          "indicatorId": 11,
+          "value": "1 240 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 62000
+            },
+            {
+              "period": "S2 2023",
+              "value": 124000
+            },
+            {
+              "period": "S1 2024",
+              "value": 223200
+            },
+            {
+              "period": "S2 2024",
+              "value": 421600
+            },
+            {
+              "period": "S1 2025",
+              "value": 892800
+            },
+            {
+              "period": "S2 2025",
+              "value": 1240000
+            }
+          ]
+        },
+        {
+          "indicatorId": 12,
+          "value": "426 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 21300
+            },
+            {
+              "period": "S2 2023",
+              "value": 42600
+            },
+            {
+              "period": "S1 2024",
+              "value": 76680
+            },
+            {
+              "period": "S2 2024",
+              "value": 144840
+            },
+            {
+              "period": "S1 2025",
+              "value": 306720
+            },
+            {
+              "period": "S2 2025",
+              "value": 426000
+            }
+          ]
+        },
+        {
+          "indicatorId": 13,
+          "value": "142 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 7100
+            },
+            {
+              "period": "S2 2023",
+              "value": 14200
+            },
+            {
+              "period": "S1 2024",
+              "value": 25560
+            },
+            {
+              "period": "S2 2024",
+              "value": 48280
+            },
+            {
+              "period": "S1 2025",
+              "value": 102240
+            },
+            {
+              "period": "S2 2025",
+              "value": 142000
+            }
+          ]
+        },
+        {
+          "indicatorId": 14,
+          "value": "790 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 39500
+            },
+            {
+              "period": "S2 2023",
+              "value": 79000
+            },
+            {
+              "period": "S1 2024",
+              "value": 142200
+            },
+            {
+              "period": "S2 2024",
+              "value": 268600
+            },
+            {
+              "period": "S1 2025",
+              "value": 568800
+            },
+            {
+              "period": "S2 2025",
+              "value": 790000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "country-indicators-fr",
+      "countryId": "fr",
+      "indicators": [
+        {
+          "indicatorId": 1,
+          "value": "3 960 500 MWh/Ano",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 198025
+            },
+            {
+              "period": "S2 2023",
+              "value": 396050
+            },
+            {
+              "period": "S1 2024",
+              "value": 712890
+            },
+            {
+              "period": "S2 2024",
+              "value": 1346570
+            },
+            {
+              "period": "S1 2025",
+              "value": 2851560
+            },
+            {
+              "period": "S2 2025",
+              "value": 3960500
+            }
+          ]
+        },
+        {
+          "indicatorId": 2,
+          "value": "5210 MW",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 261
+            },
+            {
+              "period": "S2 2023",
+              "value": 521
+            },
+            {
+              "period": "S1 2024",
+              "value": 938
+            },
+            {
+              "period": "S2 2024",
+              "value": 1771
+            },
+            {
+              "period": "S1 2025",
+              "value": 3751
+            },
+            {
+              "period": "S2 2025",
+              "value": 5210
+            }
+          ]
+        },
+        {
+          "indicatorId": 3,
+          "value": "64 200",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 3210
+            },
+            {
+              "period": "S2 2023",
+              "value": 6420
+            },
+            {
+              "period": "S1 2024",
+              "value": 11556
+            },
+            {
+              "period": "S2 2024",
+              "value": 21828
+            },
+            {
+              "period": "S1 2025",
+              "value": 46224
+            },
+            {
+              "period": "S2 2025",
+              "value": 64200
+            }
+          ]
+        },
+        {
+          "indicatorId": 4,
+          "value": "6 360 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 318000
+            },
+            {
+              "period": "S2 2023",
+              "value": 636000
+            },
+            {
+              "period": "S1 2024",
+              "value": 1144800
+            },
+            {
+              "period": "S2 2024",
+              "value": 2162400
+            },
+            {
+              "period": "S1 2025",
+              "value": 4579200
+            },
+            {
+              "period": "S2 2025",
+              "value": 6360000
+            }
+          ]
+        },
+        {
+          "indicatorId": 5,
+          "value": "2 860 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 143000
+            },
+            {
+              "period": "S2 2023",
+              "value": 286000
+            },
+            {
+              "period": "S1 2024",
+              "value": 514800
+            },
+            {
+              "period": "S2 2024",
+              "value": 972400
+            },
+            {
+              "period": "S1 2025",
+              "value": 2059200
+            },
+            {
+              "period": "S2 2025",
+              "value": 2860000
+            }
+          ]
+        },
+        {
+          "indicatorId": 6,
+          "value": "124 600",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 6230
+            },
+            {
+              "period": "S2 2023",
+              "value": 12460
+            },
+            {
+              "period": "S1 2024",
+              "value": 22428
+            },
+            {
+              "period": "S2 2024",
+              "value": 42364
+            },
+            {
+              "period": "S1 2025",
+              "value": 89712
+            },
+            {
+              "period": "S2 2025",
+              "value": 124600
+            }
+          ]
+        },
+        {
+          "indicatorId": 7,
+          "value": "8 120 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 406000
+            },
+            {
+              "period": "S2 2023",
+              "value": 812000
+            },
+            {
+              "period": "S1 2024",
+              "value": 1461600
+            },
+            {
+              "period": "S2 2024",
+              "value": 2760800
+            },
+            {
+              "period": "S1 2025",
+              "value": 5846400
+            },
+            {
+              "period": "S2 2025",
+              "value": 8120000
+            }
+          ]
+        },
+        {
+          "indicatorId": 8,
+          "value": "7840",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 392
+            },
+            {
+              "period": "S2 2023",
+              "value": 784
+            },
+            {
+              "period": "S1 2024",
+              "value": 1411
+            },
+            {
+              "period": "S2 2024",
+              "value": 2666
+            },
+            {
+              "period": "S1 2025",
+              "value": 5645
+            },
+            {
+              "period": "S2 2025",
+              "value": 7840
+            }
+          ]
+        },
+        {
+          "indicatorId": 9,
+          "value": "124 600",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 6230
+            },
+            {
+              "period": "S2 2023",
+              "value": 12460
+            },
+            {
+              "period": "S1 2024",
+              "value": 22428
+            },
+            {
+              "period": "S2 2024",
+              "value": 42364
+            },
+            {
+              "period": "S1 2025",
+              "value": 89712
+            },
+            {
+              "period": "S2 2025",
+              "value": 124600
+            }
+          ]
+        },
+        {
+          "indicatorId": 10,
+          "value": "980 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 49000
+            },
+            {
+              "period": "S2 2023",
+              "value": 98000
+            },
+            {
+              "period": "S1 2024",
+              "value": 176400
+            },
+            {
+              "period": "S2 2024",
+              "value": 333200
+            },
+            {
+              "period": "S1 2025",
+              "value": 705600
+            },
+            {
+              "period": "S2 2025",
+              "value": 980000
+            }
+          ]
+        },
+        {
+          "indicatorId": 11,
+          "value": "870 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 43500
+            },
+            {
+              "period": "S2 2023",
+              "value": 87000
+            },
+            {
+              "period": "S1 2024",
+              "value": 156600
+            },
+            {
+              "period": "S2 2024",
+              "value": 295800
+            },
+            {
+              "period": "S1 2025",
+              "value": 626400
+            },
+            {
+              "period": "S2 2025",
+              "value": 870000
+            }
+          ]
+        },
+        {
+          "indicatorId": 12,
+          "value": "318 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 15900
+            },
+            {
+              "period": "S2 2023",
+              "value": 31800
+            },
+            {
+              "period": "S1 2024",
+              "value": 57240
+            },
+            {
+              "period": "S2 2024",
+              "value": 108120
+            },
+            {
+              "period": "S1 2025",
+              "value": 228960
+            },
+            {
+              "period": "S2 2025",
+              "value": 318000
+            }
+          ]
+        },
+        {
+          "indicatorId": 13,
+          "value": "116 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 5800
+            },
+            {
+              "period": "S2 2023",
+              "value": 11600
+            },
+            {
+              "period": "S1 2024",
+              "value": 20880
+            },
+            {
+              "period": "S2 2024",
+              "value": 39440
+            },
+            {
+              "period": "S1 2025",
+              "value": 83520
+            },
+            {
+              "period": "S2 2025",
+              "value": 116000
+            }
+          ]
+        },
+        {
+          "indicatorId": 14,
+          "value": "620 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 31000
+            },
+            {
+              "period": "S2 2023",
+              "value": 62000
+            },
+            {
+              "period": "S1 2024",
+              "value": 111600
+            },
+            {
+              "period": "S2 2024",
+              "value": 210800
+            },
+            {
+              "period": "S1 2025",
+              "value": 446400
+            },
+            {
+              "period": "S2 2025",
+              "value": 620000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "country-indicators-at",
+      "countryId": "at",
+      "indicators": [
+        {
+          "indicatorId": 1,
+          "value": "620 400 MWh/Ano",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 31020
+            },
+            {
+              "period": "S2 2023",
+              "value": 62040
+            },
+            {
+              "period": "S1 2024",
+              "value": 111672
+            },
+            {
+              "period": "S2 2024",
+              "value": 210936
+            },
+            {
+              "period": "S1 2025",
+              "value": 446688
+            },
+            {
+              "period": "S2 2025",
+              "value": 620400
+            }
+          ]
+        },
+        {
+          "indicatorId": 2,
+          "value": "1140 MW",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 57
+            },
+            {
+              "period": "S2 2023",
+              "value": 114
+            },
+            {
+              "period": "S1 2024",
+              "value": 205
+            },
+            {
+              "period": "S2 2024",
+              "value": 388
+            },
+            {
+              "period": "S1 2025",
+              "value": 821
+            },
+            {
+              "period": "S2 2025",
+              "value": 1140
+            }
+          ]
+        },
+        {
+          "indicatorId": 3,
+          "value": "7200",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 360
+            },
+            {
+              "period": "S2 2023",
+              "value": 720
+            },
+            {
+              "period": "S1 2024",
+              "value": 1296
+            },
+            {
+              "period": "S2 2024",
+              "value": 2448
+            },
+            {
+              "period": "S1 2025",
+              "value": 5184
+            },
+            {
+              "period": "S2 2025",
+              "value": 7200
+            }
+          ]
+        },
+        {
+          "indicatorId": 4,
+          "value": "740 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 37000
+            },
+            {
+              "period": "S2 2023",
+              "value": 74000
+            },
+            {
+              "period": "S1 2024",
+              "value": 133200
+            },
+            {
+              "period": "S2 2024",
+              "value": 251600
+            },
+            {
+              "period": "S1 2025",
+              "value": 532800
+            },
+            {
+              "period": "S2 2025",
+              "value": 740000
+            }
+          ]
+        },
+        {
+          "indicatorId": 5,
+          "value": "310 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 15500
+            },
+            {
+              "period": "S2 2023",
+              "value": 31000
+            },
+            {
+              "period": "S1 2024",
+              "value": 55800
+            },
+            {
+              "period": "S2 2024",
+              "value": 105400
+            },
+            {
+              "period": "S1 2025",
+              "value": 223200
+            },
+            {
+              "period": "S2 2025",
+              "value": 310000
+            }
+          ]
+        },
+        {
+          "indicatorId": 6,
+          "value": "16 800",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 840
+            },
+            {
+              "period": "S2 2023",
+              "value": 1680
+            },
+            {
+              "period": "S1 2024",
+              "value": 3024
+            },
+            {
+              "period": "S2 2024",
+              "value": 5712
+            },
+            {
+              "period": "S1 2025",
+              "value": 12096
+            },
+            {
+              "period": "S2 2025",
+              "value": 16800
+            }
+          ]
+        },
+        {
+          "indicatorId": 7,
+          "value": "940 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 47000
+            },
+            {
+              "period": "S2 2023",
+              "value": 94000
+            },
+            {
+              "period": "S1 2024",
+              "value": 169200
+            },
+            {
+              "period": "S2 2024",
+              "value": 319600
+            },
+            {
+              "period": "S1 2025",
+              "value": 676800
+            },
+            {
+              "period": "S2 2025",
+              "value": 940000
+            }
+          ]
+        },
+        {
+          "indicatorId": 8,
+          "value": "920",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 46
+            },
+            {
+              "period": "S2 2023",
+              "value": 92
+            },
+            {
+              "period": "S1 2024",
+              "value": 166
+            },
+            {
+              "period": "S2 2024",
+              "value": 313
+            },
+            {
+              "period": "S1 2025",
+              "value": 662
+            },
+            {
+              "period": "S2 2025",
+              "value": 920
+            }
+          ]
+        },
+        {
+          "indicatorId": 9,
+          "value": "21 400",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 1070
+            },
+            {
+              "period": "S2 2023",
+              "value": 2140
+            },
+            {
+              "period": "S1 2024",
+              "value": 3852
+            },
+            {
+              "period": "S2 2024",
+              "value": 7276
+            },
+            {
+              "period": "S1 2025",
+              "value": 15408
+            },
+            {
+              "period": "S2 2025",
+              "value": 21400
+            }
+          ]
+        },
+        {
+          "indicatorId": 10,
+          "value": "86 200",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 4310
+            },
+            {
+              "period": "S2 2023",
+              "value": 8620
+            },
+            {
+              "period": "S1 2024",
+              "value": 15516
+            },
+            {
+              "period": "S2 2024",
+              "value": 29308
+            },
+            {
+              "period": "S1 2025",
+              "value": 62064
+            },
+            {
+              "period": "S2 2025",
+              "value": 86200
+            }
+          ]
+        },
+        {
+          "indicatorId": 11,
+          "value": "68 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 3400
+            },
+            {
+              "period": "S2 2023",
+              "value": 6800
+            },
+            {
+              "period": "S1 2024",
+              "value": 12240
+            },
+            {
+              "period": "S2 2024",
+              "value": 23120
+            },
+            {
+              "period": "S1 2025",
+              "value": 48960
+            },
+            {
+              "period": "S2 2025",
+              "value": 68000
+            }
+          ]
+        },
+        {
+          "indicatorId": 12,
+          "value": "42 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 2100
+            },
+            {
+              "period": "S2 2023",
+              "value": 4200
+            },
+            {
+              "period": "S1 2024",
+              "value": 7560
+            },
+            {
+              "period": "S2 2024",
+              "value": 14280
+            },
+            {
+              "period": "S1 2025",
+              "value": 30240
+            },
+            {
+              "period": "S2 2025",
+              "value": 42000
+            }
+          ]
+        },
+        {
+          "indicatorId": 13,
+          "value": "18 400",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 920
+            },
+            {
+              "period": "S2 2023",
+              "value": 1840
+            },
+            {
+              "period": "S1 2024",
+              "value": 3312
+            },
+            {
+              "period": "S2 2024",
+              "value": 6256
+            },
+            {
+              "period": "S1 2025",
+              "value": 13248
+            },
+            {
+              "period": "S2 2025",
+              "value": 18400
+            }
+          ]
+        },
+        {
+          "indicatorId": 14,
+          "value": "54 000",
+          "evolution": [
+            {
+              "period": "S1 2023",
+              "value": 2700
+            },
+            {
+              "period": "S2 2023",
+              "value": 5400
+            },
+            {
+              "period": "S1 2024",
+              "value": 9720
+            },
+            {
+              "period": "S2 2024",
+              "value": 18360
+            },
+            {
+              "period": "S1 2025",
+              "value": 38880
+            },
+            {
+              "period": "S2 2025",
+              "value": 54000
+            }
+          ]
         }
       ]
     }

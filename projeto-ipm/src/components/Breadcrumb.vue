@@ -1,29 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router'
 
 type BreadcrumbItem = {
   label: string
-  to?: string | (() => string) 
+  to?: string | ((route: RouteLocationNormalizedLoaded) => string)
 }
 
 const route = useRoute()
 
 const getTo = (item: BreadcrumbItem) => {
-  return typeof item.to === 'function' ? item.to() : item.to
+  return typeof item.to === 'function' ? item.to(route) : item.to
 }
 
 const breadcrumbs = computed(() => {
   const routeBreadcrumbs = route.meta.breadcrumb as BreadcrumbItem[] | undefined
-  return (routeBreadcrumbs ?? []).map((item) => {
-    if (route.path.includes('/mais') && item.label === 'Detalhe') {
-      return {
-        ...item,
-        to: `/paises/${route.params.countryId}`,
-      }
-    }
-    return item
-  })
+  return routeBreadcrumbs ?? []
 })
 </script>
 

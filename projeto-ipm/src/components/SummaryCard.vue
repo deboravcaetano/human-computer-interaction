@@ -4,7 +4,7 @@ export default {
     props: {
         title: {
             type: String,
-            required: true
+            default: ''
         },
         helper: {
             type: String,
@@ -16,7 +16,7 @@ export default {
 
 <template>
     <article class="summary-card">
-        <header class="summary-card__header">
+        <header v-if="title || helper" class="summary-card__header">
             <p class="summary-card__title">{{ title }}</p>
             <p v-if="helper" class="summary-card__helper">{{ helper }}</p>
         </header>

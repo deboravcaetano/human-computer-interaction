@@ -24,8 +24,17 @@ export async function getCountryDetail(countryId) {
   return details[0] ?? null
 }
 
+export function getCountryDetails() {
+  return request('/countryDetails')
+}
+
 export function getIndicators() {
   return request('/indicators')
+}
+
+export async function getCountryIndicators(countryId) {
+  const countryIndicators = await request(`/countryIndicators?countryId=${countryId}`)
+  return countryIndicators[0] ?? null
 }
 
 export function getFaqs() {
@@ -38,6 +47,11 @@ export function getReviews() {
 
 export function getPillars() {
   return request('/pillars')
+}
+
+export async function getCountryPillars(countryId) {
+  const countryPillars = await request(`/countryPillars?countryId=${countryId}`)
+  return countryPillars[0] ?? null
 }
 
 export function getSummary() {

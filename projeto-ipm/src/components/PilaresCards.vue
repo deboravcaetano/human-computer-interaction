@@ -2,6 +2,7 @@
 
 export default {
     name: 'PilaresCard',
+    emits: ['select'],
     props: {
         title: {
             type: String,
@@ -31,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <div class="exterior-card">
+    <div class="exterior-card" @click="$emit('select')">
         <div class="interior-card">
             <div class="card-header">
                 <img :src="pilarImage" :alt="pilar" class="pilar-img"/>

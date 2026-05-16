@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteLocationNormalizedLoaded } from 'vue-router'
 
 import InicioView from '@/views/InicioView.vue'
 import PaisesView from '@/views/PaisesView.vue'
@@ -12,9 +12,13 @@ import IndicadoresView from '@/views/IndicadoresView.vue'
 import PilaresView from '@/views/PilaresView.vue'
 import HistoricoView from '@/views/HistoricoView.vue'
 import CountryMoreDetails from '@/views/CountryMoreDetails.vue'
+import CompareCountriesView from '@/views/CompareCountriesView.vue'
 import PaisIndicadoresView from '@/views/PaisIndicadoresView.vue'
 import PaisPilaresView from '@/views/PaisPilaresView.vue'
 import Faq from '@/views/FaqView.vue'
+
+const countryDetailPath = (route: RouteLocationNormalizedLoaded) =>
+  `/paises/${route.params.countryId}`
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), 
@@ -43,7 +47,9 @@ const router = createRouter({
     },
     {
       path: '/paises/:countryId/mais',
+      name: 'country-more-details',
       component: CountryMoreDetails,
+      meta: { hideInNavbar: true },
       redirect: to => `${to.path}/pilares`, 
       children: [
         {
@@ -56,7 +62,7 @@ const router = createRouter({
             hideInNavbar: true,
             breadcrumb: [
               { label: 'Países', to: '/paises' },
-              { label: 'Detalhe', to: '#' }, 
+              { label: 'Detalhe', to: countryDetailPath },
               { label: 'Pilares' },
             ],
           }
@@ -73,12 +79,24 @@ const router = createRouter({
             hideInNavbar: true,
             breadcrumb: [
               { label: 'Países', to: '/paises' },
-              { label: 'Detalhe', to: '#' }, 
+              { label: 'Detalhe', to: countryDetailPath },
               { label: 'Indicadores' },
             ],
           }
         }
       ]
+    },
+    {
+      path: '/comparar/:firstCountryId/:secondCountryId',
+      name: 'Comparar Países',
+      component: CompareCountriesView,
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Países', to: '/paises' },
+          { label: 'Comparação' },
+        ],
+      },
     },
     {
       path: '/execucao',

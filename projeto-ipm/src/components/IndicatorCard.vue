@@ -125,11 +125,12 @@ const onCardKeydown = (event: KeyboardEvent) => {
 
 .indicator-card--simple {
   grid-template-columns: 1fr;
-  background: #e6e6e6;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  background: #dddddf;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.16);
   color: var(--text-gray-dark);
-  min-height: 58px;
-  padding: 12px 16px;
+  min-height: 76px;
+  padding: 18px 22px;
+  border-radius: 10px;
 }
 
 .indicator-card--simple .indicator-card__body {
@@ -142,8 +143,8 @@ const onCardKeydown = (event: KeyboardEvent) => {
 }
 
 .indicator-card--simple .indicator-card__title {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   color: var(--text-gray-dark);
 }
 

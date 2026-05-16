@@ -7,9 +7,10 @@ import CountryCard from '@/components/CountryCard.vue';
 import ComparePopUp from '@/components/ComparePopUp.vue';
 import historyIcon from '@/assets/history-icon.svg';
 import compareIcon from '@/assets/compare-icon.svg';
-import { getCountries } from '@/services/api';
+import { getCountries, getCountryDetails } from '@/services/api';
 
 const countries = ref([]);
+const countryDetails = ref([]);
 const router = useRouter();
 const searchQuery = ref('');
 const isLoading = ref(true);
@@ -21,10 +22,14 @@ const getFlagPath = (flagAsset) => {
 };
 
 const compareCountries = computed(() => {
-  return countries.value.map((country) => ({
-    name: country.name,
-    flagSrc: getFlagPath(country.flagAsset)
-  }));
+  const countriesWithDetails = new Set(countryDetails.value.map((detail) => detail.countryId));
+
+  return countries.value
+    .filter((country) => countriesWithDetails.has(country.id))
+    .map((country) => ({
+      name: country.name,
+      flagSrc: getFlagPath(country.flagAsset)
+    }));
 });
 
 const filteredCountries = computed(() => {
@@ -58,7 +63,13 @@ const filteredCountries = computed(() => {
 
 onMounted(async () => {
   try {
-    countries.value = await getCountries();
+    const [countriesResponse, countryDetailsResponse] = await Promise.all([
+      getCountries(),
+      getCountryDetails()
+    ]);
+
+    countries.value = countriesResponse;
+    countryDetails.value = countryDetailsResponse;
   } catch (error) {
     errorMessage.value = 'Não foi possível carregar os países.';
   } finally {
@@ -69,8 +80,16 @@ onMounted(async () => {
 const onSearch = (query) => { searchQuery.value = query; };
 const openComparePopUp = () => { isComparePopUpOpen.value = true; };
 const closeComparePopUp = () => { isComparePopUpOpen.value = false; };
-const onCompareCountries = () => {
+const onCompareCountries = (selectedCountries) => {
+  const selectedIds = selectedCountries
+    .map((countryName) => countries.value.find((country) => country.name === countryName)?.id)
+    .filter(Boolean);
+
   closeComparePopUp();
+
+  if (selectedIds.length === 2) {
+    router.push(`/comparar/${selectedIds[0]}/${selectedIds[1]}`);
+  }
 };
 
 // ── ENTER: fase 1 → espaço abre; fase 2 → card aparece ──────────
