@@ -463,7 +463,39 @@
       "asset": "pilar-crescimento",
       "color": "#1d4ed8",
       "percentage": 18.4,
-      "summary": "O PRR financia reformas e investimentos estruturais para tornar as economias mais competitivas e resilientes, impulsionando a reindustrialização e o empreendedorismo.\n\nO foco centra-se no fortalecimento das PMEs, na modernização do ambiente de negócios e no fomento à investigação e inovação, garantindo que a recuperação económica seja inteligente, sustentável e inclusiva."
+      "summary": "O PRR financia reformas e investimentos estruturais para tornar as economias mais competitivas e resilientes, impulsionando a reindustrialização e o empreendedorismo.\n\nO foco centra-se no fortalecimento das PMEs, na modernização do ambiente de negócios e no fomento à investigação e inovação, garantindo que a recuperação económica seja inteligente, sustentável e inclusiva.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     },
     {
       "id": "transicao-ecologica",
@@ -471,7 +503,39 @@
       "asset": "pilar-ecologica",
       "color": "#4ade80",
       "percentage": 24.7,
-      "summary": "O PRR impulsiona o Pacto Ecológico Europeu rumo à neutralidade climática em 2050, exigindo que os Estados-Membros invistam pelo menos 37% das suas dotações em reformas verdes.\n\nO foco recai sobre energias renováveis, eficiência energética, mobilidade sustentável e biodiversidade para garantir um crescimento resiliente."
+      "summary": "O PRR impulsiona o Pacto Ecológico Europeu rumo à neutralidade climática em 2050, exigindo que os Estados-Membros invistam pelo menos 37% das suas dotações em reformas verdes.\n\nO foco recai sobre energias renováveis, eficiência energética, mobilidade sustentável e biodiversidade para garantir um crescimento resiliente.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     },
     {
       "id": "transformacao-digital",
@@ -479,7 +543,39 @@
       "asset": "pilar-digital",
       "color": "#f87171",
       "percentage": 21.3,
-      "summary": "O PRR impulsiona a autonomia e inovação europeia através da digitalização de serviços públicos, empresas e PMEs, reduzindo dependências externas.\n\nPara assegurar a competitividade, cada Estado-Membro deve investir pelo menos 20% da sua dotação em infraestruturas de rede, competências digitais avançadas e tecnologias de ponta."
+      "summary": "O PRR impulsiona a autonomia e inovação europeia através da digitalização de serviços públicos, empresas e PMEs, reduzindo dependências externas.\n\nPara assegurar a competitividade, cada Estado-Membro deve investir pelo menos 20% da sua dotação em infraestruturas de rede, competências digitais avançadas e tecnologias de ponta.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     },
     {
       "id": "politicas",
@@ -487,7 +583,39 @@
       "asset": "pilar-politicas",
       "color": "#fbbf24",
       "percentage": 9.6,
-      "summary": "O PRR financia reformas e investimentos vitais para reduzir o fosso geracional e mitigar os efeitos da crise nos jovens europeus.\n\nO foco central é a melhoria do acesso e da qualidade do ensino (geral, profissional e superior), priorizando a educação digital, os cuidados na primeira infância e o apoio direto ao emprego jovem."
+      "summary": "O PRR financia reformas e investimentos vitais para reduzir o fosso geracional e mitigar os efeitos da crise nos jovens europeus.\n\nO foco central é a melhoria do acesso e da qualidade do ensino (geral, profissional e superior), priorizando a educação digital, os cuidados na primeira infância e o apoio direto ao emprego jovem.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     },
     {
       "id": "coesao-social-territorial",
@@ -495,7 +623,39 @@
       "asset": "pilar-coesao",
       "color": "#bbbbbb",
       "percentage": 14.8,
-      "summary": "O PRR atua na redução da pobreza e no combate ao desemprego, garantindo que a recuperação económica não deixe ninguém para trás.\n\nO foco recai no reforço das infraestruturas sociais, na proteção dos grupos desfavorecidos e na criação de emprego estável e de qualidade, fortalecendo os sistemas de bem-estar e a coesão entre todas as regiões."
+      "summary": "O PRR atua na redução da pobreza e no combate ao desemprego, garantindo que a recuperação económica não deixe ninguém para trás.\n\nO foco recai no reforço das infraestruturas sociais, na proteção dos grupos desfavorecidos e na criação de emprego estável e de qualidade, fortalecendo os sistemas de bem-estar e a coesão entre todas as regiões.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     },
     {
       "id": "saude-resiliencia",
@@ -503,7 +663,39 @@
       "asset": "pilar-saude",
       "color": "#22c55e",
       "percentage": 11.2,
-      "summary": "O PRR reforça a capacidade de resposta a crises futuras, investindo na resiliência e qualidade dos sistemas de saúde e cuidados de longa duração.\n\nO foco abrange a digitalização da saúde, a melhoria da acessibilidade e o aumento da eficácia da administração pública e dos sistemas judiciais, garantindo uma estrutura institucional sólida e preparada."
+      "summary": "O PRR reforça a capacidade de resposta a crises futuras, investindo na resiliência e qualidade dos sistemas de saúde e cuidados de longa duração.\n\nO foco abrange a digitalização da saúde, a melhoria da acessibilidade e o aumento da eficácia da administração pública e dos sistemas judiciais, garantindo uma estrutura institucional sólida e preparada.",
+      "globalStats": {
+        "milestones": 234,
+        "investment": "€22 450 M",
+        "execution": "34%",
+        "leaderboard": [
+          {
+            "countryId": "pt",
+            "investment": "$67,7 M",
+            "execution": "24%"
+          },
+          {
+            "countryId": "fr",
+            "investment": "$44,1 M",
+            "execution": "43%"
+          },
+          {
+            "countryId": "de",
+            "investment": "$32,1 M",
+            "execution": "74%"
+          },
+          {
+            "countryId": "it",
+            "investment": "$23,4 M",
+            "execution": "31%"
+          },
+          {
+            "countryId": "pl",
+            "investment": "$18,9 M",
+            "execution": "16%"
+          }
+        ]
+      }
     }
   ],
   "indicators": [
@@ -3780,6 +3972,696 @@
             "total": 9,
             "percentage": 44
           }
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-be",
+      "countryId": "be",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€65,89 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€67,90 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€3,90 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€12,03 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€39,61 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€52,22 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-bg",
+      "countryId": "bg",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€65,75 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€2,16 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€28,56 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€61,81 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€15,95 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€46,80 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-hr",
+      "countryId": "hr",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€10,44 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€63,17 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€61,41 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€47,30 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€7,20 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€34,37 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-cy",
+      "countryId": "cy",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€63,20 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€11,61 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€6,81 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€39,10 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€33,72 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€7,61 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-cz",
+      "countryId": "cz",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€29,13 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€12,74 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€47,62 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€58,47 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€21,89 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€4,90 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-dk",
+      "countryId": "dk",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€5,93 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€41,86 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€7,78 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€2,79 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€12,77 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€64,42 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-ee",
+      "countryId": "ee",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€27,14 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€13,15 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€17,31 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€29,60 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€44,22 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€9,47 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-fi",
+      "countryId": "fi",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€25,57 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€6,78 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€60,06 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€55,39 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€58,49 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€41,34 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-de",
+      "countryId": "de",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€17,39 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€35,08 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€12,84 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€46,41 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€4,71 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€23,72 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-gr",
+      "countryId": "gr",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€0,69 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€6,06 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€56,94 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€64,11 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€24,65 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€48,62 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-hu",
+      "countryId": "hu",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€33,19 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€66,56 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€58,88 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€59,49 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€50,75 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€26,24 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-ie",
+      "countryId": "ie",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€55,10 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€26,55 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€35,19 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€30,36 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€42,42 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€20,47 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-it",
+      "countryId": "it",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€9,01 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€43,50 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€22,54 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€12,27 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€45,13 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€14,70 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-lv",
+      "countryId": "lv",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€38,12 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€2,05 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€49,57 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€11,62 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€37,12 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€23,49 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-lt",
+      "countryId": "lt",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€38,26 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€67,79 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€35,95 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€29,84 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€49,74 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€28,91 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-lu",
+      "countryId": "lu",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€4,19 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€0,92 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€8,76 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€60,25 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€48,95 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€26,20 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-mt",
+      "countryId": "mt",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€48,01 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€45,86 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€40,42 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€13,03 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€32,29 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€14,66 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-nl",
+      "countryId": "nl",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€58,32 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€25,93 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€25,29 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€1,10 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€19,40 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€44,17 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-pl",
+      "countryId": "pl",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€9,82 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€61,11 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€34,23 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€35,48 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€52,50 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€15,67 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-ro",
+      "countryId": "ro",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€63,11 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€31,68 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€40,64 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€3,01 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€61,15 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€36,00 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-sk",
+      "countryId": "sk",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€5,14 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€5,23 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€6,83 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€22,64 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€11,98 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€32,59 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-si",
+      "countryId": "si",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€5,28 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€2,97 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€50,17 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€40,86 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€35,64 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€49,05 B"
+        }
+      ]
+    },
+    {
+      "id": "country-pillars-se",
+      "countryId": "se",
+      "pillars": [
+        {
+          "pillarId": "crescimento",
+          "investment": "€5,56 B"
+        },
+        {
+          "pillarId": "transicao-ecologica",
+          "investment": "€66,45 B"
+        },
+        {
+          "pillarId": "transformacao-digital",
+          "investment": "€11,89 B"
+        },
+        {
+          "pillarId": "politicas",
+          "investment": "€9,30 B"
+        },
+        {
+          "pillarId": "coesao-social-territorial",
+          "investment": "€3,92 B"
+        },
+        {
+          "pillarId": "saude-resiliencia",
+          "investment": "€2,93 B"
         }
       ]
     }

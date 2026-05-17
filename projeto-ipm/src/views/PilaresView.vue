@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import IntroCard from '@/components/IntroCard.vue';
 import PilaresCards from '@/components/PilaresCards.vue';
 import { getPillars } from '@/services/api';
@@ -7,11 +8,16 @@ import { getPillars } from '@/services/api';
 const title = "Pilares";
 const description = "Os pilares são as grandes áreas estratégicas que orientam o investimento dos fundos europeus, como a Transição Ecológica e a Transformação Digital, servem para organizar e categorizar todos os marcos e metas de cada país.";
 
+const router = useRouter();
 const pilares = ref([]);
 const isLoading = ref(true);
 const errorMessage = ref('');
 
 const getPilarAssetName = (asset) => asset?.replace('pilar-', '') ?? '';
+
+const goToPilar = (pilarId) => {
+  router.push(`/pilares/${pilarId}`);
+};
 
 onMounted(async () => {
   try {
@@ -44,6 +50,7 @@ onMounted(async () => {
         :title="pilar.name"
         :pilar="getPilarAssetName(pilar.asset)"
         :percentage="pilar.percentage"
+        @select="goToPilar(pilar.id)"
       />
     </div>
   </div>

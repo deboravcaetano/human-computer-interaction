@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'
+const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000'
 
 async function request(endpoint, options = {}) {
   const response = await fetch(`${API_URL}${endpoint}`, options)
@@ -49,9 +49,18 @@ export function getPillars() {
   return request('/pillars')
 }
 
+export async function getPillarById(pillarId) {
+  const pillars = await request(`/pillars?id=${pillarId}`)
+  return pillars[0] ?? null
+}
+
 export async function getCountryPillars(countryId) {
   const countryPillars = await request(`/countryPillars?countryId=${countryId}`)
   return countryPillars[0] ?? null
+}
+
+export function getAllCountryPillars() {
+  return request('/countryPillars')
 }
 
 export function getSummary() {

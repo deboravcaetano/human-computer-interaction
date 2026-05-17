@@ -12,6 +12,7 @@ import ExecucaoDesembolsosPaisView from '@/views/ExecucaoDesembolsosPaisView.vue
 import IndicadoresView from '@/views/IndicadoresView.vue'
 import IndicadorUnicoView from '@/views/IndicadorUnicoView.vue'
 import PilaresView from '@/views/PilaresView.vue'
+import PilarDetailView from '@/views/PilarDetailView.vue'
 import HistoricoView from '@/views/HistoricoView.vue'
 import CountryMoreDetails from '@/views/CountryMoreDetails.vue'
 import CompareCountriesView from '@/views/CompareCountriesView.vue'
@@ -198,6 +199,18 @@ const router = createRouter({
       path: '/pilares',
       name: 'Pilares',
       component: PilaresView,
+    },
+    {
+      path: '/pilares/:pillarId',
+      name: 'PilarDetalhe',
+      component: PilarDetailView,
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Pilares', to: '/pilares' },
+          { label: 'Detalhe' },
+        ],
+      },
     },
     {
       path: '/paises/historico',

@@ -22,6 +22,11 @@ const isLoading = ref(true)
 const errorMessage = ref('')
 
 const countryId = computed(() => String(route.params.countryId ?? ''))
+const requestedPillarId = computed(() => {
+  const value = route.query.pilar
+
+  return Array.isArray(value) ? String(value[0] ?? '') : String(value ?? '')
+})
 
 const getPilarAssetName = (asset) => asset?.replace('pilar-', '') ?? ''
 
@@ -203,6 +208,18 @@ const handleExportTipoMedida = (format) => {
   })
 }
 
+const syncSelectedPillarFromRoute = () => {
+  const pillarId = requestedPillarId.value
+
+  if (!pillarId) {
+    selectedPillarId.value = ''
+    return
+  }
+
+  const pillarExists = pillars.value.some((pillar) => pillar.id === pillarId)
+  selectedPillarId.value = pillarExists ? pillarId : ''
+}
+
 const loadPillars = async () => {
   isLoading.value = true
   errorMessage.value = ''
@@ -227,6 +244,7 @@ const loadPillars = async () => {
     country.value = countryResponse
     pillars.value = pillarsResponse
     countryPillars.value = countryPillarsResponse
+    syncSelectedPillarFromRoute()
   } catch (error) {
     errorMessage.value = 'Não foi possível carregar os pilares deste país.'
   } finally {
@@ -237,6 +255,13 @@ const loadPillars = async () => {
 const selectPillar = (pillarId) => {
   selectedPillarId.value = pillarId
   isPillarGridOpen.value = false
+  router.replace({
+    path: route.path,
+    query: {
+      ...route.query,
+      pilar: pillarId,
+    },
+  })
 }
 
 const togglePillarGrid = () => {
@@ -249,6 +274,12 @@ const goBack = () => {
 
 onMounted(loadPillars)
 watch(countryId, loadPillars)
+watch(requestedPillarId, () => {
+  if (!isLoading.value) {
+    isPillarGridOpen.value = false
+    syncSelectedPillarFromRoute()
+  }
+})
 </script>
 
 <template>
