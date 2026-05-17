@@ -19,6 +19,7 @@ const countries = ref([])
 const countryPillars = ref([])
 const countrySearchQuery = ref('')
 const isPillarGridOpen = ref(false)
+const sortBy = ref('investment') // 'investment' | 'execution'
 const isLoading = ref(true)
 const errorMessage = ref('')
 
@@ -82,11 +83,20 @@ const rankedCountries = computed(() =>
       ...country,
       investment: getCountryPillarInvestment(country.id),
     }))
-    .sort((a, b) =>
-      getInvestmentSortValue(b.investment) - getInvestmentSortValue(a.investment) ||
-      getExecutionValue(b) - getExecutionValue(a) ||
-      a.name.localeCompare(b.name),
-    )
+    .sort((a, b) => {
+      if (sortBy.value === 'execution') {
+        return (
+          getExecutionValue(b) - getExecutionValue(a) ||
+          getInvestmentSortValue(b.investment) - getInvestmentSortValue(a.investment) ||
+          a.name.localeCompare(b.name)
+        )
+      }
+      return (
+        getInvestmentSortValue(b.investment) - getInvestmentSortValue(a.investment) ||
+        getExecutionValue(b) - getExecutionValue(a) ||
+        a.name.localeCompare(b.name)
+      )
+    })
     .map((country, index) => ({
       ...country,
       rank: index + 1,
@@ -263,20 +273,46 @@ watch(pillarId, loadPillar)
             <p>Estados-Membros com dados disponíveis para navegar neste pilar.</p>
           </div>
 
-          <SearchBar
-            class="countries-search"
-            placeholder="Pesquisar por país"
-            height="36px"
-            width="100%"
-            @search="onCountrySearch"
-          />
+          <div class="countries-controls">
+            <div class="sort-toggle" role="group" aria-label="Ordenar por">
+              <button
+                :class="['sort-btn', sortBy === 'investment' ? 'sort-btn--active' : '']"
+                type="button"
+                @click="sortBy = 'investment'"
+              >
+                Total investido
+              </button>
+              <button
+                :class="['sort-btn', sortBy === 'execution' ? 'sort-btn--active' : '']"
+                type="button"
+                @click="sortBy = 'execution'"
+              >
+                % Execução
+              </button>
+            </div>
+
+            <SearchBar
+              class="countries-search"
+              placeholder="Pesquisar por país"
+              height="36px"
+              width="100%"
+              @search="onCountrySearch"
+            />
+          </div>
         </div>
 
         <div class="countries-list" aria-label="Lista de países">
           <button
             v-for="country in filteredCountries"
             :key="country.id"
-            :class="['country-mini-card', country.rank === 1 ? 'country-mini-card--gold' : country.rank === 2 ? 'country-mini-card--silver' : country.rank === 3 ? 'country-mini-card--bronze' : '']"            type="button"
+            :class="[
+              'country-mini-card',
+              country.rank === 1 ? 'country-mini-card--gold'
+              : country.rank === 2 ? 'country-mini-card--silver'
+              : country.rank === 3 ? 'country-mini-card--bronze'
+              : ''
+            ]"
+            type="button"
             @click="goToCountryPillar(country.id)"
           >
             <span class="country-mini-card__identity">
@@ -433,7 +469,7 @@ watch(pillarId, loadPillar)
 
 .countries-heading {
   display: grid;
-  grid-template-columns: 1fr minmax(260px, 360px);
+  grid-template-columns: 1fr auto;
   gap: 18px;
   align-items: end;
 }
@@ -450,6 +486,53 @@ watch(pillarId, loadPillar)
   color: var(--text-gray);
   font-size: 11px;
   line-height: 1.35;
+}
+
+.countries-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-toggle {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.sort-btn {
+  padding: 0 14px;
+  height: 36px;
+  background: #ffffff;
+  border: none;
+  color: var(--text-gray);
+  font-family: var(--font-primary);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+  white-space: nowrap;
+}
+
+.sort-btn + .sort-btn {
+  border-left: 1px solid #e0e0e0;
+}
+
+.sort-btn:hover {
+  background: #f4f7ff;
+  color: var(--text-blue-dark);
+}
+
+.sort-btn--active {
+  background: #0f2f7a;
+  color: #ffffff;
+}
+
+.sort-btn--active:hover {
+  background: #0f2f7a;
+  color: #ffffff;
 }
 
 .countries-search {
@@ -489,6 +572,18 @@ watch(pillarId, loadPillar)
 .country-mini-card:focus-visible {
   outline: 2px solid var(--text-blue-neon);
   outline-offset: 2px;
+}
+
+.country-mini-card--gold {
+  border-left: 6px solid #d7a400;
+}
+
+.country-mini-card--silver {
+  border-left: 6px solid #aeb6c5;
+}
+
+.country-mini-card--bronze {
+  border-left: 6px solid #b66b3d;
 }
 
 .country-mini-card__identity {
@@ -589,6 +684,20 @@ watch(pillarId, loadPillar)
   .countries-heading {
     grid-template-columns: 1fr;
   }
+
+  .countries-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sort-toggle {
+    width: 100%;
+  }
+
+  .sort-btn {
+    flex: 1;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -623,17 +732,6 @@ watch(pillarId, loadPillar)
   .country-mini-card {
     align-items: flex-start;
     flex-direction: column;
-  }
-  css.country-mini-card--gold {
-  border-left: 6px solid #d7a400;
-  }
-  
-  .country-mini-card--silver {
-    border-left: 6px solid #aeb6c5;
-  }
-  
-  .country-mini-card--bronze {
-    border-left: 6px solid #b66b3d;
   }
 
   .country-mini-card__metrics {
