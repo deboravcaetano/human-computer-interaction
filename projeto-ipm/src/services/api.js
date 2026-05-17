@@ -62,6 +62,10 @@ export function getTopCountries() {
   return request('/topCountries')
 }
 
+export async function getDisbursementsByCountry(countryId) {
+  const results = await request(`/disbursements?countryId=${countryId}`)
+  return results[0] ?? null
+}
 export function getMetasMarcos() {
   return request('/metasMarcos')
 }

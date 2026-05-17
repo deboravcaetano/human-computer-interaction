@@ -8,6 +8,7 @@ import ExecucaoVisaoGeralView from '@/views/ExecucaoVisaoGeralView.vue'
 import ExecucaoEstadoMembroView from '@/views/ExecucaoEstadoMembroView.vue'
 import ExecucaoMetasMarcosView from '@/views/ExecucaoMetasMarcosView.vue'
 import ExecucaoDesembolsosView from '@/views/ExecucaoDesembolsosView.vue'
+import ExecucaoDesembolsosPaisView from '@/views/ExecucaoDesembolsosPaisView.vue'
 import IndicadoresView from '@/views/IndicadoresView.vue'
 import IndicadorUnicoView from '@/views/IndicadorUnicoView.vue'
 import PilaresView from '@/views/PilaresView.vue'
@@ -149,6 +150,19 @@ const router = createRouter({
         breadcrumb: [
           { label: 'Execução', to: '/execucao' },
           { label: 'Desembolsos' },
+        ],
+      }
+    },
+    {
+      path: '/execucao/desembolsos/:countryId',
+      name: 'Execução - Desembolsos - País',
+      component: ExecucaoDesembolsosPaisView,
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Desembolsos', to: '/execucao/desembolsos' },
+          { label: 'País' },
         ],
       }
     },
