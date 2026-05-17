@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import Button from '@/components/Button.vue'
+
+type ExportFormat = 'PDF' | 'JSON' | 'CSV'
 
 const props = defineProps({
   title: {
@@ -17,8 +20,16 @@ const props = defineProps({
   emptyLabel: {
     type: String,
     default: 'Sem dados.'
+  },
+  exportable: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emit = defineEmits<{
+  (event: 'export', format: ExportFormat): void
+}>()
 
 const headerClass = computed(() => {
   return props.headerVariant === 'primary'
@@ -29,7 +40,16 @@ const headerClass = computed(() => {
 
 <template>
   <article class="disbursement-section">
-    <h2>{{ title }}</h2>
+    <div class="disbursement-section__heading">
+      <h2>{{ title }}</h2>
+      <Button
+        v-if="exportable"
+        :exportable="true"
+        :compact="true"
+        color="primary"
+        @export="(format) => emit('export', format)"
+      />
+    </div>
     <div class="disbursement-table">
       <div class="disbursement-table__header" :class="headerClass">
         <span>Data</span>
@@ -62,6 +82,13 @@ const headerClass = computed(() => {
 .disbursement-section {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+
+.disbursement-section__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
 }
 

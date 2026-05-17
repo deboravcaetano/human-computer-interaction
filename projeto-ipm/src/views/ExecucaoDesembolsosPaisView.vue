@@ -12,17 +12,57 @@ import downloadIcon from '@/assets/Download.svg'
 import arrowIcon from '@/assets/arrow-down.svg'
 
 import { getCountries, getDisbursementsByCountry } from '@/services/api'
+import { exportData } from '@/services/exporter'
+
+type Country = {
+	id: string
+	name: string
+	flagAsset: string
+}
+
+type Payment = {
+	date?: string
+	type?: string
+	amount?: number
+	amountUnit?: string
+	description?: string
+}
+
+type PaymentRow = Payment & {
+	amountLabel: string
+}
+
+type Beneficiary = {
+	entity: string
+	project: string
+	amount: number
+	pillar: string
+}
+
+type BeneficiaryRow = Beneficiary & {
+	amountLabel: string
+}
+
+type DisbursementData = {
+	hero: {
+		title: string
+		description: string
+	}
+	realized: Payment[]
+	planned: Payment[]
+	beneficiaries: Beneficiary[]
+}
 
 const route = useRoute()
 const router = useRouter()
 
 const selectedType = ref('')
-const country = ref({
+const country = ref<Country>({
 	id: 'pt',
 	name: 'Portugal',
 	flagAsset: 'portugal-flag'
 })
-const disbursementData = ref({
+const disbursementData = ref<DisbursementData>({
 	hero: {
 		title: 'Fluxo de Desembolsos e Beneficiarios',
 		description:
@@ -38,12 +78,12 @@ const typeOptions = [
 	{ label: 'Emprestimo', value: 'Emprestimo' }
 ]
 
-const formatAmount = (amount, unit = '') => {
+const formatAmount = (amount?: number, unit = '') => {
 	const formatted = Number(amount || 0).toLocaleString('pt-PT')
 	return unit ? `EUR ${formatted} ${unit}` : `EUR ${formatted}`
 }
 
-const realizedRows = computed(() => {
+const realizedRows = computed<PaymentRow[]>(() => {
 	const source = disbursementData.value?.realized || []
 	const filtered = selectedType.value
 		? source.filter((item) => item.type === selectedType.value)
@@ -54,7 +94,7 @@ const realizedRows = computed(() => {
 	}))
 })
 
-const plannedRows = computed(() => {
+const plannedRows = computed<PaymentRow[]>(() => {
 	const source = disbursementData.value?.planned || []
 	const filtered = selectedType.value
 		? source.filter((item) => item.type === selectedType.value)
@@ -65,13 +105,37 @@ const plannedRows = computed(() => {
 	}))
 })
 
-const beneficiaries = computed(() => {
+const beneficiaries = computed<BeneficiaryRow[]>(() => {
 	const source = disbursementData.value?.beneficiaries || []
 	return source.slice(0, 5).map((item) => ({
 		...item,
 		amountLabel: formatAmount(item.amount)
 	}))
 })
+
+const exportRows = computed(() => [
+	...realizedRows.value.map((item) => ({
+		tabela: 'Recebimentos realizados',
+		data: item.date,
+		tipo: item.type,
+		montante: item.amountLabel,
+		descricao: item.description || '',
+	})),
+	...plannedRows.value.map((item) => ({
+		tabela: 'Recebimentos previstos',
+		data: item.date,
+		tipo: item.type,
+		montante: item.amountLabel,
+		descricao: item.description || '',
+	})),
+	...beneficiaries.value.map((item) => ({
+		tabela: 'Maiores beneficiarios',
+		entidade: item.entity,
+		projeto: item.project,
+		montante: item.amountLabel,
+		pilar: item.pillar,
+	})),
+])
 
 const flagSrc = computed(() => {
 	if (!country.value?.flagAsset) return ''
@@ -83,6 +147,56 @@ const heroDescription = computed(() => disbursementData.value?.hero?.description
 
 const handleBack = () => {
 	router.push('/execucao/desembolsos')
+}
+
+const handleExport = (format: string) => {
+	exportData({
+		format,
+		filename: `desembolsos-${country.value.name}`,
+		title: `Fluxo de Desembolsos e Beneficiários - ${country.value.name}`,
+		data: exportRows.value,
+		metadata: {
+			pais: country.value.name,
+			filtroTipo: selectedType.value || 'Todos',
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		},
+	})
+}
+
+const getPaymentExportRows = (rows: PaymentRow[]) =>
+	rows.map((item) => ({
+		data: item.date,
+		tipo: item.type,
+		montante: item.amountLabel,
+		descricao: item.description || '',
+	}))
+
+const handleRealizedExport = (format: string) => {
+	exportData({
+		format,
+		filename: `recebimentos-realizados-${country.value.name}`,
+		title: `Cronologia de Recebimentos Realizados - ${country.value.name}`,
+		data: getPaymentExportRows(realizedRows.value),
+		metadata: {
+			pais: country.value.name,
+			filtroTipo: selectedType.value || 'Todos',
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		},
+	})
+}
+
+const handlePlannedExport = (format: string) => {
+	exportData({
+		format,
+		filename: `recebimentos-previstos-${country.value.name}`,
+		title: `Cronologia de Recebimentos Previstos - ${country.value.name}`,
+		data: getPaymentExportRows(plannedRows.value),
+		metadata: {
+			pais: country.value.name,
+			filtroTipo: selectedType.value || 'Todos',
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		},
+	})
 }
 
 const viewAllLink = computed(() => {
@@ -149,6 +263,7 @@ onMounted(async () => {
 						:icon="true"
 						:iconPath="downloadIcon"
 						:exportable="true"
+						@export="handleExport"
 					/>
 				</div>
 			</div>
@@ -158,6 +273,8 @@ onMounted(async () => {
 				:rows="realizedRows"
 				header-variant="success"
 				empty-label="Sem recebimentos realizados."
+				:exportable="true"
+				@export="handleRealizedExport"
 			/>
 
 			<DisbursementTable
@@ -165,6 +282,8 @@ onMounted(async () => {
 				:rows="plannedRows"
 				header-variant="primary"
 				empty-label="Sem recebimentos previstos."
+				:exportable="true"
+				@export="handlePlannedExport"
 			/>
 
 			<article class="desembolsos-section">

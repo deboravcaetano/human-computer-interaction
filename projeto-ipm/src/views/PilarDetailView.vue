@@ -123,6 +123,15 @@ const exportRows = computed(() => [
   })),
 ])
 
+const rankingExportRows = computed(() =>
+  filteredCountries.value.map((country) => ({
+    posicao: country.rank,
+    pais: country.name,
+    totalInvestido: country.investment,
+    execucaoGeral: `${country.evolution}%`,
+  })),
+)
+
 const loadPillar = async () => {
   isLoading.value = true
   errorMessage.value = ''
@@ -189,6 +198,23 @@ const handleExport = (format) => {
     metadata: {
       pilar: pillar.value.name,
       percentagem: `${pillar.value.percentage}%`,
+      dataExportacao: new Date().toLocaleDateString('pt-PT'),
+    },
+  })
+}
+
+const handleRankingExport = (format) => {
+  if (!pillar.value) return
+
+  exportData({
+    format,
+    filename: `ranking-pilar-${pillar.value.name}`,
+    title: `Ranking de países - Pilar ${pillar.value.name}`,
+    data: rankingExportRows.value,
+    metadata: {
+      pilar: pillar.value.name,
+      ordenacao: sortBy.value === 'investment' ? 'Total investido' : '% Execução',
+      pesquisa: countrySearchQuery.value || 'Sem pesquisa',
       dataExportacao: new Date().toLocaleDateString('pt-PT'),
     },
   })
@@ -339,6 +365,17 @@ watch(pillarId, loadPillar)
         </div>
 
         <p v-if="!filteredCountries.length" class="countries-empty">Sem resultados.</p>
+
+        <div class="countries-export">
+          <Button
+            text="Exportar ranking"
+            textsize="13px"
+            :icon="true"
+            :iconPath="downloadIcon"
+            :exportable="true"
+            @export="handleRankingExport"
+          />
+        </div>
       </section>
     </div>
   </section>
@@ -655,6 +692,12 @@ watch(pillarId, loadPillar)
   margin: 0;
   color: var(--text-gray);
   font-size: 13px;
+}
+
+.countries-export {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
 }
 
 .state-text {

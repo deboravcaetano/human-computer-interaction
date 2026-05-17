@@ -8,6 +8,7 @@ import arrowDownIcon from '@/assets/arrow-down.svg';
 import downloadIcon from '@/assets/Download.svg';
 import exclamationIcon from '@/assets/exclamation.svg';
 import { getIndicators } from '@/services/api';
+import { exportData } from '@/services/exporter';
 
 const route = useRoute();
 const router = useRouter();
@@ -99,6 +100,29 @@ const evolutionBars = computed(() => {
   }));
 });
 
+const exportRows = computed(() =>
+  evolutionSource.value.map((item) => ({
+    periodo: item.period,
+    valor: parseNumber(item.value),
+  })),
+);
+
+const handleExport = (format) => {
+  if (!selectedIndicator.value) return;
+
+  exportData({
+    format,
+    filename: `indicador-${selectedIndicator.value.title}`,
+    title: `Evolução do indicador - ${selectedIndicator.value.title}`,
+    data: exportRows.value,
+    metadata: {
+      indicador: selectedIndicator.value.title,
+      total: selectedIndicatorTotalValue.value,
+      dataExportacao: new Date().toLocaleDateString('pt-PT'),
+    },
+  });
+};
+
 const selectIndicator = (id) => {
   router.push(`/indicadores/${id}`);
   isIndicatorGridOpen.value = false;
@@ -188,6 +212,7 @@ watch(indicatorId, loadIndicators);
             :icon="true"
             :iconPath="downloadIcon"
             :exportable="true"
+            @export="handleExport"
           />
         </div>
 

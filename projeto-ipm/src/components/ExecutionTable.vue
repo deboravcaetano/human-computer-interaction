@@ -1,6 +1,7 @@
 <script lang="ts">
 import Button from './Button.vue';
 import downloadIcon from '@/assets/Download.svg';
+import { exportData } from '@/services/exporter';
 
 export default {
     name: 'ExecutionTable',
@@ -107,6 +108,27 @@ export default {
             if (s === 'not assessed' || s === 'nao avaliado') return 'milestone--pending';
             if (s === 'suspenso') return 'milestone--warning';
             return 'milestone--muted';
+        },
+        handleExportRow(format, row) {
+            exportData({
+                format,
+                filename: `meta-marco-${row.countryName || row.id || 'detalhe'}`,
+                title: `Detalhe de meta/marco - ${row.countryName || 'País'}`,
+                data: [
+                    {
+                        pais: row.countryName,
+                        objetivo: row.objective,
+                        tipo: row.type,
+                        descricao: row.description || 'Sem descrição disponível.',
+                        marcos: (row.milestones || [])
+                            .map((milestone) => `${milestone.date || '—'} - ${milestone.label || ''} (${milestone.status || 'sem estado'})`)
+                            .join('; '),
+                    }
+                ],
+                metadata: {
+                    dataExportacao: new Date().toLocaleDateString('pt-PT'),
+                },
+            });
         }
     }
 };
@@ -234,6 +256,7 @@ export default {
                                         :icon="true" 
                                         :iconPath="downloadIcon" 
                                         :exportable="true" 
+                                        @export="(format) => handleExportRow(format, row)"
                                     />
                                 </div>
                                 <p class="metas-table__description-text">

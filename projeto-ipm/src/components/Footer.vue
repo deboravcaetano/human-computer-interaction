@@ -3,6 +3,22 @@ import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import Button from './Button.vue'
 import AppIcon from './AppIcon.vue'
+import {
+	getAllCountryPillars,
+	getCountries,
+	getCountryDetails,
+	getFaqs,
+	getIndicators,
+	getLatestNews,
+	getMetasMarcos,
+	getPillars,
+	getReviews,
+	getSummary,
+	getTopCountries,
+} from '@/services/api'
+import { exportData } from '@/services/exporter'
+import questionIcon from '@/assets/Question.svg'
+import downloadIcon from '@/assets/Download.svg'
 
 const router = useRouter()
 
@@ -15,8 +31,63 @@ const goTo = (path: string) => {
 	router.push(path)
 }
 
-import questionIcon from '@/assets/Question.svg';
-import downloadIcon from '@/assets/Download.svg';
+const countItems = (value: unknown) => Array.isArray(value) ? value.length : value ? 1 : 0
+
+const handleGlobalExport = async (format: string) => {
+	const [
+		summary,
+		countries,
+		countryDetails,
+		indicators,
+		reviews,
+		pillars,
+		countryPillars,
+		topCountries,
+		latestNews,
+		faqs,
+		metasMarcos,
+	] = await Promise.all([
+		getSummary(),
+		getCountries(),
+		getCountryDetails(),
+		getIndicators(),
+		getReviews(),
+		getPillars(),
+		getAllCountryPillars(),
+		getTopCountries(),
+		getLatestNews(),
+		getFaqs(),
+		getMetasMarcos(),
+	])
+
+	const datasets = [
+		{ secao: 'Resumo', registos: countItems(summary), dados: summary },
+		{ secao: 'Países', registos: countItems(countries), dados: countries },
+		{ secao: 'Detalhes de países', registos: countItems(countryDetails), dados: countryDetails },
+		{ secao: 'Indicadores', registos: countItems(indicators), dados: indicators },
+		{ secao: 'Histórico', registos: countItems(reviews), dados: reviews },
+		{ secao: 'Pilares', registos: countItems(pillars), dados: pillars },
+		{ secao: 'Pilares por país', registos: countItems(countryPillars), dados: countryPillars },
+		{ secao: 'Top países', registos: countItems(topCountries), dados: topCountries },
+		{ secao: 'Últimas notícias', registos: countItems(latestNews), dados: latestNews },
+		{ secao: 'FAQ', registos: countItems(faqs), dados: faqs },
+		{ secao: 'Metas e marcos', registos: countItems(metasMarcos), dados: metasMarcos },
+	]
+
+	exportData({
+		format,
+		filename: 'exportacao-global-prr',
+		title: 'Exportação global - Monitorização do PRR',
+		data: format === 'JSON' ? datasets : datasets.map(({ secao, registos, dados }) => ({
+			secao,
+			registos,
+			dados: JSON.stringify(dados),
+		})),
+		metadata: {
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		},
+	})
+}
 
 </script>
 
@@ -65,7 +136,7 @@ import downloadIcon from '@/assets/Download.svg';
 					:iconPath="questionIcon" 
 					@click="goTo('/faq')"
 					/>
-					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" :exportable="true" />
+					<Button text="Exportar" color="primary" textsize="12px" :icon="true" :iconPath="downloadIcon" :exportable="true" @export="handleGlobalExport" />
 				</div>
 
 				<p class="footer__updated">Dados atualizados em: 08/03/2026</p>
