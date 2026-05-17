@@ -17,6 +17,7 @@
       iconPosition?: IconPosition
       iconDirection?: IconDirection
       exportable?: boolean
+      compact?: boolean
     }>(),
     {
       text: 'Button',
@@ -27,7 +28,8 @@
       iconPath: '',
       iconPosition: 'right',
       iconDirection: 'default',
-      exportable: false
+      exportable: false,
+      compact: false
     }
   )
 
@@ -40,30 +42,21 @@
   const isExportMenuOpen = ref(false)
   const exportOptions: ExportFormat[] = ['PDF', 'JSON', 'CSV']
 
-  const closeMenu = () => {
-    isExportMenuOpen.value = false
-  }
+  const closeMenu = () => { isExportMenuOpen.value = false }
 
   const toggleExportMenu = () => {
     if (props.disabled) return
-
     isExportMenuOpen.value = !isExportMenuOpen.value
   }
 
   const onClick = () => {
     if (props.disabled) return
-
-    if (props.exportable) {
-      toggleExportMenu()
-      return
-    }
-
+    if (props.exportable) { toggleExportMenu(); return }
     emit('click')
   }
 
   const selectExportFormat = (format: ExportFormat) => {
     if (props.disabled) return
-
     emit('export', format)
     closeMenu()
   }
@@ -71,49 +64,58 @@
   const handleOutsideClick = (event: MouseEvent) => {
     if (!isExportMenuOpen.value || !root.value) return
     if (root.value.contains(event.target as Node)) return
-
     closeMenu()
   }
 
-  onMounted(() => {
-    document.addEventListener('click', handleOutsideClick)
-  })
-
-  onBeforeUnmount(() => {
-    document.removeEventListener('click', handleOutsideClick)
-  })
+  onMounted(() => document.addEventListener('click', handleOutsideClick))
+  onBeforeUnmount(() => document.removeEventListener('click', handleOutsideClick))
 </script>
 
 <template>
   <div ref="root" class="btn-root">
     <button
-      :class="['btn', `btn--${color}`, { 'btn--disabled': disabled, 'btn--exportable': exportable }]"
+      :class="[
+        'btn',
+        `btn--${color}`,
+        { 'btn--disabled': disabled, 'btn--exportable': exportable, 'btn--compact': compact && exportable }
+      ]"
       :style="{ '--btn-text-size': textsize }"
       type="button"
       :disabled="disabled"
       :aria-haspopup="exportable ? 'menu' : undefined"
       :aria-expanded="exportable ? isExportMenuOpen : undefined"
+      :aria-label="compact && exportable ? 'Exportar' : undefined"
       @click="onClick"
     >
-      <img
-        v-if="icon && iconPath && iconPosition === 'left'"
-        :class="['btn__icon', `btn__icon--${iconDirection}`]"
-        :src="iconPath"
-        alt=""
-        aria-hidden="true"
-      />
-      <span class="btn__text">{{ text }}</span>
-      <img
-        v-if="icon && iconPath && iconPosition === 'right'"
-        :class="['btn__icon', `btn__icon--${iconDirection}`]"
-        :src="iconPath"
-        alt=""
-        aria-hidden="true"
-      />
+      <!-- modo compacto-->
+      <template v-if="compact && exportable">
+        <svg class="btn__export-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+        </svg>
+      </template>
+
+      <!-- modo normal -->
+      <template v-else>
+        <img
+          v-if="icon && iconPath && iconPosition === 'left'"
+          :class="['btn__icon', `btn__icon--${iconDirection}`]"
+          :src="iconPath"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="btn__text">{{ text }}</span>
+        <img
+          v-if="icon && iconPath && iconPosition === 'right'"
+          :class="['btn__icon', `btn__icon--${iconDirection}`]"
+          :src="iconPath"
+          alt=""
+          aria-hidden="true"
+        />
+      </template>
     </button>
 
     <transition name="btn-menu">
-      <div v-if="exportable && isExportMenuOpen" class="btn__menu" role="menu" aria-label="Opcoes de exportacao">
+      <div v-if="exportable && isExportMenuOpen" class="btn__menu" :class="{ 'btn__menu--compact': compact }" role="menu" aria-label="Opcoes de exportacao">
         <button
           v-for="option in exportOptions"
           :key="option"
@@ -135,6 +137,7 @@
     display: inline-flex;
     flex-direction: column;
     align-items: stretch;
+    font-family: var(--font-primary);
   }
 
   .btn {
@@ -149,6 +152,21 @@
     font-weight: 600;
     cursor: pointer;
     transition: filter 160ms ease, transform 160ms ease;
+  }
+
+  /* Modo compacto: quadrado só com ícone */
+  .btn--compact {
+    padding: 0;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    border-radius: 6px;
+  }
+
+  .btn__export-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
   }
 
   /* Primary color */
@@ -176,7 +194,6 @@
     border-color: var(--bg-blue);
   }
 
-  /* Button icon */
   .btn__icon {
     width: 0.78rem;
     height: 0.78rem;
@@ -184,47 +201,28 @@
     object-fit: contain;
   }
 
-  .btn__icon--left {
-    transform: rotate(90deg);
-  }
-
-  .btn__icon--right {
-    transform: rotate(-90deg);
-  }
-
-  .btn__icon--up {
-    transform: rotate(180deg);
-  }
-
+  .btn__icon--left  { transform: rotate(90deg); }
+  .btn__icon--right { transform: rotate(-90deg); }
+  .btn__icon--up    { transform: rotate(180deg); }
   .btn__icon--down,
-  .btn__icon--default {
-    transform: rotate(0deg);
-  }
+  .btn__icon--default { transform: rotate(0deg); }
 
-  /* Button text */
-  .btn__text {
-    display: inline-block;
-  }
+  .btn__text { display: inline-block; }
 
-  /* Active state */
-  .btn:active:not(:disabled) {
-    transform: translateY(1px);
-  }
+  .btn:active:not(:disabled) { transform: translateY(1px); }
 
-  /* Focus state */
   .btn:focus-visible {
     outline: 2px solid var(--text-blue-neon);
     outline-offset: 2px;
   }
 
-  /* Disabled state */
   .btn:disabled,
   .btn--disabled {
     opacity: 0.6;
     cursor: not-allowed;
   }
 
-  .btn--exportable {
+  .btn--exportable:not(.btn--compact) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -247,6 +245,14 @@
     background: var(--bg-blue);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
     z-index: 10;
+  }
+
+  /* No modo compacto o menu abre por baixo alinhado à direita normalmente */
+  .btn__menu--compact {
+    top: calc(100% + 4px);
+    border-top: 1px solid var(--bg-blue-dark);
+    border-radius: 5px;
+    width: 4rem;
   }
 
   .btn__menu-item {

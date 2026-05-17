@@ -6,7 +6,9 @@ import Button from '@/components/Button.vue';
 import ExecutionTable from '@/components/ExecutionTable.vue';
 import SummaryCard from '@/components/SummaryCard.vue';
 import { getCountries } from '@/services/api';
+import { exportData } from '@/services/exporter';
 import arrowDown from '@/assets/arrow-down.svg';
+
 const TOTAL_MARCOS = 120;
 const roundToOne = (value) => Math.round(value * 10) / 10;
 const formatNumber = (value) => {
@@ -30,7 +32,8 @@ export default {
         return {
             arrowDown,
             summaryCards: [],
-            executionByCountry: []
+            executionByCountry: [],
+            rawOverview: null
         };
     },
     async mounted() {
@@ -42,15 +45,14 @@ export default {
 
             if (!overviewResponse.ok) throw new Error('Falha ao obter dados da execucao.');
             const overview = await overviewResponse.json();
+            this.rawOverview = overview;
 
             const evolutions = Array.isArray(countries)
-                ? countries
-                    .map((country) => Number(country.evolution) || 0)
-                    .filter((value) => Number.isFinite(value))
+                ? countries.map((c) => Number(c.evolution) || 0).filter((v) => Number.isFinite(v))
                 : [];
 
             const meanEvolution = evolutions.length
-                ? evolutions.reduce((sum, value) => sum + value, 0) / evolutions.length
+                ? evolutions.reduce((sum, v) => sum + v, 0) / evolutions.length
                 : 0;
 
             const metasPercent = overview.metasAtrasoTotal
@@ -108,6 +110,60 @@ export default {
         } catch (error) {
             console.error(error);
         }
+    },
+    methods: {
+        handleExportMarcos(format) {
+            const card = this.summaryCards[0];
+            exportData({
+                format,
+                filename: 'marcos-concluidos',
+                title: card.title,
+                data: [
+                    { indicador: 'Marcos Concluídos', valor: card.value, total: card.total, percentagem: `${card.percent}%` }
+                ],
+                metadata: {
+                    dataExportacao: new Date().toLocaleDateString('pt-PT')
+                }
+            });
+        },
+        handleExportFundos(format) {
+            const card = this.summaryCards[1];
+            exportData({
+                format,
+                filename: 'fundos-aprovados-desembolsados',
+                title: card.title,
+                data: card.bars.map((bar) => ({ categoria: bar.name, valor: bar.value })),
+                metadata: {
+                    dataExportacao: new Date().toLocaleDateString('pt-PT')
+                }
+            });
+        },
+        handleExportPilares(format) {
+            const card = this.summaryCards[2];
+            exportData({
+                format,
+                filename: 'execucao-por-pilares',
+                title: card.title,
+                data: card.pillars.map((p) => ({ pilar: p.title, valor: p.value })),
+                metadata: {
+                    dataExportacao: new Date().toLocaleDateString('pt-PT')
+                }
+            });
+        },
+        handleExportMetas(format) {
+            const card = this.summaryCards[3];
+            exportData({
+                format,
+                filename: 'metas-em-atraso',
+                title: card.title,
+                data: [
+                    { indicador: 'Metas em Atraso', valor: card.value, total: card.total, percentagem: `${card.percent}%`, delta: card.helper }
+                ],
+                metadata: {
+                    dataExportacao: new Date().toLocaleDateString('pt-PT')
+                }
+            });
+        }
     }
 };
 </script>
@@ -124,6 +180,9 @@ export default {
 
         <section v-if="summaryCards.length >= 4" class="summary-grid">
             <SummaryCard :title="summaryCards[0].title" class="summary-card--large">
+                <template #actions>
+                    <Button :exportable="true" :compact="true" color="primary" @export="handleExportMarcos" />
+                </template>
                 <div class="summary-body summary-body--split">
                     <div class="summary-metric">
                         <p class="summary-value">{{ summaryCards[0].value }}</p>
@@ -134,16 +193,25 @@ export default {
             </SummaryCard>
 
             <SummaryCard :title="summaryCards[1].title" :helper="summaryCards[1].helper">
+                <template #actions>
+                    <Button :exportable="true" :compact="true" color="primary" @export="handleExportFundos" />
+                </template>
                 <div class="summary-body summary-body--center">
                     <BarsGraph :bars="summaryCards[1].bars" :maxHeight="120" unit="B" />
                 </div>
             </SummaryCard>
 
             <SummaryCard :title="summaryCards[2].title" :helper="summaryCards[2].helper">
+                <template #actions>
+                    <Button :exportable="true" :compact="true" color="primary" @export="handleExportPilares" />
+                </template>
                 <HorizontalBarsGraph :bars="summaryCards[2].pillars" :maxWidth="200" />
             </SummaryCard>
 
             <SummaryCard :title="summaryCards[3].title" :helper="summaryCards[3].helper" class="summary-card--large">
+                <template #actions>
+                    <Button :exportable="true" :compact="true" color="primary" @export="handleExportMetas" />
+                </template>
                 <div class="summary-body summary-body--split">
                     <div class="summary-metric">
                         <p class="summary-value">{{ summaryCards[3].value }}</p>
@@ -229,20 +297,9 @@ export default {
     gap: 16px;
 }
 
-.summary-body--split {
-    justify-content: space-between;
-}
-
-.summary-body--stack {
-    flex-direction: column;
-    gap: 16px;
-}
-
-.summary-body--center {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+.summary-body--split { justify-content: space-between; }
+.summary-body--stack { flex-direction: column; gap: 16px; }
+.summary-body--center { justify-content: center; align-items: center; text-align: center; }
 
 .summary-value {
     font-family: var(--font-secondary);
@@ -259,13 +316,8 @@ export default {
     margin: 0;
 }
 
-:deep(.summary-card--large .summary-value) {
-    font-size: 24px;
-}
-
-:deep(.summary-card--large .summary-subtitle) {
-    font-size: 13px;
-}
+:deep(.summary-card--large .summary-value) { font-size: 24px; }
+:deep(.summary-card--large .summary-subtitle) { font-size: 13px; }
 
 .country-section {
     max-width: 1600px;
@@ -287,69 +339,26 @@ export default {
     margin: 0;
 }
 
-:deep(.bar-chart-wrapper) {
-    padding: 12px 12px 8px;
-    min-width: 0;
-    gap: 12px;
-    align-items: center;
-}
+:deep(.bar-chart-wrapper) { padding: 12px 12px 8px; min-width: 0; gap: 12px; align-items: center; }
+:deep(.bars-container) { gap: 14px; justify-content: center; }
+:deep(.bar) { width: 56px; }
+:deep(.chart-wrapper) { min-width: 0; padding: 12px 12px; }
+:deep(.bar-label) { width: 110px; }
+:deep(.legend) { justify-content: center; width: 100%; }
 
-:deep(.bars-container) {
-    gap: 14px;
-    justify-content: center;
-}
-
-:deep(.bar) {
-    width: 56px;
-}
-
-:deep(.chart-wrapper) {
-    min-width: 0;
-    padding: 12px 12px;
-}
-
-:deep(.bar-label) {
-    width: 110px;
-}
-
-:deep(.legend) {
-    justify-content: center;
-    width: 100%;
-}
-
-.view-all-button :deep(.btn__icon) {
-    transform: rotate(-90deg);
-}
-
-.view-all-link {
-    text-decoration: none;
-}
+.view-all-button :deep(.btn__icon) { transform: rotate(-90deg); }
+.view-all-link { text-decoration: none; }
 
 @media (max-width: 1100px) {
-    .summary-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 720px) {
     .execucao-page {
         padding: 18px 12px 48px;
-        background: linear-gradient(
-            180deg,
-            #e0e0e0 0px,
-            #e0e0e0 260px,
-            #efefef 260px,
-            #efefef 100%
-        );
+        background: linear-gradient(180deg, #e0e0e0 0px, #e0e0e0 260px, #efefef 260px, #efefef 100%);
     }
-
-    .summary-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .summary-body--split {
-        flex-direction: column;
-        gap: 16px;
-    }
+    .summary-grid { grid-template-columns: 1fr; }
+    .summary-body--split { flex-direction: column; gap: 16px; }
 }
 </style>

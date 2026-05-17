@@ -2,22 +2,19 @@
 export default {
     name: 'SummaryCard',
     props: {
-        title: {
-            type: String,
-            default: ''
-        },
-        helper: {
-            type: String,
-            default: ''
-        }
+        title: { type: String, default: '' },
+        helper: { type: String, default: '' }
     }
 };
 </script>
 
 <template>
     <article class="summary-card">
-        <header v-if="title || helper" class="summary-card__header">
-            <p class="summary-card__title">{{ title }}</p>
+        <header v-if="title || helper || $slots.actions" class="summary-card__header">
+            <div class="summary-card__title-row">
+                <p class="summary-card__title">{{ title }}</p>
+                <slot name="actions" />
+            </div>
             <p v-if="helper" class="summary-card__helper">{{ helper }}</p>
         </header>
         <div class="summary-card__body">
@@ -42,6 +39,13 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
+
+.summary-card__title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
 
 .summary-card__title {

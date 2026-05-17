@@ -5,7 +5,7 @@ import Button from '@/components/Button.vue'
 import ComparePopUp from '@/components/ComparePopUp.vue'
 import UltimosAvancos from '@/components/UltimosAvancos.vue'
 import HalfCircle from '@/components/graphs/HalfCircleGraph.vue'
-import Tooltip from '@/components/Tooltip.vue' 
+import Tooltip from '@/components/Tooltip.vue'
 
 import arrowDownIcon from '@/assets/arrow-down.svg'
 import compareIcon from '@/assets/compare-icon.svg'
@@ -66,20 +66,14 @@ const compareCountries = computed(() =>
     })),
 )
 
-const progressWidth = computed(
-  () => `${detail.value.completedGoals.percentage}%`,
-)
+const progressWidth = computed(() => `${detail.value.completedGoals.percentage}%`)
 
 const exportCountryRows = computed(() => {
   if (!country.value) return []
-
   return [
     { campo: 'País', valor: country.value.name },
     { campo: 'Execução', valor: `${detail.value.completedGoals.percentage}%` },
-    {
-      campo: 'Marcos e metas concluídos',
-      valor: `${detail.value.completedGoals.completed}/${detail.value.completedGoals.total}`,
-    },
+    { campo: 'Marcos e metas concluídos', valor: `${detail.value.completedGoals.completed}/${detail.value.completedGoals.total}` },
     { campo: 'Total desembolsado', valor: detail.value.metrics.totalDisbursed },
     { campo: 'Apoios a fundo perdido', valor: detail.value.metrics.grantsRequested },
     { campo: 'Empréstimos atribuídos', valor: detail.value.metrics.loansAwarded },
@@ -95,7 +89,6 @@ const exportCountryRows = computed(() => {
 
 const handleExport = (format) => {
   if (!country.value) return
-
   exportData({
     format,
     filename: `pais-${country.value.name}`,
@@ -105,6 +98,23 @@ const handleExport = (format) => {
       pais: country.value.name,
       dataAtualizacao: country.value.updatedAt,
     },
+  })
+}
+
+const handleExportDistribuicao = (format) => {
+  if (!country.value) return
+  exportData({
+    format,
+    filename: `distribuicao-prr-${country.value.name}`,
+    title: `Distribuição do PRR — ${country.value.name}`,
+    data: [
+      { categoria: country.value.name, percentagem: `${detail.value.distribution.countryPercentage}%` },
+      { categoria: 'União Europeia', percentagem: `${detail.value.distribution.euPercentage}%` },
+    ],
+    metadata: {
+      pais: country.value.name,
+      dataAtualizacao: country.value.updatedAt,
+    }
   })
 }
 
@@ -139,21 +149,10 @@ const loadCountry = async () => {
   }
 }
 
-const goBack = () => {
-  router.push('/paises')
-}
-
-const goToMoreDetails = () => {
-  router.push(`/paises/${countryId.value}/mais`)
-}
-
-const openComparePopUp = () => {
-  isComparePopUpOpen.value = true
-}
-
-const closeComparePopUp = () => {
-  isComparePopUpOpen.value = false
-}
+const goBack = () => { router.push('/paises') }
+const goToMoreDetails = () => { router.push(`/paises/${countryId.value}/mais`) }
+const openComparePopUp = () => { isComparePopUpOpen.value = true }
+const closeComparePopUp = () => { isComparePopUpOpen.value = false }
 
 const onCompareCountries = (selectedCountries) => {
   const selectedIds = selectedCountries
@@ -186,10 +185,7 @@ watch(countryId, loadCountry)
           :src="getFlagPath(country.flagAsset)"
           :alt="`Bandeira de ${country.name}`"
         />
-
-        <h1 class="country-hero__title">
-          {{ country.name }}
-        </h1>
+        <h1 class="country-hero__title">{{ country.name }}</h1>
       </header>
 
       <div class="country-actions country-actions--top">
@@ -211,7 +207,6 @@ watch(countryId, loadCountry)
             :iconPath="compareIcon"
             @click="openComparePopUp"
           />
-
           <Button
             text="Exportar"
             textsize="13px"
@@ -236,10 +231,15 @@ watch(countryId, loadCountry)
       <section class="summary-grid" aria-label="Resumo do país">
         <div class="summary-top">
           <article class="distribution-card">
-            <h2>
-              Como o Plano de Recuperação e Resiliência é distribuído?
-            </h2>
-
+            <div class="distribution-card__header">
+              <h2>Como o Plano de Recuperação e Resiliência é distribuído?</h2>
+              <Button
+                :exportable="true"
+                :compact="true"
+                color="primary"
+                @export="handleExportDistribuicao"
+              />
+            </div>
             <HalfCircle
               :primary-pct="detail.distribution.countryPercentage"
               :label="country.name"
@@ -252,28 +252,16 @@ watch(countryId, loadCountry)
 
           <div class="summary-top__cards">
             <article class="metric-card">
-              <span class="metric-card__label">
-                Total Desembolsado
-              </span>
-
-              <strong>
-                {{ detail.metrics.totalDisbursed }}
-              </strong>
+              <span class="metric-card__label">Total Desembolsado</span>
+              <strong>{{ detail.metrics.totalDisbursed }}</strong>
             </article>
 
             <article class="goals-card">
               <h2>Metas Concluídas</h2>
-
               <div class="goals-card__value-row">
-                <span class="goals-card__percentage">
-                  {{ detail.completedGoals.percentage }}%
-                </span>
-
-                <span class="goals-card__count">
-                  {{ detail.completedGoals.completed }}/{{ detail.completedGoals.total }}
-                </span>
+                <span class="goals-card__percentage">{{ detail.completedGoals.percentage }}%</span>
+                <span class="goals-card__count">{{ detail.completedGoals.completed }}/{{ detail.completedGoals.total }}</span>
               </div>
-
               <div class="goals-card__bar" aria-hidden="true">
                 <span :style="{ width: progressWidth }"></span>
               </div>
@@ -283,40 +271,24 @@ watch(countryId, loadCountry)
 
         <div class="summary-bottom">
           <article class="metric-card">
-            <span class="metric-card__label">
-              Total de Apoios a Fundo Perdido
-            </span>
-
-            <strong>
-              {{ detail.metrics.grantsRequested }}
-            </strong>
+            <span class="metric-card__label">Total de Apoios a Fundo Perdido</span>
+            <strong>{{ detail.metrics.grantsRequested }}</strong>
           </article>
 
           <article class="metric-card">
-            <span class="metric-card__label">
-              Total de Empréstimos Atribuídos
-            </span>
-
-            <strong>
-              {{ detail.metrics.loansAwarded }}
-            </strong>
+            <span class="metric-card__label">Total de Empréstimos Atribuídos</span>
+            <strong>{{ detail.metrics.loansAwarded }}</strong>
           </article>
 
           <article class="metric-card metric-card--info">
             <div class="metric-card__label-row">
-              <span class="metric-card__label">
-                Alocação do PRR em relação ao PIB
-              </span>
-              
-              <Tooltip 
+              <span class="metric-card__label">Alocação do PRR em relação ao PIB</span>
+              <Tooltip
                 title="Produto Interno Bruto (PIB):"
                 text="Medida padrão do valor agregado criado por meio da produção de bens e serviços em um país durante um determinado período."
               />
             </div>
-
-            <strong>
-              {{ detail.metrics.allocationVsGdp }}
-            </strong>
+            <strong>{{ detail.metrics.allocationVsGdp }}</strong>
           </article>
         </div>
       </section>
@@ -330,11 +302,7 @@ watch(countryId, loadCountry)
 
       <section v-else class="empty-updates" aria-live="polite">
         <h2>Últimos avanços</h2>
-
-        <p>
-          Ainda não há atualizações detalhadas disponíveis para
-          {{ country.name }}.
-        </p>
+        <p>Ainda não há atualizações detalhadas disponíveis para {{ country.name }}.</p>
       </section>
 
       <div class="country-actions country-actions--bottom">
@@ -364,9 +332,7 @@ watch(countryId, loadCountry)
   font-size: 1rem;
 }
 
-.state-text--error {
-  color: #b42318;
-}
+.state-text--error { color: #b42318; }
 
 .country-hero {
   display: flex;
@@ -375,11 +341,7 @@ watch(countryId, loadCountry)
   width: 100%;
   margin: 0 0 46px;
   padding: 56px max(20px, calc((100% - 1200px) / 2 + 20px));
-  background: linear-gradient(
-    135deg,
-    var(--bg-blue-dark) 0%,
-    var(--bg-blue) 100%
-  );
+  background: linear-gradient(135deg, var(--bg-blue-dark) 0%, var(--bg-blue) 100%);
 }
 
 .country-hero__flag {
@@ -387,9 +349,7 @@ watch(countryId, loadCountry)
   height: 100px;
   border-radius: 9px;
   object-fit: cover;
-  box-shadow:
-    8px 0 0 #ffffff,
-    9px 0 0 var(--text-gray-light);
+  box-shadow: 8px 0 0 #ffffff, 9px 0 0 var(--text-gray-light);
 }
 
 .country-hero__title {
@@ -409,14 +369,8 @@ watch(countryId, loadCountry)
   gap: 14px;
 }
 
-.country-actions--top {
-  margin-bottom: 48px;
-}
-
-.country-actions--bottom {
-  justify-content: flex-end;
-  margin-top: 22px;
-}
+.country-actions--top { margin-bottom: 48px; }
+.country-actions--bottom { justify-content: flex-end; margin-top: 22px; }
 
 .country-actions__right {
   display: flex;
@@ -527,15 +481,21 @@ watch(countryId, loadCountry)
   justify-content: space-between;
 }
 
-.distribution-card h2 {
-  color: var(--text-black);
+.distribution-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
   margin-bottom: 18px;
-  align-self: flex-start;
 }
 
-.distribution-card :deep(.legend) {
-  display: none;
+.distribution-card__header h2 {
+  color: var(--text-black);
+  margin: 0;
 }
+
+.distribution-card :deep(.legend) { display: none; }
 
 .metric-card {
   position: relative;
@@ -546,9 +506,7 @@ watch(countryId, loadCountry)
   padding: 18px 22px;
 }
 
-.summary-top__cards .metric-card {
-  flex: 1;
-}
+.summary-top__cards .metric-card { flex: 1; }
 
 .metric-card__label-row {
   display: flex;
@@ -603,27 +561,14 @@ watch(countryId, loadCountry)
 }
 
 @media (max-width: 980px) {
-  .country-page {
-    padding-top: 0;
-  }
-
-  .country-hero {
-    margin-bottom: 48px;
-  }
-
-  .summary-top {
-    grid-template-columns: 1fr;
-  }
-
-  .summary-bottom {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .country-page { padding-top: 0; }
+  .country-hero { margin-bottom: 48px; }
+  .summary-top { grid-template-columns: 1fr; }
+  .summary-bottom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
-  .country-page {
-    padding: 0 0 48px;
-  }
+  .country-page { padding: 0 0 48px; }
 
   .country-hero {
     align-items: flex-start;
@@ -632,24 +577,19 @@ watch(countryId, loadCountry)
     padding: 34px 16px;
   }
 
-  .country-hero__flag {
-    width: 96px;
-    height: 64px;
-  }
+  .country-hero__flag { width: 96px; height: 64px; }
 
-  .country-actions {
-    align-items: flex-start; 
-  }
+  .country-actions { align-items: flex-start; }
 
   .country-actions__right {
     align-items: stretch;
-    width: 100%; 
+    width: 100%;
   }
 
   .country-actions--top {
     flex-direction: column;
     margin-bottom: 24px;
-    align-items: flex-start; 
+    align-items: flex-start;
   }
 
   .country-actions,
@@ -659,12 +599,9 @@ watch(countryId, loadCountry)
     width: calc(100% - 32px);
   }
 
-  .summary-bottom {
-    grid-template-columns: 1fr;
-  }
+  .summary-bottom { grid-template-columns: 1fr; }
+  .metric-card { min-height: 88px; }
 
-  .metric-card {
-    min-height: 88px;
-  }
+  .distribution-card__header { flex-wrap: wrap; }
 }
 </style>

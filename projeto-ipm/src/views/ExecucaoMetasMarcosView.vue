@@ -5,7 +5,9 @@ import FilterSelect from '@/components/FilterSelect.vue';
 import CircleProgress from '@/components/graphs/CircleProgress.vue';
 import BarsGraph from '@/components/graphs/BarsGraph.vue';
 import ExecutionTable from '@/components/ExecutionTable.vue';
+import Button from '@/components/Button.vue';
 import { getCountries, getMetasMarcos, getPillars, getCountryDetail } from '@/services/api';
+import { exportData } from '@/services/exporter';
 
 const searchQuery = ref('');
 const selectedType = ref('');
@@ -56,7 +58,6 @@ const filteredByCountry = computed(() => {
 });
 
 const statusSummary = computed(() => {
-	// Se há país selecionado e temos countryDetail, usamos esses dados
 	if (selectedCountryId.value && countryDetailData.value) {
 		const { completed, total } = countryDetailData.value.completedGoals;
 		const suspensos = 0;
@@ -71,7 +72,6 @@ const statusSummary = computed(() => {
 		};
 	}
 
-	// Sem país selecionado: dados globais
 	const summary = metasData.value?.summary || {};
 	const concluidos = Number(summary.concluidos) || 0;
 	const suspensos = Number(summary.suspensos) || 0;
@@ -106,14 +106,11 @@ const filteredRows = computed(() => {
 		const matchesType = !type || row.type === type;
 		const matchesYear = !year || row.year === year;
 		const matchesPillar = !pillarSelection.length || pillarSelection.includes(row.pillarId);
-
 		return matchesSearch && matchesType && matchesYear && matchesPillar;
 	});
 });
 
-const totalPages = computed(() => {
-	return Math.max(1, Math.ceil(filteredRows.value.length / pageSize.value));
-});
+const totalPages = computed(() => Math.max(1, Math.ceil(filteredRows.value.length / pageSize.value)));
 
 const paginatedRows = computed(() => {
 	const start = (currentPage.value - 1) * pageSize.value;
@@ -165,13 +162,8 @@ const selectPage = (page) => {
 	currentPage.value = Number(page) || 1;
 };
 
-const goPrev = () => {
-	if (currentPage.value > 1) currentPage.value -= 1;
-};
-
-const goNext = () => {
-	if (currentPage.value < totalPages.value) currentPage.value += 1;
-};
+const goPrev = () => { if (currentPage.value > 1) currentPage.value -= 1; };
+const goNext = () => { if (currentPage.value < totalPages.value) currentPage.value += 1; };
 
 const togglePillar = (pillarId) => {
 	if (selectedPillars.value.includes(pillarId)) {
@@ -179,6 +171,39 @@ const togglePillar = (pillarId) => {
 		return;
 	}
 	selectedPillars.value = [...selectedPillars.value, pillarId];
+};
+
+const handleExportEstado = (format) => {
+	const paisLabel = searchQuery.value.trim() || 'Todos os países';
+	exportData({
+		format,
+		filename: `estado-marcos-metas${searchQuery.value ? `-${searchQuery.value.trim()}` : ''}`,
+		title: 'Estado dos Marcos e Metas',
+		data: [
+			{ estado: 'Concluídos', quantidade: statusSummary.value.concluidos },
+			{ estado: 'Suspensos', quantidade: statusSummary.value.suspensos },
+			{ estado: 'Não Avaliados', quantidade: statusSummary.value.naoAvaliados },
+		],
+		metadata: {
+			pais: paisLabel,
+			percentagemConcluida: `${statusSummary.value.percentConcluidos}%`,
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		}
+	});
+};
+
+const handleExportTipo = (format) => {
+	const paisLabel = searchQuery.value.trim() || 'Todos os países';
+	exportData({
+		format,
+		filename: `marcos-por-tipo${searchQuery.value ? `-${searchQuery.value.trim()}` : ''}`,
+		title: 'Marcos por Tipo de Medida',
+		data: typeBars.value.map((bar) => ({ tipo: bar.name, quantidade: bar.value })),
+		metadata: {
+			pais: paisLabel,
+			dataExportacao: new Date().toLocaleDateString('pt-PT'),
+		}
+	});
 };
 
 onMounted(async () => {
@@ -212,12 +237,8 @@ onMounted(async () => {
 	}
 });
 
-// Quando muda o país selecionado, busca o countryDetail
 watch(selectedCountryId, async (id) => {
-	if (!id) {
-		countryDetailData.value = null;
-		return;
-	}
+	if (!id) { countryDetailData.value = null; return; }
 	try {
 		countryDetailData.value = await getCountryDetail(id);
 	} catch {
@@ -225,14 +246,10 @@ watch(selectedCountryId, async (id) => {
 	}
 });
 
-const resetPagination = () => {
-	currentPage.value = 1;
-};
+const resetPagination = () => { currentPage.value = 1; };
 
 watch([searchQuery, selectedType, selectedYear, selectedPillars, pageSize], resetPagination);
-watch(totalPages, (value) => {
-	if (currentPage.value > value) currentPage.value = value;
-});
+watch(totalPages, (value) => { if (currentPage.value > value) currentPage.value = value; });
 watch(pageSize, (value) => {
 	const normalized = Number(value) || 1;
 	const clamped = Math.min(50, Math.max(1, normalized));
@@ -260,20 +277,8 @@ watch(pageSize, (value) => {
 						:countries="countryOptions"
 						placeholder="País"
 					/>
-
-					<FilterSelect
-						label="Tipo de Medida"
-						:options="typeOptions"
-						v-model="selectedType"
-					/>
-
-					<FilterSelect
-						label="Ano"
-						:options="years"
-						v-model="selectedYear"
-						all-label="Todos"
-					/>
-
+					<FilterSelect label="Tipo de Medida" :options="typeOptions" v-model="selectedType" />
+					<FilterSelect label="Ano" :options="years" v-model="selectedYear" all-label="Todos" />
 					<div class="filter-group">
 						<p class="filter-title">Pilar</p>
 						<div class="pillar-list">
@@ -299,8 +304,18 @@ watch(pageSize, (value) => {
 				<div v-else class="metas-grid">
 					<article class="info-card">
 						<div class="info-card__header">
-							<h2>Estado dos Marcos e Metas</h2>
-							<p>Um marco e concluido quando o Estado-Membro apresenta evidencias e a Comissao valida positivamente.</p>
+							<div class="info-card__header-row">
+								<div>
+									<h2>Estado dos Marcos e Metas</h2>
+									<p>Um marco e concluido quando o Estado-Membro apresenta evidencias e a Comissao valida positivamente.</p>
+								</div>
+								<Button
+									:exportable="true"
+									:compact="true"
+									color="primary"
+									@export="handleExportEstado"
+								/>
+							</div>
 						</div>
 						<div class="status-content">
 							<div class="status-list">
@@ -336,8 +351,18 @@ watch(pageSize, (value) => {
 
 					<article class="info-card info-card--small">
 						<div class="info-card__header">
-							<h2>Marcos por Tipo de Medida</h2>
-							<p>Distribuicao de investimentos e reformas nos 204 marcos totais.</p>
+							<div class="info-card__header-row">
+								<div>
+									<h2>Marcos por Tipo de Medida</h2>
+									<p>Distribuicao de investimentos e reformas nos 204 marcos totais.</p>
+								</div>
+								<Button
+									:exportable="true"
+									:compact="true"
+									color="primary"
+									@export="handleExportTipo"
+								/>
+							</div>
 						</div>
 						<div class="type-graph">
 							<BarsGraph :bars="typeBars" :maxHeight="150" unit="" legend-position="left" />
@@ -423,9 +448,7 @@ watch(pageSize, (value) => {
 	padding: 0 24px;
 }
 
-.metas-filters {
-	display: flex;
-}
+.metas-filters { display: flex; }
 
 .filter-card {
 	background: #e6e6e6;
@@ -438,11 +461,7 @@ watch(pageSize, (value) => {
 	width: 100%;
 }
 
-.filter-group {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
+.filter-group { display: flex; flex-direction: column; gap: 10px; }
 
 .filter-title {
 	margin: 0;
@@ -451,11 +470,7 @@ watch(pageSize, (value) => {
 	color: var(--text-gray-dark);
 }
 
-.pillar-list {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
+.pillar-list { display: flex; flex-direction: column; gap: 8px; }
 
 .pillar-option {
 	display: flex;
@@ -465,9 +480,7 @@ watch(pageSize, (value) => {
 	color: var(--text-gray-dark);
 }
 
-.pillar-option input {
-	accent-color: var(--bg-blue);
-}
+.pillar-option input { accent-color: var(--bg-blue); }
 
 .pillar-color {
 	width: 10px;
@@ -475,17 +488,9 @@ watch(pageSize, (value) => {
 	border-radius: 999px;
 }
 
-.metas-content {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-}
+.metas-content { display: flex; flex-direction: column; gap: 16px; }
 
-.metas-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 18px;
-}
+.metas-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
 
 .info-card {
 	background: #eef1f4;
@@ -497,9 +502,7 @@ watch(pageSize, (value) => {
 	gap: 14px;
 }
 
-.info-card--small {
-	align-self: start;
-}
+.info-card--small { align-self: start; }
 
 .info-card__header h2 {
 	margin: 0 0 6px;
@@ -514,6 +517,13 @@ watch(pageSize, (value) => {
 	color: var(--text-gray);
 }
 
+.info-card__header-row {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+}
+
 .status-content {
 	display: flex;
 	align-items: center;
@@ -523,15 +533,9 @@ watch(pageSize, (value) => {
 	margin-left: 120px;
 }
 
-.status-content :deep(.chart-text) {
-	font-size: 2.8rem;
-}
+.status-content :deep(.chart-text) { font-size: 2.8rem; }
 
-.status-list {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
+.status-list { display: flex; flex-direction: column; gap: 12px; }
 
 .status-item {
 	display: grid;
@@ -543,12 +547,7 @@ watch(pageSize, (value) => {
 	color: var(--text-gray-dark);
 }
 
-.status-dot {
-	width: 12px;
-	height: 12px;
-	border-radius: 50%;
-}
-
+.status-dot { width: 12px; height: 12px; border-radius: 50%; }
 .status-dot--primary { background: #1d4ed8; }
 .status-dot--warning { background: #fbbf24; }
 .status-dot--muted   { background: #cbd5f5; }
@@ -562,31 +561,11 @@ watch(pageSize, (value) => {
 	position: relative;
 }
 
-.status-line1 span {
-	position: absolute;
-	inset: 0 48% 0 0;
-	background: #1d4ed8;
-	border-radius: inherit;
-}
+.status-line1 span { position: absolute; inset: 0 48% 0 0; background: #1d4ed8; border-radius: inherit; }
+.status-line2 span { position: absolute; inset: 0 94% 0 0; background: #fbbf24; border-radius: inherit; }
+.status-line3 span { position: absolute; inset: 0 56% 0 0; background: #cbd5f5; border-radius: inherit; }
 
-.status-line2 span {
-	position: absolute;
-	inset: 0 94% 0 0;
-	background: #fbbf24;
-	border-radius: inherit;
-}
-
-.status-line3 span {
-	position: absolute;
-	inset: 0 56% 0 0;
-	background: #cbd5f5;
-	border-radius: inherit;
-}
-
-.type-graph {
-	display: flex;
-	justify-content: flex-end;
-}
+.type-graph { display: flex; justify-content: flex-end; }
 
 .type-graph :deep(.bar-chart-wrapper) {
 	align-items: flex-end;
@@ -600,14 +579,8 @@ watch(pageSize, (value) => {
 	padding-right: 140px;
 }
 
-.type-graph :deep(.legend--side) {
-	margin-right: auto;
-}
-
-.type-graph :deep(.legend-label) {
-	font-size: 1rem;
-	font-weight: 600;
-}
+.type-graph :deep(.legend--side) { margin-right: auto; }
+.type-graph :deep(.legend-label) { font-size: 1rem; font-weight: 600; }
 
 .table-footer {
 	display: flex;
@@ -626,10 +599,7 @@ watch(pageSize, (value) => {
 }
 
 .page-size-input::-webkit-outer-spin-button,
-.page-size-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
+.page-size-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
 .page-size-input {
 	width: 48px;
@@ -642,10 +612,7 @@ watch(pageSize, (value) => {
 	-moz-appearance: textfield;
 }
 
-.pager {
-	display: flex;
-	gap: 6px;
-}
+.pager { display: flex; gap: 6px; }
 
 .pager-arrow {
 	width: 26px;
@@ -668,45 +635,22 @@ watch(pageSize, (value) => {
 .pager-icon--left  { transform: rotate(90deg); }
 .pager-icon--right { transform: rotate(-90deg); }
 
-.pager .active {
-	background: #1d4ed8;
-	color: #fff;
-	border-color: #1d4ed8;
-}
+.pager .active { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
 
-.state-text {
-	font-family: var(--font-primary);
-	font-size: 14px;
-	color: var(--text-gray-dark);
-}
-
+.state-text { font-family: var(--font-primary); font-size: 14px; color: var(--text-gray-dark); }
 .state-text--error { color: #b91c1c; }
 
 @media (max-width: 1100px) {
-	.metas-layout {
-		grid-template-columns: 1fr;
-	}
-
+	.metas-layout { grid-template-columns: 1fr; }
 	.metas-filters { order: 2; }
 	.metas-content { order: 1; }
 }
 
 @media (max-width: 720px) {
-	.metas-hero {
-		padding: 32px 20px 50px;
-	}
-
-	.metas-layout {
-		margin-top: -24px;
-		padding: 0 16px;
-	}
-
-	.metas-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.status-content {
-		flex-direction: column;
-	}
+	.metas-hero { padding: 32px 20px 50px; }
+	.metas-layout { margin-top: -24px; padding: 0 16px; }
+	.metas-grid { grid-template-columns: 1fr; }
+	.status-content { flex-direction: column; }
+	.info-card__header-row { flex-wrap: wrap; }
 }
 </style>

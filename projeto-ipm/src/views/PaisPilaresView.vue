@@ -8,6 +8,7 @@ import BarsGraph from '@/components/graphs/BarsGraph.vue'
 import CircleProgress from '@/components/graphs/CircleProgress.vue'
 import arrowDownIcon from '@/assets/arrow-down.svg'
 import { getCountryById, getCountryPillars, getPillars } from '@/services/api'
+import { exportData } from '@/services/exporter'
 
 const route = useRoute()
 const router = useRouter()
@@ -74,10 +75,7 @@ const pillarsWithCountryData = computed(() =>
   pillars.value.map((pillar, index) => {
     const detail = countryPillars.value?.pillars?.find((item) => item.pillarId === pillar.id)
     const fallbackDetail = fallbackCountryPillar(pillar, index)
-    const milestones = {
-      ...fallbackDetail.milestones,
-      ...detail?.milestones,
-    }
+    const milestones = { ...fallbackDetail.milestones, ...detail?.milestones }
 
     return {
       ...pillar,
@@ -93,9 +91,7 @@ const pillarsWithCountryData = computed(() =>
         greenPolicyAreas: detail?.greenPolicyAreas ?? fallbackDetail.greenPolicyAreas,
         milestones: {
           ...milestones,
-          percentage:
-            milestones.percentage ??
-            Math.round((milestones.completed / milestones.total) * 100),
+          percentage: milestones.percentage ?? Math.round((milestones.completed / milestones.total) * 100),
         },
       },
     }
@@ -110,42 +106,102 @@ const selectedPillarDetail = computed(() => selectedPillar.value?.countryDetail 
 
 const milestoneStatus = computed(() => {
   if (!selectedPillarDetail.value) return []
-
   const milestones = selectedPillarDetail.value.milestones
   return [
-    {
-      label: 'Concluídos',
-      value: milestones.completed,
-      percentage: milestones.percentage,
-    },
-    {
-      label: 'Não Avaliados',
-      value: milestones.total - milestones.completed,
-      percentage: 100 - milestones.percentage,
-    },
+    { label: 'Concluídos', value: milestones.completed, percentage: milestones.percentage },
+    { label: 'Não Avaliados', value: milestones.total - milestones.completed, percentage: 100 - milestones.percentage },
   ]
 })
 
 const measureTypeBars = computed(() => {
   if (!selectedPillarDetail.value) return []
-
   const total = selectedPillarDetail.value.milestones.total
   const investments = Math.max(1, Math.round(total * 0.82))
   const reforms = Math.max(1, total - investments)
-
   return [
-    {
-      name: 'Investimentos',
-      value: investments,
-      color: '#2364dc',
-    },
-    {
-      name: 'Reformas',
-      value: reforms,
-      color: '#d8e2ff',
-    },
+    { name: 'Investimentos', value: investments, color: '#2364dc' },
+    { name: 'Reformas', value: reforms, color: '#d8e2ff' },
   ]
 })
+
+const exportMeta = computed(() => ({
+  pais: country.value?.name ?? '',
+  pilar: selectedPillar.value?.name ?? '',
+  dataExportacao: new Date().toLocaleDateString('pt-PT'),
+}))
+
+const handleExportRegra = (format) => {
+  if (!selectedPillarDetail.value) return
+  exportData({
+    format,
+    filename: `regra-37-${country.value?.name}-${selectedPillar.value?.name}`,
+    title: `Regra dos 37% — ${selectedPillar.value?.name} (${country.value?.name})`,
+    data: [
+      { indicador: 'Percentagem Alocação Climática', valor: `${selectedPillarDetail.value.rule.percentage}%` },
+      { indicador: 'Alocação Climática', valor: selectedPillarDetail.value.rule.allocation },
+      { indicador: 'Total do PRR', valor: selectedPillarDetail.value.rule.total },
+      { indicador: 'Acima do Mínimo', valor: selectedPillarDetail.value.rule.aboveMinimum },
+    ],
+    metadata: exportMeta.value,
+  })
+}
+
+const handleExportRastreioClimatico = (format) => {
+  if (!selectedPillarDetail.value) return
+  exportData({
+    format,
+    filename: `rastreio-climatico-${country.value?.name}-${selectedPillar.value?.name}`,
+    title: `Rastreio Climático — ${selectedPillar.value?.name} (${country.value?.name})`,
+    data: selectedPillarDetail.value.policyAreas.map((area) => ({
+      area: area.label,
+      percentagem: `${area.value}%`,
+    })),
+    metadata: exportMeta.value,
+  })
+}
+
+const handleExportMarcos = (format) => {
+  if (!selectedPillarDetail.value) return
+  exportData({
+    format,
+    filename: `marcos-metas-${country.value?.name}-${selectedPillar.value?.name}`,
+    title: `Estado dos Marcos e Metas — ${selectedPillar.value?.name} (${country.value?.name})`,
+    data: milestoneStatus.value.map((s) => ({
+      estado: s.label,
+      quantidade: s.value,
+      percentagem: `${s.percentage}%`,
+    })),
+    metadata: exportMeta.value,
+  })
+}
+
+const handleExportDespesaPilar = (format) => {
+  if (!selectedPillarDetail.value) return
+  exportData({
+    format,
+    filename: `despesa-pilar-${country.value?.name}-${selectedPillar.value?.name}`,
+    title: `${selectedPillar.value?.name} — Despesa por Área de Política (${country.value?.name})`,
+    data: selectedPillarDetail.value.greenPolicyAreas.map((area) => ({
+      area: area.label,
+      percentagem: `${area.value}%`,
+    })),
+    metadata: exportMeta.value,
+  })
+}
+
+const handleExportTipoMedida = (format) => {
+  if (!selectedPillarDetail.value) return
+  exportData({
+    format,
+    filename: `marcos-tipo-medida-${country.value?.name}-${selectedPillar.value?.name}`,
+    title: `Marcos por Tipo de Medida — ${selectedPillar.value?.name} (${country.value?.name})`,
+    data: measureTypeBars.value.map((bar) => ({
+      tipo: bar.name,
+      quantidade: bar.value,
+    })),
+    metadata: exportMeta.value,
+  })
+}
 
 const loadPillars = async () => {
   isLoading.value = true
@@ -226,7 +282,6 @@ watch(countryId, loadPillars)
             icon-direction="left"
             @click="goBack"
           />
-
           <Button
             text="Mostrar Pilares"
             textsize="13px"
@@ -255,7 +310,6 @@ watch(countryId, loadPillars)
               :src="getPilarIconPath(selectedPillar.asset)"
               :alt="selectedPillar.name"
             />
-
             <div class="pillar-summary__copy">
               <h2>{{ selectedPillar.name }}</h2>
               <p>{{ selectedPillar.summary }}</p>
@@ -265,26 +319,25 @@ watch(countryId, loadPillars)
 
         <div v-if="country && selectedPillarDetail" class="country-context">
           <span class="country-context__chip">
-            <img
-              :src="getFlagPath(country.flagAsset)"
-              :alt="`Bandeira de ${country.name}`"
-            />
+            <img :src="getFlagPath(country.flagAsset)" :alt="`Bandeira de ${country.name}`" />
             {{ country.name }}
           </span>
-
-          <span class="country-context__ranking">
-            {{ selectedPillarDetail.ranking }}
-          </span>
+          <span class="country-context__ranking">{{ selectedPillarDetail.ranking }}</span>
         </div>
 
+        <!-- Regra dos 37% -->
         <section v-if="selectedPillarDetail" class="rule-section" aria-labelledby="rule-title">
-          <h2 id="rule-title">Regra dos 37%</h2>
+          <div class="section-heading-row">
+            <h2 id="rule-title">Regra dos 37%</h2>
+            <div class="export-btn-wrap">
+              <Button :exportable="true" :compact="true" color="primary" @export="handleExportRegra" />
+            </div>
+          </div>
 
           <article class="metric-panel rule-card">
             <strong class="rule-card__value">
               {{ selectedPillarDetail.rule.percentage.toString().replace('.', ',') }}%
             </strong>
-
             <div class="rule-card__progress">
               <div class="rule-card__scale" aria-hidden="true">
                 <span>0%</span>
@@ -294,18 +347,10 @@ watch(countryId, loadPillars)
                 <span>75%</span>
                 <span>100%</span>
               </div>
-
               <div class="rule-card__track" aria-hidden="true">
-                <span
-                  class="rule-card__minimum"
-                  :style="{ left: '37%' }"
-                ></span>
-                <span
-                  class="rule-card__fill"
-                  :style="{ width: `${selectedPillarDetail.rule.percentage}%` }"
-                ></span>
+                <span class="rule-card__minimum" :style="{ left: '37%' }"></span>
+                <span class="rule-card__fill" :style="{ width: `${selectedPillarDetail.rule.percentage}%` }"></span>
               </div>
-
               <div class="rule-card__numbers">
                 <span>
                   <strong>{{ selectedPillarDetail.rule.allocation }}</strong>
@@ -324,6 +369,7 @@ watch(countryId, loadPillars)
           </article>
         </section>
 
+        <!-- Grelha de detalhe -->
         <section v-if="selectedPillarDetail" class="investment-section" aria-labelledby="investment-title">
           <div class="section-heading">
             <h2 id="investment-title">Distribuição do Investimento por Área</h2>
@@ -331,16 +377,19 @@ watch(countryId, loadPillars)
           </div>
 
           <div class="detail-grid">
+            <!-- Rastreio Climático -->
             <article class="metric-panel area-card">
-              <h3>Rastreio Climático - Despesa por Área de Política</h3>
-              <p>Percentagem da dotação total do plano afeta a objetivos climáticos.</p>
-
+              <div class="card-header-row">
+                <div>
+                  <h3>Rastreio Climático - Despesa por Área de Política</h3>
+                  <p>Percentagem da dotação total do plano afeta a objetivos climáticos.</p>
+                </div>
+                <div class="export-btn-wrap">
+                  <Button :exportable="true" :compact="true" color="primary" @export="handleExportRastreioClimatico" />
+                </div>
+              </div>
               <div class="area-list">
-                <div
-                  v-for="area in selectedPillarDetail.policyAreas"
-                  :key="area.label"
-                  class="area-row"
-                >
+                <div v-for="area in selectedPillarDetail.policyAreas" :key="area.label" class="area-row">
                   <div class="area-row__label">
                     <span>{{ area.label }}</span>
                     <strong>{{ area.value.toString().replace('.', ',') }}%</strong>
@@ -352,22 +401,21 @@ watch(countryId, loadPillars)
               </div>
             </article>
 
+            <!-- Estado dos Marcos e Metas -->
             <article class="metric-panel milestones-card">
-              <h3>Estado dos Marcos e Metas</h3>
-              <p>Um marco é concluído quando o Estado-Membro apresenta evidências e a Comissão valida positivamente.</p>
-
+              <div class="card-header-row">
+                <div>
+                  <h3>Estado dos Marcos e Metas</h3>
+                  <p>Um marco é concluído quando o Estado-Membro apresenta evidências e a Comissão valida positivamente.</p>
+                </div>
+                <div class="export-btn-wrap">
+                  <Button :exportable="true" :compact="true" color="primary" @export="handleExportMarcos" />
+                </div>
+              </div>
               <div class="milestones-card__body">
-                <CircleProgress
-                  :percentage="selectedPillarDetail.milestones.percentage"
-                  :scale="0.62"
-                />
-
+                <CircleProgress :percentage="selectedPillarDetail.milestones.percentage" :scale="0.62" />
                 <div class="milestone-list">
-                  <div
-                    v-for="status in milestoneStatus"
-                    :key="status.label"
-                    class="milestone-row"
-                  >
+                  <div v-for="status in milestoneStatus" :key="status.label" class="milestone-row">
                     <div class="milestone-row__label">
                       <span>{{ status.label }}</span>
                       <strong>{{ status.value }}</strong>
@@ -380,16 +428,19 @@ watch(countryId, loadPillars)
               </div>
             </article>
 
+            <!-- Despesa por Área do Pilar -->
             <article class="metric-panel area-card">
-              <h3>Pilar {{ selectedPillar.name }} - Despesa por Área de Política</h3>
-              <p>Percentagem da contribuição para o pilar, por área de política estabelecida pela Comissão Europeia.</p>
-
+              <div class="card-header-row">
+                <div>
+                  <h3>Pilar {{ selectedPillar.name }} - Despesa por Área de Política</h3>
+                  <p>Percentagem da contribuição para o pilar, por área de política estabelecida pela Comissão Europeia.</p>
+                </div>
+                <div class="export-btn-wrap">
+                  <Button :exportable="true" :compact="true" color="primary" @export="handleExportDespesaPilar" />
+                </div>
+              </div>
               <div class="area-list">
-                <div
-                  v-for="area in selectedPillarDetail.greenPolicyAreas"
-                  :key="area.label"
-                  class="area-row"
-                >
+                <div v-for="area in selectedPillarDetail.greenPolicyAreas" :key="area.label" class="area-row">
                   <div class="area-row__label">
                     <span>{{ area.label }}</span>
                     <strong>{{ area.value.toString().replace('.', ',') }}%</strong>
@@ -401,16 +452,18 @@ watch(countryId, loadPillars)
               </div>
             </article>
 
+            <!-- Marcos por Tipo de Medida -->
             <article class="metric-panel bars-card">
-              <h3>Marcos por Tipo de Medida</h3>
-              <p>Divisão entre investimentos e reformas nos marcos totais.</p>
-
-              <BarsGraph
-                class="bars-card__chart"
-                :bars="measureTypeBars"
-                :max-height="170"
-                unit=""
-              />
+              <div class="card-header-row">
+                <div>
+                  <h3>Marcos por Tipo de Medida</h3>
+                  <p>Divisão entre investimentos e reformas nos marcos totais.</p>
+                </div>
+                <div class="export-btn-wrap">
+                  <Button :exportable="true" :compact="true" color="primary" @export="handleExportTipoMedida" />
+                </div>
+              </div>
+              <BarsGraph class="bars-card__chart" :bars="measureTypeBars" :max-height="170" unit="" />
             </article>
           </div>
         </section>
@@ -512,13 +565,8 @@ watch(countryId, loadPillars)
   font-weight: 800;
 }
 
-.country-context__chip {
-  padding: 4px 12px 4px 6px;
-}
-
-.country-context__ranking {
-  padding: 4px 14px;
-}
+.country-context__chip { padding: 4px 12px 4px 6px; }
+.country-context__ranking { padding: 4px 14px; }
 
 .country-context__chip img {
   width: 24px;
@@ -534,7 +582,20 @@ watch(countryId, loadPillars)
   gap: 12px;
 }
 
-.rule-section h2,
+.section-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-heading-row h2 {
+  margin: 0;
+  color: #000000;
+  font-size: 17px;
+  font-weight: 800;
+}
+
 .section-heading h2 {
   margin: 0;
   color: #000000;
@@ -553,6 +614,7 @@ watch(countryId, loadPillars)
   border: 1px solid #dddddd;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  overflow: visible;
 }
 
 .rule-card {
@@ -584,9 +646,7 @@ watch(countryId, loadPillars)
   font-size: 10px;
 }
 
-.rule-card__scale span {
-  text-align: center;
-}
+.rule-card__scale span { text-align: center; }
 
 .rule-card__track {
   position: relative;
@@ -641,6 +701,25 @@ watch(countryId, loadPillars)
   padding: 22px;
 }
 
+.card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card-header-row > div:first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+.export-btn-wrap {
+  position: relative;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
 .area-card h3,
 .milestones-card h3,
 .bars-card h3 {
@@ -653,7 +732,7 @@ watch(countryId, loadPillars)
 .area-card p,
 .milestones-card p,
 .bars-card p {
-  margin: 4px 0 16px;
+  margin: 4px 0 0;
   color: #8a8a8a;
   font-size: 11px;
   line-height: 1.35;
@@ -665,11 +744,7 @@ watch(countryId, loadPillars)
   gap: 11px;
 }
 
-.area-row {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+.area-row { display: flex; flex-direction: column; gap: 4px; }
 
 .area-row__label,
 .milestone-row__label {
@@ -711,16 +786,9 @@ watch(countryId, loadPillars)
   align-items: center;
 }
 
-.milestone-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.milestone-list { display: flex; flex-direction: column; gap: 16px; }
 
-.bars-card__chart {
-  padding: 4px 0 0;
-  min-width: 0;
-}
+.bars-card__chart { padding: 4px 0 0; min-width: 0; }
 
 .state-text {
   width: min(1050px, calc(100% - 48px));
@@ -729,9 +797,7 @@ watch(countryId, loadPillars)
   font-family: var(--font-primary);
 }
 
-.state-text--error {
-  color: #b42318;
-}
+.state-text--error { color: #b42318; }
 
 @media (max-width: 1024px) {
   .pillars-grid {
@@ -760,9 +826,7 @@ watch(countryId, loadPillars)
     gap: 18px;
   }
 
-  .pillar-summary__content {
-    grid-template-columns: 1fr;
-  }
+  .pillar-summary__content { grid-template-columns: 1fr; }
 
   .rule-card,
   .detail-grid,
@@ -770,17 +834,10 @@ watch(countryId, loadPillars)
     grid-template-columns: 1fr;
   }
 
-  .rule-card {
-    padding: 22px;
-  }
+  .rule-card { padding: 22px; }
+  .rule-card__value { text-align: left; }
+  .rule-card__scale { font-size: 9px; }
 
-  .rule-card__value {
-    text-align: left;
-  }
-
-  .rule-card__scale {
-    font-size: 9px;
-  }
-
+  .card-header-row { flex-wrap: wrap; }
 }
 </style>
