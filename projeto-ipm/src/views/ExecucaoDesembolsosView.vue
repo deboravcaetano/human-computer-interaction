@@ -29,7 +29,6 @@ const loadCountries = async () => {
 
 onMounted(loadCountries)
 
-// Filtra a lista sempre que a variável 'search' atualiza
 const filteredCountries = computed(() => {
   if (!search.value.trim()) return countries.value
 
@@ -54,7 +53,6 @@ const onCountryCardClick = (countryId: string) => {
         <h1>Fluxo de Desembolsos e Beneficiários</h1>
 
         <div class="execucao-desembolsos-view__filters">
-          <!-- CORREÇÃO AQUI: Ouvir o evento @search que o teu componente emite -->
           <SearchBar
             @search="search = $event"
             placeholder="Pesquisar por país"

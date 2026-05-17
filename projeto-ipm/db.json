@@ -3958,7 +3958,7 @@
   ],
   "executionOverview": {
     "fundsApproved": 17921.35,
-    "fundsDisbursed": 393,
+    "fundsDisbursed": 12467,
     "marcosConcluidos": 3301,
     "marcosTotal": 6347,
     "metasAtrasoCount": 142,
@@ -4921,6 +4921,576 @@
           "project": "Descarbonizacao da Industria",
           "amount": 195400000,
           "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Infraestruturas de Portugal, S.A.",
+          "project": "Digitalizacao e Seguranca Ferroviaria",
+          "amount": 210000000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Administração Central do Sistema de Saúde",
+          "project": "Rede Nacional de Cuidados Continuados",
+          "amount": 188750000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Agencia para a Modernizacao Administrativa",
+          "project": "Servicos Publicos Digitais",
+          "amount": 176300000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Laboratorio Nacional de Energia e Geologia",
+          "project": "Hidrogenio Verde e Armazenamento",
+          "amount": 164900000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Instituto da Habitação e da Reabilitação Urbana",
+          "project": "Programa de Habitacao Acessivel",
+          "amount": 153600000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Comboios de Portugal, E.P.E.",
+          "project": "Material Circulante de Baixas Emissoes",
+          "amount": 149200000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade do Porto",
+          "project": "Campus de Investigacao Aplicada",
+          "amount": 142800000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto de Informatica, I.P.",
+          "project": "Interoperabilidade da Seguranca Social",
+          "amount": 136450000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Lisboa",
+          "project": "Bairros Sustentaveis e Mobilidade Suave",
+          "amount": 131700000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Direcao-Geral da Saude",
+          "project": "Vigilancia Epidemiologica Digital",
+          "amount": 127900000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Universidade Nova de Lisboa",
+          "project": "Laboratorios de Ciencia de Dados",
+          "amount": 123500000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto do Emprego e Formacao Profissional",
+          "project": "Requalificacao para Competencias Digitais",
+          "amount": 119800000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Agencia Portuguesa do Ambiente",
+          "project": "Adaptacao Climatica e Recursos Hidricos",
+          "amount": 116400000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio do Porto",
+          "project": "Regeneracao Urbana Resiliente",
+          "amount": 112750000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "SPMS - Serviços Partilhados do Ministerio da Saude",
+          "project": "Processo Clinico Eletronico Nacional",
+          "amount": 109300000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Fundacao para a Ciencia e a Tecnologia",
+          "project": "Rede de Centros de Investigacao PRR",
+          "amount": 105950000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto Politecnico do Porto",
+          "project": "Academia Digital e Laboratorios Remotos",
+          "amount": 101600000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Aguas de Portugal",
+          "project": "Eficiencia Hidrica em Sistemas Urbanos",
+          "amount": 98400000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Braga",
+          "project": "Corredores Verdes Urbanos",
+          "amount": 95750000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade do Minho",
+          "project": "Centro de Engenharia Avancada",
+          "amount": 93200000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Hospital de Santa Maria",
+          "project": "Modernizacao de Blocos Operatorios",
+          "amount": 90800000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Coimbra",
+          "project": "Reabilitacao Urbana e Mobilidade Eletrica",
+          "amount": 88100000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Carris",
+          "project": "Descarbonizacao da Frota",
+          "amount": 85000000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Autoridade Tributaria e Aduaneira",
+          "project": "Simplificacao Fiscal Digital",
+          "amount": 82600000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Instituto Superior Tecnico",
+          "project": "Infraestruturas Cientificas Estrategicas",
+          "amount": 80150000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Faro",
+          "project": "Protecao Costeira e Resiliencia Urbana",
+          "amount": 77900000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Centro Hospitalar Universitario do Porto",
+          "project": "Equipamentos de Diagnostico Avancado",
+          "amount": 75500000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Turismo de Portugal",
+          "project": "Transicao Digital do Turismo",
+          "amount": 73200000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Setubal",
+          "project": "Requalificacao de Frentes Ribeirinhas",
+          "amount": 70950000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Instituto Nacional de Estatistica",
+          "project": "Plataforma Nacional de Dados",
+          "amount": 68800000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Universidade de Aveiro",
+          "project": "Agenda de Materiais Sustentaveis",
+          "amount": 66600000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Guimaraes",
+          "project": "Neutralidade Carbonica Local",
+          "amount": 64500000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Hospital Garcia de Orta",
+          "project": "Reforco da Capacidade Assistencial",
+          "amount": 62350000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Instituto Politecnico de Leiria",
+          "project": "Centro de Competencias Marinhas",
+          "amount": 60400000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Direcao-Geral de Recursos Naturais",
+          "project": "Monitorizacao do Litoral e Pescas",
+          "amount": 58600000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Almada",
+          "project": "Mobilidade Urbana Sustentavel",
+          "amount": 56850000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade de Evora",
+          "project": "Observatorio de Agricultura Sustentavel",
+          "amount": 55100000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Agencia Nacional para a Qualificacao",
+          "project": "Formacao Profissional Modular",
+          "amount": 53400000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Instituto Portugues do Mar e da Atmosfera",
+          "project": "Rede de Alerta Climatico",
+          "amount": 51750000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Viseu",
+          "project": "Eficiencia Energetica em Edificios Publicos",
+          "amount": 50100000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Hospital de Sao Joao",
+          "project": "Digitalizacao dos Cuidados Hospitalares",
+          "amount": 48600000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Universidade da Beira Interior",
+          "project": "Hub de Inovacao Industrial",
+          "amount": 47150000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto da Mobilidade e dos Transportes",
+          "project": "Plataforma Nacional de Transportes",
+          "amount": 45600000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Residencia Universitaria de Evora",
+          "project": "Reabilitacao de Edificios para Alojamento Estudantil",
+          "amount": 42750000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Municipio de Matosinhos",
+          "project": "Rede Ciclavel Metropolitana",
+          "amount": 41300000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Instituto Politecnico de Coimbra",
+          "project": "Laboratorios de Prototipagem Digital",
+          "amount": 39950000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Centro Hospitalar de Lisboa Ocidental",
+          "project": "Resposta Integrada de Urgencia",
+          "amount": 38600000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Loures",
+          "project": "Parques Urbanos e Retencao de Agua",
+          "amount": 37300000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade do Algarve",
+          "project": "Investigacao em Economia Azul",
+          "amount": 36150000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto de Conservacao da Natureza e Florestas",
+          "project": "Gestao Integrada da Paisagem",
+          "amount": 34900000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Cascais",
+          "project": "Escolas Eficientes e Inclusivas",
+          "amount": 33750000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Secretaria-Geral da Educacao",
+          "project": "Recursos Digitais para Escolas",
+          "amount": 32600000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Centro Hospitalar Universitario de Coimbra",
+          "project": "Rede de Telemedicina Regional",
+          "amount": 31500000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Sintra",
+          "project": "Renovacao Energetica de Equipamentos Municipais",
+          "amount": 30450000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Instituto Politecnico de Setubal",
+          "project": "Competencias para a Industria 4.0",
+          "amount": 29400000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Agencia para a Energia",
+          "project": "Comunidades de Energia Renovavel",
+          "amount": 28400000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Vila Nova de Gaia",
+          "project": "Reabilitacao de Habitação Social",
+          "amount": 27450000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Instituto Nacional de Saude Doutor Ricardo Jorge",
+          "project": "Laboratorios de Saude Publica",
+          "amount": 26500000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Direcao-Geral da Administracao da Justica",
+          "project": "Justica Digital e Arquivo Eletronico",
+          "amount": 25600000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Aveiro",
+          "project": "Bairro Digital e Mobilidade Verde",
+          "amount": 24750000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Universidade de Tras-os-Montes e Alto Douro",
+          "project": "Investigacao Agroalimentar Sustentavel",
+          "amount": 23900000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Santarem",
+          "project": "Gestao Eficiente da Agua",
+          "amount": 23100000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Hospital de Braga",
+          "project": "Unidade de Cuidados Integrados",
+          "amount": 22300000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Comissao de Coordenacao Regional do Norte",
+          "project": "Inovacao Territorial e Coesao",
+          "amount": 21550000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Municipio de Leiria",
+          "project": "Regeneracao de Zonas Industriais",
+          "amount": 20800000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto Politecnico de Viana do Castelo",
+          "project": "Laboratorio de Mobilidade Inteligente",
+          "amount": 20100000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Portimao",
+          "project": "Adaptacao Climática Costeira",
+          "amount": 19400000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Santa Casa da Misericordia de Lisboa",
+          "project": "Respostas Sociais de Proximidade",
+          "amount": 18750000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Oeiras",
+          "project": "Inovacao Urbana e Ciencia Aberta",
+          "amount": 18100000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Instituto dos Registos e Notariado",
+          "project": "Balcao Digital do Cidadao",
+          "amount": 17450000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Maia",
+          "project": "Eficiência Energetica em Equipamentos Desportivos",
+          "amount": 16800000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade da Madeira",
+          "project": "Centro de Resiliencia Insular",
+          "amount": 16200000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio do Funchal",
+          "project": "Mobilidade Eletrica Urbana",
+          "amount": 15600000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Universidade dos Acores",
+          "project": "Observatorio Atlantico de Sustentabilidade",
+          "amount": 15050000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Ponta Delgada",
+          "project": "Reabilitacao de Equipamentos Publicos",
+          "amount": 14500000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Instituto Politecnico de Castelo Branco",
+          "project": "Centro de Competencias Digitais",
+          "amount": 13950000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Beja",
+          "project": "Energia Solar em Servicos Municipais",
+          "amount": 13400000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Unidade Local de Saude do Alto Minho",
+          "project": "Cuidados de Saude de Proximidade",
+          "amount": 12900000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Guarda",
+          "project": "Rede de Acolhimento Empresarial",
+          "amount": 12400000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Braganca",
+          "project": "Gestao Florestal Preventiva",
+          "amount": 11900000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Instituto Politecnico de Braganca",
+          "project": "Laboratorios Agroindustriais",
+          "amount": 11450000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Evora",
+          "project": "Patrimonio Cultural e Inclusao Urbana",
+          "amount": 11000000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Unidade Local de Saude do Baixo Alentejo",
+          "project": "Digitalizacao de Cuidados Primarios",
+          "amount": 10550000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Tomar",
+          "project": "Valorizacao do Patrimonio e Turismo Sustentavel",
+          "amount": 10100000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Torres Vedras",
+          "project": "Plano Local de Energia Renovavel",
+          "amount": 9700000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Instituto Politecnico de Santarem",
+          "project": "Formacao Avancada em Dados",
+          "amount": 9300000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Loulé",
+          "project": "Corredores Verdes e Sombras Urbanas",
+          "amount": 8900000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Chaves",
+          "project": "Reabilitacao Termal e Saude Comunitaria",
+          "amount": 8500000,
+          "pillar": "Saúde e Resiliência"
+        },
+        {
+          "entity": "Municipio de Castelo Branco",
+          "project": "Modernizacao de Servicos Municipais",
+          "amount": 8100000,
+          "pillar": "Transformação Digital"
+        },
+        {
+          "entity": "Municipio de Vila Real",
+          "project": "Centro de Inovacao Regional",
+          "amount": 7700000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Lagos",
+          "project": "Gestao Sustentavel de Agua Urbana",
+          "amount": 7300000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Abrantes",
+          "project": "Requalificacao de Equipamentos Sociais",
+          "amount": 6900000,
+          "pillar": "Políticas"
+        },
+        {
+          "entity": "Municipio de Barcelos",
+          "project": "Economia Circular no Setor Ceramico",
+          "amount": 6500000,
+          "pillar": "Transição Ecológica"
+        },
+        {
+          "entity": "Municipio de Peniche",
+          "project": "Inovacao na Economia do Mar",
+          "amount": 6100000,
+          "pillar": "Crescimento"
+        },
+        {
+          "entity": "Municipio de Elvas",
+          "project": "Digitalizacao de Arquivos Municipais",
+          "amount": 5700000,
+          "pillar": "Transformação Digital"
         }
       ]
     },
@@ -5253,6 +5823,7 @@
       ]
     }
   ],
+  "latestNews": [
   "executionOverview": {
     "fundsApproved": 17921.35,
     "fundsDisbursed": 12467,

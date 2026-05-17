@@ -9,7 +9,7 @@ import CategoryBadge from '@/components/CategoryBadge.vue'
 import DisbursementTable from '@/components/DisbursementTable.vue'
 
 import downloadIcon from '@/assets/Download.svg'
-import arrowIcon from '@/assets/arrow-down-black.svg'
+import arrowIcon from '@/assets/arrow-down.svg'
 
 import { getCountries, getDisbursementsByCountry } from '@/services/api'
 
@@ -67,7 +67,7 @@ const plannedRows = computed(() => {
 
 const beneficiaries = computed(() => {
 	const source = disbursementData.value?.beneficiaries || []
-	return source.map((item) => ({
+	return source.slice(0, 5).map((item) => ({
 		...item,
 		amountLabel: formatAmount(item.amount)
 	}))
@@ -84,6 +84,11 @@ const heroDescription = computed(() => disbursementData.value?.hero?.description
 const handleBack = () => {
 	router.push('/execucao/desembolsos')
 }
+
+const viewAllLink = computed(() => {
+  const countryId = String(route.params.countryId || route.params.id || 'pt')
+  return `/execucao/desembolsos/${countryId}/100`
+})
 
 onMounted(async () => {
 	const countryId = String(route.params.countryId || route.params.id || 'pt')
@@ -121,7 +126,7 @@ onMounted(async () => {
 			<div class="desembolsos-toolbar">
 				<Button
 					text="Voltar"
-					color="secondary"
+					color="primary"
 					textsize="12px"
 					:icon="true"
 					:iconPath="arrowIcon"
@@ -184,15 +189,17 @@ onMounted(async () => {
 				</div>
 
 				<div class="beneficiarios-actions">
-					<Button
-						text="Ver Mais"
-						color="primary"
-						textsize="12px"
-						:icon="true"
-						:iconPath="arrowIcon"
-						iconPosition="right"
-						iconDirection="right"
-					/>
+					<router-link :to="viewAllLink" class="view-all-link">
+						<Button
+							text="Ver Tudo"
+							color="primary"
+							textsize="12px"
+							:icon="true"
+							:iconPath="arrowIcon"
+							iconPosition="right"
+							iconDirection="right"
+						/>
+					</router-link>
 				</div>
 			</article>
 		</section>

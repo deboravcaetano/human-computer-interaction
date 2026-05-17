@@ -18,6 +18,7 @@ import CompareCountriesView from '@/views/CompareCountriesView.vue'
 import PaisIndicadoresView from '@/views/PaisIndicadoresView.vue'
 import PaisPilaresView from '@/views/PaisPilaresView.vue'
 import Faq from '@/views/FaqView.vue'
+import ExecucaoDesembolsosPais100View from '@/views/ExecucaoDesembolsosPais100View.vue'
 
 const countryDetailPath = (route: RouteLocationNormalizedLoaded) =>
   `/paises/${route.params.countryId}`
@@ -163,6 +164,20 @@ const router = createRouter({
           { label: 'Execução', to: '/execucao' },
           { label: 'Desembolsos', to: '/execucao/desembolsos' },
           { label: 'País' },
+        ],
+      }
+    },
+    {
+      path: '/execucao/desembolsos/:countryId/100',
+      name: 'Execução - Desembolsos - País - Ver Tudo',
+      component: ExecucaoDesembolsosPais100View,
+      meta: {
+        hideInNavbar: true,
+        breadcrumb: [
+          { label: 'Execução', to: '/execucao' },
+          { label: 'Desembolsos', to: '/execucao/desembolsos' },
+          { label: 'País', to: (route) => `/execucao/desembolsos/${route.params.countryId}` },
+          { label: 'Ver Tudo' },
         ],
       }
     },
