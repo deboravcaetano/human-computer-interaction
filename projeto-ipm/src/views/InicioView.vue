@@ -5,7 +5,8 @@ import AllFlags from '@/components/AllFlags.vue';
 import Top3Cards from '@/components/Top3Cards.vue';
 import InfoCard from '@/components/InfoCard.vue';
 import UltimasNoticiasBg from '@/components/UltimasNoticiasBg.vue';
-import { getCountries, getSummary, getTopCountries } from '@/services/api';
+import UltimasNoticias from '@/components/UltimasNoticias.vue';
+import { getCountries, getLatestNews, getSummary, getTopCountries } from '@/services/api';
 
 const title = "Monitorização do Mecanismo de Recuperação e Resiliência";
 const description = "Explore como cada Estado-Membro está a cumprir os seus marcos e metas para garantir um futuro resiliente.";
@@ -13,6 +14,7 @@ const description = "Explore como cada Estado-Membro está a cumprir os seus mar
 const summary = ref([]);
 const countries = ref([]);
 const topCountries = ref([]);
+const latestNews = ref([]);
 const isLoading = ref(true);
 const errorMessage = ref('');
 
@@ -29,15 +31,17 @@ const topCountriesWithDetails = computed(() => {
 
 onMounted(async () => {
   try {
-    const [summaryData, countriesData, topCountriesData] = await Promise.all([
+    const [summaryData, countriesData, topCountriesData, latestNewsData] = await Promise.all([
       getSummary(),
       getCountries(),
-      getTopCountries()
+      getTopCountries(),
+      getLatestNews()
     ]);
 
     summary.value = summaryData;
     countries.value = countriesData;
     topCountries.value = topCountriesData;
+    latestNews.value = latestNewsData;
   } catch (error) {
     errorMessage.value = 'Não foi possível carregar os dados iniciais.';
   } finally {
@@ -91,7 +95,9 @@ onMounted(async () => {
       </div>
     </section>
 
-    <UltimasNoticiasBg class="home-news-spacer" />
+    <UltimasNoticiasBg class="home-news-spacer">
+      <UltimasNoticias :items="latestNews" :initial-count="3" />
+    </UltimasNoticiasBg>
   </div>
 </template>
 

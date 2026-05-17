@@ -463,7 +463,7 @@
       "asset": "pilar-crescimento",
       "color": "#1d4ed8",
       "percentage": 18.4,
-      "summary": "O PRR apoia o crescimento inteligente, sustentável e inclusivo, reforçando a competitividade, a inovação e a capacidade produtiva das economias europeias.\n\nO foco recai sobre reformas e investimentos que estimulam emprego qualificado, modernização económica e maior resiliência face a choques futuros."
+      "summary": "O PRR financia reformas e investimentos estruturais para tornar as economias mais competitivas e resilientes, impulsionando a reindustrialização e o empreendedorismo.\n\nO foco centra-se no fortalecimento das PMEs, na modernização do ambiente de negócios e no fomento à investigação e inovação, garantindo que a recuperação económica seja inteligente, sustentável e inclusiva."
     },
     {
       "id": "transicao-ecologica",
@@ -479,7 +479,7 @@
       "asset": "pilar-digital",
       "color": "#f87171",
       "percentage": 21.3,
-      "summary": "O PRR acelera a transição digital na União Europeia, promovendo serviços públicos digitais, conectividade, competências digitais e adoção tecnológica pelas empresas.\n\nO objetivo é tornar economias e administrações mais eficientes, acessíveis e preparadas para novas formas de trabalho e inovação."
+      "summary": "O PRR impulsiona a autonomia e inovação europeia através da digitalização de serviços públicos, empresas e PMEs, reduzindo dependências externas.\n\nPara assegurar a competitividade, cada Estado-Membro deve investir pelo menos 20% da sua dotação em infraestruturas de rede, competências digitais avançadas e tecnologias de ponta."
     },
     {
       "id": "politicas",
@@ -487,7 +487,7 @@
       "asset": "pilar-politicas",
       "color": "#fbbf24",
       "percentage": 9.6,
-      "summary": "Este pilar reúne reformas e políticas públicas que reforçam a capacidade institucional, a qualidade da governação e a execução dos planos nacionais.\n\nO foco está em criar condições estruturais para que os investimentos sejam implementados com impacto, transparência e continuidade."
+      "summary": "O PRR financia reformas e investimentos vitais para reduzir o fosso geracional e mitigar os efeitos da crise nos jovens europeus.\n\nO foco central é a melhoria do acesso e da qualidade do ensino (geral, profissional e superior), priorizando a educação digital, os cuidados na primeira infância e o apoio direto ao emprego jovem."
     },
     {
       "id": "coesao-social-territorial",
@@ -495,7 +495,7 @@
       "asset": "pilar-coesao",
       "color": "#bbbbbb",
       "percentage": 14.8,
-      "summary": "O PRR procura reduzir desigualdades sociais e territoriais, melhorando o acesso a serviços essenciais, habitação, educação, emprego e infraestruturas locais.\n\nEste pilar valoriza uma recuperação equilibrada, garantindo que diferentes regiões e grupos sociais beneficiam da transformação económica."
+      "summary": "O PRR atua na redução da pobreza e no combate ao desemprego, garantindo que a recuperação económica não deixe ninguém para trás.\n\nO foco recai no reforço das infraestruturas sociais, na proteção dos grupos desfavorecidos e na criação de emprego estável e de qualidade, fortalecendo os sistemas de bem-estar e a coesão entre todas as regiões."
     },
     {
       "id": "saude-resiliencia",
@@ -503,7 +503,7 @@
       "asset": "pilar-saude",
       "color": "#22c55e",
       "percentage": 11.2,
-      "summary": "O PRR reforça sistemas de saúde, proteção social e capacidade de resposta a crises, tornando os serviços públicos mais robustos e próximos dos cidadãos.\n\nO foco recai sobre modernização, prevenção, equipamentos e estruturas capazes de responder melhor a desafios futuros."
+      "summary": "O PRR reforça a capacidade de resposta a crises futuras, investindo na resiliência e qualidade dos sistemas de saúde e cuidados de longa duração.\n\nO foco abrange a digitalização da saúde, a melhoria da acessibilidade e o aumento da eficácia da administração pública e dos sistemas judiciais, garantindo uma estrutura institucional sólida e preparada."
     }
   ],
   "indicators": [
@@ -5251,6 +5251,67 @@
           "pillar": "Crescimento"
         }
       ]
+    }
+  ],
+  "executionOverview": {
+    "fundsApproved": 17921.35,
+    "fundsDisbursed": 12467,
+    "marcosConcluidos": 3301,
+    "marcosTotal": 6347,
+    "metasAtrasoCount": 142,
+    "metasAtrasoTotal": 6347,
+    "metasAtrasoDelta": "+12 face ao mes anterior",
+    "pillars": {
+      "transicaoVerde": 2713,
+      "transformacaoDigital": 2205,
+      "crescimento": 1452,
+      "coesao": 2487,
+      "saude": 2289,
+      "politicas": 930
+    }
+  },
+  "latestNews": [
+    {
+      "id": 1,
+      "date": "2026-03-04",
+      "country": "Itália",
+      "countryId": "it",
+      "flagAsset": "italy-flag",
+      "text": "A Comissão Europeia aprova o plano de recuperação e resiliência modificado da Itália",
+      "source": "Análise da Comissão Europeia."
+    },
+    {
+      "id": 2,
+      "date": "2026-03-03",
+      "country": "Espanha",
+      "countryId": "es",
+      "flagAsset": "spain-flag",
+      "text": "Espanha apresenta o sexto pedido de pagamento no valor de 6,4 mil milhões de euros."
+    },
+    {
+      "id": 3,
+      "date": "2026-03-02",
+      "country": "Dinamarca",
+      "countryId": "dk",
+      "flagAsset": "denmark-flag",
+      "text": "Dinamarca apresenta um plano de recuperação e resiliência modificado."
+    },
+    {
+      "id": 4,
+      "date": "2026-02-27",
+      "country": "Portugal",
+      "countryId": "pt",
+      "flagAsset": "portugal-flag",
+      "text": "A Comissão Europeia desembolsa o oitavo pagamento de 1,11 mil milhões de euros a Portugal",
+      "source": "Avaliação preliminar da Comissão Europeia."
+    },
+    {
+      "id": 5,
+      "date": "2026-01-09",
+      "country": "Áustria",
+      "countryId": "at",
+      "flagAsset": "austria-flag",
+      "text": "Atualização de marcos relativos à eficiência energética em edifícios."
     }
   ],
   "faqs": [

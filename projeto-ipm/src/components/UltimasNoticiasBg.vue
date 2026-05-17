@@ -8,9 +8,11 @@
 .yellow-section {
   width: 100%;
   height: 730px; 
+  padding: 0 24px;
   background-color: var(--bg-yellow); 
   position: relative; 
   overflow: hidden; 
+  box-sizing: border-box;
   
   display: flex;
   justify-content: center;
@@ -67,7 +69,9 @@
 
 @media (max-width: 768px) {
   .yellow-section {
-    height: 550px;
+    height: auto;
+    min-height: 620px;
+    padding: 72px 24px;
     background-position: 
       left 20px bottom -5%, left 10px bottom -2%, left -20px bottom -10px, 
       left 20px top -30px, left 10px top -20px, left -20px top -35px, 
@@ -81,7 +85,8 @@
 
 @media (max-width: 480px) {
   .yellow-section {
-    height: 420px;
+    min-height: 560px;
+    padding: 56px 16px;
     background-position: 
       left -10px bottom -5%, left -20px bottom -2%, transparent, 
       left -10px top -20px, left -20px top -10px, transparent, 
