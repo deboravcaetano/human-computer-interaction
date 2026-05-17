@@ -48,6 +48,7 @@ const onCardKeydown = (event: KeyboardEvent) => {
   >
     <div class="indicator-card__body">
       <div class="indicator-card__header">
+        <span class="indicator-card__summary-icon" aria-hidden="true">!</span>
         <span class="indicator-card__index">({{ props.index }})</span>
         <h3 class="indicator-card__title">{{ props.title }}</h3>
       </div>
@@ -102,9 +103,10 @@ const onCardKeydown = (event: KeyboardEvent) => {
   gap: 16px;
   padding: 16px 18px;
   border-radius: 12px;
-  background: var(--bg-blue-light);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
-  color: var(--text-white);
+  border: none;
+  background: var(--bg-white);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  color: var(--text-black);
   min-height: 110px;
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
@@ -115,22 +117,22 @@ const onCardKeydown = (event: KeyboardEvent) => {
 
 .indicator-card--interactive:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .indicator-card--interactive:focus-visible {
-  outline: 2px solid var(--bg-yellow);
+  outline: 2px solid var(--bg-blue);
   outline-offset: 3px;
 }
 
 .indicator-card--simple {
   grid-template-columns: 1fr;
-  background: #dddddf;
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.16);
-  color: var(--text-gray-dark);
-  min-height: 76px;
-  padding: 18px 22px;
-  border-radius: 10px;
+  background: var(--bg-white);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  color: var(--text-black);
+  min-height: 100px;
+  padding: 16px 22px;
+  border-radius: 12px;
 }
 
 .indicator-card--simple .indicator-card__body {
@@ -139,13 +141,13 @@ const onCardKeydown = (event: KeyboardEvent) => {
 }
 
 .indicator-card--simple .indicator-card__index {
-  color: var(--text-gray-dark);
+  color: var(--text-black);
 }
 
 .indicator-card--simple .indicator-card__title {
   font-size: 15px;
   font-weight: 700;
-  color: var(--text-gray-dark);
+  color: var(--text-black);
 }
 
 .indicator-card__body {
@@ -161,11 +163,27 @@ const onCardKeydown = (event: KeyboardEvent) => {
   gap: 8px;
 }
 
+.indicator-card__summary-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border-radius: 2px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+}
+
 .indicator-card__index {
   font-family: var(--font-primary);
   font-size: 12px;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-black);
   white-space: nowrap;
 }
 
@@ -175,6 +193,7 @@ const onCardKeydown = (event: KeyboardEvent) => {
   font-size: 18px;
   font-weight: 600;
   line-height: 1.2;
+  color: var(--text-black);
 }
 
 .indicator-card__metrics {
@@ -195,14 +214,14 @@ const onCardKeydown = (event: KeyboardEvent) => {
   font-family: var(--font-primary);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-gray);
 }
 
 .indicator-card__value {
   font-family: var(--font-primary);
   font-size: 16px;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-black);
   white-space: nowrap;
 }
 
@@ -224,8 +243,8 @@ const onCardKeydown = (event: KeyboardEvent) => {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: rgba(16, 29, 66, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--bg-gray);
+  border: 1px solid var(--text-gray-light);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -240,8 +259,8 @@ const onCardKeydown = (event: KeyboardEvent) => {
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--text-gray-light);
+  background: var(--bg-blue);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -254,7 +273,7 @@ const onCardKeydown = (event: KeyboardEvent) => {
 }
 
 .indicator-card__action:focus-visible {
-  outline: 2px solid var(--bg-yellow);
+  outline: 2px solid var(--bg-blue);
   outline-offset: 2px;
 }
 

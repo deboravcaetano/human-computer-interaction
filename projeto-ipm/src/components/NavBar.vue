@@ -111,6 +111,7 @@ onBeforeUnmount(() => {
                         v-else
                         :to="page.path"
                         class="nav-link"
+                        :class="{'active': page.path !== '/' && route.path.startsWith(page.path)}"
                         exact-active-class="active"
                         @click="closeMenu"
                     >

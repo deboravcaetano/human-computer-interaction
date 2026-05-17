@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import IntroCard from '@/components/IntroCard.vue';
 import IndicatorCard from '@/components/IndicatorCard.vue';
 import { getIndicators } from '@/services/api';
@@ -18,6 +19,12 @@ const isLoading = ref(true);
 const errorMessage = ref('');
 const cardVariant = 'default';
 
+const router = useRouter();
+
+const goToIndicator = (id) => {
+  router.push(`/indicadores/${id}`);
+};
+
 onMounted(async () => {
   try {
     indicatorCards.value = await getIndicators();
@@ -30,7 +37,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div>
+  <div class="indicators-page">
     <IntroCard
       :title="title"
       :description="description"
@@ -43,7 +50,7 @@ onMounted(async () => {
       <p v-if="isLoading" class="state-text">A carregar indicadores...</p>
       <p v-else-if="errorMessage" class="state-text state-text--error">{{ errorMessage }}</p>
 
-      <div v-else class="indicators-grid">
+      <div v-else class="indicators-grid" aria-label="Indicadores globais">
         <IndicatorCard
           v-for="card in indicatorCards"
           :key="card.id"
@@ -51,6 +58,8 @@ onMounted(async () => {
           :title="card.title"
           :metrics="card.metrics"
           :variant="cardVariant"
+          class="clickable-card"
+          @click="goToIndicator(card.id)"
         />
       </div>
     </section>
@@ -58,6 +67,11 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.indicators-page {
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
 .indicators-content {
   display: flex;
   justify-content: center;
@@ -70,6 +84,16 @@ onMounted(async () => {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
+}
+
+.clickable-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clickable-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .state-text {

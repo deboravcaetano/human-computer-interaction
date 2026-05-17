@@ -9,6 +9,7 @@ import ExecucaoEstadoMembroView from '@/views/ExecucaoEstadoMembroView.vue'
 import ExecucaoMetasMarcosView from '@/views/ExecucaoMetasMarcosView.vue'
 import ExecucaoDesembolsosView from '@/views/ExecucaoDesembolsosView.vue'
 import IndicadoresView from '@/views/IndicadoresView.vue'
+import IndicadorUnicoView from '@/views/IndicadorUnicoView.vue'
 import PilaresView from '@/views/PilaresView.vue'
 import HistoricoView from '@/views/HistoricoView.vue'
 import CountryMoreDetails from '@/views/CountryMoreDetails.vue'
@@ -155,6 +156,14 @@ const router = createRouter({
       path: '/indicadores',
       name: 'Indicadores',
       component: IndicadoresView,
+    },
+    {
+      path: '/indicadores/:id',
+      name: 'IndicadorUnico',
+      component: IndicadorUnicoView,
+      meta: {
+        hideInNavbar: true,
+      },
     },
     {
       path: '/pilares',
