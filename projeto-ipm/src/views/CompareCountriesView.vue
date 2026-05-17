@@ -9,6 +9,7 @@ import BarsGraph from '@/components/graphs/BarsGraph.vue'
 import PieGraph from '@/components/graphs/PieGraph.vue'
 import arrowDownIcon from '@/assets/arrow-down.svg'
 import downloadIcon from '@/assets/Download.svg'
+import { exportData } from '@/services/exporter'
 import {
   getCountries,
   getCountryDetail,
@@ -163,6 +164,12 @@ const loansBars = computed(() =>
   })),
 )
 
+const compareTitle = computed(() =>
+  selectedCountries.value.length === 2
+    ? `${selectedCountries.value[0].name} vs ${selectedCountries.value[1].name}`
+    : 'Comparação de países',
+)
+
 const defaultPolicyAreas = [
   { label: 'Eficiência Energética', value: 42.4 },
   { label: 'Mobilidade Sustentável', value: 10.8 },
@@ -205,6 +212,58 @@ const getComparableIndicatorDetail = (country, indicator) => {
       ? indicator.metrics
       : [{ label: 'Valor reportado:', value: detail?.value ?? 'Dados em atualização' }],
   }
+}
+
+const exportCompareRows = computed(() => {
+  if (activeTab.value === 'pillars') {
+    return countryWithDetail.value.map((country) => {
+      const row = { pais: country.name }
+
+      pillars.value.forEach((pillar) => {
+        const detail = getComparablePillarDetail(country, pillar)
+        row[pillar.name] = `${detail.percentage}%`
+      })
+
+      return row
+    })
+  }
+
+  if (activeTab.value === 'indicators' && selectedIndicator.value) {
+    return countryWithDetail.value.map((country) => {
+      const detail = getComparableIndicatorDetail(country, selectedIndicator.value)
+
+      return {
+        pais: country.name,
+        indicador: selectedIndicator.value.title,
+        valor: detail.value,
+        metricas: detail.metrics.map((metric) => `${metric.label} ${metric.value}`).join('; '),
+      }
+    })
+  }
+
+  return countryWithDetail.value.map((country) => ({
+    pais: country.name,
+    execucao: `${country.completedGoals.percentage}%`,
+    marcosMetasConcluidos: `${country.completedGoals.completed}/${country.completedGoals.total}`,
+    totalDesembolsado: country.metrics.totalDisbursed,
+    apoiosFundoPerdido: country.metrics.grantsRequested,
+    emprestimosAtribuidos: country.metrics.loansAwarded,
+    alocacaoPrrPib: country.metrics.allocationVsGdp,
+  }))
+})
+
+const handleExport = (format) => {
+  exportData({
+    format,
+    filename: `comparacao-${compareTitle.value}-${activeTab.value}`,
+    title: `${compareTitle.value} - ${tabs.find((tab) => tab.id === activeTab.value)?.label ?? 'Resumo'}`,
+    data: exportCompareRows.value,
+    metadata: {
+      seccao: tabs.find((tab) => tab.id === activeTab.value)?.label ?? activeTab.value,
+      indicador: selectedIndicator.value?.title ?? '',
+      pilar: selectedPillar.value?.name ?? '',
+    },
+  })
 }
 
 const pieChartSize = computed(() => {
@@ -552,6 +611,7 @@ watch(countryIds, loadCompareData)
           :icon="true"
           :iconPath="downloadIcon"
           :exportable="true"
+          @export="handleExport"
         />
       </div>
     </template>
@@ -563,7 +623,7 @@ watch(countryIds, loadCompareData)
   width: min(1050px, calc(100% - 48px));
   margin: 0 auto 72px;
   font-family: var(--font-primary);
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 .compare-hero {

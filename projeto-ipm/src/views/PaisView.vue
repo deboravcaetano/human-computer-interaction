@@ -11,6 +11,7 @@ import arrowDownIcon from '@/assets/arrow-down.svg'
 import compareIcon from '@/assets/compare-icon.svg'
 import downloadIcon from '@/assets/Download.svg'
 import { getCountries, getCountryById, getCountryDetail, getCountryDetails } from '@/services/api'
+import { exportData } from '@/services/exporter'
 
 const route = useRoute()
 const router = useRouter()
@@ -68,6 +69,44 @@ const compareCountries = computed(() =>
 const progressWidth = computed(
   () => `${detail.value.completedGoals.percentage}%`,
 )
+
+const exportCountryRows = computed(() => {
+  if (!country.value) return []
+
+  return [
+    { campo: 'País', valor: country.value.name },
+    { campo: 'Execução', valor: `${detail.value.completedGoals.percentage}%` },
+    {
+      campo: 'Marcos e metas concluídos',
+      valor: `${detail.value.completedGoals.completed}/${detail.value.completedGoals.total}`,
+    },
+    { campo: 'Total desembolsado', valor: detail.value.metrics.totalDisbursed },
+    { campo: 'Apoios a fundo perdido', valor: detail.value.metrics.grantsRequested },
+    { campo: 'Empréstimos atribuídos', valor: detail.value.metrics.loansAwarded },
+    { campo: 'Alocação do PRR em relação ao PIB', valor: detail.value.metrics.allocationVsGdp },
+    { campo: `Distribuição ${country.value.name}`, valor: `${detail.value.distribution.countryPercentage}%` },
+    { campo: 'Distribuição UE', valor: `${detail.value.distribution.euPercentage}%` },
+    ...detail.value.updates.map((update) => ({
+      campo: `Último avanço ${update.date}`,
+      valor: update.text,
+    })),
+  ]
+})
+
+const handleExport = (format) => {
+  if (!country.value) return
+
+  exportData({
+    format,
+    filename: `pais-${country.value.name}`,
+    title: `Resumo de ${country.value.name}`,
+    data: exportCountryRows.value,
+    metadata: {
+      pais: country.value.name,
+      dataAtualizacao: country.value.updatedAt,
+    },
+  })
+}
 
 const loadCountry = async () => {
   isLoading.value = true
@@ -179,6 +218,7 @@ watch(countryId, loadCountry)
             :icon="true"
             :iconPath="downloadIcon"
             :exportable="true"
+            @export="handleExport"
           />
         </div>
       </div>

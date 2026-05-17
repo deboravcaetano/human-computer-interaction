@@ -7,6 +7,7 @@ import SummaryCard from '@/components/SummaryCard.vue'
 import arrowDownIcon from '@/assets/arrow-down.svg'
 import downloadIcon from '@/assets/Download.svg'
 import { getCountryById, getCountryIndicators, getIndicators } from '@/services/api'
+import { exportData } from '@/services/exporter'
 
 const route = useRoute()
 
@@ -77,6 +78,29 @@ const evolutionBars = computed(() => {
       height: Math.max(4, Math.round((item.value / maxBarValue) * 100)),
     }))
 })
+
+const exportIndicatorRows = computed(() =>
+  evolutionBars.value.map((bar) => ({
+    periodo: bar.label,
+    valor: bar.value,
+  })),
+)
+
+const handleExport = (format) => {
+  if (!selectedIndicator.value || !country.value) return
+
+  exportData({
+    format,
+    filename: `indicador-${country.value.name}-${selectedIndicator.value.title}`,
+    title: `${country.value.name} - ${evolutionTitle.value}`,
+    data: exportIndicatorRows.value,
+    metadata: {
+      pais: country.value.name,
+      indicador: selectedIndicator.value.title,
+      valorAtual: selectedIndicator.value.countryDetail.value,
+    },
+  })
+}
 
 const loadIndicators = async () => {
   isLoading.value = true
@@ -197,6 +221,7 @@ watch(countryId, loadIndicators)
               :icon="true"
               :iconPath="downloadIcon"
               :exportable="true"
+              @export="handleExport"
             />
           </div>
 

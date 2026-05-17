@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, nextTick, ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
 type CountryOption = {
   name: string
@@ -75,6 +75,16 @@ const clearInput = () => {
   emit('update:modelValue', '')
   nextTick(() => inputRef.value?.focus())
 }
+
+watch(
+  () => props.modelValue,
+  (value) => {
+    searchQuery.value = value || ''
+    if (!searchQuery.value) {
+      isDropdownOpen.value = false
+    }
+  },
+)
 
 onMounted(() => document.addEventListener('mousedown', handleClickOutside))
 onBeforeUnmount(() => document.removeEventListener('mousedown', handleClickOutside))

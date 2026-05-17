@@ -7,6 +7,7 @@ import ExportImg from '@/assets/Download.svg'
 import FilterSelect from '@/components/FilterSelect.vue';
 import HistoryList from '@/components/HistoryList.vue';
 import { getCountries, getPillars, getReviews } from '@/services/api';
+import { exportData } from '@/services/exporter';
 
 const filtroPais = ref('');
 const filtroEstado = ref('');
@@ -69,6 +70,30 @@ const historyItems = computed(() => {
         };
     });
 });
+
+const exportHistoryItems = computed(() =>
+    historyItems.value.map((item) => ({
+        data: item.date,
+        pais: item.country,
+        estado: item.status,
+        pilar: item.category,
+        descricao: item.description ?? item.text ?? item.title ?? '',
+    }))
+);
+
+const handleExport = (format) => {
+    exportData({
+        format,
+        filename: 'historico-revisoes',
+        title: 'Histórico de Revisões',
+        data: exportHistoryItems.value,
+        metadata: {
+            pais: filtroPais.value || 'Todos os países',
+            estado: filtroEstado.value || 'Todos os estados',
+            pilar: filtroPilares.value || 'Todos os pilares',
+        },
+    });
+};
 
 onMounted(async () => {
     try {
@@ -154,6 +179,7 @@ onMounted(async () => {
                 :icon="true" 
                 :iconPath="ExportImg"
                 :exportable="true"
+                @export="handleExport"
                 />
             </div>
         </div>

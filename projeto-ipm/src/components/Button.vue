@@ -33,6 +33,7 @@
 
   const emit = defineEmits<{
     (e: 'click'): void
+    (e: 'export', format: ExportFormat): void
   }>()
 
   const root = ref<HTMLElement | null>(null)
@@ -63,8 +64,7 @@
   const selectExportFormat = (format: ExportFormat) => {
     if (props.disabled) return
 
-    // quando tivermos algo para exportar :P
-
+    emit('export', format)
     closeMenu()
   }
 
