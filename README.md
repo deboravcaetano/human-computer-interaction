@@ -4,6 +4,11 @@
 > The application features a monitoring platform for the Recovery and Resilience Facility, allowing users to consult information regarding Member States, common indicators, investment pillars, financial execution, targets, and milestones.
 
 > Final grade: 19.55/20 ⭐
+
+
+![main page](relatorio/main-page.png)
+![footer](relatorio/footer-img.png)
+
 ## Main Features
 
 - Overview of European implementation.
