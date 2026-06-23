@@ -6,9 +6,9 @@
 > Final grade: 19.55/20 ⭐
 
 
-![main page](relatório/main-page.png)
+![main page](relatório/imagens-fase1/main-page.png)
 
-![footer](relatório/footer-img.png)
+![footer](relatório/imagens-fase1/footer-img.png)
 
 ## Main Features
 
